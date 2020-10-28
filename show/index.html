@@ -17,7 +17,7 @@
   <meta name="description" content="Just for fun">
   <meta name="author" content="LitStronger">
   <meta name="keywords" content="">
-  <title>test - LitStronger&#39;s notes</title>
+  <title>show - LitStronger&#39;s notes</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -56,7 +56,7 @@
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 100vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -189,63 +189,22 @@
 </nav>
 
     <div class="banner intro-2" id="background" parallax=true
-         style="background: url('https://hexo-1259001110.cos.ap-shanghai.myqcloud.com/qiye.png') no-repeat center center;
+         style="background: url('https://cdn.jsdelivr.net/gh/litstronger/pic@master/cover/blhx-1.webp') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
           <div class="container page-header text-center fade-in-up">
             <span class="h2" id="subtitle">
               
             </span>
 
             
-              <div class="mt-3">
-  
-  
-    <span class="post-meta">
-      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-10-28 18:36" pubdate>
-        2020年10月28日 晚上
-      </time>
-    </span>
-  
-</div>
-
-<div class="mt-1">
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      0 字
-    </span>
-  
-
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
-      
-      
-      1
-       分钟
-    </span>
-  
-
-  
-  
-    
-      <!-- LeanCloud 统计文章PV -->
-      <span id="leancloud-post-views-container" class="post-meta" style="display: none">
-        <i class="iconfont icon-eye" aria-hidden="true"></i>
-        <span id="leancloud-post-views"></span> 次
-      </span>
-    
-  
-</div>
-
-            
           </div>
 
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
           
         </div>
       </div>
@@ -254,107 +213,144 @@
 
   <main>
     
-      
+      <div class="container nopadding-md">
+        <div class="py-5" id="board"
+          style=margin-top:0>
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
-        <div class="py-5" id="board">
-          <article class="post-content mx-auto" id="post">
-            <!-- SEO header -->
-            <h1 style="display: none">test</h1>
-            
-              <p class="note note-info">
-                
-                  本文最后更新于：2020年10月28日 晚上
-                
-              </p>
-            
-            <div class="markdown-body" id="post-body">
-              
-            </div>
-            <hr>
-            <div>
-              <div class="post-metas mb-3">
-                
-                
+<div class="page-content">
+  <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/litstronger/live2d-moc3@master/js/frame/live2dcubismcore.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.6.1/pixi.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/litstronger/live2d-moc3@master/js/live2dcubismframework.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/litstronger/live2d-moc3@master/js/live2dcubismpixi.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/litstronger/live2d-moc3@master/js/l2d.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/litstronger/live2d-moc3@master/js/main.js"></script>
+
+<style>
+        .mask{
+            width: 100vw;
+            height: 100vh;
+            background: black;
+            position: fixed;
+            left: 0;
+            top: 0;
+            opacity: 1;
+
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .loading-wrap {
+            width: 20em;
+            height: 20em;
+            font-size: 10px;
+            position: relative;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* margin:100px auto; */
+        }
+        .loading-circle{
+            position: absolute;
+            border-radius: 100%;
+            border-style: solid;
+            animation: animate 3s linear infinite;
+        }
+        .loading-circle:nth-child(1){
+            width: 100%;
+            height: 100%;
+            color: gold;
+            /* border-color: currentColor transparent transparent currentColor; */
+            border-color: currentColor currentColor transparent transparent;
+            border-width: 0.4em 0.4em 0em 0em;
+            --deg: -45deg;
+            animation-direction: normal;
+        }
+        .loading-circle:nth-child(2){
+            width: 70%;
+            height: 70%;
+            color: lime;
+            border-color: currentColor currentColor transparent transparent;
+            border-width: 0.4em 0.4em 0em 0em;
+            --deg: -135deg;
+            animation-direction: reverse;
+        }
+        .loading-circle:nth-child(3){
+            width: 40%;
+            height: 40%;
+            color: #66ccff;
+            border-color: currentColor currentColor transparent transparent;
+            border-width: 0.4em 0.4em 0em 0em;
+            --deg: -180deg;
+            animation-direction: normal;
+        }
+        @keyframes animate {
+            to {
+                transform: rotate(2turn);
+            }
+        }
+</style>
+
+<div class="mask">
+    <div class="loading-wrap">
+        <div class="loading-circle"></div>
+        <div class="loading-circle"></div>
+        <div class="loading-circle"></div>
+    </div>
+</div>
+
+
+
+<div class="Canvas"  id="L2dCanvas"></div>    
+<script>
+        var config = {
+            width: window.innerWidth,
+            height: window.innerHeight,
+            left: '0px',
+            bottom: '0px',
+            basePath: 'https://cdn.jsdelivr.net/gh/alg-wiki/AzurLaneL2DViewer@gh-pages/assets',
+            role: 'shengluyisi_3',
+            background: '',
+            opacity: 1
+        }
+        window.onload = function(){
+            var v = new Viewer(config);
+        }  
+        document.onreadystatechange = function () {//即在加载的过程中执行下面的代码
+            if(document.readyState=="complete"){//complete加载完成
+                console.log("finish")
+                setTimeout(() => {
+                    $(".loading-circle").fadeOut();                
+                    $(".mask").fadeOut();                
+                }, 2000);
+            }
+            else if(document.readyState == "loading"){
+                console.log("loading")
+                //$(".mask").fadeIn()
+            }
+            console.log("state:", document.readyState)
+        }
+</script>
+
+
+
+
+
+
+</div>
+
               </div>
-              
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
-              
-              
-                <div class="post-prevnext row">
-                  <article class="post-prev col-6">
-                    
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2020/10/28/hello-world/">
-                        <span class="hidden-mobile">Hello World</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
             </div>
-
-            
-              <!-- Comments -->
-              <article class="comments" id="comments">
-                
-                
-  <script type="text/javascript">
-    function loadUtterances() {
-      var light = 'github-light';
-      var dark = 'github-dark';
-      var schema = document.documentElement.getAttribute('data-user-color-scheme');
-      if (schema === 'dark') {
-        schema = dark;
-      } else {
-        schema = light;
-      }
-      window.UtterancesThemeLight = light;
-      window.UtterancesThemeDark = dark;
-      var s = document.createElement('script');
-      s.setAttribute('src', 'https://utteranc.es/client.js');
-      s.setAttribute('repo', 'LitStronger/commit-utterances');
-      s.setAttribute('issue-term', 'pathname');
-      
-      s.setAttribute('theme', schema);
-      s.setAttribute('crossorigin', 'anonymous');
-      document.getElementById('comments').appendChild(s);
-    }
-    waitElementVisible('comments', loadUtterances)
-  </script>
-
-
-              </article>
-            
-          </article>
+          </div>
         </div>
       </div>
-    </div>
-    
-      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div id="tocbot"></div>
-</div>
-
-      </div>
-    
-  </div>
-</div>
-
-<!-- Custom -->
-
-
     
   </main>
 
@@ -569,10 +565,10 @@
       }
 
       // 如果是文章，请求文章的浏览数，并自增
-      if ('true' === 'true') {
+      if ('false' === 'true') {
         var viewCtn = document.querySelector('#leancloud-post-views-container');
         if (viewCtn || enableIncr) {
-          var target = decodeURI('/2020/10/28/test/');
+          var target = decodeURI('/show/index.html');
           var viewGetter = getRecord(Counter, target).then((record) => {
             incrArr.push(buildIncrement(record.objectId))
             if (viewCtn) {
@@ -634,31 +630,6 @@
 
 
 
-  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
-  <script>
-    $(document).ready(function () {
-      var boardCtn = $('#board-ctn');
-      var boardTop = boardCtn.offset().top;
-
-      tocbot.init({
-        tocSelector: '#tocbot',
-        contentSelector: '#post-body',
-        headingSelector: 'h1,h2,h3,h4,h5,h6',
-        linkClass: 'tocbot-link',
-        activeLinkClass: 'tocbot-active-link',
-        listClass: 'tocbot-list',
-        isCollapsedClass: 'tocbot-is-collapsed',
-        collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 0,
-        scrollSmooth: true,
-        headingsOffset: -boardTop
-      });
-      if ($('.toc-list-item').length > 0) {
-        $('#toc').css('visibility', 'visible');
-      }
-    });
-  </script>
-
 
 
   <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
@@ -666,7 +637,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "test&nbsp;",
+        "show&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
@@ -709,20 +680,6 @@
   </script>
 
 
-
-  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <script>
-    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
-      function () {
-        var element = document.createElement('a');
-        $(element).attr('data-fancybox', 'images');
-        $(element).attr('href', $(this).attr('src'));
-        $(this).wrap(element);
-      }
-    );
-  </script>
 
 
 
