@@ -216,7 +216,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      950 字
+      1.7k 字
     </span>
   
 
@@ -226,7 +226,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      10
+      18
        分钟
     </span>
   
@@ -268,7 +268,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2020年9月11日 上午
+                  本文最后更新于：2020年11月9日 下午
                 
               </p>
             
@@ -281,7 +281,8 @@
 <h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="1-软件"><a href="#1-软件" class="headerlink" title="1.软件"></a>1.软件</h3><p><a target="_blank" rel="noopener" href='https://www.electronjs.org/'><span class="label label-success">Electron</span></a> <span class="label label-primary">前端三语言</span></p>
 <h3 id="2-硬件"><a href="#2-硬件" class="headerlink" title="2.硬件"></a>2.硬件</h3><p><a target="_blank" rel="noopener" href='https://support.epson.com.cn/setupnavi/?LG2=C2&OSC=WS&MKN=L805&toppage=&PINF=menu/'><span class="label label-primary">EPSON L805</span></a> <span class="label label-warning">树莓派</span> <span class="label label-primary">13.3寸电容屏</span>  <span class="label label-danger">外壳设计</span></p>
 <h3 id="3-问题合集"><a href="#3-问题合集" class="headerlink" title="3.问题合集"></a>3.问题合集</h3><p><strong>1.鼠标点击按钮时正常，触屏点击时出现奇怪的阴影</strong></p>
-<p>网上查了好一会儿，没得到什么有用的信息。后来想了想，这种电容屏更多是应用在移动端(<code>ipad</code>、<code>手机</code>等)，于是更换搜索关键字为: <code>移动端</code> <code>点击出现阴影</code> <code>css</code>，很快就找到一些解决方法。</p>
+<p>网上查了好一会儿，没得到什么有用的信息。</p>
+<p>后来想了想，这种电容屏更多是应用在移动端(<code>ipad</code>、<code>手机</code>等)，于是更换搜索关键字为: <code>移动端</code> <code>点击出现阴影</code> <code>css</code>，很快就找到一些解决方法。</p>
 <p>只需给按钮增加css样式，把点击时的高亮设置为透明</p>
 <div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">tap-highlight-color</span>: <span class="hljs-selector-tag">rgba</span>(255, 255, 255, 0);
 <span class="hljs-selector-tag">-webkit-tap-highlight-color</span>: <span class="hljs-selector-tag">rgba</span>(255, 255, 255, 0);
@@ -293,7 +294,8 @@
 
 
 
-<p><strong>2.在我这边交互界面(前端)写得差不多后，需要跟后端驱动彩印机(采用的是<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E4%BA%92%E8%81%94%E7%BD%91%E6%89%93%E5%8D%B0%E5%8D%8F%E8%AE%AE/12714792?fr=aladdin">互联网打印协议(IPP)</a>，使用npm上的<code>ipp</code>模块)的朋友对接一下。当然遇到这么一个问题，从网络上获取到的图片要怎么存放，存放在哪 ?</strong></p>
+<p><strong>2.整合静态页面与驱动脚本</strong></p>
+<p>在我这边交互界面(前端)写得差不多后，需要跟后端驱动彩印机(采用的是<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E4%BA%92%E8%81%94%E7%BD%91%E6%89%93%E5%8D%B0%E5%8D%8F%E8%AE%AE/12714792?fr=aladdin">互联网打印协议(IPP)</a>，使用npm上的<code>ipp</code>模块)的朋友对接一下。当然遇到这么一个问题，从网络上获取到的图片要怎么存放，存放在哪 ?</p>
 <ul>
 <li><p>第一时间的想法是在服务器(树莓派)的后端再开一个接口，用来接收前端得到的图片链接，并把图片下载后暂存在本地，供给后端的朋友调用</p>
 </li>
@@ -305,6 +307,65 @@
 <p>后来我重新试了下，第二个方法(使用<code>ipcMain</code>传参)其实是可行的，不过需要把图片转化为Buffer格式(前面的尝试过程中报错是因为格式搞错了，arrayBuffer()处理后返回的并不是Buffer)。虽然可以，但没必要，嗯。</p>
 </li>
 </ul>
+<p><strong>3.项目打包发布</strong></p>
+<p>关于打包，此图诚不欺我</p>
+<blockquote>
+<p>意思大概是如果你打算打包你的electron应用程序，你将会有一段艹蛋的时光</p>
+</blockquote>
+<img src="https://cdn.jsdelivr.net/gh/litstronger/pic@master/post/electron/pack.png" srcset="/img/loading.gif"/>
+
+<p>electron<a target="_blank" rel="noopener" href="https://www.electronjs.org/docs/tutorial/quick-start#create-a-basic-application">官方文档</a>的例子推荐的工具是electron-forge，刚开始照着文档跑了下，体验不佳。一个是会出现奇怪的现象—-生成的exe会有奇怪的启动画面。另外，程序莫名其妙地被运行了两次，一次是立即执行，另一次是在启动动画之后执行。翻了几遍<a target="_blank" rel="noopener" href="https://www.electronforge.io/">electron-forge官方文档</a>，也没有找到任何关于启动时的动画的配置介绍(好吧，我觉得那更像是一个bug，而不是我所想的启动动画，如图)</p>
+<img src="https://cdn.jsdelivr.net/gh/litstronger/pic@master/post/electron/elec_forge.png" srcset="/img/loading.gif"/>
+
+<p>想了好一会，觉得这并不是我这边出的问题，应该是打包工具electron-forge的bug了，另寻他路。在electron文档里看到了electron-builder，这个用起来就感觉挺好的，主要是安装配置遇到了点麻烦。</p>
+<p>关于安装，官网是这么说的</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="http://yarnpkg.com/">Yarn</a> is <a target="_blank" rel="noopener" href="https://github.com/electron-userland/electron-builder/issues/1147#issuecomment-276284477">strongly</a> recommended instead of npm.</p>
+</blockquote>
+<p>啊，我用的是npm，所以踩了一堆坑，以下是我的踩坑表演</p>
+<div class="hljs"><pre><code class="hljs shell">npm install electron-builder --save-dev</code></pre></div>
+
+<p>配置package.json</p>
+<ul>
+<li><p>填入<code>name</code>, <code>description</code>, <code>version</code> 和 <code>author</code>.</p>
+<div class="hljs"><pre><code class="hljs json">&#123;  
+  <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;my-electron-app&quot;</span>,
+  <span class="hljs-attr">&quot;description&quot;</span>: <span class="hljs-string">&quot;description&quot;</span>,
+  <span class="hljs-attr">&quot;version&quot;</span>: <span class="hljs-string">&quot;1.0.0&quot;</span>,
+  <span class="hljs-attr">&quot;author&quot;</span>: <span class="hljs-string">&quot;lyq&quot;</span>
+&#125;</code></pre></div>
+</li>
+<li><p>打包的配置。下面是mac和linux的配置，但windows环境下(我win10)并不能生成mac和linux，默认只能生成windows的包…</p>
+<div class="hljs"><pre><code class="hljs json">&quot;build&quot;: &#123;
+  &quot;appId&quot;: &quot;your.id&quot;,
+  &quot;mac&quot;: &#123;
+    &quot;category&quot;: &quot;your.app.category.type&quot;
+  &#125;,
+  &quot;linux&quot;: &#123;
+    &quot;target&quot;: [
+      &quot;AppImage&quot;,
+      <span class="hljs-string">&quot;deb&quot;</span>
+    ]
+  &#125;
+&#125;,</code></pre></div>
+</li>
+<li><p>添加脚本</p>
+<div class="hljs"><pre><code class="hljs json">&quot;scripts&quot;: &#123;
+  &quot;pack&quot;: &quot;electron-builder --dir&quot;,
+  &quot;dist&quot;: &quot;electron-builder&quot;
+&#125;</code></pre></div>
+
+</li>
+</ul>
+<p>配置好后运行</p>
+<div class="hljs"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> npm run dist</span></code></pre></div>
+
+<p>然后会报几个错。告诉你<code>winCodeSign-2.6.0</code>和<code>nsis-3.0.4.1</code>,<code>nsis-resources-3.4.1</code>包rename失败。稍微看了下。它是把包下载下来后再改名的，但没有权限改名(access is denied)。这里我就不太能理解了，我已经给了管理员权限，应该可以改名的啊。</p>
+<img src="https://cdn.jsdelivr.net/gh/litstronger/pic@master/post/electron/rename_err.png" srcset="/img/loading.gif"/>
+
+<p>解决的办法是手动改名。直接打开tempFile的路径，把文件夹<code>181096083</code>改名为<code>winCodeSign-2.6.0</code>。之后会再遇到两次类似的错误，处理办法也是一样的，找到文件，然后改名就行了。</p>
+<p>最后再运行打包命令<code>npm run dist</code>，就成功运行，生成的安装包在dist文件夹下。</p>
+<h4 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h4><p>electron文档翻译简中版有挺多小错误的，但当我想参与修正时，发现进入编辑的是beta版本，正式发布的版本与可编辑的版本内容差别很大，连quick start的demo都不一样。阿这….好复杂，算了。</p>
 
             </div>
             <hr>
