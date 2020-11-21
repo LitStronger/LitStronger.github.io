@@ -356,10 +356,10 @@
 <div class="hljs"><pre><code class="hljs js"><span class="hljs-built_in">Array</span>.isArray([])  <span class="hljs-comment">// true</span></code></pre></div>
 
 <p><strong>3.4 采用前文提及的toString()方法</strong></p>
-<h3 id="4-空值判断"><a href="#4-空值判断" class="headerlink" title="4. 空值判断"></a>4. 空值判断</h3><p>**4.1 null: **<code>Object.prototype.toString.apply(null) === &quot;[object Null]&quot; </code>(或者用call调用也一样的)</p>
-<p>**4.2 undefined: **<code>typeof undefined === undefined</code>,  <code>typeof undefine === null</code>(false,严格比较不会进行数据转换)</p>
-<p>**4.3 Array: **先判断是否为数组, 再判断<code>length</code>是否为0。（直接判断length为0不合理，存在<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42505098/article/details/82820063">类数组</a>）</p>
-<p><strong>4.4 Object</strong>：场景不多，群友给出了一个想法 <code>Object.getOwnPropertyNames</code> 判断返回的数组中属性的个数</p>
+<h3 id="4-空值判断"><a href="#4-空值判断" class="headerlink" title="4. 空值判断"></a>4. 空值判断</h3><p><strong>4.1 null:</strong><code>Object.prototype.toString.apply(null) === &quot;[object Null]&quot; </code>(或者用call调用也一样的)</p>
+<p><strong>4.2 undefined:</strong><code>typeof undefined === undefined</code>,  <code>typeof undefine === null</code>(false,严格比较不会进行数据转换)</p>
+<p>**4.3 Array:**先判断是否为数组, 再判断<code>length</code>是否为0。（直接判断length为0不合理，存在<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42505098/article/details/82820063">类数组</a>）</p>
+<p>**4.4 Object:**场景不多，群友给出了一个想法 <code>Object.getOwnPropertyNames</code> 判断返回的数组中属性的个数</p>
 <h2 id="7-21-this"><a href="#7-21-this" class="headerlink" title="7.21 this"></a>7.21 this</h2><p>js中函数也是对象，因此在使用this时要注意作用域问题。如vue-cli3下，在methods中写多层嵌套函数时，内层函数使用this时会获取不到vue的实例变量。目前暂时想到的解决办法有两种吧</p>
 <ul>
 <li>利用临时变量暂存, 然后进行参数传递，这里传的是引用（或者说类似于指针），因此可以对原变量进行修改</li>
