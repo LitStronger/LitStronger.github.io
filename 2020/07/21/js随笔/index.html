@@ -216,7 +216,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      4.1k 字
+      5.2k 字
     </span>
   
 
@@ -226,7 +226,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      57
+      73
        分钟
     </span>
   
@@ -268,13 +268,99 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2020年8月25日 晚上
+                  本文最后更新于：2020年11月21日 晚上
                 
               </p>
             
             <div class="markdown-body" id="post-body">
               <p>注：全片并未按照一定的顺序编辑，而是仅是相对无序的知识点的整理，参见目录</p>
-<h2 id="7-21-this"><a href="#7-21-this" class="headerlink" title="7.21 this"></a>7.21 this</h2><p>js中函数也是对象，因此在使用this时要注意作用域问题。如vue-cli3环境下，在methods中写多层嵌套函数时，内层函数使用this时会获取不到vue的实例变量。目前暂时想到的解决办法有两种吧</p>
+<a id="more"></a>
+
+<h1 id="每周议题"><a href="#每周议题" class="headerlink" title="每周议题"></a>每周议题</h1><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6897214524912074766/">议题内容引自</a></p>
+<h2 id="1-JavaScript中判断数据类型"><a href="#1-JavaScript中判断数据类型" class="headerlink" title="1. JavaScript中判断数据类型"></a>1. JavaScript中判断数据类型</h2><p>首先我来表演个js魔法</p>
+<div class="hljs"><pre><code class="hljs js"><span class="hljs-keyword">typeof</span> <span class="hljs-literal">null</span> 		   <span class="hljs-comment">// Object -- null的类型是Object</span>
+<span class="hljs-literal">null</span> <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Object</span> <span class="hljs-comment">// false  -- null不是Object的实例 </span></code></pre></div>
+
+<p>精彩！（掌声） 那么，为啥呢？</p>
+<p> 原因是null不是一个空引用, 而是一个原始值, 参考<a href="https://link.zhihu.com/?target=http://lzw.me/pages/ecmascript/%2320">ECMAScript5.1中文版</a> 4.3.11节; 它只是期望此处将引用一个对象, 注意是”期望”, 参考 <a href="https://link.zhihu.com/?target=https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/null">null - JavaScript</a>. （<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/21691758">引自知乎</a>）</p>
+<p>既然是原始值，那么，怎么解释<code>typeof null</code>的结果为Object呢，MDN是这么解释的</p>
+<blockquote>
+<p>在 JavaScript 最初的实现中，JavaScript 中的值是由一个表示类型的标签和实际数据值表示的。对象的类型标签是 0。由于 <code>null</code> 代表的是空指针（大多数平台下值为 0x00），因此，null 的类型标签是 0，<code>typeof null</code> 也因此返回 <code>&quot;object&quot;</code>。（<a target="_blank" rel="noopener" href="http://www.2ality.com/2013/10/typeof-null.html">参考来源</a>）</p>
+<p>曾有一个 ECMAScript 的修复提案（通过选择性加入的方式），但<a target="_blank" rel="noopener" href="http://wiki.ecmascript.org/doku.php?id=harmony:typeof_null">被拒绝了</a>。该提案会导致 <code>typeof null === &#39;null&#39;</code></p>
+</blockquote>
+<p>魔法结束，聊聊正经的</p>
+<h3 id="1-常见需要判断的数据类型"><a href="#1-常见需要判断的数据类型" class="headerlink" title="1. 常见需要判断的数据类型"></a>1. 常见需要判断的数据类型</h3><p><strong>基本类型：</strong>String、Number、Boolean、undefined、null、Symbol(ES6引入)</p>
+<p><strong>进阶类型：</strong>Function、Array、Object、NaN、空值等</p>
+<h3 id="2-类型判断方案"><a href="#2-类型判断方案" class="headerlink" title="2. 类型判断方案"></a>2. 类型判断方案</h3><p><strong>2.1 typeof</strong></p>
+<div class="hljs"><pre><code class="hljs js"><span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> <span class="hljs-string">&#x27;abc&#x27;</span>); <span class="hljs-comment">// &quot;string&quot;</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> <span class="hljs-number">123</span>); <span class="hljs-comment">// &quot;number&quot;</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> <span class="hljs-literal">false</span>); <span class="hljs-comment">// &quot;boolean&quot;</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> <span class="hljs-literal">undefined</span>); <span class="hljs-comment">// &quot;undefined&quot;</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> <span class="hljs-literal">null</span>) <span class="hljs-comment">// &quot;object&quot;</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span>(<span class="hljs-built_in">Symbol</span>())) <span class="hljs-comment">// &quot;symbol&quot;</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> <span class="hljs-literal">NaN</span>) <span class="hljs-comment">// &quot;number&quot;</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> []) <span class="hljs-comment">// &quot;object&quot;</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;&#125;)) <span class="hljs-comment">// &quot;function&quot;</span></code></pre></div>
+
+<p>在对<code>null</code>，<code>NaN</code>，<code>[]</code>的判断上没有得到理想的结果，typeof无法做到完全区分类型</p>
+<ul>
+<li>number: 会受到NaN的干扰，很多场景其实判断number类型是想要判断是合理的数字类型</li>
+<li>null: 历史遗留的bug了</li>
+<li>数组会被判别为Object: 这样就无法区分Array和Object了</li>
+</ul>
+<p><strong>2.2 Object.prototype.toString()</strong></p>
+<div class="hljs"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">varType</span>(<span class="hljs-params">obj</span>) </span>&#123;
+  <span class="hljs-keyword">return</span> <span class="hljs-built_in">Object</span>.prototype.toString.call(obj)
+&#125;
+<span class="hljs-built_in">console</span>.log(varType(<span class="hljs-string">&quot;1&quot;</span>)); <span class="hljs-comment">// &quot;[object String]&quot;</span>
+<span class="hljs-built_in">console</span>.log(varType(<span class="hljs-number">1</span>)); <span class="hljs-comment">// &quot;[object Number]&quot;</span>
+<span class="hljs-built_in">console</span>.log(varType(&#123;&#125;)); <span class="hljs-comment">// &quot;[object Object]&quot;</span>
+<span class="hljs-built_in">console</span>.log(varType([])); <span class="hljs-comment">// &quot;[object Array]&quot;</span>
+<span class="hljs-built_in">console</span>.log(varType(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;&#125;)); <span class="hljs-comment">// &quot;[object Function]&quot;</span>
+<span class="hljs-built_in">console</span>.log(varType(<span class="hljs-literal">null</span>)); <span class="hljs-comment">// &quot;[object Null]&quot;</span>
+<span class="hljs-built_in">console</span>.log(varType(<span class="hljs-literal">undefined</span>)); <span class="hljs-comment">// &quot;[object Undefined]&quot;</span>
+<span class="hljs-built_in">console</span>.log(varType(<span class="hljs-literal">true</span>)); <span class="hljs-comment">// &quot;[object Boolean]&quot;</span>
+<span class="hljs-built_in">console</span>.log(varType(<span class="hljs-literal">NaN</span>)); <span class="hljs-comment">// &quot;[object Number]&quot;</span>
+<span class="hljs-built_in">console</span>.log(varType(<span class="hljs-built_in">Symbol</span>())); <span class="hljs-comment">// &quot;[object Symbol]&quot;</span>
+<span class="hljs-built_in">console</span>.log(varType(<span class="hljs-built_in">RegExp</span>())); <span class="hljs-comment">// &quot;[object RegExp]&quot;</span></code></pre></div>
+
+<p>可见除了NaN以外，其他类型都能判断，以字符串<code>[object &lt;类型&gt;]</code>的格式输出结果</p>
+<blockquote>
+<p>ps：除了使用<code>call()</code>之外，也可以使用<code>apply</code>，唯一的区别是二者接接受的参数格式不同，<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/call">详见</a></p>
+</blockquote>
+<p>对NaN的处理可以使用函数<code>isNaN()</code></p>
+<div class="hljs"><pre><code class="hljs js"><span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">isNaN</span>(<span class="hljs-literal">NaN</span>))  <span class="hljs-comment">// true</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">isNaN</span>(<span class="hljs-number">1</span>))  <span class="hljs-comment">// false</span></code></pre></div>
+
+<p>进行把<code>varType()</code>封装一层如下，这样就可以拿来用了</p>
+<div class="hljs"><pre><code class="hljs js"><span class="hljs-keyword">var</span> isTypeOf = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">type</span>)</span>&#123;
+    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj</span>)</span>&#123;
+        <span class="hljs-keyword">return</span> <span class="hljs-string">`[object <span class="hljs-subst">$&#123;type&#125;</span>]`</span> === <span class="hljs-built_in">Object</span>.prototype.toString.call(obj)
+    &#125;
+&#125;
+<span class="hljs-comment">// 箭头函数形式</span>
+<span class="hljs-keyword">var</span> isTypeOf = <span class="hljs-function">(<span class="hljs-params">type</span>) =&gt;</span> <span class="hljs-function">(<span class="hljs-params">obj</span>) =&gt;</span> <span class="hljs-string">`[object <span class="hljs-subst">$&#123;type&#125;</span>]`</span> === <span class="hljs-built_in">Object</span>.prototype.toString.call(obj)
+
+<span class="hljs-comment">// 测试</span>
+<span class="hljs-built_in">console</span>.log(isTypeOf(<span class="hljs-string">&quot;Array&quot;</span>)([])) <span class="hljs-comment">// true</span>
+</code></pre></div>
+
+<h3 id="3-判断数组"><a href="#3-判断数组" class="headerlink" title="3. 判断数组"></a>3. 判断数组</h3><p><strong>3.1 instanceof</strong> </p>
+<p><code>[] instanceof Array</code>看看是否为Array的实例。不过有个坑，instanceof实际上是根据原型链上的继承关系来判断的，而Array继承自Object，因此会有 <code>[] instanceof Object</code>结果为<code>true</code>的情况。</p>
+<p><strong>3.2 constructor</strong></p>
+<p>通过目标的构造器来判断就不会出现<code>instanceof</code>里的意外结果</p>
+<div class="hljs"><pre><code class="hljs js">[].constructor === <span class="hljs-built_in">Array</span>  <span class="hljs-comment">// true</span>
+[].constructor === <span class="hljs-built_in">Object</span>  <span class="hljs-comment">// false</span></code></pre></div>
+
+<p><strong>3.3 Array.isArray()</strong></p>
+<div class="hljs"><pre><code class="hljs js"><span class="hljs-built_in">Array</span>.isArray([])  <span class="hljs-comment">// true</span></code></pre></div>
+
+<p><strong>3.4 采用前文提及的toString()方法</strong></p>
+<h3 id="4-空值判断"><a href="#4-空值判断" class="headerlink" title="4. 空值判断"></a>4. 空值判断</h3><p>**4.1 null: **<code>Object.prototype.toString.apply(null) === &quot;[object Null]&quot; </code>(或者用call调用也一样的)</p>
+<p>**4.2 undefined: **<code>typeof undefined === undefined</code>,  <code>typeof undefine === null</code>(false,严格比较不会进行数据转换)</p>
+<p>**4.3 Array: **先判断是否为数组, 再判断<code>length</code>是否为0。（直接判断length为0不合理，存在<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42505098/article/details/82820063">类数组</a>）</p>
+<p><strong>4.4 Object</strong>：场景不多，群友给出了一个想法 <code>Object.getOwnPropertyNames</code> 判断返回的数组中属性的个数</p>
+<h2 id="7-21-this"><a href="#7-21-this" class="headerlink" title="7.21 this"></a>7.21 this</h2><p>js中函数也是对象，因此在使用this时要注意作用域问题。如vue-cli3下，在methods中写多层嵌套函数时，内层函数使用this时会获取不到vue的实例变量。目前暂时想到的解决办法有两种吧</p>
 <ul>
 <li>利用临时变量暂存, 然后进行参数传递，这里传的是引用（或者说类似于指针），因此可以对原变量进行修改</li>
 <li>使用箭头函数，箭头函数内部的this指向的是外层对象（特殊性）</li>
@@ -286,7 +372,7 @@ methods: &#123;
     <span class="hljs-function"><span class="hljs-title">Func1</span>(<span class="hljs-params"></span>)</span>&#123;
     	<span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>.value) <span class="hljs-comment">// 1</span>
     	<span class="hljs-function"><span class="hljs-title">func2</span>(<span class="hljs-params"></span>)</span>&#123;
-        	<span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>.value) <span class="hljs-comment">// undefine</span>
+        	<span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>) <span class="hljs-comment">// undefine</span>
         &#125;
     &#125;
 &#125;
@@ -898,7 +984,23 @@ kunKun.say()		<span class="hljs-comment">// Hello everybody! My name is 鲲鲲, 
 
 
 
+</li>
+</ul>
+<h1 id="红宝书笔记"><a href="#红宝书笔记" class="headerlink" title="红宝书笔记"></a>红宝书笔记</h1><h2 id="1-null与undefined"><a href="#1-null与undefined" class="headerlink" title="1.null与undefined"></a>1.null与undefined</h2><ul>
+<li><p>undefined派生自null，因此在经过操作数转换后二者判定为相等，相等性测试如下</p>
+<div class="hljs"><pre><code class="hljs js"><span class="hljs-built_in">console</span>.log(<span class="hljs-literal">null</span>==<span class="hljs-literal">undefined</span>) <span class="hljs-comment">// true</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-literal">null</span>===<span class="hljs-literal">undefined</span>) <span class="hljs-comment">// false</span></code></pre></div>
+</li>
+<li><p>变量在声明后会默认得到一个undefined值，因此代码中给变量初始化一个undefined值并没有意义。而null则不同，如果变量准备用于存放对象，那么你可以给它赋值为null，可以体现null作为对象空指针的惯例（c语言中对指针也是这么做的）</p>
+</li>
+</ul>
+<h2 id="2-0-1-0-2-0-3"><a href="#2-0-1-0-2-0-3" class="headerlink" title="2. 0.1+0.2 !=0.3"></a>2. 0.1+0.2 !=0.3</h2><div class="hljs"><pre><code class="hljs js"><span class="hljs-number">0.1</span> + <span class="hljs-number">0.2</span> = <span class="hljs-number">0.30000000000000004</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-number">0.1</span> + <span class="hljs-number">0.2</span> == <span class="hljs-number">0.3</span>) <span class="hljs-comment">//false</span></code></pre></div>
 
+<ul>
+<li><p>基于ieee754数值浮点计算的通病，c语言也有这个问题。尽量不要直接拿浮点数来进行比较（浮点数本身可能就不精确）</p>
+</li>
+<li><p>解决： 可以加个容差，比如 |0.1+0.2-0.3| &lt;= 0.00001(允许的误差值，根据需求情况自己限定)</p>
 </li>
 </ul>
 <h2 id="杂记"><a href="#杂记" class="headerlink" title="杂记"></a>杂记</h2><p>json：javascript object notation(符号)，通常用于前后端通信。其他类型的语言也有使用json，如java，php等</p>
