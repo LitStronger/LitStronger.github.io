@@ -216,7 +216,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      29 字
+      479 字
     </span>
   
 
@@ -226,7 +226,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      6
        分钟
     </span>
   
@@ -268,7 +268,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2020年11月27日 上午
+                  本文最后更新于：2020年11月27日 晚上
                 
               </p>
             
@@ -279,7 +279,56 @@
 <p>**参考学习资料: **</p>
 <p><a target="_blank" rel="noopener" href="https://es6.ruanyifeng.com/#docs/promise#Promise-prototype-catch">《ECMAScript 6 入门》Promise </a></p>
 <p><a target="_blank" rel="noopener" href="https://es6.ruanyifeng.com/#docs/async">《ECMAScript 6 入门》async </a></p>
-
+<p><strong>题目:</strong></p>
+<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">async1</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">1</span>);
+    <span class="hljs-keyword">await</span> async2();
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">2</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">await</span> <span class="hljs-number">3</span>
+&#125;
+ 
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">async2</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">4</span>);
+&#125;
+ 
+<span class="hljs-built_in">setTimeout</span>(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">5</span>);
+&#125;, <span class="hljs-number">0</span>);
+ 
+async1().then(<span class="hljs-function"><span class="hljs-params">v</span>=&gt;</span> <span class="hljs-built_in">console</span>.log(v))
+ 
+<span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">resolve</span>) </span>&#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">6</span>);
+    resolve();
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">7</span>)
+&#125;).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">8</span>);
+&#125;);
+ 
+<span class="hljs-built_in">console</span>.log(<span class="hljs-number">9</span>);</code></pre></div>
+<p><strong>我的思路：</strong></p>
+<p>按照正常顺序，首先遇到的是宏任务<code>setTimeout()</code>，将其加入<code>宏任务队列</code>（稍后执行）<br>代码继续运行，进入函数<code>async1()</code>，直接输出1，</p>
+<div class="hljs"><pre><code class="hljs shell">1</code></pre></div>
+<p>执行函数<code>async2()</code>，直接输出4</p>
+<div class="hljs"><pre><code class="hljs shell">1 4</code></pre></div>
+<p>然后遇到了微任务<code>await async2()</code>，将其加入<code>微任务队列</code>(稍后执行)，<code>await async2()</code>后的代码将被阻塞直到该微任务执行完</p>
+<p>接着进入<code>Promise()</code>，直接输出6。</p>
+<div class="hljs"><pre><code class="hljs shell">1 4 6</code></pre></div>
+<p>然后遇到了<code>resolve()</code>，将其加入<code>微任务队列</code>，接着是输出7</p>
+<div class="hljs"><pre><code class="hljs shell">1 4 6 7</code></pre></div>
+<p>代码继续执行，直接输出9</p>
+<div class="hljs"><pre><code class="hljs shell">1 4 6 7 9</code></pre></div>
+<hr>
+<p>至此代码已经执行到末尾了，开始执行微任务队列中的任务。<br>根据队列 <strong>先进先出</strong> 的特点，可以知道先执行<code>await async2()</code>，直接输出4，微任务完成</p>
+<div class="hljs"><pre><code class="hljs shell">1 4 6 7 9</code></pre></div>
+<p>接着执行之前之前被阻塞的部分，直接输出2，然后遇到微任务<code>await 3</code>，将其加入<code>微任务队列</code>，后续代码进入阻塞状态</p>
+<div class="hljs"><pre><code class="hljs shell">1 4 6 7 9 2</code></pre></div>
+<p>从微任务队列中取出前面加入的<code>resolve()</code>，执行后进入.then()，直接输出8，微任务完成</p>
+<div class="hljs"><pre><code class="hljs shell">1 4 6 7 9 2 8</code></pre></div>
+<p>从微任务队列中取出剩下的微任务<code>await 3</code>， 微任务完成。返回值为3，然后进入.then()，输出3</p>
+<div class="hljs"><pre><code class="hljs shell">1 4 6 7 9 2 8 3</code></pre></div>
+<p>所有微任务都执行完后，就剩下宏任务<code>setTimeout</code>了，执行任务，输出5</p>
+<div class="hljs"><pre><code class="hljs shell">1 4 6 7 9 2 8 3 5</code></pre></div>
             </div>
             <hr>
             <div>
