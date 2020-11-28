@@ -216,7 +216,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      479 字
+      530 字
     </span>
   
 
@@ -268,7 +268,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2020年11月27日 晚上
+                  本文最后更新于：2020年11月28日 晚上
                 
               </p>
             
@@ -279,6 +279,7 @@
 <p>**参考学习资料: **</p>
 <p><a target="_blank" rel="noopener" href="https://es6.ruanyifeng.com/#docs/promise#Promise-prototype-catch">《ECMAScript 6 入门》Promise </a></p>
 <p><a target="_blank" rel="noopener" href="https://es6.ruanyifeng.com/#docs/async">《ECMAScript 6 入门》async </a></p>
+<p><a target="_blank" rel="noopener" href="https://www.yuque.com/kuwu/opfh8y/kriyta">本次议题总结</a></p>
 <p><strong>题目:</strong></p>
 <div class="hljs"><pre><code class="hljs javascript"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">async1</span> (<span class="hljs-params"></span>) </span>&#123;
     <span class="hljs-built_in">console</span>.log(<span class="hljs-number">1</span>);
@@ -329,6 +330,12 @@ async1().then(<span class="hljs-function"><span class="hljs-params">v</span>=&gt
 <div class="hljs"><pre><code class="hljs shell">1 4 6 7 9 2 8 3</code></pre></div>
 <p>所有微任务都执行完后，就剩下宏任务<code>setTimeout</code>了，执行任务，输出5</p>
 <div class="hljs"><pre><code class="hljs shell">1 4 6 7 9 2 8 3 5</code></pre></div>
+
+
+
+<hr>
+<p><a href="">为了更好地理解本次内容，咕咕侠决定手写一个极其简陋的<code>Promise</code>，并且实现ES2021引入的Promise.any()方法，篇幅较长，另开文章</a></p>
+
             </div>
             <hr>
             <div>
