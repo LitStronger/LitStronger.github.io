@@ -277,7 +277,8 @@
 <a id="more"></a>
 
 <h1 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h1><h2 id="Promise极简"><a href="#Promise极简" class="headerlink" title="Promise极简"></a>Promise极简</h2><p>1.实现了基本的异步、回调功能。(then和catch)</p>
-<p>2.未实现链式调用(如<code>.then().catch()</code>)</p>
+<p>2.未实现链式调用，如<code>.then().catch()</code></p>
+<hr>
 <p><code>Promise()</code>的参数是一个带有<code>resolve</code>和<code>reject</code>两个参数的函数，据此我们可以先抽象出MyPromise的结构</p>
 <div class="hljs"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">MyPromise</span>(<span class="hljs-params">executor</span>) </span>&#123;
     <span class="hljs-built_in">this</span>.status = <span class="hljs-string">&quot;pending&quot;</span>
