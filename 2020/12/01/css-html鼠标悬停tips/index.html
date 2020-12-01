@@ -226,7 +226,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      16
+      17
        分钟
     </span>
   
@@ -358,7 +358,7 @@
 <span class="css">        <span class="hljs-selector-tag">opacity</span>: <span class="hljs-selector-class">.5</span>;</span>
 
         position: absolute;
-        box-sizing: border-box;
+<span class="css">        <span class="hljs-selector-tag">box-sizing</span>: <span class="hljs-selector-tag">border-box</span>; <span class="hljs-comment">/* 方便计算宽高 */</span></span>
 <span class="css">        <span class="hljs-selector-tag">left</span>: <span class="hljs-selector-tag">calc</span>(50% <span class="hljs-selector-tag">-</span> 2<span class="hljs-selector-class">.5em</span>);</span>
 <span class="css">        <span class="hljs-selector-tag">top</span>: 1<span class="hljs-selector-class">.4em</span>;</span>
     &#125;
@@ -468,7 +468,7 @@
 <span class="css">        <span class="hljs-selector-tag">opacity</span>: <span class="hljs-selector-class">.5</span>;</span>
 
         position: absolute;
-        box-sizing: border-box;
+<span class="css">        <span class="hljs-selector-tag">box-sizing</span>: <span class="hljs-selector-tag">border-box</span>; <span class="hljs-comment">/* 方便计算宽高 */</span></span>
 <span class="css">        <span class="hljs-comment">/* &#x27;-&#x27;运算符两边不加空格属性失效, 这一定是魔法!(原因见下文) */</span></span>
 <span class="css">        <span class="hljs-selector-tag">left</span>: <span class="hljs-selector-tag">calc</span>(50% <span class="hljs-selector-tag">-</span> 2<span class="hljs-selector-class">.5em</span>);</span>
 <span class="css">        <span class="hljs-selector-tag">top</span>: 1<span class="hljs-selector-class">.4em</span>;</span>
@@ -522,7 +522,7 @@
         opacity: .5;
 
         position: absolute;
-        box-sizing: border-box;
+        box-sizing: border-box; 
         /* '-'运算符两边不加空格属性失效, 这一定是魔法!(原因见下文) */
         left: calc(50% - 2.5em);
         top: 1.4em;
@@ -551,10 +551,11 @@
 
 
 <hr>
-<p><strong>注意</strong>: 对于calc()，<code>+</code>和<code>-</code>运算符两边没加空格可能导致计算错误。<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/calc()">详见MDN  calc()</a></p>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p><strong>注意</strong>: 对于calc()，<code>+</code>和<code>-</code>运算符两边没加空格可能导致计算错误。<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/calc()">详见MDN  calc()</a></p>
 <blockquote>
 <p>The <code>+</code> and <code>-</code> operators <strong>must be surrounded by whitespace</strong>. For instance, <code>calc(50% -8px)</code> will be parsed as a percentage followed by a negative length — an invalid expression — while <code>calc(50% - 8px)</code> is a percentage followed by a subtraction operator and a length. Likewise, <code>calc(8px + -50%)</code> is treated as a length followed by an addition operator and a negative percentage.</p>
 </blockquote>
+<p>直接显示提示框其实有点僵硬，可以考虑使用<code>transition</code>属性来优化过渡</p>
 
             </div>
             <hr>
