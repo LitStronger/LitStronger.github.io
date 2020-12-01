@@ -277,7 +277,7 @@
 <a id="more"></a>
 
 <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>实现一个鼠标悬停的功能，如图</p>
-<p><img src="../../../pic/post/typora-img/1606801197639.png" srcset="/img/loading.gif" alt="1606801197639"></p>
+<p><img src="https://img-blog.csdnimg.cn/20201201154933160.png" srcset="/img/loading.gif" alt="1606801197639"></p>
 <p>要求：只使用CSS和HTML</p>
 <p>可以贴出代码的实现地址例如<a target="_blank" rel="noopener" href="https://codepen.io/">https://codepen.io/</a> 上提交自己的代码</p>
 <h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><p><a target="_blank" rel="noopener" href="https://codepen.io/litstronger/pen/ZEpGXQZ">我的实现</a></p>
@@ -310,16 +310,17 @@
 
 <p>初步效果如下，鼠标移上去会出现tip</p>
 <style>
-    .wrap {
+    .wrap-1 {
     }
-    .wrap img {
+    .wrap-1 img {
         width: 1em;
         height: 1em;
     }
-    .wrap:hover:after {
+    .wrap-1:hover:after {
         content: attr(logo-tip);
         background: #222;
         color: white;
+
 
         border-radius: .2em;
         padding: .5em;
@@ -328,10 +329,11 @@
     }
 </style>
 
-<div class="wrap" logo-tip="添加链接啦啦啦啦">
+<div class="wrap-1" logo-tip="添加链接啦啦啦啦">
     <img src="https://hexo-1259001110.cos.ap-shanghai.myqcloud.com/link.png" srcset="/img/loading.gif">
 </div>
-<br></br>
+
+<br>
 
 <h3 id="2-调整位置"><a href="#2-调整位置" class="headerlink" title="2.调整位置"></a>2.调整位置</h3><p>接下来调整提示框的位置，修改下布局，采用<code>relative</code>+<code>absolute</code>进行定位</p>
 <div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span>
@@ -368,20 +370,21 @@
 
 <p>效果如下</p>
 <style>
-    .wrap {
+    .wrap-2 {
         position: relative;
         width: 1em;
         height: 1em;
         margin: 0 auto;
     }
-    .wrap img {
+    .wrap-2 img {
         width: 100%;
         height: 100%;
     }
-    .wrap:hover:after {
+    .wrap-2:hover:after {
         content: attr(logo-tip);
         background: #222;
         color: white;
+
 
         border-radius: .2em;
         padding: .5em;
@@ -395,13 +398,14 @@
     }
 </style>
 
-<div class="wrap" logo-tip="添加链接啦啦啦啦">
+<div class="wrap-2" logo-tip="添加链接啦啦啦啦">
     <img src="https://hexo-1259001110.cos.ap-shanghai.myqcloud.com/link.png" srcset="/img/loading.gif">
 </div>
-<br></br>
+
+<br>
 
 <h3 id="3-制作小三角形"><a href="#3-制作小三角形" class="headerlink" title="3.制作小三角形"></a>3.制作小三角形</h3><p>可以发现，我们实现的框，还少了个三角标，如图</p>
-<p><img src="../../../pic/post/typora-img/1606805499179.png" srcset="/img/loading.gif" alt="1606805499179"></p>
+<p><img src="https://img-blog.csdnimg.cn/20201201155111408.png" srcset="/img/loading.gif" alt="1606805499179"></p>
 <p>那么，如何制作一个三角标呢？</p>
 <p>看看下面这段代码，一个<code>content</code>为2em，<code>border</code>为2em的盒子</p>
 <div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span>
@@ -417,11 +421,11 @@
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
 
 <p>效果如下，橙色部分为<code>content</code>，彩色部分是<code>border</code></p>
-<p><img src="../../../pic/post/typora-img/1606807307250.png" srcset="/img/loading.gif" alt="1606807307250"></p>
+<p><img src="https://img-blog.csdnimg.cn/20201201155126734.png" srcset="/img/loading.gif" alt="1606807307250"></p>
 <p>看到这里，不知道你悟了没有。如果我把<code>content</code>的宽高设置为0，这样就得到四个三角形，再把<code>border</code>其他三边设置为透明，注释掉背景色，那么就得到一个三角形了。</p>
 <ul>
 <li><p><code>content</code>宽高设置为0：<code>width: 0em; height:0em;</code></p>
-<p><img src="../../../pic/post/typora-img/1606807907331.png" srcset="/img/loading.gif" alt="1606807907331"></p>
+<p><img src="https://img-blog.csdnimg.cn/20201201155138576.png" srcset="/img/loading.gif" alt="1606807907331"></p>
 </li>
 <li><p>设置三边透明，去掉背景色</p>
 <div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">div</span> &#123;
@@ -432,17 +436,19 @@
     <span class="hljs-attribute">border-color</span>: transparent transparent <span class="hljs-number">#222</span> transparent;
 &#125;</code></pre></div>
 
-<p><img src="../../../pic/post/typora-img/1606808125689.png" srcset="/img/loading.gif" alt="1606808125689"></p>
+<p><img src="https://img-blog.csdnimg.cn/20201201155305197.png" srcset="/img/loading.gif" alt="1606808125689"></p>
 </li>
 </ul>
-<h3 id="合并提示框-小三角形"><a href="#合并提示框-小三角形" class="headerlink" title="合并提示框+小三角形"></a>合并提示框+小三角形</h3><p>然后，再把三角形和前面实现的提示框合起来。怎么合并呢？前面我们已经用过了一个伪元素<code>:after</code>，那么这次我们可以使用另一个伪元素<code>:before</code>( css3<code>::before</code>)</p>
-<p>最终结果</p>
+<h3 id="4-合并提示框-小三角形"><a href="#4-合并提示框-小三角形" class="headerlink" title="4.合并提示框+小三角形"></a>4.合并提示框+小三角形</h3><p>然后，再把三角形和前面实现的提示框合起来。怎么合并呢？前面我们已经用过了一个伪元素<code>:after</code>，那么这次我们可以使用另一个伪元素<code>:before</code>( css3<code>::before</code>)</p>
+<p><strong>最终代码</strong></p>
 <div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span>
 <span class="css">    <span class="hljs-selector-class">.wrap</span> &#123;</span>
         position: relative;
         width: 1em;
         height: 1em;
         margin: 0 auto;
+        cursor: pointer;
+
     &#125;
 
 <span class="css">    <span class="hljs-selector-class">.wrap</span> <span class="hljs-selector-tag">img</span> &#123;</span>
@@ -488,14 +494,16 @@
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 </code></pre></div>
 
-<p>效果如下</p>
+<p><strong>效果如下</strong></p>
 <style>
     .wrap {
         position: relative;
         width: 1em;
         height: 1em;
         margin: 0 auto;
+        cursor: pointer;
     }
+
 
     .wrap img {
         width: 100%;
@@ -535,13 +543,15 @@
         opacity: .5;
     }
 </style>
+
 <div class="wrap" logo-tip="添加链接啦啦啦啦">
     <img src="https://hexo-1259001110.cos.ap-shanghai.myqcloud.com/link.png" srcset="/img/loading.gif" alt="">
-</div>
+</div><br></br>
 
 
 
-<p><strong>注意</strong>: <code>+</code>和<code>-</code>运算符两边没加空格可能导致该属性失效。<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/calc()">详见MDN  calc()</a></p>
+<hr>
+<p><strong>注意</strong>: 对于calc()，<code>+</code>和<code>-</code>运算符两边没加空格可能导致计算错误。<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/calc()">详见MDN  calc()</a></p>
 <blockquote>
 <p>The <code>+</code> and <code>-</code> operators <strong>must be surrounded by whitespace</strong>. For instance, <code>calc(50% -8px)</code> will be parsed as a percentage followed by a negative length — an invalid expression — while <code>calc(50% - 8px)</code> is a percentage followed by a subtraction operator and a length. Likewise, <code>calc(8px + -50%)</code> is treated as a length followed by an addition operator and a negative percentage.</p>
 </blockquote>
