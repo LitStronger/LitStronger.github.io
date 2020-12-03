@@ -554,7 +554,8 @@
 <blockquote>
 <p>The <code>+</code> and <code>-</code> operators <strong>must be surrounded by whitespace</strong>. For instance, <code>calc(50% -8px)</code> will be parsed as a percentage followed by a negative length — an invalid expression — while <code>calc(50% - 8px)</code> is a percentage followed by a subtraction operator and a length. Likewise, <code>calc(8px + -50%)</code> is treated as a length followed by an addition operator and a negative percentage.</p>
 </blockquote>
-<p>直接显示提示框其实有点僵硬，可以考虑使用<code>transition</code>属性来优化过渡。那么问题来了，给伪元素加<code>transition</code>好像很不方便……(额，其实可以的，比如<code>:hover:after</code>)</p>
+<hr>
+<p>直接显示提示框其实有点僵硬，可以考虑使用<code>transition</code>属性来优化过渡。那么问题来了，给伪元素加<code>transition</code>好像很不方便……(额，其实可以的，比如先设置<code>:after</code>，再过渡到<code>:hover:after</code>)</p>
 <p>最后我还是实现了，不过为了加这个过渡，多了一些不必要的修改。虽然效果有了，但代码不是很合理，如下。</p>
 <p><a target="_blank" rel="noopener" href="https://codepen.io/litstronger/pen/YzGyBYG">代码以及演示地址</a></p>
 <p>因为要实现一个过渡效果，因此<code>:before</code>和<code>:after</code>必须有一个初始的状态。没错，就是这里刚开始让我觉得很难处理，因为这种情况下的<code>hover</code>似乎有<code>bug</code>。我把两个伪元素的<code>width</code>、<code>height</code>、<code>pading</code>、<code>border</code>都预置为0，然后<code>position:absolute；</code>定位，在浏览器F12下查看这两个伪元素，很正常，宽高0 × 0，没有占据任何空间。然而，当我把鼠标移动到距离触发hover的区域还有一段距离时，hover就触发了。这很诡异！</p>
