@@ -216,7 +216,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      4.5k 字
+      4.6k 字
     </span>
   
 
@@ -226,7 +226,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      62
+      64
        分钟
     </span>
   
@@ -268,7 +268,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2020年12月1日 下午
+                  本文最后更新于：2020年12月3日 晚上
                 
               </p>
             
@@ -910,11 +910,14 @@ fun()
 kunKun.say()		<span class="hljs-comment">// Hello everybody! My name is 鲲鲲, I like playing basketball</span>
 </code></pre></div>
 
-
-
 </li>
 </ul>
-<h1 id="红宝书笔记"><a href="#红宝书笔记" class="headerlink" title="红宝书笔记"></a>红宝书笔记</h1><h2 id="1-null与undefined"><a href="#1-null与undefined" class="headerlink" title="1.null与undefined"></a>1.null与undefined</h2><ul>
+<h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Objects/Object_prototypes">MDN</a></p>
+<p><img src="https://img-blog.csdnimg.cn/20201203214905426.png" srcset="/img/loading.gif" alt="在这里插入图片描述"></p>
+<p>**hasOwnProperty()**可用于检测一个属性是存在于实例中(返回<code>true</code>)，还是存在于原型中(返回<code>false</code>)</p>
+<p><strong>in</strong>则与上述不同，只要能通过该对象访问到给定属性时返回<code>true</code>，无论是在原型中还是实例中</p>
+<p><strong>for-in</strong>返回原型中和实例中所有可通过对象访问、可枚举的属性。注意，原来不可枚举的，如<code>toString()</code>，如果被重写了、并且没把[[Enumerable]]设置为false，也会在<code>for-in</code>循环中返回</p>
+<h2 id="null与undefined"><a href="#null与undefined" class="headerlink" title="null与undefined"></a>null与undefined</h2><ul>
 <li><p>undefined派生自null，因此在经过操作数转换后二者判定为相等，相等性测试如下</p>
 <div class="hljs"><pre><code class="hljs js"><span class="hljs-built_in">console</span>.log(<span class="hljs-literal">null</span>==<span class="hljs-literal">undefined</span>) <span class="hljs-comment">// true</span>
 <span class="hljs-built_in">console</span>.log(<span class="hljs-literal">null</span>===<span class="hljs-literal">undefined</span>) <span class="hljs-comment">// false</span></code></pre></div>
@@ -922,7 +925,7 @@ kunKun.say()		<span class="hljs-comment">// Hello everybody! My name is 鲲鲲, 
 <li><p>变量在声明后会默认得到一个undefined值，因此代码中给变量初始化一个undefined值并没有意义。而null则不同，如果变量准备用于存放对象，那么你可以给它赋值为null，可以体现null作为对象空指针的惯例（c语言中对指针也是这么做的）</p>
 </li>
 </ul>
-<h2 id="2-0-1-0-2-0-3"><a href="#2-0-1-0-2-0-3" class="headerlink" title="2. 0.1+0.2 !=0.3"></a>2. 0.1+0.2 !=0.3</h2><div class="hljs"><pre><code class="hljs js"><span class="hljs-number">0.1</span> + <span class="hljs-number">0.2</span> = <span class="hljs-number">0.30000000000000004</span>
+<h2 id="0-1-0-2-0-3"><a href="#0-1-0-2-0-3" class="headerlink" title="0.1+0.2 !=0.3"></a>0.1+0.2 !=0.3</h2><div class="hljs"><pre><code class="hljs js"><span class="hljs-number">0.1</span> + <span class="hljs-number">0.2</span> = <span class="hljs-number">0.30000000000000004</span>
 <span class="hljs-built_in">console</span>.log(<span class="hljs-number">0.1</span> + <span class="hljs-number">0.2</span> == <span class="hljs-number">0.3</span>) <span class="hljs-comment">//false</span></code></pre></div>
 
 <ul>
