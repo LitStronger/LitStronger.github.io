@@ -216,7 +216,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.1k 字
+      1.6k 字
     </span>
   
 
@@ -226,7 +226,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      17
+      22
        分钟
     </span>
   
@@ -268,7 +268,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2020年12月1日 下午
+                  本文最后更新于：2020年12月3日 上午
                 
               </p>
             
@@ -549,13 +549,35 @@
 </div><br></br>
 
 
-
 <hr>
 <h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p><strong>注意</strong>: 对于calc()，<code>+</code>和<code>-</code>运算符两边没加空格可能导致计算错误。<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/calc()">详见MDN  calc()</a></p>
 <blockquote>
 <p>The <code>+</code> and <code>-</code> operators <strong>must be surrounded by whitespace</strong>. For instance, <code>calc(50% -8px)</code> will be parsed as a percentage followed by a negative length — an invalid expression — while <code>calc(50% - 8px)</code> is a percentage followed by a subtraction operator and a length. Likewise, <code>calc(8px + -50%)</code> is treated as a length followed by an addition operator and a negative percentage.</p>
 </blockquote>
-<p>直接显示提示框其实有点僵硬，可以考虑使用<code>transition</code>属性来优化过渡</p>
+<p>直接显示提示框其实有点僵硬，可以考虑使用<code>transition</code>属性来优化过渡。那么问题来了，给伪元素加<code>transition</code>好像很不方便……(额，其实可以的，比如<code>:hover:after</code>)</p>
+<p>最后我还是实现了，不过为了加这个过渡，多了一些不必要的修改。虽然效果有了，但代码不是很合理，如下。</p>
+<p><a target="_blank" rel="noopener" href="https://codepen.io/litstronger/pen/YzGyBYG">代码以及演示地址</a></p>
+<p>因为要实现一个过渡效果，因此<code>:before</code>和<code>:after</code>必须有一个初始的状态。没错，就是这里刚开始让我觉得很难处理，因为这种情况下的<code>hover</code>似乎有<code>bug</code>。我把两个伪元素的<code>width</code>、<code>height</code>、<code>pading</code>、<code>border</code>都预置为0，然后<code>position:absolute；</code>定位，在浏览器F12下查看这两个伪元素，很正常，宽高0 × 0，没有占据任何空间。然而，当我把鼠标移动到距离触发hover的区域还有一段距离时，hover就触发了。这很诡异！</p>
+<p>虽然暂时不知道为啥，不过解决办法还是有的。直接给<code>.wrap</code>添加<code>overflow: hidden;</code>，然后新增一个<code>:hover</code></p>
+<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-class">.wrap</span><span class="hljs-selector-pseudo">:hover</span> &#123;
+    <span class="hljs-attribute">overflow</span>: visible;
+&#125;</code></pre></div>
+
+<p>道理很简单。直接把超出的内容(目前不清楚是啥，估计就那两个伪元素)给去掉，这样就不会影响<code>:hover</code>的作用范围了。等到触发<code>:hover</code>后再给它显示出来。</p>
+<p><strong>问题根源</strong></p>
+<p>观察了好一会儿才发现，是伪元素<code>content</code>的问题。即便我把宽高设置为0，文字依旧会显示(<code>overflow</code>的问题)，如图。因为原来设置的字体颜色是白色。。所以一直没发现问题…..</p>
+<p><img src="https://img-blog.csdnimg.cn/20201203105945156.png" srcset="/img/loading.gif" alt="在这里插入图片描述"></p>
+<p><strong>解决</strong></p>
+<p>知道问题根源后，解决就很简单了</p>
+<p>想到两个办法</p>
+<ol>
+<li><p>给<code>.wrap:after</code>添加<code>overflow: hidden;</code></p>
+<p><a target="_blank" rel="noopener" href="https://codepen.io/litstronger/pen/GRjpzay">演示地址</a></p>
+</li>
+<li><p>在<code>.wrap:after</code>里设置<code>font-size:0;</code>，在<code>.wrap:after</code>里设置<code>font-size:1em;</code></p>
+<p>这个改起来也简单，就不搞了</p>
+</li>
+</ol>
 
             </div>
             <hr>
