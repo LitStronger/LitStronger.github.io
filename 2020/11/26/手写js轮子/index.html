@@ -216,7 +216,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      873 字
+      1.1k 字
     </span>
   
 
@@ -226,7 +226,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      14
+      17
        分钟
     </span>
   
@@ -268,13 +268,44 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2020年12月1日 下午
+                  本文最后更新于：2020年12月12日 中午
                 
               </p>
             
             <div class="markdown-body" id="post-body">
               <p>为了更好地理解一些js方法的原理，决定自己捏捏轮子</p>
 <a id="more"></a>
+
+<h1 id="call-apply-bind"><a href="#call-apply-bind" class="headerlink" title="call,apply,bind"></a>call,apply,bind</h1><h2 id="call"><a href="#call" class="headerlink" title="call()"></a>call()</h2><div class="hljs"><pre><code class="hljs js"><span class="hljs-built_in">Function</span>.prototype.myCall = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">...args</span>)</span>&#123;
+    <span class="hljs-keyword">const</span> newThis = args[<span class="hljs-number">0</span>] || <span class="hljs-built_in">window</span>;
+    <span class="hljs-keyword">const</span> realArgs = args.slice(<span class="hljs-number">1</span>);
+    <span class="hljs-keyword">const</span> func = <span class="hljs-built_in">this</span>;
+
+    <span class="hljs-keyword">const</span> funcSym = <span class="hljs-built_in">Symbol</span>(<span class="hljs-string">&#x27;func&#x27;</span>);  <span class="hljs-comment">// 创建临时函数</span>
+    newThis.funcSym = func;
+	
+    <span class="hljs-keyword">const</span> res = newThis.funcSym(...realArgs);  <span class="hljs-comment">// 执行</span>
+    
+    <span class="hljs-keyword">delete</span> newThis.funcSym;  <span class="hljs-comment">// 删除</span>
+	
+    <span class="hljs-keyword">return</span> res;  <span class="hljs-comment">// 返回执行值</span>
+&#125;
+</code></pre></div>
+
+<h2 id="apply"><a href="#apply" class="headerlink" title="apply()"></a>apply()</h2><p><code>apply()</code>与<code>call()</code>之间除了接收的参数不同，可以说没有其他区别。因此大致的实现是和<code>call()</code>一样的，除了在处理接收到参数方面点区别，这里就不贴了。</p>
+<h2 id="bind"><a href="#bind" class="headerlink" title="bind()"></a>bind()</h2><p><code>bind()</code>是ES5引入的函数。<code>bind()</code>与<code>call()</code>的区别在于它不会立即执行函数，而是返回一个修改了<code>this</code>的新函数，执行需要调用该新函数。</p>
+<p>前面已经实现了<code>call()</code>, 这里就直接借用<code>call()</code>来实现了。</p>
+<div class="hljs"><pre><code class="hljs js"><span class="hljs-built_in">Function</span>.prototype.myBind = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">...args</span>)</span>&#123;
+    
+    <span class="hljs-keyword">const</span> newThis = args[<span class="hljs-number">0</span>];
+    <span class="hljs-keyword">const</span> realArgs = args.slice(<span class="hljs-number">1</span>);
+    <span class="hljs-keyword">const</span> func = <span class="hljs-built_in">this</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">...newArgs</span>)</span>&#123;
+        <span class="hljs-keyword">return</span>  func.call(newThis, ...realArgs, ...newArgs)
+    &#125;
+&#125;</code></pre></div>
+
+
 
 <h1 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h1><h2 id="Promise极简"><a href="#Promise极简" class="headerlink" title="Promise极简"></a>Promise极简</h2><p>1.实现了基本的异步、回调功能。(then和catch)</p>
 <p>2.未实现链式调用，如<code>.then().catch()</code></p>
