@@ -268,7 +268,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2020年12月12日 中午
+                  本文最后更新于：2020年12月12日 下午
                 
               </p>
             
@@ -282,9 +282,9 @@
     <span class="hljs-keyword">const</span> func = <span class="hljs-built_in">this</span>;
 
     <span class="hljs-keyword">const</span> funcSym = <span class="hljs-built_in">Symbol</span>(<span class="hljs-string">&#x27;func&#x27;</span>);  <span class="hljs-comment">// 创建临时函数</span>
-    newThis.funcSym = func;
+    newThis[funcSym] = func;
 	
-    <span class="hljs-keyword">const</span> res = newThis.funcSym(...realArgs);  <span class="hljs-comment">// 执行</span>
+    <span class="hljs-keyword">const</span> res = newThis[funcSym](...realArgs);  <span class="hljs-comment">// 执行</span>
     
     <span class="hljs-keyword">delete</span> newThis.funcSym;  <span class="hljs-comment">// 删除</span>
 	
