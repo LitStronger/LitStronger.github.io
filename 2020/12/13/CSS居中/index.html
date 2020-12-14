@@ -216,7 +216,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      604 字
+      609 字
     </span>
   
 
@@ -268,7 +268,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2020年12月13日 晚上
+                  本文最后更新于：2020年12月14日 下午
                 
               </p>
             
@@ -276,7 +276,7 @@
               <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>1.第一类，div中的文字或者图片在div中垂直水平居中</p>
 <p>2.第二类，div元素相对于它的父元素垂直水平居中</p>
 <h1 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h1><h2 id="第一类-文字-图片"><a href="#第一类-文字-图片" class="headerlink" title="第一类:文字/图片"></a>第一类:文字/图片</h2><h3 id="line-height"><a href="#line-height" class="headerlink" title="line-height"></a>line-height</h3><p>仅限子元素为行内元素或图片，且只有单行/单个</p>
-<h2 id="第二类-div子元素"><a href="#第二类-div子元素" class="headerlink" title="第二类:div子元素"></a>第二类:div子元素</h2><h3 id="margin"><a href="#margin" class="headerlink" title="margin"></a>margin</h3><p>**父元素设置<code>border</code>或者<code>padding</code>，子元素设置<code>magin</code>**。灵感来源于《CSS权威指南》第三版 </p>
+<h2 id="第二类-div子元素"><a href="#第二类-div子元素" class="headerlink" title="第二类:div子元素"></a>第二类:div子元素</h2><h3 id="1-margin"><a href="#1-margin" class="headerlink" title="1.margin"></a>1.margin</h3><p>父元素设置<code>border</code>或者<code>padding</code>，子元素设置<code>magin</code>。灵感来源于《CSS权威指南》第三版 </p>
 <ul>
 <li><p>p180 auto小节</p>
 </li>
@@ -286,7 +286,7 @@
 <blockquote>
 <p>在包含块上设置边框或内边距时，会使其子元素的外边距包含在包含块内</p>
 </blockquote>
-<p>也就是说父元素在设置边框或者内边距后，子元素的margin属性在height可以直接以父元素边框为参考对象</p>
+<p>也就是说父元素在设置边框或者内边距后，子元素的margin属性在垂直方向上可以直接以父元素边框为参考对象</p>
 <p>缺点: 需要知道子元素宽高，并且父元素需额外添加没有太大意义的<code>border/padding</code></p>
 <p>事实上也可应用于图片，见示例</p>
 <p>父元素</p>
