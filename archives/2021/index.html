@@ -17,23 +17,10 @@
   <meta name="description" content="Just for fun">
   <meta name="author" content="LitStronger">
   <meta name="keywords" content="">
-  <title>js程序执行顺序判断 - LitStronger&#39;s notes</title>
+  <title>归档 - LitStronger&#39;s notes</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
-
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
-
-  
-    
-    
-      
-      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atelier-dune-light.min.css" />
-    
-  
-
-  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -56,7 +43,7 @@
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 60vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -189,59 +176,14 @@
 </nav>
 
     <div class="banner intro-2" id="background" parallax=true
-         style="background: url('https://hexo-1259001110.cos.ap-shanghai.myqcloud.com/qiye.png') no-repeat center center;
+         style="background: url('https://hexo2-1259001110.cos.ap-guangzhou.myqcloud.com/guidang.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
           <div class="container page-header text-center fade-in-up">
             <span class="h2" id="subtitle">
               
             </span>
-
-            
-              <div class="mt-3">
-  
-  
-    <span class="post-meta">
-      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-11-26 21:14" pubdate>
-        2020年11月26日 晚上
-      </time>
-    </span>
-  
-</div>
-
-<div class="mt-1">
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      530 字
-    </span>
-  
-
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
-      
-      
-      6
-       分钟
-    </span>
-  
-
-  
-  
-    
-      <!-- LeanCloud 统计文章PV -->
-      <span id="leancloud-post-views-container" class="post-meta" style="display: none">
-        <i class="iconfont icon-eye" aria-hidden="true"></i>
-        <span id="leancloud-post-views"></span> 次
-      </span>
-    
-  
-</div>
 
             
           </div>
@@ -254,191 +196,37 @@
 
   <main>
     
+      <div class="container nopadding-md">
+        <div class="py-5" id="board"
+          >
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+<div class="list-group">
+  <p class="h4">共计 26 篇文章</p>
+  <hr>
+  
+    
       
-
-<div class="container-fluid">
-  <div class="row">
-    <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
-        <div class="py-5" id="board">
-          <article class="post-content mx-auto" id="post">
-            <!-- SEO header -->
-            <h1 style="display: none">js程序执行顺序判断</h1>
-            
-              <p class="note note-info">
-                
-                  本文最后更新于：2020年12月13日 晚上
-                
-              </p>
-            
-            <div class="markdown-body" id="post-body">
-              <p>某2020前端互助群的每周议题(二)</p>
-<a id="more"></a>
-
-<p><strong>参考学习资料:</strong></p>
-<p><a target="_blank" rel="noopener" href="https://es6.ruanyifeng.com/#docs/promise#Promise-prototype-catch">《ECMAScript 6 入门》Promise </a></p>
-<p><a target="_blank" rel="noopener" href="https://es6.ruanyifeng.com/#docs/async">《ECMAScript 6 入门》async </a></p>
-<p><a target="_blank" rel="noopener" href="https://www.yuque.com/kuwu/opfh8y/kriyta">本次议题总结</a></p>
-<p><strong>题目:</strong></p>
-<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">async1</span> (<span class="hljs-params"></span>) </span>&#123;
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">1</span>);
-    <span class="hljs-keyword">await</span> async2();
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">2</span>);
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">await</span> <span class="hljs-number">3</span>
-&#125;
- 
-<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">async2</span> (<span class="hljs-params"></span>) </span>&#123;
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">4</span>);
-&#125;
- 
-<span class="hljs-built_in">setTimeout</span>(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">5</span>);
-&#125;, <span class="hljs-number">0</span>);
- 
-async1().then(<span class="hljs-function"><span class="hljs-params">v</span>=&gt;</span> <span class="hljs-built_in">console</span>.log(v))
- 
-<span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">resolve</span>) </span>&#123;
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">6</span>);
-    resolve();
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">7</span>)
-&#125;).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">8</span>);
-&#125;);
- 
-<span class="hljs-built_in">console</span>.log(<span class="hljs-number">9</span>);</code></pre></div>
-<p><strong>我的思路：</strong></p>
-<p>按照正常顺序，首先遇到的是宏任务<code>setTimeout()</code>，将其加入<code>宏任务队列</code>（稍后执行）<br>代码继续运行，进入函数<code>async1()</code>，直接输出1，</p>
-<div class="hljs"><pre><code class="hljs shell">1</code></pre></div>
-<p>执行函数<code>async2()</code>，直接输出4</p>
-<div class="hljs"><pre><code class="hljs shell">1 4</code></pre></div>
-<p>然后遇到了微任务<code>await async2()</code>，将其加入<code>微任务队列</code>(稍后执行)，<code>await async2()</code>后的代码将被阻塞直到该微任务执行完</p>
-<p>接着进入<code>Promise()</code>，直接输出6。</p>
-<div class="hljs"><pre><code class="hljs shell">1 4 6</code></pre></div>
-<p>然后遇到了<code>resolve()</code>，将其加入<code>微任务队列</code>，接着是输出7</p>
-<div class="hljs"><pre><code class="hljs shell">1 4 6 7</code></pre></div>
-<p>代码继续执行，直接输出9</p>
-<div class="hljs"><pre><code class="hljs shell">1 4 6 7 9</code></pre></div>
-<hr>
-<p>至此代码已经执行到末尾了，开始执行微任务队列中的任务。<br>根据队列 <strong>先进先出</strong> 的特点，可以知道先执行<code>await async2()</code>，直接输出4，微任务完成</p>
-<div class="hljs"><pre><code class="hljs shell">1 4 6 7 9</code></pre></div>
-<p>接着执行之前之前被阻塞的部分，直接输出2，然后遇到微任务<code>await 3</code>，将其加入<code>微任务队列</code>，后续代码进入阻塞状态</p>
-<div class="hljs"><pre><code class="hljs shell">1 4 6 7 9 2</code></pre></div>
-<p>从微任务队列中取出前面加入的<code>resolve()</code>，执行后进入.then()，直接输出8，微任务完成</p>
-<div class="hljs"><pre><code class="hljs shell">1 4 6 7 9 2 8</code></pre></div>
-<p>从微任务队列中取出剩下的微任务<code>await 3</code>， 微任务完成。返回值为3，然后进入.then()，输出3</p>
-<div class="hljs"><pre><code class="hljs shell">1 4 6 7 9 2 8 3</code></pre></div>
-<p>所有微任务都执行完后，就剩下宏任务<code>setTimeout</code>了，执行任务，输出5</p>
-<div class="hljs"><pre><code class="hljs shell">1 4 6 7 9 2 8 3 5</code></pre></div>
+      <p class="h5">2021</p>
+    
+    <a href="/2021/01/29/annualSummary/2020%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">2020年度总结</span>
+      <time style="float: right;">01-29</time>
+    </a>
+  
+</div>
 
 
 
-<hr>
-<p><a href="">为了更好地理解本次内容，咕咕侠决定手写一个极其简陋的<code>Promise</code>，并且实现ES2021引入的Promise.any()方法，篇幅较长，另开文章</a></p>
-
-            </div>
-            <hr>
-            <div>
-              <div class="post-metas mb-3">
-                
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
-                    
-                      <a class="hover-with-bg" href="/categories/%E5%89%8D%E7%AB%AF/js/">js</a>
-                    
-                  </div>
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a>
-                    
-                  </div>
-                
               </div>
-              
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
-              
-              
-                <div class="post-prevnext row">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2020/11/30/interview/js%E5%88%A4%E6%96%AD%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9B%B8%E7%AD%89/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">js判断浮点数相等</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2020/11/26/js%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
-                        <span class="hidden-mobile">js判断数据类型</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
             </div>
-
-            
-              <!-- Comments -->
-              <article class="comments" id="comments">
-                
-                
-  <script type="text/javascript">
-    function loadUtterances() {
-      var light = 'github-light';
-      var dark = 'github-dark';
-      var schema = document.documentElement.getAttribute('data-user-color-scheme');
-      if (schema === 'dark') {
-        schema = dark;
-      } else {
-        schema = light;
-      }
-      window.UtterancesThemeLight = light;
-      window.UtterancesThemeDark = dark;
-      var s = document.createElement('script');
-      s.setAttribute('src', 'https://utteranc.es/client.js');
-      s.setAttribute('repo', 'LitStronger/commit-utterances');
-      s.setAttribute('issue-term', 'pathname');
-      
-      s.setAttribute('theme', schema);
-      s.setAttribute('crossorigin', 'anonymous');
-      document.getElementById('comments').appendChild(s);
-    }
-    waitElementVisible('comments', loadUtterances)
-  </script>
-
-
-              </article>
-            
-          </article>
+          </div>
         </div>
       </div>
-    </div>
-    
-      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div id="tocbot"></div>
-</div>
-
-      </div>
-    
-  </div>
-</div>
-
-<!-- Custom -->
-
-
     
   </main>
 
@@ -653,10 +441,10 @@ async1().then(<span class="hljs-function"><span class="hljs-params">v</span>=&gt
       }
 
       // 如果是文章，请求文章的浏览数，并自增
-      if ('true' === 'true') {
+      if ('false' === 'true') {
         var viewCtn = document.querySelector('#leancloud-post-views-container');
         if (viewCtn || enableIncr) {
-          var target = decodeURI('/2020/11/26/js%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F%E5%88%A4%E6%96%AD/');
+          var target = decodeURI('/archives/2021/index.html');
           var viewGetter = getRecord(Counter, target).then((record) => {
             incrArr.push(buildIncrement(record.objectId))
             if (viewCtn) {
@@ -718,31 +506,6 @@ async1().then(<span class="hljs-function"><span class="hljs-params">v</span>=&gt
 
 
 
-  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
-  <script>
-    $(document).ready(function () {
-      var boardCtn = $('#board-ctn');
-      var boardTop = boardCtn.offset().top;
-
-      tocbot.init({
-        tocSelector: '#tocbot',
-        contentSelector: '#post-body',
-        headingSelector: 'h1,h2,h3,h4,h5,h6',
-        linkClass: 'tocbot-link',
-        activeLinkClass: 'tocbot-active-link',
-        listClass: 'tocbot-list',
-        isCollapsedClass: 'tocbot-is-collapsed',
-        collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 0,
-        scrollSmooth: true,
-        headingsOffset: -boardTop
-      });
-      if ($('.toc-list-item').length > 0) {
-        $('#toc').css('visibility', 'visible');
-      }
-    });
-  </script>
-
 
 
   <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
@@ -750,7 +513,7 @@ async1().then(<span class="hljs-function"><span class="hljs-params">v</span>=&gt
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "js程序执行顺序判断&nbsp;",
+        "归档&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
@@ -765,21 +528,6 @@ async1().then(<span class="hljs-function"><span class="hljs-params">v</span>=&gt
 
 
 
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "always",
-      
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
-  </script>
-
 
 
   <script  src="/js/local-search.js" ></script>
@@ -793,20 +541,6 @@ async1().then(<span class="hljs-function"><span class="hljs-params">v</span>=&gt
   </script>
 
 
-
-  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <script>
-    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
-      function () {
-        var element = document.createElement('a');
-        $(element).attr('data-fancybox', 'images');
-        $(element).attr('href', $(this).attr('src'));
-        $(this).wrap(element);
-      }
-    );
-  </script>
 
 
 
