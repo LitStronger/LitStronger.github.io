@@ -216,7 +216,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.1k 字
+      1.4k 字
     </span>
   
 
@@ -226,7 +226,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      17
+      20
        分钟
     </span>
   
@@ -268,7 +268,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2020年12月13日 晚上
+                  本文最后更新于：2021年2月6日 晚上
                 
               </p>
             
@@ -471,8 +471,76 @@ MyPromise.any([
   <span class="hljs-comment">// reasons is [&#x27;✗&#x27;, &#x27;✗&#x27;] </span>
 &#125;);</code></pre></div>
 
+<h1 id="ajax"><a href="#ajax" class="headerlink" title="ajax"></a>ajax</h1><p><strong>相关函数/属性</strong></p>
+<ul>
+<li><p>XMLHttpRequest.open( method, url, async ) – 初始化一个请求。<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/open">详见</a></p>
+<p>async：是否异步</p>
+</li>
+<li><p>XMLHttpRequest.send() – 发送 HTTP 请求。<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/send">详见</a></p>
+<p>异步请求(默认)：会在请求发送后立即返回；</p>
+<p>同步请求：直到响应到达后才会返回。</p>
+</li>
+<li><p>XMLHttpRequest.onreadystatechange –只要 <code>readyState</code> 值发生变化，就会执行</p>
+</li>
+<li><p>XMLHttpRequest.readyState – XMLHttpRequest 的状态码</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>状态</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>0</code></td>
+<td><code>UNSENT</code></td>
+<td>代理被创建，但尚未调用 open() 方法。</td>
+</tr>
+<tr>
+<td><code>1</code></td>
+<td><code>OPENED</code></td>
+<td><code>open()</code> 方法已经被调用。</td>
+</tr>
+<tr>
+<td><code>2</code></td>
+<td><code>HEADERS_RECEIVED</code></td>
+<td><code>send()</code> 方法已经被调用，并且头部和状态已经可获得。</td>
+</tr>
+<tr>
+<td><code>3</code></td>
+<td><code>LOADING</code></td>
+<td>下载中； <code>responseText</code> 属性已经包含部分数据。</td>
+</tr>
+<tr>
+<td><code>4</code></td>
+<td><code>DONE</code></td>
+<td>下载操作已完成。</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<p><strong>实现</strong></p>
+<div class="hljs"><pre><code class="hljs js"><span class="hljs-keyword">let</span> xhr = <span class="hljs-literal">null</span>
+xhr = <span class="hljs-keyword">new</span> XMLHttpRequest();
+<span class="hljs-keyword">if</span> (xhr != <span class="hljs-literal">null</span>) &#123;
+    xhr.onreadystatechange = stateChange
+    xhr.open(<span class="hljs-string">&#x27;GET&#x27;</span>, <span class="hljs-string">&#x27;http://127.0.0.1:3000/&#x27;</span>, <span class="hljs-literal">false</span>)
+    xhr.send()
+&#125;
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">stateChange</span>(<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">if</span> (xhr.readyState === <span class="hljs-number">4</span>) &#123;
+        <span class="hljs-keyword">if</span> (xhr.status === <span class="hljs-number">200</span>) &#123; <span class="hljs-comment">// 不需要考虑304，见下文</span>
+            <span class="hljs-built_in">console</span>.log(xhr.responseText) <span class="hljs-comment">// 响应数据</span>
+            alert(<span class="hljs-string">&#x27;success&#x27;</span>)
+        &#125;
+        <span class="hljs-keyword">else</span> &#123;
+            <span class="hljs-built_in">console</span>.log(xhr.status)
+            alert(<span class="hljs-string">&quot;something error&quot;</span>)
+        &#125;
+    &#125;
+&#125;</code></pre></div>
 
-
+<p>请求结果判断200或者0状态就可以了，跳转不需要判断的，因为返回的是最后跳转的网址的状态</p>
 
             </div>
             <hr>
