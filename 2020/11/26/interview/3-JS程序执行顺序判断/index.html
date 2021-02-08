@@ -17,7 +17,7 @@
   <meta name="description" content="Just for fun">
   <meta name="author" content="LitStronger">
   <meta name="keywords" content="">
-  <title>CSS居中 - LitStronger&#39;s notes</title>
+  <title>js程序执行顺序判断 - LitStronger&#39;s notes</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -204,8 +204,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-12-13 10:59" pubdate>
-        2020年12月13日 上午
+      <time datetime="2020-11-26 21:14" pubdate>
+        2020年11月26日 晚上
       </time>
     </span>
   
@@ -216,7 +216,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      609 字
+      530 字
     </span>
   
 
@@ -226,7 +226,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      7
+      6
        分钟
     </span>
   
@@ -264,96 +264,77 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">CSS居中</h1>
+            <h1 style="display: none">js程序执行顺序判断</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2020年12月14日 下午
+                  本文最后更新于：2020年12月13日 晚上
                 
               </p>
             
             <div class="markdown-body" id="post-body">
-              <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>1.第一类，div中的文字或者图片在div中垂直水平居中</p>
-<p>2.第二类，div元素相对于它的父元素垂直水平居中</p>
-<h1 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h1><h2 id="第一类-文字-图片"><a href="#第一类-文字-图片" class="headerlink" title="第一类:文字/图片"></a>第一类:文字/图片</h2><h3 id="line-height"><a href="#line-height" class="headerlink" title="line-height"></a>line-height</h3><p>仅限子元素为行内元素或图片，且只有单行/单个</p>
-<h2 id="第二类-div子元素"><a href="#第二类-div子元素" class="headerlink" title="第二类:div子元素"></a>第二类:div子元素</h2><h3 id="1-margin"><a href="#1-margin" class="headerlink" title="1.margin"></a>1.margin</h3><p>父元素设置<code>border</code>或者<code>padding</code>，子元素设置<code>magin</code>。灵感来源于《CSS权威指南》第三版 </p>
-<ul>
-<li><p>p180 auto小节</p>
-</li>
-<li><p>p182 合并外边距详解小节</p>
-</li>
-</ul>
-<blockquote>
-<p>在包含块上设置边框或内边距时，会使其子元素的外边距包含在包含块内</p>
-</blockquote>
-<p>也就是说父元素在设置边框或者内边距后，子元素的margin属性在垂直方向上可以直接以父元素边框为参考对象</p>
-<p>缺点: 需要知道子元素宽高，并且父元素需额外添加没有太大意义的<code>border/padding</code></p>
-<p>事实上也可应用于图片，见示例</p>
-<p>父元素</p>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">border</span>: 1<span class="hljs-selector-tag">px</span> <span class="hljs-selector-tag">solid</span> <span class="hljs-selector-tag">transparent</span>;<span class="hljs-comment">/* 或者设置padding */</span></code></pre></div>
+              <p>某2020前端互助群的每周议题(二)</p>
+<a id="more"></a>
 
-<p>子元素</p>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">background-color</span>: <span class="hljs-selector-tag">orange</span>;
-<span class="hljs-selector-tag">margin</span>: <span class="hljs-selector-tag">calc</span>(50% <span class="hljs-selector-tag">-</span> 2<span class="hljs-selector-class">.5em</span>) <span class="hljs-selector-tag">auto</span>;</code></pre></div>
-
-<h3 id="relative-transform"><a href="#relative-transform" class="headerlink" title="relative+transform"></a>relative+transform</h3><p>父元素不用更改</p>
-<p>子元素</p>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">position</span>: <span class="hljs-selector-tag">relative</span>;
-<span class="hljs-selector-tag">left</span>: 50%;
-<span class="hljs-selector-tag">top</span>: 50%;
-<span class="hljs-selector-tag">transform</span>: <span class="hljs-selector-tag">translate</span>(<span class="hljs-selector-tag">-50</span>%, <span class="hljs-selector-tag">-50</span>%);</code></pre></div>
-
-<p>缺点：行内元素失效</p>
-<h2 id="通用解法"><a href="#通用解法" class="headerlink" title="通用解法"></a>通用解法</h2><p>优点: 无需知道子元素的宽高</p>
-<h3 id="flex"><a href="#flex" class="headerlink" title="flex"></a>flex</h3><p>父元素中添加</p>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">display</span>: <span class="hljs-selector-tag">flex</span>;
-<span class="hljs-selector-tag">justify-content</span>: <span class="hljs-selector-tag">center</span>;
-<span class="hljs-selector-tag">align-items</span>: <span class="hljs-selector-tag">center</span>;
-<span class="hljs-comment">/* flex-wrap: wrap; 换行 */</span>
-<span class="hljs-selector-tag">flex-direction</span>: <span class="hljs-selector-tag">column</span>;<span class="hljs-comment">/* 调主轴 */</span></code></pre></div>
-
-<h3 id="relative-absolute-transform"><a href="#relative-absolute-transform" class="headerlink" title="relative+absolute(+transform)"></a>relative+absolute(+transform)</h3><p>父元素使用<code>position: relative</code>，子元素设置如下</p>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">position</span>: <span class="hljs-selector-tag">absolute</span>;
-<span class="hljs-selector-tag">left</span>: 50%;
-<span class="hljs-selector-tag">top</span>: 50%;
-<span class="hljs-selector-tag">transform</span>: <span class="hljs-selector-tag">translate</span>(<span class="hljs-selector-tag">-50</span>%,<span class="hljs-selector-tag">-50</span>%);</code></pre></div>
-
-<p>当然，如果标签自带<code>margin</code>或<code>padding</code>值，记得清除，否则translate移动的值将不是你想要的，除非你使用了<code>box-sizing: border-box</code> 。详情参见盒模型的宽高计算</p>
-<p>定位方式除了上面这种方式，还有另一种奇技淫巧: </p>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">position</span>: <span class="hljs-selector-tag">absolute</span>;
-<span class="hljs-selector-tag">top</span>: 0;
-<span class="hljs-selector-tag">right</span>: 0;
-<span class="hljs-selector-tag">bottom</span>: 0;
-<span class="hljs-selector-tag">left</span>: 0;
-<span class="hljs-selector-tag">margin</span>: <span class="hljs-selector-tag">auto</span>;</code></pre></div>
-
-<p>缺点：子元素有多个的时侯，存在重叠问题</p>
-<h3 id="表格布局"><a href="#表格布局" class="headerlink" title="表格布局"></a>表格布局</h3><p>表格实际上越来越少用到了，可能会有潜在bug。目前没发现吧</p>
-<p>父元素</p>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">display</span>: <span class="hljs-selector-tag">table-cell</span>;
-<span class="hljs-selector-tag">text-align</span>: <span class="hljs-selector-tag">center</span>;
-<span class="hljs-selector-tag">vertical-align</span>: <span class="hljs-selector-tag">middle</span>;</code></pre></div>
-
-<p>子元素</p>
-<p>行内元素无需调整，块级元素需要加上<code>display: inline-block</code></p>
-<h3 id="伪元素-vertical-align"><a href="#伪元素-vertical-align" class="headerlink" title="伪元素+vertical-align"></a>伪元素+vertical-align</h3><p>这个我是真的服了，奇技淫巧系列</p>
-<p>父元素</p>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">text-align</span>: <span class="hljs-selector-tag">center</span>;</code></pre></div>
-
-<p>伪元素</p>
-<div class="hljs"><pre><code class="hljs css">content: &#x27;&#x27;;
-<span class="hljs-selector-tag">background-color</span>: <span class="hljs-selector-tag">green</span>;
-<span class="hljs-selector-tag">display</span>: <span class="hljs-selector-tag">inline-block</span>;
-<span class="hljs-selector-tag">height</span>: 100%;
-<span class="hljs-selector-tag">width</span>: 0;
-<span class="hljs-selector-tag">vertical-align</span>: <span class="hljs-selector-tag">middle</span>;</code></pre></div>
-
-<p>子元素</p>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">vertical-align</span>: <span class="hljs-selector-tag">middle</span>;</code></pre></div>
+<p><strong>参考学习资料:</strong></p>
+<p><a target="_blank" rel="noopener" href="https://es6.ruanyifeng.com/#docs/promise#Promise-prototype-catch">《ECMAScript 6 入门》Promise </a></p>
+<p><a target="_blank" rel="noopener" href="https://es6.ruanyifeng.com/#docs/async">《ECMAScript 6 入门》async </a></p>
+<p><a target="_blank" rel="noopener" href="https://www.yuque.com/kuwu/opfh8y/kriyta">本次议题总结</a></p>
+<p><strong>题目:</strong></p>
+<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">async1</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">1</span>);
+    <span class="hljs-keyword">await</span> async2();
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">2</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">await</span> <span class="hljs-number">3</span>
+&#125;
+ 
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">async2</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">4</span>);
+&#125;
+ 
+<span class="hljs-built_in">setTimeout</span>(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">5</span>);
+&#125;, <span class="hljs-number">0</span>);
+ 
+async1().then(<span class="hljs-function"><span class="hljs-params">v</span>=&gt;</span> <span class="hljs-built_in">console</span>.log(v))
+ 
+<span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">resolve</span>) </span>&#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">6</span>);
+    resolve();
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">7</span>)
+&#125;).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">8</span>);
+&#125;);
+ 
+<span class="hljs-built_in">console</span>.log(<span class="hljs-number">9</span>);</code></pre></div>
+<p><strong>我的思路：</strong></p>
+<p>按照正常顺序，首先遇到的是宏任务<code>setTimeout()</code>，将其加入<code>宏任务队列</code>（稍后执行）<br>代码继续运行，进入函数<code>async1()</code>，直接输出1，</p>
+<div class="hljs"><pre><code class="hljs shell">1</code></pre></div>
+<p>执行函数<code>async2()</code>，直接输出4</p>
+<div class="hljs"><pre><code class="hljs shell">1 4</code></pre></div>
+<p>然后遇到了微任务<code>await async2()</code>，将其加入<code>微任务队列</code>(稍后执行)，<code>await async2()</code>后的代码将被阻塞直到该微任务执行完</p>
+<p>接着进入<code>Promise()</code>，直接输出6。</p>
+<div class="hljs"><pre><code class="hljs shell">1 4 6</code></pre></div>
+<p>然后遇到了<code>resolve()</code>，将其加入<code>微任务队列</code>，接着是输出7</p>
+<div class="hljs"><pre><code class="hljs shell">1 4 6 7</code></pre></div>
+<p>代码继续执行，直接输出9</p>
+<div class="hljs"><pre><code class="hljs shell">1 4 6 7 9</code></pre></div>
+<hr>
+<p>至此代码已经执行到末尾了，开始执行微任务队列中的任务。<br>根据队列 <strong>先进先出</strong> 的特点，可以知道先执行<code>await async2()</code>，直接输出4，微任务完成</p>
+<div class="hljs"><pre><code class="hljs shell">1 4 6 7 9</code></pre></div>
+<p>接着执行之前之前被阻塞的部分，直接输出2，然后遇到微任务<code>await 3</code>，将其加入<code>微任务队列</code>，后续代码进入阻塞状态</p>
+<div class="hljs"><pre><code class="hljs shell">1 4 6 7 9 2</code></pre></div>
+<p>从微任务队列中取出前面加入的<code>resolve()</code>，执行后进入.then()，直接输出8，微任务完成</p>
+<div class="hljs"><pre><code class="hljs shell">1 4 6 7 9 2 8</code></pre></div>
+<p>从微任务队列中取出剩下的微任务<code>await 3</code>， 微任务完成。返回值为3，然后进入.then()，输出3</p>
+<div class="hljs"><pre><code class="hljs shell">1 4 6 7 9 2 8 3</code></pre></div>
+<p>所有微任务都执行完后，就剩下宏任务<code>setTimeout</code>了，执行任务，输出5</p>
+<div class="hljs"><pre><code class="hljs shell">1 4 6 7 9 2 8 3 5</code></pre></div>
 
 
 
-<p>  因为vertical-align实际上是给行内元素用的，所以块级元素需要额外加上<code>inline-block</code></p>
+<hr>
+<p><a href="">为了更好地理解本次内容，咕咕侠决定手写一个极其简陋的<code>Promise</code>，并且实现ES2021引入的Promise.any()方法，篇幅较长，另开文章</a></p>
 
             </div>
             <hr>
@@ -365,7 +346,7 @@
                     
                       <a class="hover-with-bg" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
                     
-                      <a class="hover-with-bg" href="/categories/%E5%89%8D%E7%AB%AF/css/">css</a>
+                      <a class="hover-with-bg" href="/categories/%E5%89%8D%E7%AB%AF/js/">js</a>
                     
                   </div>
                 
@@ -386,9 +367,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/01/29/annualSummary/2020%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/">
+                      <a href="/2020/11/30/interview/2-JS%E5%88%A4%E6%96%AD%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9B%B8%E7%AD%89/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">2020年度总结</span>
+                        <span class="hidden-mobile">js判断浮点数相等</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -396,8 +377,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/12/05/interview/click%E6%88%96touch%E9%95%BF%E6%8C%89%E4%B8%8E%E6%8B%96%E5%8A%A8/">
-                        <span class="hidden-mobile">click/touch长按与拖动</span>
+                      <a href="/2020/11/26/interview/1-JS%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
+                        <span class="hidden-mobile">js判断数据类型</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -675,7 +656,7 @@
       if ('true' === 'true') {
         var viewCtn = document.querySelector('#leancloud-post-views-container');
         if (viewCtn || enableIncr) {
-          var target = decodeURI('/2020/12/13/interview/CSS%E5%B1%85%E4%B8%AD/');
+          var target = decodeURI('/2020/11/26/interview/3-JS%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F%E5%88%A4%E6%96%AD/');
           var viewGetter = getRecord(Counter, target).then((record) => {
             incrArr.push(buildIncrement(record.objectId))
             if (viewCtn) {
@@ -769,7 +750,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "CSS居中&nbsp;",
+        "js程序执行顺序判断&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
