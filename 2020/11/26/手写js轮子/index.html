@@ -216,7 +216,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.5k 字
+      2.5k 字
     </span>
   
 
@@ -226,7 +226,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      23
+      38
        分钟
     </span>
   
@@ -268,7 +268,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年2月8日 上午
+                  本文最后更新于：2021年2月8日 晚上
                 
               </p>
             
@@ -546,7 +546,7 @@ xhr = <span class="hljs-keyword">new</span> XMLHttpRequest();
 
 <h1 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h1><p>预处理对象obj1</p>
 <div class="hljs"><pre><code class="hljs js"><span class="hljs-keyword">let</span> obj1 = &#123;
-    id: <span class="hljs-number">1</span>,
+    id: <span class="hljs-string">&#x27;1&#x27;</span>,
     name: <span class="hljs-string">&#x27;litstronger&#x27;</span>,
     hobbies: <span class="hljs-literal">null</span>,
     childObj: &#123;
@@ -556,12 +556,16 @@ xhr = <span class="hljs-keyword">new</span> XMLHttpRequest();
     regExp: <span class="hljs-regexp">/a/</span>,
     func: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
         <span class="hljs-built_in">console</span>.log(<span class="hljs-number">1</span>)
+    &#125;,
+    arrowFunc: <span class="hljs-function">() =&gt;</span> &#123;
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;arrow func&#x27;</span>)
     &#125;
 &#125;</code></pre></div>
 
-
-
-<h3 id="利用JSON处理"><a href="#利用JSON处理" class="headerlink" title="利用JSON处理"></a>利用JSON处理</h3><p>使用JSON来深拷贝应该是比较实用的，简单且能满足大多数场景下的需求。缺点是无法处理<code>函数</code>，<code>正则</code>这两种对象。</p>
+<h2 id="利用JSON处理"><a href="#利用JSON处理" class="headerlink" title="利用JSON处理"></a>利用JSON处理</h2><p>使用JSON来深拷贝应该是比较实用的，简单且能满足大多数场景下的需求。缺点是无法处理<code>函数</code>，<code>正则</code>这两种对象。</p>
+<blockquote>
+<p>个人觉得拷贝函数、正则没有太大的意义，如果只是修改引用的指向的话，比如让obj2的func指向另一个函数，是不会影响obj1的func的，正则也是如此。除非是修改了func内部的属性才会有影响。</p>
+</blockquote>
 <div class="hljs"><pre><code class="hljs js"><span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.parse(<span class="hljs-built_in">JSON</span>.stringify(obj1)))</code></pre></div>
 
 <p>output:</p>
@@ -574,9 +578,173 @@ xhr = <span class="hljs-keyword">new</span> XMLHttpRequest();
   regExp: &#123;&#125;
 &#125;</code></pre></div>
 
+<p>可以看到处理后正则变空，函数直接整个没了。</p>
+<h2 id="手写递归处理"><a href="#手写递归处理" class="headerlink" title="手写递归处理"></a>手写递归处理</h2><h3 id="1-简陋结构"><a href="#1-简陋结构" class="headerlink" title="1.简陋结构"></a>1.简陋结构</h3><div class="hljs"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">deepClone</span>(<span class="hljs-params">target</span>)</span>&#123;
+    <span class="hljs-function"><span class="hljs-title">if</span>(<span class="hljs-params">target <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Object</span></span>)</span>&#123;
+        <span class="hljs-keyword">let</span> tempObj = &#123;&#125;
+        <span class="hljs-function"><span class="hljs-title">for</span>(<span class="hljs-params"><span class="hljs-keyword">let</span> key <span class="hljs-keyword">in</span> target</span>)</span>&#123;
+        	tempObj[key] = deepClone(target[key])
+    	&#125;
+        <span class="hljs-keyword">return</span> tempObj
+    &#125;
+    <span class="hljs-keyword">else</span>&#123;
+        <span class="hljs-keyword">return</span> target
+    &#125;
+&#125;</code></pre></div>
 
+<p>output:</p>
+<div class="hljs"><pre><code class="hljs js">&#123;
+  id: <span class="hljs-string">&#x27;1&#x27;</span>,
+  name: <span class="hljs-string">&#x27;litstronger&#x27;</span>,
+  hobbies: <span class="hljs-literal">null</span>,
+  childObj: &#123; <span class="hljs-attr">test</span>: <span class="hljs-string">&#x27;deepClone&#x27;</span> &#125;,       
+  childArray: &#123; <span class="hljs-string">&#x27;0&#x27;</span>: <span class="hljs-number">1</span>, <span class="hljs-string">&#x27;1&#x27;</span>: <span class="hljs-number">2</span>, <span class="hljs-string">&#x27;2&#x27;</span>: <span class="hljs-number">3</span> &#125;,
+  regExp: &#123;&#125;,
+  func: &#123;&#125;,
+  arrowFunc: &#123;&#125;
+&#125;</code></pre></div>
 
+<p>显然，这里只能处理最基本的对象<code>&#123;&#125;</code>，数组的话需要再做处理。</p>
+<h3 id="2-处理数组"><a href="#2-处理数组" class="headerlink" title="2.处理数组"></a>2.处理数组</h3><p>也不难，因为基本对象和数组都可以用中括号[]进行属性访问，所以在处理上是一样的。只需要在创建tempObj时加个判断</p>
+<div class="hljs"><pre><code class="hljs js"><span class="hljs-keyword">let</span> tempObj = <span class="hljs-built_in">Array</span>.isArray(target)?[]:&#123;&#125;</code></pre></div>
 
+<p>如下</p>
+<div class="hljs"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">deepClone</span>(<span class="hljs-params">target</span>)</span>&#123;
+    <span class="hljs-function"><span class="hljs-title">if</span>(<span class="hljs-params">target <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Object</span></span>)</span>&#123;
+        <span class="hljs-keyword">let</span> tempObj = <span class="hljs-built_in">Array</span>.isArray(target)?[]:&#123;&#125;
+        <span class="hljs-function"><span class="hljs-title">for</span>(<span class="hljs-params"><span class="hljs-keyword">let</span> key <span class="hljs-keyword">in</span> target</span>)</span>&#123;
+        	tempObj[key] = deepClone(target[key])
+    	&#125;
+        <span class="hljs-keyword">return</span> tempObj
+    &#125;
+    <span class="hljs-keyword">else</span>&#123;
+        <span class="hljs-keyword">return</span> target
+    &#125;
+&#125;</code></pre></div>
+
+<p>output:</p>
+<div class="hljs"><pre><code class="hljs js">&#123;
+  id: <span class="hljs-string">&#x27;1&#x27;</span>,
+  name: <span class="hljs-string">&#x27;litstronger&#x27;</span>,
+  hobbies: <span class="hljs-literal">null</span>,
+  childObj: &#123; <span class="hljs-attr">test</span>: <span class="hljs-string">&#x27;deepClone&#x27;</span> &#125;,
+  childArray: [ <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span> ],
+  regExp: &#123;&#125;,
+  func: &#123;&#125;,
+  arrowFunc: &#123;&#125;
+&#125;</code></pre></div>
+
+<p>可见，数组拷贝也正常了</p>
+<h3 id="3-循环引用"><a href="#3-循环引用" class="headerlink" title="3.循环引用"></a>3.循环引用</h3><p>咕</p>
+<h3 id="4-处理函数和正则"><a href="#4-处理函数和正则" class="headerlink" title="4.处理函数和正则"></a>4.处理函数和正则</h3><p>啊。这两个不处理心里别扭啊。</p>
+<h4 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h4><p>数组需要考虑两种情况：普通函数、箭头函数。</p>
+<p><strong>区分</strong>：可以利用箭头函数没有<code>prototype</code>的特点</p>
+<p><strong>拷贝</strong>：</p>
+<ul>
+<li><p>普通函数：</p>
+<p>bind()可以返回一个函数的拷贝啊。MDN对bind()的返回值是这么说的。我试着实现了下拷贝，应该没问题</p>
+<blockquote>
+<p>A copy of the given function with the specified <code>this</code> value, and initial arguments (if provided).</p>
+</blockquote>
+</li>
+<li><p>箭头函数：</p>
+<p>利用toString()和eval()</p>
+</li>
+</ul>
+<p>综上，对函数的处理如下</p>
+<div class="hljs"><pre><code class="hljs js"><span class="hljs-keyword">if</span> (typeOfValue(<span class="hljs-string">&#x27;Function&#x27;</span>)(target)) &#123;
+   <span class="hljs-keyword">if</span> (target.prototype)&#123;    <span class="hljs-comment">// 区别箭头函数</span>
+        <span class="hljs-keyword">return</span> target.bind(<span class="hljs-literal">null</span>)
+   &#125;
+   <span class="hljs-keyword">else</span> &#123;
+        <span class="hljs-keyword">return</span> <span class="hljs-built_in">eval</span>(target.toString())
+   &#125;
+&#125;</code></pre></div>
+
+<p>这个我想了蛮久了，网上找到的方法似乎都挺麻烦的，比如用正则匹配参数和函数体。</p>
+<p>lodash库的深拷贝对函数的处理也是直接返回。可能拷贝函数真没什么应用场景吧。</p>
+<p>截取代码如下</p>
+<div class="hljs"><pre><code class="hljs js"><span class="hljs-keyword">const</span> isFunc = <span class="hljs-keyword">typeof</span> value == <span class="hljs-string">&#x27;function&#x27;</span>
+<span class="hljs-keyword">if</span> (isFunc || !cloneableTags[tag]) &#123;
+       <span class="hljs-keyword">return</span> object ? value : &#123;&#125;
+&#125;</code></pre></div>
+
+<h4 id="正则"><a href="#正则" class="headerlink" title="正则"></a>正则</h4><p>使用RegExp()新创建一个正则需要两个参数，分别是主体<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-cn/docs/web/javascript/guide/regular_expressions#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F">内容部分(source)</a>和<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-cn/docs/web/javascript/guide/regular_expressions#%E9%80%9A%E8%BF%87%E6%A0%87%E5%BF%97%E8%BF%9B%E8%A1%8C%E9%AB%98%E7%BA%A7%E6%90%9C%E7%B4%A2">标志(flags)</a>，比如在<code>/a/i</code>中</p>
+<div class="hljs"><pre><code class="hljs js"><span class="hljs-keyword">let</span> reg = <span class="hljs-regexp">/a/i</span>
+<span class="hljs-built_in">console</span>.log(reg.source, reg.flags) <span class="hljs-comment">// a i</span>
+
+<span class="hljs-keyword">let</span> reg2 = <span class="hljs-built_in">RegExp</span>(reg.source, reg.flags) <span class="hljs-comment">// 拷贝</span>
+<span class="hljs-built_in">console</span>.log(reg === reg2)	<span class="hljs-comment">// false</span></code></pre></div>
+
+<p>至于正则内部的其他属性，还是需要遍历拷贝，使用前文的拷贝方式就可以了。</p>
+<h3 id="5-判断类型"><a href="#5-判断类型" class="headerlink" title="5.判断类型"></a>5.判断类型</h3><p>用于区分基本对象、数组、函数和正则</p>
+<div class="hljs"><pre><code class="hljs js"><span class="hljs-keyword">let</span> typeOfValue = <span class="hljs-function"><span class="hljs-params">type</span> =&gt;</span> <span class="hljs-function"><span class="hljs-params">v</span> =&gt;</span> <span class="hljs-string">`[object <span class="hljs-subst">$&#123;type&#125;</span>]`</span> === <span class="hljs-built_in">Object</span>.prototype.toString.call(v)</code></pre></div>
+
+<h3 id="6-合并"><a href="#6-合并" class="headerlink" title="6.合并"></a>6.合并</h3><p>把上述代码块整合起来，看看结果吧</p>
+<div class="hljs"><pre><code class="hljs js"><span class="hljs-keyword">let</span> obj1 = &#123;
+    id: <span class="hljs-string">&#x27;1&#x27;</span>,
+    name: <span class="hljs-string">&#x27;litstronger&#x27;</span>,
+    age: <span class="hljs-string">&#x27;18&#x27;</span>,
+    childObj: &#123;
+        test: <span class="hljs-string">&quot;deepClone&quot;</span>,
+    &#125;,
+    childArray: [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>],
+    regExp: <span class="hljs-regexp">/a/</span>,
+    func: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-number">1</span>)
+    &#125;,
+    arrowFunc: <span class="hljs-function">() =&gt;</span> &#123;
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;arrow func&#x27;</span>)
+    &#125;
+&#125;
+
+<span class="hljs-keyword">let</span> typeOfValue = <span class="hljs-function"><span class="hljs-params">type</span> =&gt;</span> <span class="hljs-function"><span class="hljs-params">v</span> =&gt;</span> <span class="hljs-string">`[object <span class="hljs-subst">$&#123;type&#125;</span>]`</span> === <span class="hljs-built_in">Object</span>.prototype.toString.call(v)
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">deepClone</span>(<span class="hljs-params">target</span>) </span>&#123;
+    <span class="hljs-keyword">if</span> (target <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Object</span>) &#123;
+        <span class="hljs-keyword">let</span> tempObj
+        <span class="hljs-keyword">if</span> (typeOfValue(<span class="hljs-string">&#x27;RegExp&#x27;</span>)(target)) &#123; <span class="hljs-comment">// 正则</span>
+            tempObj = <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(target.source, target.flags)
+        &#125;
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (typeOfValue(<span class="hljs-string">&#x27;Function&#x27;</span>)(target)) &#123; <span class="hljs-comment">// 函数 </span>
+            <span class="hljs-keyword">if</span> (target.prototype)    
+                <span class="hljs-keyword">return</span> target.bind(<span class="hljs-literal">null</span>)
+            <span class="hljs-keyword">else</span> &#123;
+                <span class="hljs-keyword">return</span> <span class="hljs-built_in">eval</span>(target.toString())
+            &#125;
+        &#125;
+        <span class="hljs-keyword">else</span> &#123;  <span class="hljs-comment">// [] and &#123;&#125;</span>
+            tempObj = <span class="hljs-built_in">Array</span>.isArray(target) ? [] : &#123;&#125;
+        &#125;
+
+        <span class="hljs-function"><span class="hljs-title">for</span>(<span class="hljs-params"><span class="hljs-keyword">let</span> key <span class="hljs-keyword">in</span> target</span>)</span>&#123;
+        	tempObj[key] = deepClone(target[key])
+    	&#125;
+        <span class="hljs-keyword">return</span> tempObj
+    &#125;
+    <span class="hljs-keyword">else</span> &#123;
+        <span class="hljs-keyword">return</span> target
+    &#125;
+&#125;
+<span class="hljs-built_in">console</span>.log(obj2)
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;正则&quot;</span>, obj1.regExp === obj2.regExp)
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;普通函数&quot;</span>, obj1.func === obj2.func)
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;箭头函数&quot;</span>, obj1.arrowFunc === obj2.arrowFunc)</code></pre></div>
+
+<p>output:</p>
+<div class="hljs"><pre><code class="hljs js">&#123;
+  id: <span class="hljs-string">&#x27;1&#x27;</span>,
+  name: <span class="hljs-string">&#x27;litstronger&#x27;</span>,
+  age: <span class="hljs-string">&#x27;18&#x27;</span>,
+  childObj: &#123; <span class="hljs-attr">test</span>: <span class="hljs-string">&#x27;deepClone&#x27;</span> &#125;,
+  childArray: [ <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span> ],
+  regExp: <span class="hljs-regexp">/a/</span>,
+  func: [<span class="hljs-built_in">Function</span>: bound func],
+  arrowFunc: [<span class="hljs-built_in">Function</span> (anonymous)]
+&#125;
+正则 <span class="hljs-literal">false</span>
+普通函数 <span class="hljs-literal">false</span>
+箭头函数 <span class="hljs-literal">false</span></code></pre></div>
 
 
 
