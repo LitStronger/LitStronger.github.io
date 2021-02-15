@@ -4,7 +4,34 @@
   
   
   <entry>
-    <title>浅拷贝和深拷贝</title>
+    <title>9-说说cookie,localStorage和session</title>
+    <link href="/2021/02/15/interview/9-%E8%AF%B4%E8%AF%B4cookie-localStorage%E5%92%8Csession/"/>
+    <url>/2021/02/15/interview/9-%E8%AF%B4%E8%AF%B4cookie-localStorage%E5%92%8Csession/</url>
+    
+    <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>请问cookie，localStorage，sessionStorage的区别？</p><h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p><strong>cookie</strong>：cookie是HTML4中使用的给客户端保存数据的。可以和session配合实现用户身份识别，比如区别vip用户和普通用户。</p><p><strong>webStorage</strong>: 包括<code>localStorage</code>和<code>sessionStorage</code>。webStorage是HTML5中提出的内容。存粹为了保存数据，不会与服务器端进行通信</p><h1 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h1><h2 id="1-相同点"><a href="#1-相同点" class="headerlink" title="1.相同点"></a>1.相同点</h2><ul><li><p>都是在客户端保存数据</p></li><li><p>都是以字符串形式存放</p></li></ul><h2 id="2-不同点"><a href="#2-不同点" class="headerlink" title="2.不同点"></a>2.不同点</h2><ul><li><p>生命周期</p><p><strong>cookie</strong>：可以设置有效期(<code>Expires</code>或<code>Max-Age</code>)。若不设置，默认是会话级别的临时存储（存放在内存），关闭浏览器就失效。设置后则存放在硬盘中，时间到了就失效。</p><blockquote><p>需要注意的是，有些浏览器提供了会话恢复功能，这种情况下即使关闭了浏览器，会话期Cookie 也会被保留下来，就好像浏览器从来没有关闭一样，这会导致 Cookie 的生命周期无限期延长</p><p><strong>提示：</strong>当Cookie的过期时间被设定时，设定的日期和时间只与客户端相关，而不是服务端。</p></blockquote><p><strong>sessionStorage</strong> : 允许你访问一个对应当前源的会话存储(session <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Storage"><code>Storage</code></a> )对象。数据在页面会话结束时会被清除，也就是关闭窗口后就被销毁。</p><p><strong>localStorage</strong>: 类似sessionStorage，但其区别在于：存储在 <code>localStorage</code> 的数据可以长期保留,窗口或浏览器关闭后数据不会丢失。</p></li></ul><ul><li><p>网络流量</p><p>cookie的数据每次都会发给服务器端，而webStorage不会与服务器端通信，纯粹为了保存数据，所以webstorage更节省带宽。</p></li><li><p>大小限制</p><p>cookie：限制在4KB内</p><p>webStorage：限制在5M</p></li><li><p>安全性</p><p>WebStorage不会随着HTTP header发送到服务器端，所以安全性相对于cookie来说比较高一些，不会担心截获(即便是https也无法保护由服务端传给客户端的数据)</p></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>前端</category>
+      
+      <category>通识</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>面试题</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>8-浅拷贝和深拷贝</title>
     <link href="/2021/02/07/interview/8-%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D/"/>
     <url>/2021/02/07/interview/8-%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D/</url>
     
@@ -31,7 +58,7 @@
   
   
   <entry>
-    <title>BFC</title>
+    <title>7-BFC</title>
     <link href="/2021/02/05/interview/7-CSS%E4%B8%AD%E7%9A%84BFC/"/>
     <url>/2021/02/05/interview/7-CSS%E4%B8%AD%E7%9A%84BFC/</url>
     
@@ -77,7 +104,7 @@
   
   
   <entry>
-    <title>CSS居中</title>
+    <title>4-CSS居中</title>
     <link href="/2020/12/13/interview/4-CSS%E5%B1%85%E4%B8%AD/"/>
     <url>/2020/12/13/interview/4-CSS%E5%B1%85%E4%B8%AD/</url>
     
@@ -104,7 +131,7 @@
   
   
   <entry>
-    <title>click/touch长按与拖动</title>
+    <title>6-click/touch长按与拖动</title>
     <link href="/2020/12/05/interview/6-click%E6%88%96touch%E9%95%BF%E6%8C%89%E4%B8%8E%E6%8B%96%E5%8A%A8/"/>
     <url>/2020/12/05/interview/6-click%E6%88%96touch%E9%95%BF%E6%8C%89%E4%B8%8E%E6%8B%96%E5%8A%A8/</url>
     
@@ -131,7 +158,7 @@
   
   
   <entry>
-    <title>css+html鼠标悬停tips</title>
+    <title>5-css+html鼠标悬停tips</title>
     <link href="/2020/12/01/interview/5-CSS-html%E9%BC%A0%E6%A0%87%E6%82%AC%E5%81%9Ctips/"/>
     <url>/2020/12/01/interview/5-CSS-html%E9%BC%A0%E6%A0%87%E6%82%AC%E5%81%9Ctips/</url>
     
@@ -158,7 +185,7 @@
   
   
   <entry>
-    <title>js判断浮点数相等</title>
+    <title>2-js判断浮点数相等</title>
     <link href="/2020/11/30/interview/2-JS%E5%88%A4%E6%96%AD%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9B%B8%E7%AD%89/"/>
     <url>/2020/11/30/interview/2-JS%E5%88%A4%E6%96%AD%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9B%B8%E7%AD%89/</url>
     
@@ -185,7 +212,7 @@
   
   
   <entry>
-    <title>js程序执行顺序判断</title>
+    <title>3-js程序执行顺序判断</title>
     <link href="/2020/11/26/interview/3-JS%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F%E5%88%A4%E6%96%AD/"/>
     <url>/2020/11/26/interview/3-JS%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F%E5%88%A4%E6%96%AD/</url>
     
@@ -212,7 +239,7 @@
   
   
   <entry>
-    <title>js判断数据类型</title>
+    <title>1-js判断数据类型</title>
     <link href="/2020/11/26/interview/1-JS%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
     <url>/2020/11/26/interview/1-JS%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
     

@@ -17,10 +17,23 @@
   <meta name="description" content="Just for fun">
   <meta name="author" content="LitStronger">
   <meta name="keywords" content="">
-  <title>归档 - LitStronger&#39;s notes</title>
+  <title>9-说说cookie,localStorage和session - LitStronger&#39;s notes</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atelier-dune-light.min.css" />
+    
+  
+
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -43,7 +56,7 @@
 
 
 <body>
-  <header style="height: 60vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -176,14 +189,59 @@
 </nav>
 
     <div class="banner intro-2" id="background" parallax=true
-         style="background: url('https://hexo2-1259001110.cos.ap-guangzhou.myqcloud.com/guidang.png') no-repeat center center;
+         style="background: url('https://hexo-1259001110.cos.ap-shanghai.myqcloud.com/qiye.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="container page-header text-center fade-in-up">
             <span class="h2" id="subtitle">
               
             </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-02-15 20:45" pubdate>
+        2021年2月15日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      489 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      5
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-post-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-post-views"></span> 次
+      </span>
+    
+  
+</div>
 
             
           </div>
@@ -196,55 +254,155 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 29 篇文章</p>
-  <hr>
-  
-    
       
-      <p class="h5">2020</p>
-    
-    <a href="/2020/08/29/ant-design-vue%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">antd使用记录</span>
-      <time style="float: right;">08-29</time>
-    </a>
-  
-    
-    <a href="/2020/08/28/windows%E5%BD%92%E6%A1%A3/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">windows归档</span>
-      <time style="float: right;">08-28</time>
-    </a>
-  
-    
-    <a href="/2020/08/25/css%E9%9A%8F%E7%AC%94/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">css随笔</span>
-      <time style="float: right;">08-25</time>
-    </a>
-  
-    
-    <a href="/2020/08/15/CSS-%E8%82%A5%E5%AE%85%E5%BF%AB%E4%B9%90%E7%9B%92/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">CSS-肥宅快乐盒</span>
-      <time style="float: right;">08-15</time>
-    </a>
-  
-</div>
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">9-说说cookie,localStorage和session</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2021年2月15日 晚上
+                
+              </p>
+            
+            <div class="markdown-body" id="post-body">
+              <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>请问cookie，localStorage，sessionStorage的区别？</p>
+<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p><strong>cookie</strong>：cookie是HTML4中使用的给客户端保存数据的。可以和session配合实现用户身份识别，比如区别vip用户和普通用户。</p>
+<p><strong>webStorage</strong>: 包括<code>localStorage</code>和<code>sessionStorage</code>。webStorage是HTML5中提出的内容。存粹为了保存数据，不会与服务器端进行通信</p>
+<h1 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h1><h2 id="1-相同点"><a href="#1-相同点" class="headerlink" title="1.相同点"></a>1.相同点</h2><ul>
+<li><p>都是在客户端保存数据</p>
+</li>
+<li><p>都是以字符串形式存放</p>
+</li>
+</ul>
+<h2 id="2-不同点"><a href="#2-不同点" class="headerlink" title="2.不同点"></a>2.不同点</h2><ul>
+<li><p>生命周期</p>
+<p><strong>cookie</strong>：可以设置有效期(<code>Expires</code>或<code>Max-Age</code>)。若不设置，默认是会话级别的临时存储（存放在内存），关闭浏览器就失效。设置后则存放在硬盘中，时间到了就失效。</p>
+<blockquote>
+<p>需要注意的是，有些浏览器提供了会话恢复功能，这种情况下即使关闭了浏览器，会话期Cookie 也会被保留下来，就好像浏览器从来没有关闭一样，这会导致 Cookie 的生命周期无限期延长</p>
+<p><strong>提示：</strong>当Cookie的过期时间被设定时，设定的日期和时间只与客户端相关，而不是服务端。</p>
+</blockquote>
+<p><strong>sessionStorage</strong> : 允许你访问一个对应当前源的会话存储(session <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Storage"><code>Storage</code></a> )对象。数据在页面会话结束时会被清除，也就是关闭窗口后就被销毁。</p>
+<p><strong>localStorage</strong>: 类似sessionStorage，但其区别在于：存储在 <code>localStorage</code> 的数据可以长期保留,窗口或浏览器关闭后数据不会丢失。</p>
+</li>
+</ul>
+<ul>
+<li><p>网络流量</p>
+<p>cookie的数据每次都会发给服务器端，而webStorage不会与服务器端通信，纯粹为了保存数据，所以webstorage更节省带宽。</p>
+</li>
+<li><p>大小限制</p>
+<p>cookie：限制在4KB内</p>
+<p>webStorage：限制在5M</p>
+</li>
+<li><p>安全性</p>
+<p>WebStorage不会随着HTTP header发送到服务器端，所以安全性相对于cookie来说比较高一些，不会担心截获(即便是https也无法保护由服务端传给客户端的数据)</p>
+</li>
+</ul>
 
-
-              </div>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%89%8D%E7%AB%AF/%E9%80%9A%E8%AF%86/">通识</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/07/interview/8-%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D/">
+                        <span class="hidden-mobile">8-浅拷贝和深拷贝</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <script type="text/javascript">
+    function loadUtterances() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'LitStronger/commit-utterances');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    }
+    waitElementVisible('comments', loadUtterances)
+  </script>
+
+
+              </article>
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
   </main>
 
@@ -459,10 +617,10 @@
       }
 
       // 如果是文章，请求文章的浏览数，并自增
-      if ('false' === 'true') {
+      if ('true' === 'true') {
         var viewCtn = document.querySelector('#leancloud-post-views-container');
         if (viewCtn || enableIncr) {
-          var target = decodeURI('/archives/2020/08/index.html');
+          var target = decodeURI('/2021/02/15/interview/9-%E8%AF%B4%E8%AF%B4cookie-localStorage%E5%92%8Csession/');
           var viewGetter = getRecord(Counter, target).then((record) => {
             incrArr.push(buildIncrement(record.objectId))
             if (viewCtn) {
@@ -524,6 +682,31 @@
 
 
 
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
 
 
   <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
@@ -531,7 +714,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "归档&nbsp;",
+        "9-说说cookie,localStorage和session&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
@@ -546,6 +729,21 @@
 
 
 
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "always",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
 
 
   <script  src="/js/local-search.js" ></script>
@@ -559,6 +757,20 @@
   </script>
 
 
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
 
 
 
