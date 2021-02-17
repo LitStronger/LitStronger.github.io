@@ -216,7 +216,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      4.8k 字
+      4.7k 字
     </span>
   
 
@@ -226,7 +226,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      66
+      65
        分钟
     </span>
   
@@ -268,7 +268,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2020年12月13日 上午
+                  本文最后更新于：2021年2月17日 下午
                 
               </p>
             
@@ -326,7 +326,7 @@ methods: &#123;
     &#125;
 &#125;</code></pre></div>
 
-<h2 id="7-22-数组"><a href="#7-22-数组" class="headerlink" title="7.22 数组"></a>7.22 数组</h2><p>虽然经常用js，但其实很多基本操作都不是很熟悉，比如对数组的操作..</p>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>虽然经常用js，但其实很多基本操作都不是很熟悉，比如对数组的操作..</p>
 <ul>
 <li><h3 id="slice"><a href="#slice" class="headerlink" title="slice()"></a>slice()</h3><p>slice( start, end )  </p>
 <p>切片，不会修改原数组</p>
@@ -462,7 +462,7 @@ arr.forEach(<span class="hljs-function"><span class="hljs-keyword">function</spa
 </ul>
 </li>
 </ul>
-<h2 id="7-26-闭包（closure）"><a href="#7-26-闭包（closure）" class="headerlink" title="7.26 闭包（closure）"></a>7.26 闭包（closure）</h2><h3 id="1-闭包的特点"><a href="#1-闭包的特点" class="headerlink" title="1.闭包的特点"></a>1.闭包的特点</h3><ul>
+<h2 id="闭包（closure）"><a href="#闭包（closure）" class="headerlink" title="闭包（closure）"></a>闭包（closure）</h2><h3 id="1-闭包的特点"><a href="#1-闭包的特点" class="headerlink" title="1.闭包的特点"></a>1.闭包的特点</h3><ul>
 <li>我们在函数外部操作了函数内部的值</li>
 <li>闭包对应的函数中的变量是常驻内存</li>
 </ul>
@@ -537,8 +537,8 @@ stu2.setData(<span class="hljs-number">3</span>)
 </ul>
 </li>
 </ul>
-<h2 id="7-27-浅拷贝，深拷贝"><a href="#7-27-浅拷贝，深拷贝" class="headerlink" title="7.27 浅拷贝，深拷贝"></a>7.27 <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_37719279/article/details/81240658?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.compare&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.compare">浅拷贝，深拷贝</a></h2><p><a target="_blank" rel="noopener" href="https://blog.lzwzw.cn/posts/af017481.html">https://blog.lzwzw.cn/posts/af017481.html</a></p>
-<h2 id="7-31-匿名函数"><a href="#7-31-匿名函数" class="headerlink" title="7.31 匿名函数"></a>7.31 匿名函数</h2><p>三种写法：</p>
+<h2 id="浅拷贝，深拷贝"><a href="#浅拷贝，深拷贝" class="headerlink" title="浅拷贝，深拷贝"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_37719279/article/details/81240658?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.compare&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.compare">浅拷贝，深拷贝</a></h2><p><a target="_blank" rel="noopener" href="https://blog.lzwzw.cn/posts/af017481.html">https://blog.lzwzw.cn/posts/af017481.html</a></p>
+<h2 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h2><p>三种写法：</p>
 <ul>
 <li><p>使用！开头。</p>
 <p>!function(形参)(实参)  </p>
@@ -575,7 +575,7 @@ stu2.setData(<span class="hljs-number">3</span>)
 
 </li>
 </ul>
-<h2 id="8-4-Promise"><a href="#8-4-Promise" class="headerlink" title="8.4 Promise"></a>8.4 Promise</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Using_promises">MDN上的解释</a></p>
+<h2 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Using_promises">MDN上的解释</a></p>
 <p>Promise 对象的错误具有“冒泡”性质，会一直向后传递，直到被捕获为止。也就是说，所有错误都可以被后面的<code>catch</code>语句捕获。</p>
 <p>使用示例</p>
 <div class="hljs"><pre><code class="hljs javascript"><span class="hljs-comment">// nodejs环境下可能需要加上这段，unhandledRejection事件，专门监听未捕获的reject错误</span>
@@ -622,7 +622,7 @@ foo(<span class="hljs-number">0.1</span>).then(<span class="hljs-function">(<spa
 </code></pre></div>
 
 <p>另外，Promise 内部的错误不会影响到 Promise 外部的代码。通俗的说法就是“Promise 会吃掉错误”。</p>
-<h2 id="8-5-回调函数"><a href="#8-5-回调函数" class="headerlink" title="8.5 回调函数"></a>8.5 回调函数</h2><p>一直以来都有一个误解，以为只有js有回调函数。。。后来才发现不是这样的，很多编程语言对“回调函数”（callback，或者说“call after”）都有相应的实现方式。 编程语言以不同的方式支持回调，通常使用子例程，lambda表达式，block或函数指针。</p>
+<h2 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h2><p>一直以来都有一个误解，以为只有js有回调函数。。。后来才发现不是这样的，很多编程语言对“回调函数”（callback，或者说“call after”）都有相应的实现方式。 编程语言以不同的方式支持回调，通常使用子例程，lambda表达式，block或函数指针。</p>
 <p>wiki上回调函数的解释：<code>a callback is a reference to executable code, or a piece of executable code, that is passed as an argument to other code.</code> ( 回调是对可执行代码或一段可执行代码的引用，该引用作为参数传递给其他代码 )</p>
 <p>wiki上C语言和js实现回调的例子如下：</p>
 <div class="hljs"><pre><code class="hljs c"><span class="hljs-comment">/* C */</span>
@@ -674,7 +674,7 @@ alert(calculate(<span class="hljs-number">5</span>, <span class="hljs-number">15
 alert(calculate(<span class="hljs-number">5</span>, <span class="hljs-number">15</span>, calcSum));</code></pre></div>
 
 <p>C传递的是指针，js中传递的是引用。二者还是很相似的，所以C语言那个例子用js来写也是可以的。不过引用和指针二者的区别对我来说就有点复杂了，暂时还理不清楚。</p>
-<h2 id="8-7-let-和-var"><a href="#8-7-let-和-var" class="headerlink" title="8.7 let 和 var"></a>8.7 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/songzxblog/p/11137117.html">let 和 var</a></h2><ul>
+<h2 id="let-和-var"><a href="#let-和-var" class="headerlink" title="let 和 var"></a><a target="_blank" rel="noopener" href="https://www.cnblogs.com/songzxblog/p/11137117.html">let 和 var</a></h2><ul>
 <li><p>块级作用域（一对花括号{}即是一个块级作用域）。</p>
 <p>在let出现前，js没有函数没有块级作用域，只有<a href="#domain">函数作用域</a></p>
 <div class="hljs"><pre><code class="hljs javascript">&#123;
@@ -700,7 +700,7 @@ alert(calculate(<span class="hljs-number">5</span>, <span class="hljs-number">15
 
 </li>
 </ul>
-<h2 id="8-8-和"><a href="#8-8-和" class="headerlink" title="8.8 == 和 ==="></a>8.8 == 和 ===</h2><p>===是严格运算符,  ==是相等运算符</p>
+<h2 id="和"><a href="#和" class="headerlink" title="== 和 ==="></a>== 和 ===</h2><p>===是严格运算符,  ==是相等运算符</p>
 <ul>
 <li><p>===的比较规则</p>
 <ul>
@@ -716,7 +716,7 @@ alert(calculate(<span class="hljs-number">5</span>, <span class="hljs-number">15
 </ul>
 </li>
 </ul>
-<h2 id="8-16-对象"><a href="#8-16-对象" class="headerlink" title="8.16 对象"></a>8.16 对象</h2><h4 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h4><div class="hljs"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> obj = &#123;&#125;</code></pre></div>
+<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><h4 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h4><div class="hljs"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> obj = &#123;&#125;</code></pre></div>
 
 <div class="hljs"><pre><code class="hljs dart"><span class="hljs-keyword">var</span> obj = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Object</span>()</code></pre></div>
 
@@ -760,7 +760,7 @@ obj.rap = <span class="hljs-function">() =&gt;</span> &#123; <span class="hljs-b
 
 </li>
 </ul>
-<h2 id="8-18-数据类型"><a href="#8-18-数据类型" class="headerlink" title="8.18 数据类型"></a>8.18 数据类型</h2><h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><ul>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><ul>
 <li><p>共5种：Number, String, Boolean, Null, Undefined</p>
 </li>
 <li><p>存放：栈空间</p>
@@ -798,7 +798,7 @@ obj2.name = <span class="hljs-string">&#x27;鲲鲲&#x27;</span>;
 console.log(obj1 == obj2)   	   // <span class="hljs-keyword">false</span> 比较地址
 console.log(obj1.name == obj2.name)// <span class="hljs-keyword">true</span>  属性<span class="hljs-type">name</span>是基本数据类型，直接比较两者的值</code></pre></div>
 
-<h2 id="8-19-函数"><a href="#8-19-函数" class="headerlink" title="8.19 函数"></a>8.19 函数</h2><h3 id="1-函数参数"><a href="#1-函数参数" class="headerlink" title="1.函数参数"></a>1.函数参数</h3><ul>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="1-函数参数"><a href="#1-函数参数" class="headerlink" title="1.函数参数"></a>1.函数参数</h3><ul>
 <li>一一对应，多余的参数会被忽略</li>
 </ul>
 <h3 id="2-函数也是对象"><a href="#2-函数也是对象" class="headerlink" title="2.函数也是对象"></a>2.函数也是对象</h3><ul>
@@ -839,7 +839,7 @@ fun()					<span class="hljs-comment">// It is Function!</span>
 </ul>
 </li>
 </ul>
-<h2 id="8-21-作用域"><a href="#8-21-作用域" class="headerlink" title="8.21 作用域"></a>8.21 作用域</h2><h3 id="1-全局作用域"><a href="#1-全局作用域" class="headerlink" title="1.全局作用域"></a>1.全局作用域</h3><p><strong>1.1 以var声明:</strong></p>
+<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><h3 id="1-全局作用域"><a href="#1-全局作用域" class="headerlink" title="1.全局作用域"></a>1.全局作用域</h3><p><strong>1.1 以var声明:</strong></p>
 <ul>
 <li><p>只要不是函数内声明的变量，都是全局变量</p>
 </li>
@@ -905,7 +905,7 @@ fun()
 
 </li>
 </ul>
-<h2 id="8-24-构造函数"><a href="#8-24-构造函数" class="headerlink" title="8.24 构造函数"></a>8.24 构造函数</h2><ul>
+<h2 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h2><ul>
 <li><p><strong>函数名首字母大写 。</strong>不大写也不会报错，但这是约定熟成的规范吧。其他人看到大写字母能直接意识到这是个构造函数，方便理解</p>
 </li>
 <li><p><strong>使用new关键字创建实例。</strong></p>

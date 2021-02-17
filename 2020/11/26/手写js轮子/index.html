@@ -216,7 +216,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.5k 字
+      2.8k 字
     </span>
   
 
@@ -226,7 +226,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      38
+      42
        分钟
     </span>
   
@@ -268,7 +268,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年2月8日 晚上
+                  本文最后更新于：2021年2月17日 下午
                 
               </p>
             
@@ -635,8 +635,59 @@ xhr = <span class="hljs-keyword">new</span> XMLHttpRequest();
 &#125;</code></pre></div>
 
 <p>可见，数组拷贝也正常了</p>
-<h3 id="3-循环引用"><a href="#3-循环引用" class="headerlink" title="3.循环引用"></a>3.循环引用</h3><p>咕</p>
-<h3 id="4-处理函数和正则"><a href="#4-处理函数和正则" class="headerlink" title="4.处理函数和正则"></a>4.处理函数和正则</h3><p>啊。这两个不处理心里别扭啊。</p>
+<h3 id="3-循环引用"><a href="#3-循环引用" class="headerlink" title="3.循环引用"></a>3.循环引用</h3><p><del>咕。</del> （咕了的终究还是要还的）</p>
+<p>循环引用就是对象的引用出现了循环，比如</p>
+<div class="hljs"><pre><code class="hljs js">obj1.childObj2 = obj1 
+deepClone(obj1) <span class="hljs-comment">// RangeError: Maxmum call stack size exceeded</span></code></pre></div>
+
+<p>解决的思路类似于<strong>去重</strong>，可以建一个Map来记录已经处理过的属性，以原对象的属性作为键(target)，以拷贝的内容作为值(tempObj)</p>
+<p>如果Map中已经有记录了就直接返回记录值，否则新增键值对。如下</p>
+<div class="hljs"><pre><code class="hljs js">m = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>()
+<span class="hljs-keyword">if</span> (m.has(target)) &#123;
+    <span class="hljs-keyword">return</span> m.get(target)
+&#125;
+m.set(target, tempObj)</code></pre></div>
+
+<p>由于每次递归调用中我们都需要用到Map的最新内容，考虑把它作为函数参数。</p>
+<div class="hljs"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">deepClone</span>(<span class="hljs-params">target, m = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>()</span>) </span>&#123;
+    <span class="hljs-keyword">if</span> (target <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Object</span>) &#123;
+        <span class="hljs-keyword">let</span> tempObj = <span class="hljs-built_in">Array</span>.isArray(target) ? [] : &#123;&#125;
+ 
+        <span class="hljs-comment">// 解决循环引用</span>
+        <span class="hljs-keyword">if</span> (m.has(target)) &#123;
+            <span class="hljs-keyword">return</span> m.get(target)
+        &#125;
+        m.set(target, tempObj)
+        
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> key <span class="hljs-keyword">in</span> target) &#123;
+            tempObj[key] = deepClone(target[key], m)
+        &#125;
+        <span class="hljs-keyword">return</span> tempObj
+    &#125;
+    <span class="hljs-keyword">else</span> &#123;
+        <span class="hljs-keyword">return</span> target
+    &#125;
+&#125;
+obj1.childObj2 = obj1
+obj1.childObj.childObj2 = obj1
+<span class="hljs-built_in">console</span>.log(deepClone(obj1))</code></pre></div>
+
+<p>output</p>
+<div class="hljs"><pre><code class="hljs js">&lt;ref *<span class="hljs-number">1</span>&gt; &#123;
+  id: <span class="hljs-string">&#x27;1&#x27;</span>,
+  name: <span class="hljs-string">&#x27;litstronger&#x27;</span>,
+  hobbies: <span class="hljs-literal">null</span>,
+  childObj: &#123; <span class="hljs-attr">test</span>: <span class="hljs-string">&#x27;deepClone&#x27;</span>, <span class="hljs-attr">childObj2</span>: [Circular *<span class="hljs-number">1</span>] &#125;,
+  childArray: [ <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span> ],
+  regExp: &#123;&#125;,
+  func: &#123;&#125;,
+  arrowFunc: &#123;&#125;,
+  childObj2: [Circular *<span class="hljs-number">1</span>]
+&#125;</code></pre></div>
+
+
+
+<h3 id="4-处理函数和正则"><a href="#4-处理函数和正则" class="headerlink" title="4.处理函数和正则"></a>4.处理函数和正则</h3><p><del>啊。这两个不处理心里别扭啊。</del>（别扭就别扭吧，反正没啥用orz</p>
 <h4 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h4><p>数组需要考虑两种情况：普通函数、箭头函数。</p>
 <p><strong>区分</strong>：可以利用箭头函数没有<code>prototype</code>的特点</p>
 <p><strong>拷贝</strong>：</p>
@@ -680,7 +731,7 @@ xhr = <span class="hljs-keyword">new</span> XMLHttpRequest();
 <h3 id="5-判断类型"><a href="#5-判断类型" class="headerlink" title="5.判断类型"></a>5.判断类型</h3><p>用于区分基本对象、数组、函数和正则</p>
 <div class="hljs"><pre><code class="hljs js"><span class="hljs-keyword">let</span> typeOfValue = <span class="hljs-function"><span class="hljs-params">type</span> =&gt;</span> <span class="hljs-function"><span class="hljs-params">v</span> =&gt;</span> <span class="hljs-string">`[object <span class="hljs-subst">$&#123;type&#125;</span>]`</span> === <span class="hljs-built_in">Object</span>.prototype.toString.call(v)</code></pre></div>
 
-<h3 id="6-合并"><a href="#6-合并" class="headerlink" title="6.合并"></a>6.合并</h3><p>把上述代码块整合起来，看看结果吧</p>
+<h3 id="6-合并"><a href="#6-合并" class="headerlink" title="6.合并"></a>6.合并</h3><p>把上述代码块整合起来(除了循环引用部分)，看看结果吧</p>
 <div class="hljs"><pre><code class="hljs js"><span class="hljs-keyword">let</span> obj1 = &#123;
     id: <span class="hljs-string">&#x27;1&#x27;</span>,
     name: <span class="hljs-string">&#x27;litstronger&#x27;</span>,
