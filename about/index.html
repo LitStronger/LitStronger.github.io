@@ -477,13 +477,9 @@
         meta: ['nick','mail'],
         enableQQ: true,
         visitor: true
-    })
-</script>
+    })</script>
 
-<div> 
-<span id="sitetime"></span>
-<script src="https://cdn.jsdelivr.net/gh/litstronger/pic@master/js/elapseTime.js"></script>
-</div>
+
 
 
 
@@ -509,8 +505,14 @@
             mobile: false
         }
         var v = new Viewer(config); 
+        window.onload = function(){
+            let dom = document.querySelector('.Canvas')
+            console.log(dom)
+            dom.style["pointer-events"]= 'none'
+        }
     </script>
 </div>
+
 
 
 </div>

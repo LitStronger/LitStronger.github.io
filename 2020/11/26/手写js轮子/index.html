@@ -268,7 +268,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年2月17日 下午
+                  本文最后更新于：2021年3月3日 晚上
                 
               </p>
             
@@ -286,7 +286,7 @@
 	
     <span class="hljs-keyword">const</span> res = newThis[funcSym](...realArgs);  <span class="hljs-comment">// 执行</span>
     
-    <span class="hljs-keyword">delete</span> newThis.funcSym;  <span class="hljs-comment">// 删除</span>
+    <span class="hljs-keyword">delete</span> newThis[funcSym];  <span class="hljs-comment">// 删除</span>
 	
     <span class="hljs-keyword">return</span> res;  <span class="hljs-comment">// 返回执行值</span>
 &#125;

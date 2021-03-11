@@ -216,7 +216,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      274 字
+      641 字
     </span>
   
 
@@ -226,7 +226,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3
+      7
        分钟
     </span>
   
@@ -268,7 +268,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年2月17日 下午
+                  本文最后更新于：2021年3月3日 中午
                 
               </p>
             
@@ -285,6 +285,19 @@
 <h2 id="二、vue组件中data为什么必须是函数？"><a href="#二、vue组件中data为什么必须是函数？" class="headerlink" title="二、vue组件中data为什么必须是函数？"></a>二、vue组件中data为什么必须是函数？</h2><h2 id="三、vue的两个核心"><a href="#三、vue的两个核心" class="headerlink" title="三、vue的两个核心"></a>三、vue的两个核心</h2><h2 id="四、vue中key值的作用"><a href="#四、vue中key值的作用" class="headerlink" title="四、vue中key值的作用"></a>四、vue中key值的作用</h2><p>唯一标识。用于判断是否为同一个元素(DOM节点)</p>
 <p>当 Vue.js 用 v-for 正在更新已渲染过的元素列表时，它默认用“就地复用”策略。如果数据项的顺序被改变，Vue 将不会移动 DOM 元素来匹配数据项的顺序， 而是简单复用此处每个元素，并且确保它在特定索引下显示已被渲染过的每个元素。</p>
 <p>key值还有一个作用是为了高效的更新虚拟DOM</p>
+<h2 id="五、Vue的生命周期"><a href="#五、Vue的生命周期" class="headerlink" title="五、Vue的生命周期"></a>五、Vue的生命周期</h2><h3 id="1-八阶段"><a href="#1-八阶段" class="headerlink" title="1.八阶段"></a>1.八阶段</h3><p>创建前/后，挂载前/后，更新前/后，销毁前/后</p>
+<p><strong>beforeCreate</strong> 在new一个vue实例后，只有一些默认的生命周期钩子和默认事件,data和methods中的数据都还没有初始化。</p>
+<p><strong>created</strong> data 和 methods都已经被初始化好了，最早可在该阶段调用 methods 中的方法，或者操作 data 中的数据，</p>
+<p><strong>beforeMount</strong> 编译好了模板，还没挂载。页面尚未更新</p>
+<p><strong>Mounted</strong> 初始化完成，挂载到实例，进入运行阶段。最早可以在此阶段操作页面DOM节点。</p>
+<p><strong>beforeUpdate</strong> 执行到该钩子时，页面上的数据仍是旧的，尚未同步至新数据data</p>
+<p><strong>update</strong> 页面显示的数据已经与data保持同步更新</p>
+<p><strong>beforeDestroy</strong> 进入销毁状态，data属性和method方法还处于可用状态，未被真正销毁</p>
+<p><strong>destroyed</strong> 实例已经被销毁，解除了事件监听和Dom的绑定。注意Dom依旧存在。</p>
+<h3 id="2-created和mounted的区别"><a href="#2-created和mounted的区别" class="headerlink" title="2.created和mounted的区别"></a>2.created和mounted的区别</h3><p>created：在模板渲染成html前调用，通常是初始化一些属性值、方法</p>
+<p>mounted：因为是要挂载到Dom上，因此需要在模板渲染成html后才执行该钩子。通常可以在这里开始操作Dom</p>
+<h3 id="3-vue获取数据在哪个周期函数"><a href="#3-vue获取数据在哪个周期函数" class="headerlink" title="3.vue获取数据在哪个周期函数"></a>3.vue获取数据在哪个周期函数</h3><p>created/beforeMount/mounted都可以。如果需要操作Dom则需要等到Mounted</p>
+<h3 id="4-第一次加载页面会触发哪几个钩子"><a href="#4-第一次加载页面会触发哪几个钩子" class="headerlink" title="4.第一次加载页面会触发哪几个钩子"></a>4.第一次加载页面会触发哪几个钩子</h3><p>beforeCreate，created，beforeMount，mounted</p>
 <h1 id="零碎"><a href="#零碎" class="headerlink" title="零碎"></a>零碎</h1><h2 id="缩写"><a href="#缩写" class="headerlink" title="缩写"></a>缩写</h2><ul>
 <li><p>v-bind</p>
 <div class="hljs"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- 完整写法 --&gt;</span>
