@@ -216,7 +216,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.6k 字
+      1.7k 字
     </span>
   
 
@@ -226,7 +226,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      19
+      21
        分钟
     </span>
   
@@ -268,7 +268,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2020年11月26日 晚上
+                  本文最后更新于：2021年4月11日 晚上
                 
               </p>
             
@@ -326,14 +326,23 @@
 <span class="hljs-meta">#</span><span class="bash"> 还有一个常用的方法是创建.gitignore文件，关于.gitignore请自行网上查阅</span></code></pre></div>
 <h2 id="三、代码提交："><a href="#三、代码提交：" class="headerlink" title="三、代码提交："></a>三、代码提交：</h2><div class="hljs"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> git commit -m  <span class="hljs-string">&quot;[message]&quot;</span>  提交暂存区的文件到仓库区 </span></code></pre></div>
 
-
 <p>分支策略：首先master主分支应该是非常稳定的，也就是用来发布新版本，一般情况下不允许在上面干活，干活一般情况下在新建的dev分支上干活，干完后，比如上要发布，或者说dev分支代码稳定后可以合并到主分支master上来</p>
-<h2 id="四、分支相关："><a href="#四、分支相关：" class="headerlink" title="四、分支相关："></a>四、分支相关：</h2><div class="hljs"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> git branch  查看分支</span>
+<h2 id="四、版本控制"><a href="#四、版本控制" class="headerlink" title="四、版本控制"></a>四、版本控制</h2><div class="hljs"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> git reflog  <span class="hljs-comment"># 查看引用日志(reference log)</span></span>
+<span class="hljs-meta">$</span><span class="bash"> git reset --hard &lt;局部索引值，7位&gt; </span>
+<span class="hljs-meta">#</span><span class="bash"> --mixed 切换本地仓库、暂存区的版本，保留工作区</span>
+<span class="hljs-meta">#</span><span class="bash">         未add</span>
+<span class="hljs-meta">#</span><span class="bash"> --soft  切换本地仓库的版本, 保留工作区、暂存区</span>
+<span class="hljs-meta">#</span><span class="bash">         已add，待commit</span>
+<span class="hljs-meta">#</span><span class="bash"> --hard  切换工作区、暂存区、本地仓库的版本</span>
+<span class="hljs-meta">#</span><span class="bash">         回到解放前..会丢失工作区内容！不过还可以切回去就是了</span></code></pre></div>
+
+<p>reset不仅可以回退，也可以前进。事实上只要知道commit的hash值就可以自由切换</p>
+<h2 id="五、分支相关："><a href="#五、分支相关：" class="headerlink" title="五、分支相关："></a>五、分支相关：</h2><div class="hljs"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> git branch  查看分支</span>
 <span class="hljs-meta">$</span><span class="bash"> git branch &lt;name&gt;  创建分支</span>
 <span class="hljs-meta">$</span><span class="bash"> git checkout &lt;name&gt;  切换分支</span>
 <span class="hljs-meta">$</span><span class="bash"> git merge &lt;name&gt;  合并某分支到当前分支</span>
 <span class="hljs-meta">$</span><span class="bash"> git branch -d &lt;name&gt;  或者  $ git branch --delete &lt;name&gt; </span></code></pre></div>
-<h2 id="五、远程同步"><a href="#五、远程同步" class="headerlink" title="五、远程同步"></a>五、远程同步</h2><div class="hljs"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> git remote 查看远程库简略信息</span>
+<h2 id="六、远程同步"><a href="#六、远程同步" class="headerlink" title="六、远程同步"></a>六、远程同步</h2><div class="hljs"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> git remote 查看远程库简略信息</span>
 <span class="hljs-meta">$</span><span class="bash"> git remote -v 查看远程库详细信息</span>
 
 <span class="hljs-meta">#</span><span class="bash"> 添加新的远程仓库,名字可以自由定义,不需要跟远程仓库保持一致</span>
