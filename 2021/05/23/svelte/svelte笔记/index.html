@@ -1,0 +1,985 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;light&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/favicon.png">
+  <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="Just for fun">
+  <meta name="author" content="LitStronger">
+  <meta name="keywords" content="">
+  <title>LitStronger&#39;s notes</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atelier-dune-light.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>LitStronger's notes</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-bug"></i>
+                走廊
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://github.com/LitStronger/homework">
+                    
+                    个人作业
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/show/">
+                    
+                    live2d
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/show/">
+                    
+                    待开发..
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                作者
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('https://hexo-1259001110.cos.ap-shanghai.myqcloud.com/qiye.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-05-23 09:30" pubdate>
+        2021年5月23日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.3k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      20
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-post-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-post-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none"></h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2021年5月23日 上午
+                
+              </p>
+            
+            <div class="markdown-body" id="post-body">
+              <p>rollup作者搞的框架，玩玩看orz..</p>
+<a id="more"></a>
+
+<p>学了一两天，跟vue比较像的一点是都是用模板语法，结构啥的都比较像，毕竟框架要解决的问题都是相似的。但跟vue的实现是完全不同，这部分看情况吧，有需要就去研究下。</p>
+<h2 id="1-模版里使用变量"><a href="#1-模版里使用变量" class="headerlink" title="1.模版里使用变量"></a>1.模版里使用变量</h2><div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>&#123;name&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&#123;url&#125;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">img</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>
+<span class="javascript">	<span class="hljs-keyword">let</span> name = <span class="hljs-string">&#x27;john&#x27;</span>;</span>
+<span class="javascript">  <span class="hljs-keyword">let</span> url = <span class="hljs-string">&#x27;xxx/xxx.jpg&#x27;</span>;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre></div>
+
+<h3 id="更新数组与对象"><a href="#更新数组与对象" class="headerlink" title="更新数组与对象"></a>更新数组与对象</h3><ul>
+<li><p>数组</p>
+<p>并不支持数组的原生方法（push，pop，shift，unshift，splice），也就是说以上方法不会触发响应。</p>
+</li>
+<li><p>对象</p>
+<p>经验法则：变量名必须出现在赋值语句左侧，否则不触发响应(如变量名<code>obj</code>)</p>
+<div class="hljs"><pre><code class="hljs js"><span class="hljs-keyword">let</span> obj = &#123;
+  foo:&#123;
+    bar: <span class="hljs-string">&#x27;aaa&#x27;</span>,
+  &#125;
+&#125;
+<span class="hljs-comment">// 触发响应</span>
+obj = &#123; <span class="hljs-attr">foo</span>: &#123;<span class="hljs-attr">bar</span>: <span class="hljs-string">&#x27;bbb&#x27;</span> &#125; &#125;;
+obj.foo = &#123; <span class="hljs-attr">bar</span>: <span class="hljs-string">&#x27;bbb&#x27;</span> &#125;;
+obj.foo.bar = <span class="hljs-string">&#x27;bbb&#x27;</span>;
+
+<span class="hljs-comment">// 不触发响应</span>
+<span class="hljs-keyword">let</span> foo = obj.foo;
+foo = &#123; <span class="hljs-attr">bar</span>: <span class="hljs-string">&#x27;ccc&#x27;</span> &#125;;
+foo.bar = <span class="hljs-string">&#x27;ccc&#x27;</span>;</code></pre></div>
+
+
+
+</li>
+</ul>
+<h2 id="2-反应式-响应"><a href="#2-反应式-响应" class="headerlink" title="2.反应式(响应)"></a>2.反应式(响应)</h2><ul>
+<li><p>反应式声明(类似vue的computed)</p>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>
+<span class="javascript">	<span class="hljs-keyword">let</span> count = <span class="hljs-number">0</span>;</span>
+	$: double = count * 2;
+<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre></div>
+</li>
+<li><p>运行时使用</p>
+<div class="hljs"><pre><code class="hljs js"><span class="hljs-keyword">let</span> count = <span class="hljs-number">0</span>;
+<span class="hljs-comment">// 单行</span>
+$: <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`the count is <span class="hljs-subst">$&#123;count&#125;</span>`</span>);
+<span class="hljs-comment">// 代码块</span>
+$: &#123;
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`the count is <span class="hljs-subst">$&#123;count&#125;</span>`</span>);
+  alert(<span class="hljs-string">`the count is <span class="hljs-subst">$&#123;count&#125;</span>`</span>)
+&#125;</code></pre></div>
+
+
+
+</li>
+</ul>
+<h2 id="3-循环"><a href="#3-循环" class="headerlink" title="3.循环"></a>3.循环</h2><div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>
+<span class="javascript">	<span class="hljs-keyword">let</span> cats = [</span>
+<span class="javascript">    &#123;<span class="hljs-attr">id</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Mimi&#x27;</span>&#125;,</span>
+<span class="javascript">    &#123;<span class="hljs-attr">id</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Miao&#x27;</span>&#125;,</span>
+<span class="javascript">    &#123;<span class="hljs-attr">id</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Tom&#x27;</span>&#125;,</span>
+  ]
+<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+	&#123;#each cats as cat&#125;
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>id:&#123;cat.id&#125;, name:&#123;cat.name&#125; <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  &#123;/each&#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></code></pre></div>
+
+<p><strong>默认第二个参数是数组的index</strong></p>
+<div class="hljs"><pre><code class="hljs html">&#123;#each cats as cat, index&#125;
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>index:&#123;index&#125;, name:&#123;cat.name&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+&#123;/each&#125;</code></pre></div>
+
+<p><strong>当然也可以进行结构赋值</strong></p>
+<div class="hljs"><pre><code class="hljs html">&#123;#each cats as &#123;id, name&#125;, index&#125;
+	<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>index: &#123;index&#125;, id:&#123;id&#125;, name:&#123;name&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+&#123;/each&#125;</code></pre></div>
+
+<p><strong>唯一标识符，也就是key值。</strong></p>
+<div class="hljs"><pre><code class="hljs html">&#123;#each cats as cat(cat.id)&#125;
+	<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span> name:&#123;cat.name&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+&#123;/each&#125;</code></pre></div>
+
+<p>svelte内部是用<code>Map</code>来处理key，因此你完全可以把整个对象作为key</p>
+<div class="hljs"><pre><code class="hljs html">&#123;#each cats as cat(cat)&#125;
+	<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span> name:&#123;cat.name&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+&#123;/each&#125;</code></pre></div>
+
+<h2 id="4-事件"><a href="#4-事件" class="headerlink" title="4.事件"></a>4.事件</h2><p>可以用<code>on:&lt;event&gt;</code>的形式监听任何事件(注意冒号<code>:</code>后不能加空格)</p>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>
+<span class="javascript">	<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleClick</span>(<span class="hljs-params"></span>)</span>&#123;</span>
+<span class="javascript">    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;click&#x27;</span>);</span>
+  &#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">on:click</span>=<span class="hljs-string">&#123;handleClick&#125;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
+
+<h3 id="修饰符列表"><a href="#修饰符列表" class="headerlink" title="修饰符列表"></a>修饰符列表</h3><p><strong>once</strong></p>
+<p>仅执行一次</p>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>
+<span class="javascript">	<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleClick</span>(<span class="hljs-params"></span>)</span>&#123;</span>
+<span class="javascript">    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;click&#x27;</span>);</span>
+  &#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">on:click</span>|<span class="hljs-attr">once</span>=<span class="hljs-string">&#123;handleClick&#125;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
+
+<p><strong>capture</strong></p>
+<p>在capture阶段触发而不是bubbling阶段</p>
+<p><strong>self</strong></p>
+<p>仅当event.target是自身时才执行</p>
+<p><a target="_blank" rel="noopener" href="https://www.sveltejs.cn/tutorial/event-modifiers">更多</a>….</p>
+<blockquote>
+<p>上述修饰符也可以组合使用，如 on:click|once|capture={handleClick}</p>
+</blockquote>
+<h2 id="5-组件事件"><a href="#5-组件事件" class="headerlink" title="5.组件事件"></a>5.组件事件</h2><p>有点像vue的emit和on</p>
+<p>例如，约定事件<code>message</code>，子组件Inner.svelte</p>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>
+<span class="javascript">	<span class="hljs-keyword">import</span> &#123;createEventDispatcher&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;svelte&#x27;</span>;</span>
+<span class="javascript">  <span class="hljs-keyword">const</span> dispatch = createEventDispatcher();</span>
+<span class="javascript">  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleClick</span>(<span class="hljs-params"></span>)</span>&#123;</span>
+<span class="javascript">    dispatch(<span class="hljs-string">&#x27;message&#x27;</span>, &#123;</span>
+<span class="javascript">      text: <span class="hljs-string">&#x27;hello&#x27;</span>,</span>
+    &#125;)
+  &#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">on:click</span>=<span class="hljs-string">&#123;handleClick&#125;</span>&gt;</span>
+	Button
+<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></code></pre></div>
+
+<p>父组件app.svelte，在事件的detail属性里得到传参</p>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>
+<span class="javascript">  <span class="hljs-keyword">import</span> Inner <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./Inner.svelte&#x27;</span>;</span>
+<span class="javascript">  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleMessage</span>(<span class="hljs-params">event</span>) </span>&#123;</span>
+<span class="javascript">    <span class="hljs-built_in">console</span>.log(event.detail); <span class="hljs-comment">// &#123;text: &quot;hello&quot;&#125;</span></span>
+  &#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">main</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">Inner</span> <span class="hljs-attr">on:message</span>=<span class="hljs-string">&#123;handleMessage&#125;</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">main</span>&gt;</span></code></pre></div>
+
+<p><strong>注意</strong>:exclamation:：​组件事件不会冒泡，如果Inner和app组件中间还有一层组件middle，那么需要在middle组件处转发事件，才能使Inner的触发的事件传递到app上</p>
+<div class="hljs"><pre><code class="hljs js"><span class="hljs-comment">// middle组件内</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">forward</span>(<span class="hljs-params">event</span>)</span>&#123;
+  dispatch(<span class="hljs-string">&#x27;message&#x27;</span>, event.detail);
+&#125;
+&lt;Inner on:message=&#123;forward&#125;/&gt;</code></pre></div>
+
+<p>有点麻烦，简写的形式是不给message事件传值，不传值的情况默认转发所有事件</p>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>
+<span class="javascript">	<span class="hljs-keyword">import</span> Inner <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./Inner.svelte&#x27;</span></span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">Inner</span> <span class="hljs-attr">on:message</span>/&gt;</span></code></pre></div>
+
+<h2 id="6-双向绑定"><a href="#6-双向绑定" class="headerlink" title="6.双向绑定"></a>6.双向绑定</h2><p>使用<code>bind:</code>的形式，<code>input</code>输入会修改变量<code>name</code>，改变属性<code>name</code>也会修改<code>input</code>里的值</p>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>
+<span class="javascript">	<span class="hljs-keyword">let</span> name = <span class="hljs-string">&#x27;&#x27;</span>;</span>
+<span class="javascript">	<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleInput</span>(<span class="hljs-params"></span>)</span>&#123;</span>
+<span class="javascript">		<span class="hljs-built_in">console</span>.log(name);</span>
+	&#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">bind:value</span>=<span class="hljs-string">&#123;name&#125;</span> <span class="hljs-attr">on:input</span>=<span class="hljs-string">&#123;handleInput&#125;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Hello &#123;name&#125;!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></code></pre></div>
+
+<p>定义input的值类型, <code>number</code>, <code>range</code>, <code>checkbox</code>, <code>radio</code>等</p>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>
+<span class="javascript">	<span class="hljs-keyword">let</span> a = <span class="hljs-number">0</span>;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">number</span> <span class="hljs-attr">bind:value</span>=<span class="hljs-string">&#123;a&#125;</span> <span class="hljs-attr">min</span>=<span class="hljs-string">0</span> <span class="hljs-attr">max</span>=<span class="hljs-string">10</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">range</span> <span class="hljs-attr">bind:value</span>=<span class="hljs-string">&#123;a&#125;</span> <span class="hljs-attr">min</span>=<span class="hljs-string">0</span> <span class="hljs-attr">max</span>=<span class="hljs-string">10</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></code></pre></div>
+
+<h2 id="7-生命周期"><a href="#7-生命周期" class="headerlink" title="7.生命周期"></a>7.生命周期</h2><ul>
+<li><p>onMounted(<function>)，如果回调函数的返回值为函数，那么将在销毁组件时执行</p>
+</li>
+<li><p>onDestroy(<function>)</p>
+</li>
+<li><p>beforeUpdate() / afterUpdate()</p>
+</li>
+<li><p>tick()，返回一个promise，在dom更新后执行。类似于vue里的nextTick()</p>
+</li>
+</ul>
+<h2 id="8-Store"><a href="#8-Store" class="headerlink" title="8.Store"></a>8.Store</h2><p><strong>基本使用</strong></p>
+<p>store.js</p>
+<div class="hljs"><pre><code class="hljs js"><span class="hljs-keyword">import</span> &#123; writable &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;svelte/store&#x27;</span>;
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> count = writable(<span class="hljs-number">0</span>);</code></pre></div>
+
+<p>App.svelte</p>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>
+<span class="javascript">	<span class="hljs-keyword">import</span> &#123; count &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./stores.js&#x27;</span>;</span>
+<span class="javascript">	<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">increment</span>(<span class="hljs-params"></span>) </span>&#123;</span>
+<span class="javascript">		count.update(<span class="hljs-function"><span class="hljs-params">n</span>=&gt;</span>n+<span class="hljs-number">1</span>);</span>
+	&#125;
+<span class="javascript">  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">decrementer</span>(<span class="hljs-params"></span>)</span>&#123;</span>
+<span class="javascript">    count.update(<span class="hljs-function"><span class="hljs-params">n</span>=&gt;</span>n+<span class="hljs-number">1</span>);</span>
+  &#125;
+<span class="javascript">  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">resetter</span>(<span class="hljs-params"></span>)</span>&#123;</span>
+    count.set(0);
+  &#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">on:click</span>=<span class="hljs-string">&#123;increment&#125;</span>&gt;</span>+<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">on:click</span>=<span class="hljs-string">&#123;decrementer&#125;</span>&gt;</span>-<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">on:click</span>=<span class="hljs-string">&#123;resetter&#125;</span>&gt;</span>reset<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></code></pre></div>
+
+<p><strong>避免内存泄漏</strong></p>
+<p>使用<code>unsubscribe</code></p>
+<div class="hljs"><pre><code class="hljs js"><span class="hljs-keyword">let</span> count_value;
+<span class="hljs-keyword">const</span> unsubscribe = count.subscribe(<span class="hljs-function"><span class="hljs-params">value</span> =&gt;</span> &#123;
+	count_value = value;
+&#125;);
+onDestroy(unsubscribe);</code></pre></div>
+<p>简写–自动subscribe，使用$来快速使用store的变量。仅在store变量在顶级作用域声明或import时生效。</p>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>
+<span class="javascript">  <span class="hljs-keyword">import</span> &#123; count &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./stores.js&#x27;</span>;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>
+  the count is &#123;$count&#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></code></pre></div>
+
+
+
+<h2 id="9"><a href="#9" class="headerlink" title="9."></a>9.</h2>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/05/23/svelte/svelte%E5%BD%92%E6%A1%A3/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">svelte归档</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/15/interview/9-%E8%AF%B4%E8%AF%B4cookie-localStorage%E5%92%8Csession/">
+                        <span class="hidden-mobile">9-说说cookie,localStorage和session</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <script type="text/javascript">
+    function loadUtterances() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'LitStronger/commit-utterances');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    }
+    waitElementVisible('comments', loadUtterances)
+  </script>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer>
+  (function () {
+    // 查询存储的记录
+    function getRecord(Counter, target) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({target})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
+            }
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
+            } else {
+              Counter('post', '/classes/Counter', {target, time: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
+              });
+            }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    }
+
+    // 发起自增请求
+    function increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    }
+
+    // 构建自增请求体
+    function buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "time": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    }
+
+    // 校验是否为有效的 UV
+    function validUV() {
+      var key = 'LeanCloud_UV_Flag';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    }
+
+    function addCount(Counter) {
+      var enableIncr = 'true' === 'true' && window.location.hostname !== 'localhost';
+      var getterArr = [];
+      var incrArr = [];
+
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#leancloud-site-pv-container');
+      if (pvCtn || enableIncr) {
+        var pvGetter = getRecord(Counter, 'site-pv').then((record) => {
+          incrArr.push(buildIncrement(record.objectId))
+          var ele = document.querySelector('#leancloud-site-pv');
+          if (ele) {
+            ele.innerText = record.time + 1;
+            if (pvCtn) {
+              pvCtn.style.display = 'inline';
+            }
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#leancloud-site-uv-container');
+      if (uvCtn || enableIncr) {
+        var uvGetter = getRecord(Counter, 'site-uv').then((record) => {
+          var vuv = validUV();
+          vuv && incrArr.push(buildIncrement(record.objectId))
+          var ele = document.querySelector('#leancloud-site-uv');
+          if (ele) {
+            ele.innerText = record.time + (vuv ? 1 : 0);
+            if (uvCtn) {
+              uvCtn.style.display = 'inline';
+            }
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 如果是文章，请求文章的浏览数，并自增
+      if ('true' === 'true') {
+        var viewCtn = document.querySelector('#leancloud-post-views-container');
+        if (viewCtn || enableIncr) {
+          var target = decodeURI('/2021/05/23/svelte/svelte%E7%AC%94%E8%AE%B0/');
+          var viewGetter = getRecord(Counter, target).then((record) => {
+            incrArr.push(buildIncrement(record.objectId))
+            if (viewCtn) {
+              var ele = document.querySelector('#leancloud-post-views');
+              if (ele) {
+                ele.innerText = (record.time || 0) + 1;
+                viewCtn.style.display = 'inline';
+              }
+            }
+          });
+          getterArr.push(viewGetter);
+        }
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && increment(Counter, incrArr);
+        })
+      }
+    }
+
+    var app_id = 'tvvbcoY4wMnP8onvPOLjlgMa-MdYXbMMI'
+    var app_key = 'C4TUiDMsDy3YLi3ywb0ziVTm'
+    var server_url = ''
+
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': app_id,
+            'X-LC-Key': app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+
+      addCount(Counter);
+    }
+
+    var api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${ app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(resp => resp.json())
+        .then(({api_server}) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "always",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+</body>
+</html>
