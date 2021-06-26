@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>记:ant-design-vue里layout的Bug</title>
+    <link href="/2021/06/26/%E8%AE%B0-ant-design-vue%E9%87%8Clayout%E7%9A%84Bug/"/>
+    <url>/2021/06/26/%E8%AE%B0-ant-design-vue%E9%87%8Clayout%E7%9A%84Bug/</url>
+    
+    <content type="html"><![CDATA[<p>最近在给项目升级ant-design-vue组件库的时候，发现新版里Layout组件的一个bug。</p><a id="more"></a><h2 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h2><p>可以看到，2.1.2版本的layout组件缺失了默认样式<code>ant-layout</code>。</p><p><img src="https://img-blog.csdnimg.cn/20210626102844248.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY0MTg1MA==,size_16,color_FFFFFF,t_70" alt="2.1.2版本"></p><p>查看了下github仓库的更新记录，这个问题从2.0.1开始出现，太巧了，我们原本用的是2.0.0，那时候还是正常的，可以看到有默认样式<code>ant-layout</code>（其他class是自己定义的）</p><p><img src="https://img-blog.csdnimg.cn/2021062610271156.png" alt="2.0.0版本"></p><p>官方更新记录里提到，在2.2.0-beta.2重写了layout组件，试了下，果然在这个版本往前到2.0.1都有这个bug。</p><h2 id="探索"><a href="#探索" class="headerlink" title="探索"></a>探索</h2><p>把antd的库clone下来，切到tag为2.0.1的版本，看看啥情况</p><p>定位到<code>layout.tsx</code>里的<code>generator</code>函数, 里面有一段是这样的，props预定义的内容包括样式名，标签名等等（具体不同组件应该是不同的），prefixCls属性里存的其实就是最终得到的样式类名。</p><pre><code class="hljs jsx"><span class="hljs-function"><span class="hljs-title">setup</span>(<span class="hljs-params">props, &#123; slots &#125;</span>)</span> &#123;    <span class="hljs-keyword">const</span> &#123; getPrefixCls &#125; = inject(<span class="hljs-string">&#x27;configProvider&#x27;</span>, defaultConfigProvider);    <span class="hljs-keyword">return</span> <span class="hljs-function">() =&gt;</span> &#123;        <span class="hljs-keyword">const</span> &#123; <span class="hljs-attr">prefixCls</span>: customizePrefixCls &#125; = props;        <span class="hljs-keyword">const</span> prefixCls = getPrefixCls(suffixCls, customizePrefixCls);        <span class="hljs-keyword">const</span> basicComponentProps = &#123;            prefixCls,            ...props,            tagName,        &#125;;        <span class="hljs-keyword">return</span> (            &lt;BasicComponent &#123;...basicComponentProps&#125;&gt;                &#123;flattenChildren(slots.default?.())&#125;            &lt;/BasicComponent&gt;        );    &#125;;&#125;,</code></pre><p>对比2.2.0-beta.2版本的源码。说实话好像没太大差别，useConfigInject最后调用的还是getPrefixCls这个方法，好像没差别啊！</p><pre><code class="hljs jsx"><span class="hljs-function"><span class="hljs-title">setup</span>(<span class="hljs-params">props, &#123; slots &#125;</span>)</span> &#123;        <span class="hljs-keyword">const</span> &#123; prefixCls &#125; = useConfigInject(suffixCls, props);        <span class="hljs-keyword">return</span> <span class="hljs-function">() =&gt;</span> &#123;          <span class="hljs-keyword">const</span> basicComponentProps = &#123;            ...props,            prefixCls: prefixCls.value,            tagName,          &#125;;          <span class="hljs-keyword">return</span>             &lt;BasicComponent                 &#123;...basicComponentProps&#125;&gt;&#123;slots.default?.()&#125;             &lt;/BasicComponent&gt;;        &#125;;      &#125;,</code></pre><p>研究了一小会，想不明白。代码文件缺了v2-doc（测试例子），第一次接触这个也摸不着头脑，查了下，目前只开源了v1版本的…</p><p>跑不起来…换个思路，我自己项目node_mode里其实也是有antd的源码的（lib下的只用了babel处理，未打包），可以在那边运行debug</p><p>如下</p><p>2.0.1版本</p><pre><code class="hljs js"><span class="hljs-keyword">var</span> customizePrefixCls = props.prefixCls;<span class="hljs-keyword">var</span> prefixCls = getPrefixCls(suffixCls, customizePrefixCls);<span class="hljs-keyword">var</span> basicComponentProps = _extends(_extends(&#123;     prefixCls: prefixCls&#125;, props), &#123;     tagName: tagName&#125;);</code></pre><p>2.2.0-beta.2版本</p><pre><code class="hljs js"><span class="hljs-keyword">var</span> _useConfigInject = (<span class="hljs-number">0</span>, _useConfigInject3.default)(suffixCls, props),    prefixCls = _useConfigInject.prefixCls;<span class="hljs-keyword">var</span> basicComponentProps = _extends(_extends(&#123;&#125;, props), &#123;    prefixCls: prefixCls.value,    tagName: tagName&#125;);</code></pre><p>这个_extends，如果浏览器支持Object.assign的话，他就是Object.assign，源码如下…</p><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_extends</span>(<span class="hljs-params"></span>) </span>&#123; _extends = <span class="hljs-built_in">Object</span>.assign || <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">target</span>) </span>&#123; <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">1</span>; i &lt; <span class="hljs-built_in">arguments</span>.length; i++) &#123; <span class="hljs-keyword">var</span> source = <span class="hljs-built_in">arguments</span>[i]; <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> key <span class="hljs-keyword">in</span> source) &#123; <span class="hljs-keyword">if</span> (<span class="hljs-built_in">Object</span>.prototype.hasOwnProperty.call(source, key)) &#123; target[key] = source[key]; &#125; &#125; &#125; <span class="hljs-keyword">return</span> target; &#125;; <span class="hljs-keyword">return</span> _extends.apply(<span class="hljs-built_in">this</span>, <span class="hljs-built_in">arguments</span>); &#125;</code></pre><p>我这一下就明白了…..</p><p>这不就是2.0.1版本对prefixCls的合并顺序错了嘛…..props里的prefixCls属性直接覆盖了默认的。</p><p>跑起来打断点验证下。运行项目，浏览器F12，打开source栏，<code>ctrl+o</code>查找<code>layout.js</code>，打上断点。可以看到，执行<code>_extends</code>后，<code>undefine</code>覆盖了<code>ant-layout</code></p><p><img src="https://img-blog.csdnimg.cn/20210626114315332.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY0MTg1MA==,size_16,color_FFFFFF,t_70"></p><p>默认css样式名直接被undefined(这个值应该是configProvider里提供的)冲掉了，用同样方法检查试试2.2.1-beta.2版本，可以看到prefixCls是<code>ant-layout</code>，这里就不放图了</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>前端</category>
+      
+      <category>Vue</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Vue</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>svelte归档</title>
     <link href="/2021/05/23/svelte/svelte%E5%BD%92%E6%A1%A3/"/>
     <url>/2021/05/23/svelte/svelte%E5%BD%92%E6%A1%A3/</url>
