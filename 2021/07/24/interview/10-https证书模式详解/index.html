@@ -17,10 +17,23 @@
   <meta name="description" content="Just for fun">
   <meta name="author" content="LitStronger">
   <meta name="keywords" content="">
-  <title>归档 - LitStronger&#39;s notes</title>
+  <title>https证书模式详解 - LitStronger&#39;s notes</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atelier-dune-light.min.css" />
+    
+  
+
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -43,7 +56,7 @@
 
 
 <body>
-  <header style="height: 60vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -176,14 +189,59 @@
 </nav>
 
     <div class="banner intro-2" id="background" parallax=true
-         style="background: url('https://hexo2-1259001110.cos.ap-guangzhou.myqcloud.com/guidang.png') no-repeat center center;
+         style="background: url('https://hexo-1259001110.cos.ap-shanghai.myqcloud.com/qiye.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="container page-header text-center fade-in-up">
             <span class="h2" id="subtitle">
               
             </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-07-24 16:28" pubdate>
+        2021年7月24日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      606 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      6
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-post-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-post-views"></span> 次
+      </span>
+    
+  
+</div>
 
             
           </div>
@@ -196,37 +254,143 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 32 篇文章</p>
-  <hr>
-  
-    
       
-      <p class="h5">2021</p>
-    
-    <a href="/2021/06/26/%E8%AE%B0-ant-design-vue%E9%87%8Clayout%E7%9A%84Bug/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">记:ant-design-vue里layout的Bug</span>
-      <time style="float: right;">06-26</time>
-    </a>
-  
-</div>
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">https证书模式详解</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2021年7月24日 晚上
+                
+              </p>
+            
+            <div class="markdown-body" id="post-body">
+              <p>最近想起https相关的内容，有点遗忘了，网上一搜全是缺胳膊少腿的抄袭文章….</p>
+<p>不过，在吐槽别人做的东西难用时，不妨想想自己能不能整理个更好的出来。</p>
+<a id="more"></a>
 
+<p>本文主要解释<strong>证书生成</strong>以及<strong>证书校验</strong>。关于服务端与客户端通信的部分有空再补充。</p>
+<h2 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h2><p><img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/interview/https.png" srcset="/img/loading.gif"></p>
+<h2 id="一、什么是证书"><a href="#一、什么是证书" class="headerlink" title="一、什么是证书"></a>一、什么是证书</h2><p>以我自己的网站为例，点开锁头，选中证书就能看到证书里的内容。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/interview/cert.png" srcset="/img/loading.gif"></p>
+<h2 id="二、证书的生成"><a href="#二、证书的生成" class="headerlink" title="二、证书的生成"></a>二、证书的生成</h2><p><strong>证书来源</strong>：合法的证书是由第三方的权威机构（CA）颁发的。我自己用的是<a target="_blank" rel="noopener" href="https://letsencrypt.org/">let’s  encrypt</a>提供的。（因为他家的是免费的….卑微.jpg）。</p>
+<p><strong>生成原理</strong>：再次贴下流程图，看左边部分。CA根据你的网站信息，用Hash算法生成Hash值，再用CA的私钥生成数字签名（chrome把这个翻译成指纹，很形象）。这里可以看作为证书由<code>基本信息</code>+<code>指纹</code>组成，方便理解。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/interview/https.png" srcset="/img/loading.gif" alt="绘制图片好难啊，懒.."></p>
+<h2 id="三、保证安全通信的原理"><a href="#三、保证安全通信的原理" class="headerlink" title="三、保证安全通信的原理"></a>三、保证安全通信的原理</h2><p><strong>校验原理</strong>：其实也很简单。</p>
+<p>第一步：根据证书里的基本信息来计算出<code>Hash值1</code>。比如我的证书基本信息里就注明了签名算法是sha256。</p>
+<p>第二步：根据系统自带的各大权威机构的公钥，解密网站证书的指纹，得到<code>Hash值2</code>。（各大权威机构的证书在电脑生产出厂时就已经安装好了（已信任））</p>
+<p>第三步：对比<code>Hash值1</code>和<code>Hash值2</code>，相等则认证通过。</p>
+<p><strong>由于黑客无法没有CA的私钥，所以是无法伪造指纹的。</strong></p>
+<h2 id="四、攻破"><a href="#四、攻破" class="headerlink" title="四、攻破"></a>四、攻破</h2><p>没想到吧，应该很少人会去想怎么攻破https这种安全模式。以目前的计算机计算能力来说，理论上https是不可破的。我们观察一下上面的流程图，不难发现其精髓在于引入CA这个第三方证人。</p>
+<p>那么，思路可以有了</p>
+<p>思路1：收买CA，得到私钥。</p>
+<p>思路2：诱骗用户在电脑上安装黑客的证书（信任此证书），这样黑客就可以充当冒牌的CA，签发冒牌的证书。当用户访问正规网站时，如果被黑客劫持请求，并返回给你冒牌证书，那么接下来用户发出的请求都将被破译。</p>
 
-              </div>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%89%8D%E7%AB%AF/css/">css</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/06/26/%E8%AE%B0-ant-design-vue%E9%87%8Clayout%E7%9A%84Bug/">
+                        <span class="hidden-mobile">记:ant-design-vue里layout的Bug</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <script type="text/javascript">
+    function loadUtterances() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'LitStronger/commit-utterances');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    }
+    waitElementVisible('comments', loadUtterances)
+  </script>
+
+
+              </article>
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
   </main>
 
@@ -441,10 +605,10 @@
       }
 
       // 如果是文章，请求文章的浏览数，并自增
-      if ('false' === 'true') {
+      if ('true' === 'true') {
         var viewCtn = document.querySelector('#leancloud-post-views-container');
         if (viewCtn || enableIncr) {
-          var target = decodeURI('/archives/2021/06/index.html');
+          var target = decodeURI('/2021/07/24/interview/10-https%E8%AF%81%E4%B9%A6%E6%A8%A1%E5%BC%8F%E8%AF%A6%E8%A7%A3/');
           var viewGetter = getRecord(Counter, target).then((record) => {
             incrArr.push(buildIncrement(record.objectId))
             if (viewCtn) {
@@ -506,6 +670,31 @@
 
 
 
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
 
 
   <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
@@ -513,7 +702,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "归档&nbsp;",
+        "https证书模式详解&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
@@ -528,6 +717,21 @@
 
 
 
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "always",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
 
 
   <script  src="/js/local-search.js" ></script>
@@ -541,6 +745,20 @@
   </script>
 
 
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
 
 
 
