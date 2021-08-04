@@ -17,7 +17,7 @@
   <meta name="description" content="Just for fun">
   <meta name="author" content="LitStronger">
   <meta name="keywords" content="">
-  <title>https证书模式详解 - LitStronger&#39;s notes</title>
+  <title>vue-router两种模式原理 - LitStronger&#39;s notes</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -204,8 +204,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-07-24 16:28" pubdate>
-        2021年7月24日 下午
+      <time datetime="2021-08-04 23:01" pubdate>
+        2021年8月4日 晚上
       </time>
     </span>
   
@@ -216,7 +216,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      604 字
+      570 字
     </span>
   
 
@@ -226,7 +226,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      6
+      7
        分钟
     </span>
   
@@ -264,35 +264,91 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">https证书模式详解</h1>
+            <h1 style="display: none">vue-router两种模式原理</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年7月24日 晚上
+                  本文最后更新于：2021年8月4日 晚上
                 
               </p>
             
             <div class="markdown-body" id="post-body">
-              <p>最近想起https相关的内容，有点遗忘了，网上一搜全是缺胳膊少腿的抄袭文章….</p>
-<p>不过，在吐槽别人做的东西难用时，不妨想想自己能不能整理个更好的出来。</p>
+              <p>vue-router的hash、history两种模式的原理以及优缺点</p>
 <a id="more"></a>
 
-<p>本文主要解释<strong>证书生成</strong>以及<strong>证书校验</strong>。关于服务端与客户端通信的部分有空再补充。</p>
-<h2 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h2><p><img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/interview/https.png" srcset="/img/loading.gif"></p>
-<h2 id="一、什么是证书"><a href="#一、什么是证书" class="headerlink" title="一、什么是证书"></a>一、什么是证书</h2><p>以我自己的网站为例，点开锁头，选中证书就能看到证书里的内容。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/interview/cert.png" srcset="/img/loading.gif"></p>
-<h2 id="二、证书的生成"><a href="#二、证书的生成" class="headerlink" title="二、证书的生成"></a>二、证书的生成</h2><p><strong>证书来源</strong>：合法的证书是由第三方的权威机构（CA）颁发的。我自己用的是<a target="_blank" rel="noopener" href="https://letsencrypt.org/">let’s  encrypt</a>提供的。（因为他家的是免费的….卑微.jpg）。</p>
-<p><strong>生成原理</strong>：再次贴下流程图，看左边部分。CA根据你的网站信息，用Hash算法生成Hash值，再用CA的私钥生成数字签名（chrome把这个翻译成指纹，很形象）。这里可以看作为证书由<code>基本信息</code>+<code>指纹</code>组成，方便理解。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/interview/https.png" srcset="/img/loading.gif" alt="绘制图片好难啊，懒.."></p>
-<h2 id="三、保证安全通信的原理"><a href="#三、保证安全通信的原理" class="headerlink" title="三、保证安全通信的原理"></a>三、保证安全通信的原理</h2><p><strong>校验原理</strong>：其实也很简单。</p>
-<p>第一步：根据证书里的基本信息来计算出<code>Hash值1</code>。比如我的证书基本信息里就注明了签名算法是sha256。</p>
-<p>第二步：根据系统自带的各大权威机构的公钥，解密网站证书的指纹，得到<code>Hash值2</code>。（各大权威机构的证书在电脑生产出厂时就已经安装好了（已信任））</p>
-<p>第三步：对比<code>Hash值1</code>和<code>Hash值2</code>，相等则认证通过。</p>
-<p><strong>由于黑客没有CA的私钥，所以是无法伪造指纹的。</strong></p>
-<h2 id="四、攻破"><a href="#四、攻破" class="headerlink" title="四、攻破"></a>四、攻破</h2><p>没想到吧，应该很少人会去想怎么攻破https这种安全模式。以目前的计算机计算能力来说，理论上https是不可破的。我们观察一下上面的流程图，不难发现其精髓在于引入CA这个第三方证人。</p>
-<p>那么，思路可以有了</p>
-<p>思路1：收买CA，得到私钥。</p>
-<p>思路2：诱骗用户在电脑上安装黑客的证书（信任此证书），这样黑客就可以充当冒牌的CA，签发冒牌的证书。当用户访问正规网站时，如果被黑客劫持请求，并返回给你冒牌证书，那么接下来用户发出的请求都将被破译。</p>
+<p>两种模式，创建路由实例时指定<code>mode: &#39;hash&#39;(&#39;history&#39;)</code></p>
+<h1 id="一、hash模式"><a href="#一、hash模式" class="headerlink" title="一、hash模式"></a>一、hash模式</h1><p><strong>本质是利用了window.onhashchange属性</strong></p>
+<blockquote>
+<p>当 一个窗口的 hash （URL 中 # 后面的部分）改变时就会触发 <strong>hashchange</strong> 事件（参见 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/location"><code>location.hash</code></a>）。</p>
+</blockquote>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Document<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>测试一下<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span>
+<span class="javascript">        <span class="hljs-built_in">window</span>.onhashchange = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event</span>)</span>&#123;</span>
+<span class="javascript">            <span class="hljs-built_in">console</span>.log(event.oldURL,event.newURL)</span>
+<span class="javascript">            <span class="hljs-keyword">let</span> hash = location.hash.slice(<span class="hljs-number">1</span>);</span>
+<span class="javascript">            <span class="hljs-built_in">document</span>.body.style.color = hash;</span>
+        &#125;
+    <span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre></div>
+
+<p>缺点：只能操作<code>#</code>后的片段，下文的<code>history</code>则没有这个限制</p>
+<h1 id="二、history模式"><a href="#二、history模式" class="headerlink" title="二、history模式"></a>二、history模式</h1><p><strong>本质是利用window.history对象</strong></p>
+<blockquote>
+<p>DOM <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window"><code>window</code></a> 对象通过 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/history"><code>history</code></a> 对象提供了对浏览器的会话历史的访问。允许你在用户浏览历史中向前和向后跳转，同时——从HTML5开始——提供了对history栈中内容的操作</p>
+</blockquote>
+<p>history实质是什么？可以F12打开控制台，键入window.history看看</p>
+<ul>
+<li>length</li>
+<li>scrollRestoration</li>
+<li>state <Object></li>
+</ul>
+<p>下面两个函数用于保存路径的状态</p>
+<ul>
+<li><p>pushState</p>
+<p>通过pushstate把页面的状态保存在state对象中，当页面的url再变回这个url时，可以通过event.state取到这个state对像，从而可以对页面状态进行还原</p>
+</li>
+<li><p>popState</p>
+<p>只有在做出回退操作时，才会触发该事件</p>
+</li>
+</ul>
+<p><strong>后退</strong></p>
+<div class="hljs"><pre><code class="hljs js"><span class="hljs-built_in">window</span>.history.back();</code></pre></div>
+
+<p><strong>前进</strong></p>
+<div class="hljs"><pre><code class="hljs js"><span class="hljs-built_in">window</span>.history.forward();</code></pre></div>
+
+<p><strong>跳转</strong>(前进/后退n次）</p>
+<div class="hljs"><pre><code class="hljs js"><span class="hljs-built_in">window</span>.history.go(<span class="hljs-number">2</span>);<span class="hljs-comment">// 前进两次，相当于执行两次forward()</span>
+<span class="hljs-built_in">window</span>.history.go(-<span class="hljs-number">2</span>);<span class="hljs-comment">// 后退两次，相当于执行两次back()</span></code></pre></div>
+
+<p><strong>设置状态</strong>(不同的url保存不同的state)</p>
+<div class="hljs"><pre><code class="hljs js">history.pushState(&#123;<span class="hljs-attr">color</span>:<span class="hljs-string">&#x27;red&#x27;</span>&#125;, <span class="hljs-string">&#x27;red&#x27;</span>, <span class="hljs-string">&#x27;red&#x27;</span>&#125;)
+<span class="hljs-built_in">window</span>.onpopstate = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event</span>)</span>&#123;
+  <span class="hljs-built_in">console</span>.log(event.state)
+  <span class="hljs-function"><span class="hljs-title">if</span>(<span class="hljs-params">event.state &amp;&amp; event.state.color === <span class="hljs-string">&#x27;red&#x27;</span></span>)</span>&#123;
+    <span class="hljs-built_in">document</span>.body.style.color = <span class="hljs-string">&#x27;red&#x27;</span>;
+  &#125;
+&#125;</code></pre></div>
+
+
+
+<h1 id="两者对F5刷新的处理："><a href="#两者对F5刷新的处理：" class="headerlink" title="两者对F5刷新的处理："></a>两者对F5刷新的处理：</h1><p><strong>hash</strong></p>
+<p>例如：<a target="_blank" rel="noopener" href="http://www.test.com/#/inde">http://www.test.com/#/inde</a></p>
+<p>刷新后，发送请求<a target="_blank" rel="noopener" href="http://www.test.com(/#%E5%89%8D%E7%9A%84%E9%83%A8%E5%88%86%EF%BC%89">http://www.test.com（#前的部分）</a></p>
+<p><strong>history</strong></p>
+<p>例如：<a target="_blank" rel="noopener" href="http://www.test.com/inde">http://www.test.com/inde</a></p>
+<p>刷新后，发送请求<a target="_blank" rel="noopener" href="http://www.test.com/inde">http://www.test.com/inde</a></p>
+<p>显然history模式下是有可能出现404的</p>
+<h2 id="缺点小结"><a href="#缺点小结" class="headerlink" title="缺点小结"></a>缺点小结</h2><p>hash：只能操作<code>#</code>后的片段，下文的<code>history</code>则没有这个限制</p>
+<p>history：有可能出现404的情况</p>
 
             </div>
             <hr>
@@ -325,18 +381,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/08/04/vue-router%E4%B8%A4%E7%A7%8D%E6%A8%A1%E5%BC%8F%E5%8E%9F%E7%90%86/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">vue-router两种模式原理</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/06/26/%E8%AE%B0-ant-design-vue%E9%87%8Clayout%E7%9A%84Bug/">
-                        <span class="hidden-mobile">记:ant-design-vue里layout的Bug</span>
+                      <a href="/2021/07/24/interview/10-https%E8%AF%81%E4%B9%A6%E6%A8%A1%E5%BC%8F%E8%AF%A6%E8%A7%A3/">
+                        <span class="hidden-mobile">https证书模式详解</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -614,7 +664,7 @@
       if ('true' === 'true') {
         var viewCtn = document.querySelector('#leancloud-post-views-container');
         if (viewCtn || enableIncr) {
-          var target = decodeURI('/2021/07/24/interview/10-https%E8%AF%81%E4%B9%A6%E6%A8%A1%E5%BC%8F%E8%AF%A6%E8%A7%A3/');
+          var target = decodeURI('/2021/08/04/vue-router%E4%B8%A4%E7%A7%8D%E6%A8%A1%E5%BC%8F%E5%8E%9F%E7%90%86/');
           var viewGetter = getRecord(Counter, target).then((record) => {
             incrArr.push(buildIncrement(record.objectId))
             if (viewCtn) {
@@ -708,7 +758,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "https证书模式详解&nbsp;",
+        "vue-router两种模式原理&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
