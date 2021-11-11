@@ -216,7 +216,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.8k 字
+      2.7k 字
     </span>
   
 
@@ -226,7 +226,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      42
+      41
        分钟
     </span>
   
@@ -268,7 +268,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年3月3日 晚上
+                  本文最后更新于：2021年11月11日 上午
                 
               </p>
             
@@ -563,9 +563,6 @@ xhr = <span class="hljs-keyword">new</span> XMLHttpRequest();
 &#125;</code></pre></div>
 
 <h2 id="利用JSON处理"><a href="#利用JSON处理" class="headerlink" title="利用JSON处理"></a>利用JSON处理</h2><p>使用JSON来深拷贝应该是比较实用的，简单且能满足大多数场景下的需求。缺点是无法处理<code>函数</code>，<code>正则</code>这两种对象。</p>
-<blockquote>
-<p>个人觉得拷贝函数、正则没有太大的意义，如果只是修改引用的指向的话，比如让obj2的func指向另一个函数，是不会影响obj1的func的，正则也是如此。除非是修改了func内部的属性才会有影响。</p>
-</blockquote>
 <div class="hljs"><pre><code class="hljs js"><span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.parse(<span class="hljs-built_in">JSON</span>.stringify(obj1)))</code></pre></div>
 
 <p>output:</p>
