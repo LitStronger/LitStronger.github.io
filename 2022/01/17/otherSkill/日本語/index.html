@@ -17,7 +17,7 @@
   <meta name="description" content="Just for fun">
   <meta name="author" content="LitStronger">
   <meta name="keywords" content="">
-  <title>vue-router两种模式原理 - LitStronger&#39;s notes</title>
+  <title>日本語 - LitStronger&#39;s notes</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -204,8 +204,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-08-04 23:01" pubdate>
-        2021年8月4日 晚上
+      <time datetime="2022-01-17 16:01" pubdate>
+        2022年1月17日 下午
       </time>
     </span>
   
@@ -216,7 +216,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      570 字
+      919 字
     </span>
   
 
@@ -226,7 +226,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      7
+      11
        分钟
     </span>
   
@@ -264,113 +264,145 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">vue-router两种模式原理</h1>
+            <h1 style="display: none">日本語</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年8月4日 晚上
+                  本文最后更新于：2022年1月17日 下午
                 
               </p>
             
             <div class="markdown-body" id="post-body">
-              <p>vue-router的hash、history两种模式的原理以及优缺点</p>
+              <p>mo yu.</p>
 <a id="more"></a>
 
-<p>两种模式，创建路由实例时指定<code>mode: &#39;hash&#39;(&#39;history&#39;)</code></p>
-<h1 id="一、hash模式"><a href="#一、hash模式" class="headerlink" title="一、hash模式"></a>一、hash模式</h1><p><strong>本质是利用了window.onhashchange属性</strong></p>
-<blockquote>
-<p>当 一个窗口的 hash （URL 中 # 后面的部分）改变时就会触发 <strong>hashchange</strong> 事件（参见 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/location"><code>location.hash</code></a>）。</p>
-</blockquote>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Document<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>测试一下<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span>
-<span class="javascript">        <span class="hljs-built_in">window</span>.onhashchange = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event</span>)</span>&#123;</span>
-<span class="javascript">            <span class="hljs-built_in">console</span>.log(event.oldURL,event.newURL)</span>
-<span class="javascript">            <span class="hljs-keyword">let</span> hash = location.hash.slice(<span class="hljs-number">1</span>);</span>
-<span class="javascript">            <span class="hljs-built_in">document</span>.body.style.color = hash;</span>
-        &#125;
-    <span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre></div>
-
-<p>缺点：只能操作<code>#</code>后的片段，下文的<code>history</code>则没有这个限制</p>
-<h1 id="二、history模式"><a href="#二、history模式" class="headerlink" title="二、history模式"></a>二、history模式</h1><p><strong>本质是利用window.history对象</strong></p>
-<blockquote>
-<p>DOM <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window"><code>window</code></a> 对象通过 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/history"><code>history</code></a> 对象提供了对浏览器的会话历史的访问。允许你在用户浏览历史中向前和向后跳转，同时——从HTML5开始——提供了对history栈中内容的操作</p>
-</blockquote>
-<p>history实质是什么？可以F12打开控制台，键入window.history看看</p>
-<ul>
-<li>length</li>
-<li>scrollRestoration</li>
-<li>state <Object></li>
-</ul>
-<p>下面两个函数用于保存路径的状态</p>
-<ul>
-<li><p>pushState</p>
-<p>通过pushstate把页面的状态保存在state对象中，当页面的url再变回这个url时，可以通过event.state取到这个state对像，从而可以对页面状态进行还原</p>
+<h2 id="1-句式"><a href="#1-句式" class="headerlink" title="1.句式"></a>1.句式</h2><h3 id="1-1-存在句"><a href="#1-1-存在句" class="headerlink" title="1.1 存在句"></a>1.1 存在句</h3><p>１．<code>あります</code>    花草等不具意志的事物</p>
+<p>２．<code>います</code>    人或动物等有意志的事物</p>
+<p>句式1：场所<code>に</code>+人/物<code>が</code> + あります・います</p>
+<p>机の上に猫がいます    桌子上有只猫</p>
+<p>くやに椅子「いす」があります    屋里有把椅子  </p>
+<p>句式2：人/物<code>は</code>＋场所<code>に</code>＋あります・います</p>
+<p>猫は机の上にいます    猫在桌子上</p>
+<p>椅子は部屋「へや」にあります    椅子在屋里</p>
+<p>遵从“が前は后”</p>
+<h3 id="1-2-从到"><a href="#1-2-从到" class="headerlink" title="1.2  从到"></a>1.2  从<del>到</del></h3><p>「から」： ~ 的起点（时间、空间、顺序等）</p>
+<p>「まで」： ~ 的终点（同上）</p>
+<p>两者均可单独使用，后面以「です」结句。</p>
+<p><strong>例</strong>：</p>
+<p>​    授業「じゅぎょ,  ju gyo」は七時「しちじ」からです。　课程七点开始。</p>
+<p>​    授業は八時までです。　课程到八点为止。</p>
+<p>连起来使用：「～から～までです」，即“从…到…”</p>
+<p><strong>例</strong>：</p>
+<p>​    授業は七時から八時までです。　课程从起七点开始到八点结束。</p>
+<h3 id="1-3-全面否定"><a href="#1-3-全面否定" class="headerlink" title="1.3 全面否定"></a>1.3 全面否定</h3><p>句式「疑问词+も+动词否定」，表示全面否定</p>
+<p><strong>例</strong>：</p>
+<p>​    （１）教室「きょしつ」に　誰「だれ」も　いません。　教室里谁也没有。</p>
+<p>​    （２）昨日「きの」、何「なに」も　買いません でした(过去式)。　昨天什么也没买。</p>
+<h2 id="2-时态"><a href="#2-时态" class="headerlink" title="2.时态"></a>2.时态</h2><ol>
+<li><p>过去时</p>
 </li>
-<li><p>popState</p>
-<p>只有在做出回退操作时，才会触发该事件</p>
+<li><p>非过去时</p>
+<p>a.当前的状态或将来的动作。</p>
+<p>b.经常性，习惯性的动作或状态</p>
+</li>
+</ol>
+<h2 id="3-动词"><a href="#3-动词" class="headerlink" title="3.动词"></a>3.动词</h2><p><strong>动词</strong>：说明事物的动作、状态、存在和变化的词（中文里的形容词在日语中被归为状态动词）</p>
+<p>1.动作：走る「はしる」、飛ぶ「とぶ」、歩く「あるく」、、、</p>
+<p>2.状态：疲れる「つかれる」、優れる「すぐれる」、、、（疲惫的，优秀的）</p>
+<p>3.存在：ある    いる</p>
+<p>4.变化：なる</p>
+<p>词尾加上う段的假名，る、く、ぶ等等</p>
+<h3 id="3-1动词分类"><a href="#3-1动词分类" class="headerlink" title="3.1动词分类"></a>3.1动词分类</h3><p><strong>一类</strong>：词尾在う段</p>
+<p><strong>二类</strong>：</p>
+<ol>
+<li><p>词尾是る</p>
+</li>
+<li><p>倒数第二个假名是い段（起き「おき」る，起床）或え段（食べ「たべ」る，吃）。</p>
+<p>也有少数特殊的例外，看上去像二类实则为一类的动词，如走る「はしる」、入る「はいる」（跑，进入）</p>
+</li>
+</ol>
+<p><strong>三类</strong>：</p>
+<ol>
+<li>来「く」る（只有这一个）</li>
+<li>する　做、干、搞、打、决定、变化等</li>
+<li>动作性名词+する，如勉強「べんきょ」する，</li>
+</ol>
+<h3 id="3-2动词的非过去时"><a href="#3-2动词的非过去时" class="headerlink" title="3.2动词的非过去时"></a>3.2动词的非过去时</h3><ol>
+<li>表示<strong>经常性</strong>、<strong>习惯性</strong>、<strong>反复性</strong>的动作</li>
+<li>表示<strong>将来</strong>的动作</li>
+</ol>
+<ul>
+<li><p>动词的敬体非过去时（ます形）</p>
+<p><strong>一类</strong>：「う」段假名变「い」段假名，再接ます。</p>
+<p>例：行「い」く　ーー　行きます　　　</p>
+<p>​        降「ふ」る　ーー 　降ります</p>
+<p><strong>二类</strong>：去掉词尾的「る」，然后接「ます」</p>
+<p>例：食べます　　起きます</p>
+<p><strong>三类</strong>：</p>
+<p>例：来る「くる」　ーー　来ます（きます）</p>
+<p>​        する　ーー　します</p>
+<p>　　其他动作性名词+”する”的变法都是根据する进行变形，如：勉強「べんきょ」しま　        す、研究「けんきゅ」します</p>
+<p>​        </p>
+<table>
+<thead>
+<tr>
+<th>非过去时肯定</th>
+<th>非过去时否定</th>
+<th>过去时肯定</th>
+<th>过去时否定</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ます</td>
+<td>ません</td>
+<td>ました</td>
+<td>ませんでした</td>
+</tr>
+<tr>
+<td>行きます</td>
+<td>行きません</td>
+<td>行きました</td>
+<td>行きませんでした</td>
+</tr>
+<tr>
+<td>食べます</td>
+<td>食べません</td>
+<td>食べました</td>
+<td>食べませんでした</td>
+</tr>
+</tbody></table>
 </li>
 </ul>
-<p><strong>后退</strong></p>
-<div class="hljs"><pre><code class="hljs js"><span class="hljs-built_in">window</span>.history.back();</code></pre></div>
-
-<p><strong>前进</strong></p>
-<div class="hljs"><pre><code class="hljs js"><span class="hljs-built_in">window</span>.history.forward();</code></pre></div>
-
-<p><strong>跳转</strong>(前进/后退n次）</p>
-<div class="hljs"><pre><code class="hljs js"><span class="hljs-built_in">window</span>.history.go(<span class="hljs-number">2</span>);<span class="hljs-comment">// 前进两次，相当于执行两次forward()</span>
-<span class="hljs-built_in">window</span>.history.go(-<span class="hljs-number">2</span>);<span class="hljs-comment">// 后退两次，相当于执行两次back()</span></code></pre></div>
-
-<p><strong>设置状态</strong>(不同的url保存不同的state)</p>
-<div class="hljs"><pre><code class="hljs js">history.pushState(&#123;<span class="hljs-attr">color</span>:<span class="hljs-string">&#x27;red&#x27;</span>&#125;, <span class="hljs-string">&#x27;red&#x27;</span>, <span class="hljs-string">&#x27;red&#x27;</span>&#125;)
-<span class="hljs-built_in">window</span>.onpopstate = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event</span>)</span>&#123;
-  <span class="hljs-built_in">console</span>.log(event.state)
-  <span class="hljs-function"><span class="hljs-title">if</span>(<span class="hljs-params">event.state &amp;&amp; event.state.color === <span class="hljs-string">&#x27;red&#x27;</span></span>)</span>&#123;
-    <span class="hljs-built_in">document</span>.body.style.color = <span class="hljs-string">&#x27;red&#x27;</span>;
-  &#125;
-&#125;</code></pre></div>
-
-
-
-<h1 id="两者对F5刷新的处理："><a href="#两者对F5刷新的处理：" class="headerlink" title="两者对F5刷新的处理："></a>两者对F5刷新的处理：</h1><p><strong>hash</strong></p>
-<p>例如：<a target="_blank" rel="noopener" href="http://www.test.com/#/inde">http://www.test.com/#/inde</a></p>
-<p>刷新后，发送请求<a target="_blank" rel="noopener" href="http://www.test.com(/#%E5%89%8D%E7%9A%84%E9%83%A8%E5%88%86%EF%BC%89">http://www.test.com（#前的部分）</a></p>
-<p><strong>history</strong></p>
-<p>例如：<a target="_blank" rel="noopener" href="http://www.test.com/inde">http://www.test.com/inde</a></p>
-<p>刷新后，发送请求<a target="_blank" rel="noopener" href="http://www.test.com/inde">http://www.test.com/inde</a></p>
-<p>显然history模式下是有可能出现404的</p>
-<h2 id="缺点小结"><a href="#缺点小结" class="headerlink" title="缺点小结"></a>缺点小结</h2><p>hash：只能操作<code>#</code>后的片段，下文的<code>history</code>则没有这个限制</p>
-<p>history：有可能出现404的情况</p>
+<h2 id="4-助词"><a href="#4-助词" class="headerlink" title="4.助词"></a>4.助词</h2><h3 id="4-1-は"><a href="#4-1-は" class="headerlink" title="4.1 は"></a>4.1 は</h3><p>「は」</p>
+<ol>
+<li><p>是（A是B）</p>
+</li>
+<li><p>提示主题</p>
+</li>
+<li><p>表示对比</p>
+<p>通常有「が」「でも」等表示转折的词来提示，构成句式</p>
+<p>「～は～が、（でも）～は～」</p>
+</li>
+<li></li>
+</ol>
+<h3 id="4-2-ね、语气终助词"><a href="#4-2-ね、语气终助词" class="headerlink" title="4.2 ね、语气终助词"></a>4.2 ね、语气终助词</h3><p>ね ，确认的语气终助词</p>
+<p>1.ね接在句末</p>
+<p>2.向对方进行确认，或希望得到对方的赞同</p>
+<p>3.表示感叹</p>
+<p>ここは大学「だいがく」ですね。　这里是大学吧！（2/3，取决于语调）</p>
+<p>明日「あした」は休み「やすみ」ありませんね    明天休息吧？（2，不上班吧？）</p>
+<h3 id="4-3-に，补格助词"><a href="#4-3-に，补格助词" class="headerlink" title="4.3 に，补格助词"></a>4.3 に，补格助词</h3><p>に，接在确切时间的后面，表示动作发生的具体时间</p>
+<p><strong>例</strong>：毎朝、八時半に起きます。　八点半起床。</p>
+<p>注意1：不接在不确切时间的后面。如：毎日「まいにち」、今日「きょ」、昨日「きの」、明日「あした」、去年「きょねん」、先月「せんげつ」</p>
+<p>注意2：可接在特定的时间后面。四季，假期，星期等等，如：春「はる」に、夏「なつ」に、秋「あき」に、冬「ふゆ」に、夏休み「なつやすみ」に。</p>
+<h3 id="4-4-で"><a href="#4-4-で" class="headerlink" title="4.4 で"></a>4.4 で</h3><p>で，接在名词后，提示方法，手段，工具。</p>
+<p><strong>例</strong>：毎朝、バスで　学校「がっこ」へ行きます。　每天坐公交去学校</p>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
-                    
-                      <a class="hover-with-bg" href="/categories/%E5%89%8D%E7%AB%AF/css/">css</a>
-                    
-                  </div>
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a>
-                    
-                  </div>
                 
               </div>
               
@@ -381,18 +413,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/01/17/otherSkill/%E6%97%A5%E6%9C%AC%E8%AA%9E/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">日本語</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/07/24/interview/10-https%E8%AF%81%E4%B9%A6%E6%A8%A1%E5%BC%8F%E8%AF%A6%E8%A7%A3/">
-                        <span class="hidden-mobile">https证书模式详解</span>
+                      <a href="/2021/08/04/vue-router%E4%B8%A4%E7%A7%8D%E6%A8%A1%E5%BC%8F%E5%8E%9F%E7%90%86/">
+                        <span class="hidden-mobile">vue-router两种模式原理</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -670,7 +696,7 @@
       if ('true' === 'true') {
         var viewCtn = document.querySelector('#leancloud-post-views-container');
         if (viewCtn || enableIncr) {
-          var target = decodeURI('/2021/08/04/vue-router%E4%B8%A4%E7%A7%8D%E6%A8%A1%E5%BC%8F%E5%8E%9F%E7%90%86/');
+          var target = decodeURI('/2022/01/17/otherSkill/%E6%97%A5%E6%9C%AC%E8%AA%9E/');
           var viewGetter = getRecord(Counter, target).then((record) => {
             incrArr.push(buildIncrement(record.objectId))
             if (viewCtn) {
@@ -764,7 +790,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "vue-router两种模式原理&nbsp;",
+        "日本語&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
