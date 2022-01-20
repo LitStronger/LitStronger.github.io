@@ -8,15 +8,16 @@
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/favicon.png">
-  <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/favicon.png">
+  <link rel="icon" href="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/favicon.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="Just for fun">
+  <meta name="description" content="某2020前端互助群的每周议题(三)  Part 2">
   <meta name="author" content="LitStronger">
   <meta name="keywords" content="">
+  
   <title>5-css+html鼠标悬停tips - LitStronger&#39;s notes</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
@@ -34,6 +35,9 @@
   
 
   
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+  
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -50,6 +54,10 @@
 <!-- 自定义样式保持在最底部 -->
 
 
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"liaoyq.club","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"always","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"tvvbcoY4wMnP8onvPOLjlgMa-MdYXbMMI","app_key":"C4TUiDMsDy3YLi3ywb0ziVTm","server_url":null}},"search_path":"/local-search.xml"};
+  </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 5.2.0"></head>
@@ -113,7 +121,8 @@
           
           
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" target="_self" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="iconfont icon-bug"></i>
                 走廊
               </a>
@@ -173,13 +182,13 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
                 class="iconfont icon-search"></i>&nbsp;</a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
+            <a class="nav-link" target="_self">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -188,13 +197,13 @@
   </div>
 </nav>
 
-    <div class="banner intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('https://hexo-1259001110.cos.ap-shanghai.myqcloud.com/qiye.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container page-header text-center fade-in-up">
-            <span class="h2" id="subtitle">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="5-css+html鼠标悬停tips">
               
             </span>
 
@@ -235,9 +244,9 @@
   
     
       <!-- LeanCloud 统计文章PV -->
-      <span id="leancloud-post-views-container" class="post-meta" style="display: none">
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
         <i class="iconfont icon-eye" aria-hidden="true"></i>
-        <span id="leancloud-post-views"></span> 次
+        <span id="leancloud-page-views"></span> 次
       </span>
     
   
@@ -256,13 +265,13 @@
     
       
 
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
     <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
         <div class="py-5" id="board">
-          <article class="post-content mx-auto" id="post">
+          <article class="post-content mx-auto">
             <!-- SEO header -->
             <h1 style="display: none">5-css+html鼠标悬停tips</h1>
             
@@ -272,12 +281,12 @@
                 
               </p>
             
-            <div class="markdown-body" id="post-body">
+            <div class="markdown-body">
               <p>某2020前端互助群的每周议题(三)  Part 2</p>
 <a id="more"></a>
 
 <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>实现一个鼠标悬停的功能，如图</p>
-<p><img src="https://img-blog.csdnimg.cn/20201201154933160.png" srcset="/img/loading.gif" alt="1606801197639"></p>
+<p><img src="https://img-blog.csdnimg.cn/20201201154933160.png" srcset="/img/loading.gif" lazyload alt="1606801197639"></p>
 <p>要求：只使用CSS和HTML</p>
 <p>可以贴出代码的实现地址例如<a target="_blank" rel="noopener" href="https://codepen.io/">https://codepen.io/</a> 上提交自己的代码</p>
 <h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><p><a target="_blank" rel="noopener" href="https://codepen.io/litstronger/pen/ZEpGXQZ">我的实现</a></p>
@@ -285,28 +294,7 @@
 <blockquote>
 <p> <code>:after</code>这是css2的写法，css3是<code>::after</code></p>
 </blockquote>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span>
-<span class="css">    <span class="hljs-selector-class">.wrap</span> &#123;</span>
-    &#125;
-<span class="css">    <span class="hljs-selector-class">.wrap</span> <span class="hljs-selector-tag">img</span> &#123;</span>
-        width: 1em;
-        height: 1em;
-    &#125;
-<span class="css">    <span class="hljs-selector-class">.wrap</span><span class="hljs-selector-pseudo">:hover</span><span class="hljs-selector-pseudo">:after</span> &#123;</span>
-        content: attr(logo-tip);
-<span class="css">        <span class="hljs-selector-tag">background</span>: <span class="hljs-selector-id">#222</span>;</span>
-        color: white;
-
-<span class="css">        <span class="hljs-selector-tag">border-radius</span>: <span class="hljs-selector-class">.2em</span>;</span>
-<span class="css">        <span class="hljs-selector-tag">padding</span>: <span class="hljs-selector-class">.5em</span>;</span>
-        width: 5em;
-<span class="css">        <span class="hljs-selector-tag">opacity</span>: <span class="hljs-selector-class">.5</span>;</span>
-    &#125;
-<span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
-
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;wrap&quot;</span> <span class="hljs-attr">logo-tip</span>=<span class="hljs-string">&quot;添加链接啦啦啦啦&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://hexo-1259001110.cos.ap-shanghai.myqcloud.com/link.png&quot;</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><br><span class="css">    <span class="hljs-selector-class">.wrap</span> &#123;</span><br>    &#125;<br><span class="css">    <span class="hljs-selector-class">.wrap</span> <span class="hljs-selector-tag">img</span> &#123;</span><br>        width: 1em;<br>        height: 1em;<br>    &#125;<br><span class="css">    <span class="hljs-selector-class">.wrap</span><span class="hljs-selector-pseudo">:hover</span><span class="hljs-selector-pseudo">:after</span> &#123;</span><br>        content: attr(logo-tip);<br><span class="css">        <span class="hljs-selector-tag">background</span>: <span class="hljs-selector-id">#222</span>;</span><br>        color: white;<br><br><span class="css">        <span class="hljs-selector-tag">border-radius</span>: <span class="hljs-selector-class">.2em</span>;</span><br><span class="css">        <span class="hljs-selector-tag">padding</span>: <span class="hljs-selector-class">.5em</span>;</span><br>        width: 5em;<br><span class="css">        <span class="hljs-selector-tag">opacity</span>: <span class="hljs-selector-class">.5</span>;</span><br>    &#125;<br><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;wrap&quot;</span> <span class="hljs-attr">logo-tip</span>=<span class="hljs-string">&quot;添加链接啦啦啦啦&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://hexo-1259001110.cos.ap-shanghai.myqcloud.com/link.png&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
 
 <p>初步效果如下，鼠标移上去会出现tip</p>
 <style>
@@ -330,43 +318,13 @@
 </style>
 
 <div class="wrap-1" logo-tip="添加链接啦啦啦啦">
-    <img src="https://hexo-1259001110.cos.ap-shanghai.myqcloud.com/link.png" srcset="/img/loading.gif">
+    <img src="https://hexo-1259001110.cos.ap-shanghai.myqcloud.com/link.png" srcset="/img/loading.gif" lazyload>
 </div>
 
 <br>
 
 <h3 id="2-调整位置"><a href="#2-调整位置" class="headerlink" title="2.调整位置"></a>2.调整位置</h3><p>接下来调整提示框的位置，修改下布局，采用<code>relative</code>+<code>absolute</code>进行定位</p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span>
-<span class="css">    <span class="hljs-selector-class">.wrap</span> &#123;</span>
-        position: relative;
-        width: 1em;
-        height: 1em;
-        margin: 0 auto;
-    &#125;
-<span class="css">    <span class="hljs-selector-class">.wrap</span> <span class="hljs-selector-tag">img</span> &#123;</span>
-        width: 100%;
-        height: 100%;
-    &#125;
-<span class="css">    <span class="hljs-selector-class">.wrap</span><span class="hljs-selector-pseudo">:hover</span><span class="hljs-selector-pseudo">:after</span> &#123;</span>
-        content: attr(logo-tip);
-<span class="css">        <span class="hljs-selector-tag">background</span>: <span class="hljs-selector-id">#222</span>;</span>
-        color: white;
-
-<span class="css">        <span class="hljs-selector-tag">border-radius</span>: <span class="hljs-selector-class">.2em</span>;</span>
-<span class="css">        <span class="hljs-selector-tag">padding</span>: <span class="hljs-selector-class">.5em</span>;</span>
-        width: 5em;
-<span class="css">        <span class="hljs-selector-tag">opacity</span>: <span class="hljs-selector-class">.5</span>;</span>
-
-        position: absolute;
-<span class="css">        <span class="hljs-selector-tag">box-sizing</span>: <span class="hljs-selector-tag">border-box</span>; <span class="hljs-comment">/* 方便计算宽高 */</span></span>
-<span class="css">        <span class="hljs-selector-tag">left</span>: <span class="hljs-selector-tag">calc</span>(50% <span class="hljs-selector-tag">-</span> 2<span class="hljs-selector-class">.5em</span>);</span>
-<span class="css">        <span class="hljs-selector-tag">top</span>: 1<span class="hljs-selector-class">.4em</span>;</span>
-    &#125;
-<span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
-
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;wrap&quot;</span> <span class="hljs-attr">logo-tip</span>=<span class="hljs-string">&quot;添加链接啦啦啦啦&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://hexo-1259001110.cos.ap-shanghai.myqcloud.com/link.png&quot;</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><br><span class="css">    <span class="hljs-selector-class">.wrap</span> &#123;</span><br>        position: relative;<br>        width: 1em;<br>        height: 1em;<br>        margin: 0 auto;<br>    &#125;<br><span class="css">    <span class="hljs-selector-class">.wrap</span> <span class="hljs-selector-tag">img</span> &#123;</span><br>        width: 100%;<br>        height: 100%;<br>    &#125;<br><span class="css">    <span class="hljs-selector-class">.wrap</span><span class="hljs-selector-pseudo">:hover</span><span class="hljs-selector-pseudo">:after</span> &#123;</span><br>        content: attr(logo-tip);<br><span class="css">        <span class="hljs-selector-tag">background</span>: <span class="hljs-selector-id">#222</span>;</span><br>        color: white;<br><br><span class="css">        <span class="hljs-selector-tag">border-radius</span>: <span class="hljs-selector-class">.2em</span>;</span><br><span class="css">        <span class="hljs-selector-tag">padding</span>: <span class="hljs-selector-class">.5em</span>;</span><br>        width: 5em;<br><span class="css">        <span class="hljs-selector-tag">opacity</span>: <span class="hljs-selector-class">.5</span>;</span><br><br>        position: absolute;<br><span class="css">        <span class="hljs-selector-tag">box-sizing</span>: <span class="hljs-selector-tag">border-box</span>; <span class="hljs-comment">/* 方便计算宽高 */</span></span><br><span class="css">        <span class="hljs-selector-tag">left</span>: <span class="hljs-selector-tag">calc</span>(50% <span class="hljs-selector-tag">-</span> 2<span class="hljs-selector-class">.5em</span>);</span><br><span class="css">        <span class="hljs-selector-tag">top</span>: 1<span class="hljs-selector-class">.4em</span>;</span><br>    &#125;<br><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;wrap&quot;</span> <span class="hljs-attr">logo-tip</span>=<span class="hljs-string">&quot;添加链接啦啦啦啦&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://hexo-1259001110.cos.ap-shanghai.myqcloud.com/link.png&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
 
 <p>效果如下</p>
 <style>
@@ -399,100 +357,33 @@
 </style>
 
 <div class="wrap-2" logo-tip="添加链接啦啦啦啦">
-    <img src="https://hexo-1259001110.cos.ap-shanghai.myqcloud.com/link.png" srcset="/img/loading.gif">
+    <img src="https://hexo-1259001110.cos.ap-shanghai.myqcloud.com/link.png" srcset="/img/loading.gif" lazyload>
 </div>
 
 <br>
 
 <h3 id="3-制作小三角形"><a href="#3-制作小三角形" class="headerlink" title="3.制作小三角形"></a>3.制作小三角形</h3><p>可以发现，我们实现的框，还少了个三角标，如图</p>
-<p><img src="https://img-blog.csdnimg.cn/20201201155111408.png" srcset="/img/loading.gif" alt="1606805499179"></p>
+<p><img src="https://img-blog.csdnimg.cn/20201201155111408.png" srcset="/img/loading.gif" lazyload alt="1606805499179"></p>
 <p>那么，如何制作一个三角标呢？</p>
 <p>看看下面这段代码，一个<code>content</code>为2em，<code>border</code>为2em的盒子</p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span>
-    div &#123;
-        background: orange;
-        width: 2em;
-        height: 2em;
-<span class="css">        <span class="hljs-selector-tag">border</span>: 2<span class="hljs-selector-tag">em</span> <span class="hljs-selector-tag">dashed</span> <span class="hljs-selector-id">#222</span>;</span>
-<span class="css">        <span class="hljs-selector-tag">border-color</span>: <span class="hljs-selector-tag">red</span> <span class="hljs-selector-tag">green</span> <span class="hljs-selector-id">#222</span> <span class="hljs-selector-tag">pink</span>;</span>
-    &#125;
-<span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
-
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><br>    div &#123;<br>        background: orange;<br>        width: 2em;<br>        height: 2em;<br><span class="css">        <span class="hljs-selector-tag">border</span>: 2<span class="hljs-selector-tag">em</span> <span class="hljs-selector-tag">dashed</span> <span class="hljs-selector-id">#222</span>;</span><br><span class="css">        <span class="hljs-selector-tag">border-color</span>: <span class="hljs-selector-tag">red</span> <span class="hljs-selector-tag">green</span> <span class="hljs-selector-id">#222</span> <span class="hljs-selector-tag">pink</span>;</span><br>    &#125;<br><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
 
 <p>效果如下，橙色部分为<code>content</code>，彩色部分是<code>border</code></p>
-<p><img src="https://img-blog.csdnimg.cn/20201201155126734.png" srcset="/img/loading.gif" alt="1606807307250"></p>
+<p><img src="https://img-blog.csdnimg.cn/20201201155126734.png" srcset="/img/loading.gif" lazyload alt="1606807307250"></p>
 <p>看到这里，不知道你悟了没有。如果我把<code>content</code>的宽高设置为0，这样就得到四个三角形，再把<code>border</code>其他三边设置为透明，注释掉背景色，那么就得到一个三角形了。</p>
 <ul>
 <li><p><code>content</code>宽高设置为0：<code>width: 0em; height:0em;</code></p>
-<p><img src="https://img-blog.csdnimg.cn/20201201155138576.png" srcset="/img/loading.gif" alt="1606807907331"></p>
+<p><img src="https://img-blog.csdnimg.cn/20201201155138576.png" srcset="/img/loading.gif" lazyload alt="1606807907331"></p>
 </li>
 <li><p>设置三边透明，去掉背景色</p>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">div</span> &#123;
-    <span class="hljs-comment">/* background: orange; */</span>
-    <span class="hljs-attribute">width</span>: <span class="hljs-number">0em</span>;
-    <span class="hljs-attribute">height</span>: <span class="hljs-number">0em</span>;
-    <span class="hljs-attribute">border</span>: <span class="hljs-number">2em</span> dashed <span class="hljs-number">#222</span>;
-    <span class="hljs-attribute">border-color</span>: transparent transparent <span class="hljs-number">#222</span> transparent;
-&#125;</code></pre></div>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-selector-tag">div</span> &#123;<br>    <span class="hljs-comment">/* background: orange; */</span><br>    <span class="hljs-attribute">width</span>: <span class="hljs-number">0em</span>;<br>    <span class="hljs-attribute">height</span>: <span class="hljs-number">0em</span>;<br>    <span class="hljs-attribute">border</span>: <span class="hljs-number">2em</span> dashed <span class="hljs-number">#222</span>;<br>    <span class="hljs-attribute">border-color</span>: transparent transparent <span class="hljs-number">#222</span> transparent;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/20201201155305197.png" srcset="/img/loading.gif" alt="1606808125689"></p>
+<p><img src="https://img-blog.csdnimg.cn/20201201155305197.png" srcset="/img/loading.gif" lazyload alt="1606808125689"></p>
 </li>
 </ul>
 <h3 id="4-合并提示框-小三角形"><a href="#4-合并提示框-小三角形" class="headerlink" title="4.合并提示框+小三角形"></a>4.合并提示框+小三角形</h3><p>然后，再把三角形和前面实现的提示框合起来。怎么合并呢？前面我们已经用过了一个伪元素<code>:after</code>，那么这次我们可以使用另一个伪元素<code>:before</code>( css3<code>::before</code>)</p>
 <p><strong>最终代码</strong></p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span>
-<span class="css">    <span class="hljs-selector-class">.wrap</span> &#123;</span>
-        position: relative;
-        width: 1em;
-        height: 1em;
-        margin: 0 auto;
-        cursor: pointer;
-
-    &#125;
-
-<span class="css">    <span class="hljs-selector-class">.wrap</span> <span class="hljs-selector-tag">img</span> &#123;</span>
-        width: 100%;
-        height: 100%;
-    &#125;
-
-<span class="css">    <span class="hljs-comment">/* 提示框 */</span></span>
-<span class="css">    <span class="hljs-selector-class">.wrap</span><span class="hljs-selector-pseudo">:hover</span><span class="hljs-selector-pseudo">:after</span> &#123;</span>
-        content: attr(logo-tip);
-<span class="css">        <span class="hljs-selector-tag">background</span>: <span class="hljs-selector-id">#222</span>;</span>
-        color: white;
-
-<span class="css">        <span class="hljs-selector-tag">border-radius</span>: <span class="hljs-selector-class">.2em</span>;</span>
-<span class="css">        <span class="hljs-selector-tag">padding</span>: <span class="hljs-selector-class">.5em</span>;</span>
-        width: 5em;
-<span class="css">        <span class="hljs-selector-tag">opacity</span>: <span class="hljs-selector-class">.5</span>;</span>
-
-        position: absolute;
-<span class="css">        <span class="hljs-selector-tag">box-sizing</span>: <span class="hljs-selector-tag">border-box</span>; <span class="hljs-comment">/* 方便计算宽高 */</span></span>
-<span class="css">        <span class="hljs-comment">/* &#x27;-&#x27;运算符两边不加空格属性失效, 这一定是魔法!(原因见下文) */</span></span>
-<span class="css">        <span class="hljs-selector-tag">left</span>: <span class="hljs-selector-tag">calc</span>(50% <span class="hljs-selector-tag">-</span> 2<span class="hljs-selector-class">.5em</span>);</span>
-<span class="css">        <span class="hljs-selector-tag">top</span>: 1<span class="hljs-selector-class">.4em</span>;</span>
-    &#125;
-
-<span class="css">    <span class="hljs-comment">/* 小三角标 */</span></span>
-<span class="css">    <span class="hljs-selector-class">.wrap</span><span class="hljs-selector-pseudo">:hover</span><span class="hljs-selector-pseudo">:before</span>&#123;</span>
-        content: &quot;&quot;;
-        box-sizing: border-box;
-        position: absolute;
-        top: 1em;
-<span class="css">        <span class="hljs-selector-tag">left</span>: <span class="hljs-selector-tag">calc</span>(50% <span class="hljs-selector-tag">-</span> <span class="hljs-selector-class">.2em</span>);</span>
-        background: linen;
-<span class="css">        <span class="hljs-selector-tag">width</span>: <span class="hljs-selector-class">.2em</span>;</span>
-<span class="css">        <span class="hljs-selector-tag">height</span>: <span class="hljs-selector-class">.2em</span>;</span>
-<span class="css">        <span class="hljs-selector-tag">border</span>: <span class="hljs-selector-class">.2em</span> <span class="hljs-selector-tag">dashed</span> <span class="hljs-selector-id">#222</span>;</span>
-<span class="css">        <span class="hljs-selector-tag">border-color</span>: <span class="hljs-selector-tag">transparent</span> <span class="hljs-selector-tag">transparent</span> <span class="hljs-selector-id">#222</span> <span class="hljs-selector-tag">transparent</span>;</span>
-<span class="css">        <span class="hljs-selector-tag">opacity</span>: <span class="hljs-selector-class">.5</span>;</span>
-    &#125;
-<span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;wrap&quot;</span> <span class="hljs-attr">logo-tip</span>=<span class="hljs-string">&quot;添加链接啦啦啦啦&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://hexo-1259001110.cos.ap-shanghai.myqcloud.com/link.png&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;&quot;</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-</code></pre></div>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><br><span class="css">    <span class="hljs-selector-class">.wrap</span> &#123;</span><br>        position: relative;<br>        width: 1em;<br>        height: 1em;<br>        margin: 0 auto;<br>        cursor: pointer;<br><br>    &#125;<br><br><span class="css">    <span class="hljs-selector-class">.wrap</span> <span class="hljs-selector-tag">img</span> &#123;</span><br>        width: 100%;<br>        height: 100%;<br>    &#125;<br><br><span class="css">    <span class="hljs-comment">/* 提示框 */</span></span><br><span class="css">    <span class="hljs-selector-class">.wrap</span><span class="hljs-selector-pseudo">:hover</span><span class="hljs-selector-pseudo">:after</span> &#123;</span><br>        content: attr(logo-tip);<br><span class="css">        <span class="hljs-selector-tag">background</span>: <span class="hljs-selector-id">#222</span>;</span><br>        color: white;<br><br><span class="css">        <span class="hljs-selector-tag">border-radius</span>: <span class="hljs-selector-class">.2em</span>;</span><br><span class="css">        <span class="hljs-selector-tag">padding</span>: <span class="hljs-selector-class">.5em</span>;</span><br>        width: 5em;<br><span class="css">        <span class="hljs-selector-tag">opacity</span>: <span class="hljs-selector-class">.5</span>;</span><br><br>        position: absolute;<br><span class="css">        <span class="hljs-selector-tag">box-sizing</span>: <span class="hljs-selector-tag">border-box</span>; <span class="hljs-comment">/* 方便计算宽高 */</span></span><br><span class="css">        <span class="hljs-comment">/* &#x27;-&#x27;运算符两边不加空格属性失效, 这一定是魔法!(原因见下文) */</span></span><br><span class="css">        <span class="hljs-selector-tag">left</span>: <span class="hljs-selector-tag">calc</span>(50% <span class="hljs-selector-tag">-</span> 2<span class="hljs-selector-class">.5em</span>);</span><br><span class="css">        <span class="hljs-selector-tag">top</span>: 1<span class="hljs-selector-class">.4em</span>;</span><br>    &#125;<br><br><span class="css">    <span class="hljs-comment">/* 小三角标 */</span></span><br><span class="css">    <span class="hljs-selector-class">.wrap</span><span class="hljs-selector-pseudo">:hover</span><span class="hljs-selector-pseudo">:before</span>&#123;</span><br>        content: &quot;&quot;;<br>        box-sizing: border-box;<br>        position: absolute;<br>        top: 1em;<br><span class="css">        <span class="hljs-selector-tag">left</span>: <span class="hljs-selector-tag">calc</span>(50% <span class="hljs-selector-tag">-</span> <span class="hljs-selector-class">.2em</span>);</span><br>        background: linen;<br><span class="css">        <span class="hljs-selector-tag">width</span>: <span class="hljs-selector-class">.2em</span>;</span><br><span class="css">        <span class="hljs-selector-tag">height</span>: <span class="hljs-selector-class">.2em</span>;</span><br><span class="css">        <span class="hljs-selector-tag">border</span>: <span class="hljs-selector-class">.2em</span> <span class="hljs-selector-tag">dashed</span> <span class="hljs-selector-id">#222</span>;</span><br><span class="css">        <span class="hljs-selector-tag">border-color</span>: <span class="hljs-selector-tag">transparent</span> <span class="hljs-selector-tag">transparent</span> <span class="hljs-selector-id">#222</span> <span class="hljs-selector-tag">transparent</span>;</span><br><span class="css">        <span class="hljs-selector-tag">opacity</span>: <span class="hljs-selector-class">.5</span>;</span><br>    &#125;<br><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;wrap&quot;</span> <span class="hljs-attr">logo-tip</span>=<span class="hljs-string">&quot;添加链接啦啦啦啦&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://hexo-1259001110.cos.ap-shanghai.myqcloud.com/link.png&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><br></code></pre></div></td></tr></table></figure>
 
 <p><strong>效果如下</strong></p>
 <style>
@@ -545,7 +436,7 @@
 </style>
 
 <div class="wrap" logo-tip="添加链接啦啦啦啦">
-    <img src="https://hexo-1259001110.cos.ap-shanghai.myqcloud.com/link.png" srcset="/img/loading.gif" alt="">
+    <img src="https://hexo-1259001110.cos.ap-shanghai.myqcloud.com/link.png" srcset="/img/loading.gif" lazyload alt="">
 </div><br></br>
 
 
@@ -580,13 +471,11 @@
 <p><a target="_blank" rel="noopener" href="https://codepen.io/litstronger/pen/YzGyBYG">代码以及演示地址</a></p>
 <p>因为要实现一个过渡效果，因此<code>:before</code>和<code>:after</code>必须有一个初始的状态。没错，就是这里刚开始让我觉得很难处理，因为这种情况下的<code>hover</code>似乎有<code>bug</code>。我把两个伪元素的<code>width</code>、<code>height</code>、<code>pading</code>、<code>border</code>都预置为0，然后<code>position:absolute；</code>定位，在浏览器F12下查看这两个伪元素，很正常，宽高0 × 0，没有占据任何空间。然而，当我把鼠标移动到距离触发hover的区域还有一段距离时，hover就触发了。这很诡异！</p>
 <p>虽然暂时不知道为啥，不过解决办法还是有的。直接给<code>.wrap</code>添加<code>overflow: hidden;</code>，然后新增一个<code>:hover</code></p>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-class">.wrap</span><span class="hljs-selector-pseudo">:hover</span> &#123;
-    <span class="hljs-attribute">overflow</span>: visible;
-&#125;</code></pre></div>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-selector-class">.wrap</span><span class="hljs-selector-pseudo">:hover</span> &#123;<br>    <span class="hljs-attribute">overflow</span>: visible;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
 <p>道理很简单。直接把超出的内容(目前不清楚是啥，估计就那两个伪元素)给去掉，这样就不会影响<code>:hover</code>的作用范围了。等到触发<code>:hover</code>后再给它显示出来。</p>
 <h3 id="问题根源"><a href="#问题根源" class="headerlink" title="问题根源"></a>问题根源</h3><p>观察了好一会儿才发现，是伪元素<code>content</code>的问题。即便我把宽高设置为0，文字依旧会显示(<code>overflow</code>的问题)，如图。因为原来设置的字体颜色是白色。。所以一直没发现问题…..</p>
-<p><img src="https://img-blog.csdnimg.cn/20201203105945156.png" srcset="/img/loading.gif" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20201203105945156.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
 <h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>知道问题根源后，解决就很简单了</p>
 <p>想到两个办法</p>
 <ol>
@@ -622,10 +511,14 @@
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
               
               
-                <div class="post-prevnext row">
+                <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
                     
@@ -652,11 +545,13 @@
 
             
               <!-- Comments -->
-              <article class="comments" id="comments">
+              <article class="comments" id="comments" lazyload>
+                
+                  
                 
                 
   <script type="text/javascript">
-    function loadUtterances() {
+    Fluid.utils.loadComments('#comments', function() {
       var light = 'github-light';
       var dark = 'github-dark';
       var schema = document.documentElement.getAttribute('data-user-color-scheme');
@@ -675,9 +570,9 @@
       s.setAttribute('theme', schema);
       s.setAttribute('crossorigin', 'anonymous');
       document.getElementById('comments').appendChild(s);
-    }
-    waitElementVisible('comments', loadUtterances)
+    })
   </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
 
 
               </article>
@@ -690,7 +585,7 @@
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
   <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div id="tocbot"></div>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
       </div>
@@ -702,16 +597,15 @@
 
 
     
-  </main>
 
-  
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -732,9 +626,10 @@
     </div>
   </div>
 </div>
-  
+    
 
-  
+    
+  </main>
 
   <footer class="text-center mt-5 py-3">
   <div class="footer-content">
@@ -772,302 +667,73 @@
   
 </footer>
 
-<!-- SCRIPTS -->
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
 <script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
-<script  src="/js/main.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
   
-    <script  src="/js/lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
 
   
-
-
-
-  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
-  <script  src="/js/clipboard-use.js" ></script>
-
-
-
-  <script defer>
-  (function () {
-    // 查询存储的记录
-    function getRecord(Counter, target) {
-      return new Promise(function (resolve, reject) {
-        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({target})))
-          .then(resp => resp.json())
-          .then(({results, code, error}) => {
-            if (code === 401) {
-              throw error;
-            }
-            if (results && results.length > 0) {
-              var record = results[0];
-              resolve(record);
-            } else {
-              Counter('post', '/classes/Counter', {target, time: 0})
-                .then(resp => resp.json())
-                .then((record, error) => {
-                  if (error) {
-                    throw error;
-                  }
-                  resolve(record);
-                }).catch(error => {
-                console.error('Failed to create', error);
-                reject(error);
-              });
-            }
-          }).catch((error) => {
-          console.error('LeanCloud Counter Error:', error);
-          reject(error);
-        });
-      })
-    }
-
-    // 发起自增请求
-    function increment(Counter, incrArr) {
-      return new Promise(function (resolve, reject) {
-        Counter('post', '/batch', {
-          "requests": incrArr
-        }).then((res) => {
-          res = res.json();
-          if (res.error) {
-            throw res.error;
-          }
-          resolve(res);
-        }).catch((error) => {
-          console.error('Failed to save visitor count', error);
-          reject(error);
-        });
-      });
-    }
-
-    // 构建自增请求体
-    function buildIncrement(objectId) {
-      return {
-        "method": "PUT",
-        "path": `/1.1/classes/Counter/${ objectId }`,
-        "body": {
-          "time": {
-            '__op': 'Increment',
-            'amount': 1
-          }
-        }
-      }
-    }
-
-    // 校验是否为有效的 UV
-    function validUV() {
-      var key = 'LeanCloud_UV_Flag';
-      var flag = localStorage.getItem(key);
-      if (flag) {
-        // 距离标记小于 24 小时则不计为 UV
-        if (new Date().getTime() - parseInt(flag) <= 86400000) {
-          return false;
-        }
-      }
-      localStorage.setItem(key, new Date().getTime().toString());
-      return true;
-    }
-
-    function addCount(Counter) {
-      var enableIncr = 'true' === 'true' && window.location.hostname !== 'localhost';
-      var getterArr = [];
-      var incrArr = [];
-
-      // 请求 PV 并自增
-      var pvCtn = document.querySelector('#leancloud-site-pv-container');
-      if (pvCtn || enableIncr) {
-        var pvGetter = getRecord(Counter, 'site-pv').then((record) => {
-          incrArr.push(buildIncrement(record.objectId))
-          var ele = document.querySelector('#leancloud-site-pv');
-          if (ele) {
-            ele.innerText = record.time + 1;
-            if (pvCtn) {
-              pvCtn.style.display = 'inline';
-            }
-          }
-        });
-        getterArr.push(pvGetter);
-      }
-
-      // 请求 UV 并自增
-      var uvCtn = document.querySelector('#leancloud-site-uv-container');
-      if (uvCtn || enableIncr) {
-        var uvGetter = getRecord(Counter, 'site-uv').then((record) => {
-          var vuv = validUV();
-          vuv && incrArr.push(buildIncrement(record.objectId))
-          var ele = document.querySelector('#leancloud-site-uv');
-          if (ele) {
-            ele.innerText = record.time + (vuv ? 1 : 0);
-            if (uvCtn) {
-              uvCtn.style.display = 'inline';
-            }
-          }
-        });
-        getterArr.push(uvGetter);
-      }
-
-      // 如果是文章，请求文章的浏览数，并自增
-      if ('true' === 'true') {
-        var viewCtn = document.querySelector('#leancloud-post-views-container');
-        if (viewCtn || enableIncr) {
-          var target = decodeURI('/2020/12/01/interview/5-CSS-html%E9%BC%A0%E6%A0%87%E6%82%AC%E5%81%9Ctips/');
-          var viewGetter = getRecord(Counter, target).then((record) => {
-            incrArr.push(buildIncrement(record.objectId))
-            if (viewCtn) {
-              var ele = document.querySelector('#leancloud-post-views');
-              if (ele) {
-                ele.innerText = (record.time || 0) + 1;
-                viewCtn.style.display = 'inline';
-              }
-            }
-          });
-          getterArr.push(viewGetter);
-        }
-      }
-
-      // 如果启动计数自增，批量发起自增请求
-      if (enableIncr) {
-        Promise.all(getterArr).then(() => {
-          incrArr.length > 0 && increment(Counter, incrArr);
-        })
-      }
-    }
-
-    var app_id = 'tvvbcoY4wMnP8onvPOLjlgMa-MdYXbMMI'
-    var app_key = 'C4TUiDMsDy3YLi3ywb0ziVTm'
-    var server_url = ''
-
-    function fetchData(api_server) {
-      var Counter = (method, url, data) => {
-        return fetch(`${ api_server }/1.1${ url }`, {
-          method,
-          headers: {
-            'X-LC-Id': app_id,
-            'X-LC-Key': app_key,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-        });
-      };
-
-      addCount(Counter);
-    }
-
-    var api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${ app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
-
-    if (api_server) {
-      fetchData(api_server);
-    } else {
-      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
-        .then(resp => resp.json())
-        .then(({api_server}) => {
-          fetchData('https://' + api_server);
-        });
-    }
-  })();
-</script>
-
-
-
 
 
 
   <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
-  <script>
-    $(document).ready(function () {
-      var boardCtn = $('#board-ctn');
-      var boardTop = boardCtn.offset().top;
 
-      tocbot.init({
-        tocSelector: '#tocbot',
-        contentSelector: '#post-body',
-        headingSelector: 'h1,h2,h3,h4,h5,h6',
-        linkClass: 'tocbot-link',
-        activeLinkClass: 'tocbot-active-link',
-        listClass: 'tocbot-list',
-        isCollapsedClass: 'tocbot-is-collapsed',
-        collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 0,
-        scrollSmooth: true,
-        headingsOffset: -boardTop
-      });
-      if ($('.toc-list-item').length > 0) {
-        $('#toc').css('visibility', 'visible');
-      }
-    });
-  </script>
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
 
 
 
   <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
   <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "5-css+html鼠标悬停tips&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "always",
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
       
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      searchFunc(path, 'local-search-input', 'local-search-result');
-      this.onclick = null
-    }
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <script>
-    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
-      function () {
-        var element = document.createElement('a');
-        $(element).attr('data-fancybox', 'images');
-        $(element).attr('href', $(this).attr('src'));
-        $(this).wrap(element);
-      }
-    );
+      typing(title)
+      
+    })(window, document);
   </script>
 
 
@@ -1095,6 +761,10 @@
 
 
 
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
 
 
 </body>

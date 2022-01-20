@@ -8,15 +8,16 @@
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/favicon.png">
-  <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/favicon.png">
+  <link rel="icon" href="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/favicon.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="Just for fun">
+  <meta name="description" content="为什么置顶? 当然是因为我也经常忘记一些 git 命令啦！方便查阅">
   <meta name="author" content="LitStronger">
   <meta name="keywords" content="">
+  
   <title>Git归档 - LitStronger&#39;s notes</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
@@ -34,6 +35,9 @@
   
 
   
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+  
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -50,6 +54,10 @@
 <!-- 自定义样式保持在最底部 -->
 
 
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"liaoyq.club","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"always","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"tvvbcoY4wMnP8onvPOLjlgMa-MdYXbMMI","app_key":"C4TUiDMsDy3YLi3ywb0ziVTm","server_url":null}},"search_path":"/local-search.xml"};
+  </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 5.2.0"></head>
@@ -113,7 +121,8 @@
           
           
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" target="_self" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="iconfont icon-bug"></i>
                 走廊
               </a>
@@ -173,13 +182,13 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
                 class="iconfont icon-search"></i>&nbsp;</a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
+            <a class="nav-link" target="_self">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -188,13 +197,13 @@
   </div>
 </nav>
 
-    <div class="banner intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('https://hexo-1259001110.cos.ap-shanghai.myqcloud.com/qiye.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container page-header text-center fade-in-up">
-            <span class="h2" id="subtitle">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Git归档">
               
             </span>
 
@@ -235,9 +244,9 @@
   
     
       <!-- LeanCloud 统计文章PV -->
-      <span id="leancloud-post-views-container" class="post-meta" style="display: none">
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
         <i class="iconfont icon-eye" aria-hidden="true"></i>
-        <span id="leancloud-post-views"></span> 次
+        <span id="leancloud-page-views"></span> 次
       </span>
     
   
@@ -256,13 +265,13 @@
     
       
 
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
     <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
         <div class="py-5" id="board">
-          <article class="post-content mx-auto" id="post">
+          <article class="post-content mx-auto">
             <!-- SEO header -->
             <h1 style="display: none">Git归档</h1>
             
@@ -272,112 +281,40 @@
                 
               </p>
             
-            <div class="markdown-body" id="post-body">
+            <div class="markdown-body">
               <p>为什么置顶? 当然是因为我也经常忘记一些 git 命令啦！方便查阅</p>
 <a id="more"></a>
 
-<p><img src="https://img-blog.csdnimg.cn/20200319073359889.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY0MTg1MA==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"><br>Workspace: 工作区<br>Index/Stage: 暂存区<br>Repository: 仓库区（或者说 ‘本地仓库’ ）<br>Remote: 远程仓库</p>
+<p><img src="https://img-blog.csdnimg.cn/20200319073359889.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY0MTg1MA==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>Workspace: 工作区<br>Index/Stage: 暂存区<br>Repository: 仓库区（或者说 ‘本地仓库’ ）<br>Remote: 远程仓库</p>
 <h2 id="一、最简单提交总流程"><a href="#一、最简单提交总流程" class="headerlink" title="一、最简单提交总流程"></a>一、最简单提交总流程</h2><p>把本地代码上传到远程仓库，最简单的流程是</p>
-<div class="hljs"><pre><code class="hljs shell">(一)在项目根目录下初始化一个本地仓库
-<span class="hljs-meta">$</span><span class="bash"> git init </span>
-
-<span class="hljs-meta">#</span><span class="bash"> 显示当前的Git配置(按q退出查看)</span>
-<span class="hljs-meta">$</span><span class="bash"> git config --list</span>
-
-<span class="hljs-meta">#</span><span class="bash"> 编辑Git配置文件，设置提交代码时的用户信息</span>
-<span class="hljs-meta">$</span><span class="bash"> git config --global user.name <span class="hljs-string">&quot;[name]&quot;</span></span>
-<span class="hljs-meta">$</span><span class="bash"> git config --global user.email <span class="hljs-string">&quot;[email address]&quot;</span></span>
-
-(二)把全部代码提交到暂存区
-<span class="hljs-meta">$</span><span class="bash"> git add .  注意add和.之间有个空格 </span>
-<span class="hljs-meta">$</span><span class="bash"> git status   查看状态</span>
-
-(三)把暂存区的代码提交到本地仓库
-<span class="hljs-meta">$</span><span class="bash"> git commit -m <span class="hljs-string">&quot;&quot;</span>	引号内填入本次修改的简述，例如初始化可填<span class="hljs-string">&quot;init&quot;</span>  </span>
-
-(四)添加远程仓库
-<span class="hljs-meta">$</span><span class="bash"> git remote add &lt;reomote-name&gt; &lt;url&gt;  名字自取，不需要跟远程仓库一模一样。</span>
-<span class="hljs-meta">#</span><span class="bash"> 默认的主分支是master</span>
-<span class="hljs-meta">$</span><span class="bash"> git push -u &lt;remote-name&gt;  master</span></code></pre></div>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">(一)在项目根目录下初始化一个本地仓库<br><span class="hljs-meta">$</span><span class="bash"> git init </span><br><br><span class="hljs-meta">#</span><span class="bash"> 显示当前的Git配置(按q退出查看)</span><br><span class="hljs-meta">$</span><span class="bash"> git config --list</span><br><br><span class="hljs-meta">#</span><span class="bash"> 编辑Git配置文件，设置提交代码时的用户信息</span><br><span class="hljs-meta">$</span><span class="bash"> git config --global user.name <span class="hljs-string">&quot;[name]&quot;</span></span><br><span class="hljs-meta">$</span><span class="bash"> git config --global user.email <span class="hljs-string">&quot;[email address]&quot;</span></span><br><br>(二)把全部代码提交到暂存区<br><span class="hljs-meta">$</span><span class="bash"> git add .  注意add和.之间有个空格 </span><br><span class="hljs-meta">$</span><span class="bash"> git status   查看状态</span><br><br>(三)把暂存区的代码提交到本地仓库<br><span class="hljs-meta">$</span><span class="bash"> git commit -m <span class="hljs-string">&quot;&quot;</span>	引号内填入本次修改的简述，例如初始化可填<span class="hljs-string">&quot;init&quot;</span>  </span><br><br>(四)添加远程仓库<br><span class="hljs-meta">$</span><span class="bash"> git remote add &lt;reomote-name&gt; &lt;url&gt;  名字自取，不需要跟远程仓库一模一样。</span><br><span class="hljs-meta">#</span><span class="bash"> 默认的主分支是master</span><br><span class="hljs-meta">$</span><span class="bash"> git push -u &lt;remote-name&gt;  master</span><br></code></pre></div></td></tr></table></figure>
 
 <p><strong>示例：</strong></p>
-<div class="hljs"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> git init</span>
-<span class="hljs-meta">$</span><span class="bash"> git config --global user.name <span class="hljs-string">&quot;github账户名&quot;</span>	</span>
-<span class="hljs-meta">$</span><span class="bash"> git config --global user.email <span class="hljs-string">&quot;github邮箱&quot;</span></span>
-<span class="hljs-meta">$</span><span class="bash"> git config --global user.password <span class="hljs-string">&quot;github密码&quot;</span></span>
-注: 上面的三个信息仅在首次使用需要配置，以后就不需要了
-<span class="hljs-meta">$</span><span class="bash"> git add .</span>
-<span class="hljs-meta">$</span><span class="bash"> git commit -m <span class="hljs-string">&quot;init&quot;</span></span>
-<span class="hljs-meta">$</span><span class="bash"> git push -u origin master </span></code></pre></div>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> git init</span><br><span class="hljs-meta">$</span><span class="bash"> git config --global user.name <span class="hljs-string">&quot;github账户名&quot;</span>	</span><br><span class="hljs-meta">$</span><span class="bash"> git config --global user.email <span class="hljs-string">&quot;github邮箱&quot;</span></span><br><span class="hljs-meta">$</span><span class="bash"> git config --global user.password <span class="hljs-string">&quot;github密码&quot;</span></span><br>注: 上面的三个信息仅在首次使用需要配置，以后就不需要了<br><span class="hljs-meta">$</span><span class="bash"> git add .</span><br><span class="hljs-meta">$</span><span class="bash"> git commit -m <span class="hljs-string">&quot;init&quot;</span></span><br><span class="hljs-meta">$</span><span class="bash"> git push -u origin master </span><br></code></pre></div></td></tr></table></figure>
 
 <p>注: 参数-u设置–set-upstream，记住本次push时的参数，以后可直接git push</p>
 <blockquote>
 <p>The -u tells Git to remember the parameters, so that next time we can simply run git push and Git will know what to do.</p>
 </blockquote>
 <p>至此就已经把代码提交到仓库上啦！<br>下面是我整理的一些常用的命令</p>
-<h2 id="二、增加-删除文件"><a href="#二、增加-删除文件" class="headerlink" title="二、增加/删除文件"></a>二、增加/删除文件</h2><div class="hljs"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> git add &lt;file1&gt; &lt;file2&gt;  添加文件到暂存区,多个文件用空格隔开</span>
-<span class="hljs-meta">$</span><span class="bash"> git add &lt;dir&gt;   提交指定目录到暂存区，包括子目录</span>
-<span class="hljs-meta">$</span><span class="bash"> git add .  添加所有文件到暂存区</span>
-
-<span class="hljs-meta">#</span><span class="bash"> 如果你只想把某个文件保存在工作区使用，而不想将其添加到暂存区时</span>
-<span class="hljs-meta">#</span><span class="bash">（通常情况是你不想把这个文件提交到远程仓库才需要这么做）</span>
-<span class="hljs-meta">$</span><span class="bash"> git rm --cached &lt;file&gt;  停止追踪该文件</span>
-<span class="hljs-meta">$</span><span class="bash"> git rm -r --cached &lt;dir&gt;   停止追踪该文件夹，-r是递归处理</span>
-<span class="hljs-meta">#</span><span class="bash"> 还有一个常用的方法是创建.gitignore文件，关于.gitignore请自行网上查阅</span></code></pre></div>
-<h2 id="三、代码提交："><a href="#三、代码提交：" class="headerlink" title="三、代码提交："></a>三、代码提交：</h2><div class="hljs"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> git commit -m  <span class="hljs-string">&quot;[message]&quot;</span>  提交暂存区的文件到仓库区 </span></code></pre></div>
+<h2 id="二、增加-删除文件"><a href="#二、增加-删除文件" class="headerlink" title="二、增加/删除文件"></a>二、增加/删除文件</h2><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> git add &lt;file1&gt; &lt;file2&gt;  添加文件到暂存区,多个文件用空格隔开</span><br><span class="hljs-meta">$</span><span class="bash"> git add &lt;dir&gt;   提交指定目录到暂存区，包括子目录</span><br><span class="hljs-meta">$</span><span class="bash"> git add .  添加所有文件到暂存区</span><br><br><span class="hljs-meta">#</span><span class="bash"> 如果你只想把某个文件保存在工作区使用，而不想将其添加到暂存区时</span><br><span class="hljs-meta">#</span><span class="bash">（通常情况是你不想把这个文件提交到远程仓库才需要这么做）</span><br><span class="hljs-meta">$</span><span class="bash"> git rm --cached &lt;file&gt;  停止追踪该文件</span><br><span class="hljs-meta">$</span><span class="bash"> git rm -r --cached &lt;dir&gt;   停止追踪该文件夹，-r是递归处理</span><br><span class="hljs-meta">#</span><span class="bash"> 还有一个常用的方法是创建.gitignore文件，关于.gitignore请自行网上查阅</span><br></code></pre></div></td></tr></table></figure>
+<h2 id="三、代码提交："><a href="#三、代码提交：" class="headerlink" title="三、代码提交："></a>三、代码提交：</h2><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> git commit -m  <span class="hljs-string">&quot;[message]&quot;</span>  提交暂存区的文件到仓库区 </span><br></code></pre></div></td></tr></table></figure>
 
 <p>分支策略：首先master主分支应该是非常稳定的，也就是用来发布新版本，一般情况下不允许在上面干活，干活一般情况下在新建的dev分支上干活，干完后，比如上要发布，或者说dev分支代码稳定后可以合并到主分支master上来</p>
-<h2 id="四、版本控制"><a href="#四、版本控制" class="headerlink" title="四、版本控制"></a>四、版本控制</h2><div class="hljs"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> git reflog  <span class="hljs-comment"># 查看引用日志(reference log)</span></span>
-<span class="hljs-meta">$</span><span class="bash"> git reset --hard &lt;局部索引值，7位&gt; </span>
-<span class="hljs-meta">#</span><span class="bash"> --mixed 切换本地仓库、暂存区的版本，保留工作区</span>
-<span class="hljs-meta">#</span><span class="bash">         未add</span>
-<span class="hljs-meta">#</span><span class="bash"> --soft  切换本地仓库的版本, 保留工作区、暂存区</span>
-<span class="hljs-meta">#</span><span class="bash">         已add，待commit</span>
-<span class="hljs-meta">#</span><span class="bash"> --hard  切换工作区、暂存区、本地仓库的版本</span>
-<span class="hljs-meta">#</span><span class="bash">         回到解放前..会丢失工作区内容！不过还可以切回去就是了</span></code></pre></div>
+<h2 id="四、版本控制"><a href="#四、版本控制" class="headerlink" title="四、版本控制"></a>四、版本控制</h2><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> git reflog  <span class="hljs-comment"># 查看引用日志(reference log)</span></span><br><span class="hljs-meta">$</span><span class="bash"> git reset --hard &lt;局部索引值，7位&gt; </span><br><span class="hljs-meta">#</span><span class="bash"> --mixed 切换本地仓库、暂存区的版本，保留工作区</span><br><span class="hljs-meta">#</span><span class="bash">         未add</span><br><span class="hljs-meta">#</span><span class="bash"> --soft  切换本地仓库的版本, 保留工作区、暂存区</span><br><span class="hljs-meta">#</span><span class="bash">         已add，待commit</span><br><span class="hljs-meta">#</span><span class="bash"> --hard  切换工作区、暂存区、本地仓库的版本</span><br><span class="hljs-meta">#</span><span class="bash">         回到解放前..会丢失工作区内容！不过还可以切回去就是了</span><br></code></pre></div></td></tr></table></figure>
 
 <p>reset不仅可以回退，也可以前进。事实上只要知道commit的hash值就可以自由切换</p>
-<h2 id="五、分支相关："><a href="#五、分支相关：" class="headerlink" title="五、分支相关："></a>五、分支相关：</h2><div class="hljs"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> git branch  查看分支</span>
-<span class="hljs-meta">$</span><span class="bash"> git branch &lt;name&gt;  创建分支</span>
-<span class="hljs-meta">$</span><span class="bash"> git checkout &lt;name&gt;  切换分支</span>
-<span class="hljs-meta">$</span><span class="bash"> git merge &lt;name&gt;  合并某分支到当前分支</span>
-<span class="hljs-meta">$</span><span class="bash"> git branch -d &lt;name&gt;  或者  $ git branch --delete &lt;name&gt; </span></code></pre></div>
-<h2 id="六、远程同步"><a href="#六、远程同步" class="headerlink" title="六、远程同步"></a>六、远程同步</h2><div class="hljs"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> git remote 查看远程库简略信息</span>
-<span class="hljs-meta">$</span><span class="bash"> git remote -v 查看远程库详细信息</span>
-
-<span class="hljs-meta">#</span><span class="bash"> 添加新的远程仓库,名字可以自由定义,不需要跟远程仓库保持一致</span>
-<span class="hljs-meta">$</span><span class="bash"> git remote add &lt;remote-name&gt; &lt;url&gt;  </span></code></pre></div>
-<h3 id="1-本地仓库-gt-远程仓库"><a href="#1-本地仓库-gt-远程仓库" class="headerlink" title="1. 本地仓库=&gt;远程仓库"></a>1. 本地仓库=&gt;远程仓库</h3><div class="hljs"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> git push &lt;remote-name&gt; &lt;branch-name&gt;	把分支推上远程仓库</span>
-
-<span class="hljs-meta">#</span><span class="bash"> 如果想要一次推向多个仓库，可以用一个关联多个仓库,格式如下</span>
-<span class="hljs-meta">$</span><span class="bash"> git remote set-url --add &lt;remote-name&gt; &lt;branch-name&gt;</span>
-<span class="hljs-meta">#</span><span class="bash"> 例(remote-name用origin，branch-name用master):</span>
-<span class="hljs-meta">$</span><span class="bash"> git remote set-url --add origin &lt;url-1&gt;  关联url-1 </span>
-<span class="hljs-meta">$</span><span class="bash"> git remote set-url --add origin &lt;url-2&gt;  关联url-2</span>
-<span class="hljs-meta">$</span><span class="bash"> git remote set-url --add origin &lt;url-3&gt;  关联url-3</span>
-<span class="hljs-meta">$</span><span class="bash"> git remote origin master	推送分支master到origin关联的三个仓库</span>
-
-<span class="hljs-meta">#</span><span class="bash"> 如果push一直报错，提示你应该先把远程的最新版本拉取下来，</span>
-<span class="hljs-meta">#</span><span class="bash"> 然而你觉得远程库的代码已经是废品没必要拉去下来时，可以</span>
-<span class="hljs-meta">#</span><span class="bash"> 把本地代码强制push到远程仓库（注意，会直接覆盖原有的文件）</span>
-<span class="hljs-meta">$</span><span class="bash"> git push -f &lt;remote-name&gt; &lt;branch-name&gt;  -f 强制，force</span></code></pre></div>
+<h2 id="五、分支相关："><a href="#五、分支相关：" class="headerlink" title="五、分支相关："></a>五、分支相关：</h2><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> git branch  查看分支</span><br><span class="hljs-meta">$</span><span class="bash"> git branch &lt;name&gt;  创建分支</span><br><span class="hljs-meta">$</span><span class="bash"> git checkout &lt;name&gt;  切换分支</span><br><span class="hljs-meta">$</span><span class="bash"> git merge &lt;name&gt;  合并某分支到当前分支</span><br><span class="hljs-meta">$</span><span class="bash"> git branch -d &lt;name&gt;  或者  $ git branch --delete &lt;name&gt; </span><br></code></pre></div></td></tr></table></figure>
+<h2 id="六、远程同步"><a href="#六、远程同步" class="headerlink" title="六、远程同步"></a>六、远程同步</h2><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> git remote 查看远程库简略信息</span><br><span class="hljs-meta">$</span><span class="bash"> git remote -v 查看远程库详细信息</span><br><br><span class="hljs-meta">#</span><span class="bash"> 添加新的远程仓库,名字可以自由定义,不需要跟远程仓库保持一致</span><br><span class="hljs-meta">$</span><span class="bash"> git remote add &lt;remote-name&gt; &lt;url&gt;  </span><br></code></pre></div></td></tr></table></figure>
+<h3 id="1-本地仓库-gt-远程仓库"><a href="#1-本地仓库-gt-远程仓库" class="headerlink" title="1. 本地仓库=&gt;远程仓库"></a>1. 本地仓库=&gt;远程仓库</h3><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> git push &lt;remote-name&gt; &lt;branch-name&gt;	把分支推上远程仓库</span><br><br><span class="hljs-meta">#</span><span class="bash"> 如果想要一次推向多个仓库，可以用一个关联多个仓库,格式如下</span><br><span class="hljs-meta">$</span><span class="bash"> git remote set-url --add &lt;remote-name&gt; &lt;branch-name&gt;</span><br><span class="hljs-meta">#</span><span class="bash"> 例(remote-name用origin，branch-name用master):</span><br><span class="hljs-meta">$</span><span class="bash"> git remote set-url --add origin &lt;url-1&gt;  关联url-1 </span><br><span class="hljs-meta">$</span><span class="bash"> git remote set-url --add origin &lt;url-2&gt;  关联url-2</span><br><span class="hljs-meta">$</span><span class="bash"> git remote set-url --add origin &lt;url-3&gt;  关联url-3</span><br><span class="hljs-meta">$</span><span class="bash"> git remote origin master	推送分支master到origin关联的三个仓库</span><br><br><span class="hljs-meta">#</span><span class="bash"> 如果push一直报错，提示你应该先把远程的最新版本拉取下来，</span><br><span class="hljs-meta">#</span><span class="bash"> 然而你觉得远程库的代码已经是废品没必要拉去下来时，可以</span><br><span class="hljs-meta">#</span><span class="bash"> 把本地代码强制push到远程仓库（注意，会直接覆盖原有的文件）</span><br><span class="hljs-meta">$</span><span class="bash"> git push -f &lt;remote-name&gt; &lt;branch-name&gt;  -f 强制，force</span><br></code></pre></div></td></tr></table></figure>
 <h3 id="2-远程仓库-gt-本地仓库"><a href="#2-远程仓库-gt-本地仓库" class="headerlink" title="2. 远程仓库 =&gt; 本地仓库"></a>2. 远程仓库 =&gt; 本地仓库</h3><p><strong>方式一：git fetch + git merge(推荐)</strong></p>
-<div class="hljs"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 下载远程仓库的分支暂存在本地仓库分支，不会覆盖工作区</span>
-<span class="hljs-meta">$</span><span class="bash"> git fetch &lt;remote-name&gt; &lt;branch&gt;:&lt;temp-branch&gt; </span>
-<span class="hljs-meta">#</span><span class="bash"> 把远程仓库的分支合并到当前本地的分支，注意第二个参数是远程仓库的分支名</span>
-<span class="hljs-meta">$</span><span class="bash"> git merge &lt;temp-branch&gt; </span></code></pre></div>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 下载远程仓库的分支暂存在本地仓库分支，不会覆盖工作区</span><br><span class="hljs-meta">$</span><span class="bash"> git fetch &lt;remote-name&gt; &lt;branch&gt;:&lt;temp-branch&gt; </span><br><span class="hljs-meta">#</span><span class="bash"> 把远程仓库的分支合并到当前本地的分支，注意第二个参数是远程仓库的分支名</span><br><span class="hljs-meta">$</span><span class="bash"> git merge &lt;temp-branch&gt; </span><br></code></pre></div></td></tr></table></figure>
 
 <p>通常用法：</p>
-<div class="hljs"><pre><code class="hljs pgsql">
-# 把远程仓库origin的master分支暂存到<span class="hljs-keyword">temp</span>分支(若不存在则会自动创建)
-$ git <span class="hljs-keyword">fetch</span> origin master:<span class="hljs-keyword">temp</span>
-$ git diff <span class="hljs-keyword">temp</span>		 查看当前分支与<span class="hljs-keyword">temp</span>分支的不同处
-$ git merge <span class="hljs-keyword">temp</span>	 合并<span class="hljs-keyword">temp</span>分支到当前分支
-$ git branch -d <span class="hljs-keyword">temp</span> 删除<span class="hljs-keyword">temp</span>分支</code></pre></div>
+<figure class="highlight pgsql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs pgsql"><br># 把远程仓库origin的master分支暂存到<span class="hljs-keyword">temp</span>分支(若不存在则会自动创建)<br>$ git <span class="hljs-keyword">fetch</span> origin master:<span class="hljs-keyword">temp</span><br>$ git diff <span class="hljs-keyword">temp</span>		 查看当前分支与<span class="hljs-keyword">temp</span>分支的不同处<br>$ git merge <span class="hljs-keyword">temp</span>	 合并<span class="hljs-keyword">temp</span>分支到当前分支<br>$ git branch -d <span class="hljs-keyword">temp</span> 删除<span class="hljs-keyword">temp</span>分支<br></code></pre></div></td></tr></table></figure>
 
 <p><strong>方式二：git pull</strong></p>
-<div class="hljs"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 下载远程仓库到工作区</span>
-<span class="hljs-meta">$</span><span class="bash"> git pull &lt;remote-name&gt; &lt;branch-name&gt;      </span></code></pre></div>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 下载远程仓库到工作区</span><br><span class="hljs-meta">$</span><span class="bash"> git pull &lt;remote-name&gt; &lt;branch-name&gt;      </span><br></code></pre></div></td></tr></table></figure>
 
 <p><code>git pull</code>相当于是使用固定参数地从远程<code>fetch</code>最新版本并<code>merge</code>(合并)到本地，这样有一个缺点，少了<code>git diff</code>查看远程分支与本地的差异的过程，如果有冲突的话它也会直接merge，虽然之后依旧可以手动修改冲突部分(<a target="_blank" rel="noopener" href="https://blog.csdn.net/yangchunshang/article/details/80281699">详见</a>)，但有可能导致严重的后果。</p>
 <p><code>git pull</code> ≈ <code>git fetch</code> + <code>git merge</code>，通常<code>git fetch</code>更安全一些, git pull慎用</p>
@@ -414,10 +351,14 @@ $ git branch -d <span class="hljs-keyword">temp</span> 删除<span class="hljs-k
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
               
               
-                <div class="post-prevnext row">
+                <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
                     
@@ -444,11 +385,13 @@ $ git branch -d <span class="hljs-keyword">temp</span> 删除<span class="hljs-k
 
             
               <!-- Comments -->
-              <article class="comments" id="comments">
+              <article class="comments" id="comments" lazyload>
+                
+                  
                 
                 
   <script type="text/javascript">
-    function loadUtterances() {
+    Fluid.utils.loadComments('#comments', function() {
       var light = 'github-light';
       var dark = 'github-dark';
       var schema = document.documentElement.getAttribute('data-user-color-scheme');
@@ -467,9 +410,9 @@ $ git branch -d <span class="hljs-keyword">temp</span> 删除<span class="hljs-k
       s.setAttribute('theme', schema);
       s.setAttribute('crossorigin', 'anonymous');
       document.getElementById('comments').appendChild(s);
-    }
-    waitElementVisible('comments', loadUtterances)
+    })
   </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
 
 
               </article>
@@ -482,7 +425,7 @@ $ git branch -d <span class="hljs-keyword">temp</span> 删除<span class="hljs-k
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
   <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div id="tocbot"></div>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
       </div>
@@ -494,16 +437,15 @@ $ git branch -d <span class="hljs-keyword">temp</span> 删除<span class="hljs-k
 
 
     
-  </main>
 
-  
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -524,9 +466,10 @@ $ git branch -d <span class="hljs-keyword">temp</span> 删除<span class="hljs-k
     </div>
   </div>
 </div>
-  
+    
 
-  
+    
+  </main>
 
   <footer class="text-center mt-5 py-3">
   <div class="footer-content">
@@ -564,302 +507,73 @@ $ git branch -d <span class="hljs-keyword">temp</span> 删除<span class="hljs-k
   
 </footer>
 
-<!-- SCRIPTS -->
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
 <script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
-<script  src="/js/main.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
   
-    <script  src="/js/lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
 
   
-
-
-
-  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
-  <script  src="/js/clipboard-use.js" ></script>
-
-
-
-  <script defer>
-  (function () {
-    // 查询存储的记录
-    function getRecord(Counter, target) {
-      return new Promise(function (resolve, reject) {
-        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({target})))
-          .then(resp => resp.json())
-          .then(({results, code, error}) => {
-            if (code === 401) {
-              throw error;
-            }
-            if (results && results.length > 0) {
-              var record = results[0];
-              resolve(record);
-            } else {
-              Counter('post', '/classes/Counter', {target, time: 0})
-                .then(resp => resp.json())
-                .then((record, error) => {
-                  if (error) {
-                    throw error;
-                  }
-                  resolve(record);
-                }).catch(error => {
-                console.error('Failed to create', error);
-                reject(error);
-              });
-            }
-          }).catch((error) => {
-          console.error('LeanCloud Counter Error:', error);
-          reject(error);
-        });
-      })
-    }
-
-    // 发起自增请求
-    function increment(Counter, incrArr) {
-      return new Promise(function (resolve, reject) {
-        Counter('post', '/batch', {
-          "requests": incrArr
-        }).then((res) => {
-          res = res.json();
-          if (res.error) {
-            throw res.error;
-          }
-          resolve(res);
-        }).catch((error) => {
-          console.error('Failed to save visitor count', error);
-          reject(error);
-        });
-      });
-    }
-
-    // 构建自增请求体
-    function buildIncrement(objectId) {
-      return {
-        "method": "PUT",
-        "path": `/1.1/classes/Counter/${ objectId }`,
-        "body": {
-          "time": {
-            '__op': 'Increment',
-            'amount': 1
-          }
-        }
-      }
-    }
-
-    // 校验是否为有效的 UV
-    function validUV() {
-      var key = 'LeanCloud_UV_Flag';
-      var flag = localStorage.getItem(key);
-      if (flag) {
-        // 距离标记小于 24 小时则不计为 UV
-        if (new Date().getTime() - parseInt(flag) <= 86400000) {
-          return false;
-        }
-      }
-      localStorage.setItem(key, new Date().getTime().toString());
-      return true;
-    }
-
-    function addCount(Counter) {
-      var enableIncr = 'true' === 'true' && window.location.hostname !== 'localhost';
-      var getterArr = [];
-      var incrArr = [];
-
-      // 请求 PV 并自增
-      var pvCtn = document.querySelector('#leancloud-site-pv-container');
-      if (pvCtn || enableIncr) {
-        var pvGetter = getRecord(Counter, 'site-pv').then((record) => {
-          incrArr.push(buildIncrement(record.objectId))
-          var ele = document.querySelector('#leancloud-site-pv');
-          if (ele) {
-            ele.innerText = record.time + 1;
-            if (pvCtn) {
-              pvCtn.style.display = 'inline';
-            }
-          }
-        });
-        getterArr.push(pvGetter);
-      }
-
-      // 请求 UV 并自增
-      var uvCtn = document.querySelector('#leancloud-site-uv-container');
-      if (uvCtn || enableIncr) {
-        var uvGetter = getRecord(Counter, 'site-uv').then((record) => {
-          var vuv = validUV();
-          vuv && incrArr.push(buildIncrement(record.objectId))
-          var ele = document.querySelector('#leancloud-site-uv');
-          if (ele) {
-            ele.innerText = record.time + (vuv ? 1 : 0);
-            if (uvCtn) {
-              uvCtn.style.display = 'inline';
-            }
-          }
-        });
-        getterArr.push(uvGetter);
-      }
-
-      // 如果是文章，请求文章的浏览数，并自增
-      if ('true' === 'true') {
-        var viewCtn = document.querySelector('#leancloud-post-views-container');
-        if (viewCtn || enableIncr) {
-          var target = decodeURI('/2020/03/19/Git%E5%BD%92%E6%A1%A3/');
-          var viewGetter = getRecord(Counter, target).then((record) => {
-            incrArr.push(buildIncrement(record.objectId))
-            if (viewCtn) {
-              var ele = document.querySelector('#leancloud-post-views');
-              if (ele) {
-                ele.innerText = (record.time || 0) + 1;
-                viewCtn.style.display = 'inline';
-              }
-            }
-          });
-          getterArr.push(viewGetter);
-        }
-      }
-
-      // 如果启动计数自增，批量发起自增请求
-      if (enableIncr) {
-        Promise.all(getterArr).then(() => {
-          incrArr.length > 0 && increment(Counter, incrArr);
-        })
-      }
-    }
-
-    var app_id = 'tvvbcoY4wMnP8onvPOLjlgMa-MdYXbMMI'
-    var app_key = 'C4TUiDMsDy3YLi3ywb0ziVTm'
-    var server_url = ''
-
-    function fetchData(api_server) {
-      var Counter = (method, url, data) => {
-        return fetch(`${ api_server }/1.1${ url }`, {
-          method,
-          headers: {
-            'X-LC-Id': app_id,
-            'X-LC-Key': app_key,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-        });
-      };
-
-      addCount(Counter);
-    }
-
-    var api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${ app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
-
-    if (api_server) {
-      fetchData(api_server);
-    } else {
-      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
-        .then(resp => resp.json())
-        .then(({api_server}) => {
-          fetchData('https://' + api_server);
-        });
-    }
-  })();
-</script>
-
-
-
 
 
 
   <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
-  <script>
-    $(document).ready(function () {
-      var boardCtn = $('#board-ctn');
-      var boardTop = boardCtn.offset().top;
 
-      tocbot.init({
-        tocSelector: '#tocbot',
-        contentSelector: '#post-body',
-        headingSelector: 'h1,h2,h3,h4,h5,h6',
-        linkClass: 'tocbot-link',
-        activeLinkClass: 'tocbot-active-link',
-        listClass: 'tocbot-list',
-        isCollapsedClass: 'tocbot-is-collapsed',
-        collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 0,
-        scrollSmooth: true,
-        headingsOffset: -boardTop
-      });
-      if ($('.toc-list-item').length > 0) {
-        $('#toc').css('visibility', 'visible');
-      }
-    });
-  </script>
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
 
 
 
   <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
   <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "Git归档&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "always",
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
       
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      searchFunc(path, 'local-search-input', 'local-search-result');
-      this.onclick = null
-    }
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <script>
-    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
-      function () {
-        var element = document.createElement('a');
-        $(element).attr('data-fancybox', 'images');
-        $(element).attr('href', $(this).attr('src'));
-        $(this).wrap(element);
-      }
-    );
+      typing(title)
+      
+    })(window, document);
   </script>
 
 
@@ -887,6 +601,10 @@ $ git branch -d <span class="hljs-keyword">temp</span> 删除<span class="hljs-k
 
 
 
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
 
 
 </body>

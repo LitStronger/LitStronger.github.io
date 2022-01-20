@@ -8,15 +8,16 @@
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/favicon.png">
-  <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/favicon.png">
+  <link rel="icon" href="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/favicon.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="Just for fun">
+  <meta name="description" content="个人学习css的一些笔记">
   <meta name="author" content="LitStronger">
   <meta name="keywords" content="">
+  
   <title>css随笔 - LitStronger&#39;s notes</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
@@ -34,6 +35,9 @@
   
 
   
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+  
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -50,6 +54,10 @@
 <!-- 自定义样式保持在最底部 -->
 
 
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"liaoyq.club","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"always","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"tvvbcoY4wMnP8onvPOLjlgMa-MdYXbMMI","app_key":"C4TUiDMsDy3YLi3ywb0ziVTm","server_url":null}},"search_path":"/local-search.xml"};
+  </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 5.2.0"></head>
@@ -113,7 +121,8 @@
           
           
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" target="_self" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="iconfont icon-bug"></i>
                 走廊
               </a>
@@ -173,13 +182,13 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
                 class="iconfont icon-search"></i>&nbsp;</a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
+            <a class="nav-link" target="_self">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -188,13 +197,13 @@
   </div>
 </nav>
 
-    <div class="banner intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('https://hexo-1259001110.cos.ap-shanghai.myqcloud.com/qiye.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container page-header text-center fade-in-up">
-            <span class="h2" id="subtitle">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="css随笔">
               
             </span>
 
@@ -226,7 +235,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      33
+      34
        分钟
     </span>
   
@@ -235,9 +244,9 @@
   
     
       <!-- LeanCloud 统计文章PV -->
-      <span id="leancloud-post-views-container" class="post-meta" style="display: none">
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
         <i class="iconfont icon-eye" aria-hidden="true"></i>
-        <span id="leancloud-post-views"></span> 次
+        <span id="leancloud-page-views"></span> 次
       </span>
     
   
@@ -256,13 +265,13 @@
     
       
 
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
     <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
         <div class="py-5" id="board">
-          <article class="post-content mx-auto" id="post">
+          <article class="post-content mx-auto">
             <!-- SEO header -->
             <h1 style="display: none">css随笔</h1>
             
@@ -272,7 +281,7 @@
                 
               </p>
             
-            <div class="markdown-body" id="post-body">
+            <div class="markdown-body">
               <p>个人学习css的一些笔记</p>
 <a id="more"></a>
 
@@ -288,7 +297,7 @@
 </li>
 <li><p>y表示过程的完成度：0为属性的初始值，1为属性的最终值（即对应属性的新值）</p>
 <p><strong>Tip：</strong> 其实可以用<code>时间-路程</code> (高中物理)模型来理解其坐标图,，曲线的斜率即为速度。因此不难理解贝塞尔曲线的斜率对应的就是属性改变的快慢</p>
-<img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssNotes/chart.png" srcset="/img/loading.gif"/>
+<img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssNotes/chart.png" srcset="/img/loading.gif" lazyload/>
 
 </li>
 </ul>
@@ -296,17 +305,17 @@
 <ul>
 <li><p>接收两个中间点的坐标作为参数（起始和终止点默认为(0,0)，(1,1), 因此总共有4个点来确定曲线)</p>
 <p>注：如果参数只接收到一个点，该属性会失效</p>
-<img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssNotes/console.png" srcset="/img/loading.gif"/>
+<img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssNotes/console.png" srcset="/img/loading.gif" lazyload/>
 </li>
 <li><p>坐标值可以有负值。(类似惯性的现象)</p>
 <p>cubic-bezier(0.5, -1, 0.5, 1.5)</p>
-<p><img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssNotes/1598405157254.png" srcset="/img/loading.gif" alt="1598405157254"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssNotes/1598405157254.png" srcset="/img/loading.gif" lazyload alt="1598405157254"></p>
 </li>
 </ul>
 <p>CSS 提供几条内置的曲线：<code>linear</code>、<code>ease</code>、<code>ease-in</code>、<code>ease-out</code> 和 <code>ease-in-out</code>。</p>
 <p><code>linear</code> 其实就是 <code>cubic-bezier(0, 0, 1, 1)</code> 的简写，图像是一条斜率不变的直线，</p>
 <p>其它几个的贝塞尔曲线的简写如下：</p>
-<img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssNotes/otherChart.png" srcset="/img/loading.gif"/>
+<img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssNotes/otherChart.png" srcset="/img/loading.gif" lazyload/>
 
 <p>挂一个能找到合适的贝塞尔曲线的网站：<a target="_blank" rel="noopener" href="http://cubic-bezier.com/">http://cubic-bezier.com/</a></p>
 </li>
@@ -337,9 +346,7 @@
 <p>不难发现，约束越严格，优先级越高</p>
 </li>
 <li><p><code>! important</code>，可以更改CSS样式优先级，<strong>使该条样式属性声明具有最高优先级。</strong></p>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">box</span>&#123;
-	<span class="hljs-attribute">color</span>:red <span class="hljs-meta">!important</span>;
-&#125;</code></pre></div>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-selector-tag">box</span>&#123;<br>	<span class="hljs-attribute">color</span>:red <span class="hljs-meta">!important</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
 </li>
 </ul>
@@ -378,9 +385,7 @@
 </li>
 <li><p>替代模型：width = <code>content</code>+ <code>border</code> + <code>padding</code></p>
 <p>设置：<code>box-sizing: border-box</code> 。如果你希望所有盒模型都使用替代模型，只需</p>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">html</span>&#123;
-    <span class="hljs-attribute">box-sizing</span>: border-box;
-&#125;</code></pre></div>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-selector-tag">html</span>&#123;<br>    <span class="hljs-attribute">box-sizing</span>: border-box;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
 
 
@@ -416,7 +421,7 @@
 </li>
 </ul>
 <h2 id="4-布局"><a href="#4-布局" class="headerlink" title="4.布局"></a>4.布局</h2><h3 id="1-flex"><a href="#1-flex" class="headerlink" title="1.flex"></a>1.flex</h3><p>弹性盒子是一种用于按行或按列布局元素的一维布局方法。</p>
-<p><img src="https://developer.mozilla.org/files/3739/flex_terms.png" srcset="/img/loading.gif" alt="flex_terms.png"></p>
+<p><img src="https://developer.mozilla.org/files/3739/flex_terms.png" srcset="/img/loading.gif" lazyload alt="flex_terms.png"></p>
 <ul>
 <li>main axis 主轴</li>
 <li>cross axis 交叉轴</li>
@@ -432,16 +437,13 @@
 <p><code>flex: 1</code>，无单位的比例，动态尺寸，如有两个元素该值都设为1，则各占50%可用的空间</p>
 </li>
 <li><p>flex-flow <code>flex-direction</code>和<code>flex-wrap</code>的缩写</p>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">flex-direction</span>: <span class="hljs-selector-tag">row</span>;
-<span class="hljs-selector-tag">flex-wrap</span>: <span class="hljs-selector-tag">wrap</span>;</code></pre></div>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-selector-tag">flex-direction</span>: <span class="hljs-selector-tag">row</span>;<br><span class="hljs-selector-tag">flex-wrap</span>: <span class="hljs-selector-tag">wrap</span>;<br></code></pre></div></td></tr></table></figure>
 
 <p>等价于</p>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">flex-flow</span>: <span class="hljs-selector-tag">row</span> <span class="hljs-selector-tag">wrap</span>;</code></pre></div>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-selector-tag">flex-flow</span>: <span class="hljs-selector-tag">row</span> <span class="hljs-selector-tag">wrap</span>;<br></code></pre></div></td></tr></table></figure>
 </li>
 <li><p>order 元素排序，默认值为0，越大越靠后，可以是负值。例如将第一个按钮移到末尾</p>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">button</span><span class="hljs-selector-pseudo">:first-child</span> &#123;
-  <span class="hljs-attribute">order</span>: <span class="hljs-number">1</span>;
-&#125;</code></pre></div>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-selector-tag">button</span><span class="hljs-selector-pseudo">:first-child</span> &#123;<br>  <span class="hljs-attribute">order</span>: <span class="hljs-number">1</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 </li>
 <li><p>justify-content: 控制元素在主轴的位置</p>
 </li>
@@ -490,7 +492,7 @@
 <p>使用了float属性后，自身会脱离文档流(也就是在文档流中高度为0)，因此可能会出现以下情况</p>
 <ul>
 <li><p>外部包裹的盒子没有撑开，如下图的蓝色框</p>
-<img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssNotes/float.png" srcset="/img/loading.gif"/>
+<img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssNotes/float.png" srcset="/img/loading.gif" lazyload/>
 </li>
 <li><p>浮动元素下方的盒子元素<code>block</code>使用margin-top会失效</p>
 <p>带有float属性的元素在文档流中高度为0，因此会出现意料之外的情况</p>
@@ -504,7 +506,7 @@
 <ul>
 <li><p>上下文：<code>top</code>，<code>left</code>等属性都需要有一个参考对象。通常是选取离得最近、并且有显示定义<code>position</code>属性(非默认<code>static</code>)的父元素。</p>
 <p>**更改上下文： **如将参考对象更改为父元素<code>&lt;div&gt;</code>，可在父元素中设置<code>position</code>属性即可实现</p>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">position</span>: <span class="hljs-selector-tag">relative</span>;</code></pre></div>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-selector-tag">position</span>: <span class="hljs-selector-tag">relative</span>;<br></code></pre></div></td></tr></table></figure>
 
 
 </li>
@@ -524,19 +526,13 @@
 <p><strong>column-rule：</strong>列间添加分割线，线利用的是gap的空间(不占宽度)</p>
 <p><strong>break-inside：</strong>选择<code>avoid</code>时，可以避免列中内容(如文段)被分割成两部分</p>
 <h3 id="6-响应式设计"><a href="#6-响应式设计" class="headerlink" title="6.响应式设计"></a>6.响应式设计</h3><h4 id="视口元标签"><a href="#视口元标签" class="headerlink" title="视口元标签"></a>视口元标签</h4><p>viewport。因为移动端常会谎报设备的视口宽度。如480px的设备可能会将视口宽度设为960px，这会导致你的媒体查询失效。因此需要加入下述内容</p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width,initial-scale=1&quot;</span>&gt;</span></code></pre></div>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width,initial-scale=1&quot;</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
 
 <h4 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h4><p>最简单的语法</p>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-keyword">@media</span> media-type <span class="hljs-keyword">and</span> (media-feature-rule)&#123;
-    <span class="hljs-comment">/* css rule go here */</span>
-&#125;</code></pre></div>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-keyword">@media</span> media-type <span class="hljs-keyword">and</span> (media-feature-rule)&#123;<br>    <span class="hljs-comment">/* css rule go here */</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
 
 <p>例如，在<code>width</code>小于400px时把字体改成蓝色</p>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-keyword">@media</span> screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">max-width:</span> <span class="hljs-number">400px</span>)&#123;
-    <span class="hljs-selector-tag">body</span>&#123;
-        <span class="hljs-attribute">color</span>: blue;
-    &#125;
-&#125;</code></pre></div>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-keyword">@media</span> screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">max-width:</span> <span class="hljs-number">400px</span>)&#123;<br>    <span class="hljs-selector-tag">body</span>&#123;<br>        <span class="hljs-attribute">color</span>: blue;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
 <h4 id="Flexible-grid"><a href="#Flexible-grid" class="headerlink" title="Flexible grid"></a>Flexible grid</h4><p>使用灵活的网格，就不必再免去适配各种宽度的设备。</p>
 <blockquote>
@@ -551,11 +547,7 @@
 <h4 id="存在的问题"><a href="#存在的问题" class="headerlink" title="存在的问题"></a>存在的问题</h4><p>布局相关的属性可以覆盖，但像<code>width</code>等的属性可能会影响结果。比如在grid布局和float布局中都对宽度进行了一些限制，那么float中的对<code>width</code>限制会影响grid中的设定</p>
 <p><strong>解决办法：</strong>特性查询</p>
 <p>检测当前环境是否支持grid，然后在实施一些相应的操作</p>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-keyword">@supports</span> (<span class="hljs-attribute">display:</span> grid) &#123;
-    <span class="hljs-selector-class">.item</span>&#123;
-        <span class="hljs-attribute">width</span>: auto; <span class="hljs-comment">/* 重新设置相关属性覆盖float的影响 */</span>
-    &#125;
-&#125;</code></pre></div>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-keyword">@supports</span> (<span class="hljs-attribute">display:</span> grid) &#123;<br>    <span class="hljs-selector-class">.item</span>&#123;<br>        <span class="hljs-attribute">width</span>: auto; <span class="hljs-comment">/* 重新设置相关属性覆盖float的影响 */</span><br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
 <h4 id="杂记"><a href="#杂记" class="headerlink" title="杂记"></a>杂记</h4><p>flex在对一系列元素排列时，对间隙的控制很有限。我甚至找不到相关属性，目前了解到的只有<code>justify-content: space-around</code>或者是<code>justify-content: space-between</code></p>
 <p>而grid的话，有gap属性，感觉好用点</p>
@@ -590,10 +582,14 @@
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
               
               
-                <div class="post-prevnext row">
+                <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
                     
@@ -620,11 +616,13 @@
 
             
               <!-- Comments -->
-              <article class="comments" id="comments">
+              <article class="comments" id="comments" lazyload>
+                
+                  
                 
                 
   <script type="text/javascript">
-    function loadUtterances() {
+    Fluid.utils.loadComments('#comments', function() {
       var light = 'github-light';
       var dark = 'github-dark';
       var schema = document.documentElement.getAttribute('data-user-color-scheme');
@@ -643,9 +641,9 @@
       s.setAttribute('theme', schema);
       s.setAttribute('crossorigin', 'anonymous');
       document.getElementById('comments').appendChild(s);
-    }
-    waitElementVisible('comments', loadUtterances)
+    })
   </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
 
 
               </article>
@@ -658,7 +656,7 @@
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
   <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div id="tocbot"></div>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
       </div>
@@ -670,16 +668,15 @@
 
 
     
-  </main>
 
-  
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -700,9 +697,10 @@
     </div>
   </div>
 </div>
-  
+    
 
-  
+    
+  </main>
 
   <footer class="text-center mt-5 py-3">
   <div class="footer-content">
@@ -740,302 +738,73 @@
   
 </footer>
 
-<!-- SCRIPTS -->
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
 <script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
-<script  src="/js/main.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
   
-    <script  src="/js/lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
 
   
-
-
-
-  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
-  <script  src="/js/clipboard-use.js" ></script>
-
-
-
-  <script defer>
-  (function () {
-    // 查询存储的记录
-    function getRecord(Counter, target) {
-      return new Promise(function (resolve, reject) {
-        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({target})))
-          .then(resp => resp.json())
-          .then(({results, code, error}) => {
-            if (code === 401) {
-              throw error;
-            }
-            if (results && results.length > 0) {
-              var record = results[0];
-              resolve(record);
-            } else {
-              Counter('post', '/classes/Counter', {target, time: 0})
-                .then(resp => resp.json())
-                .then((record, error) => {
-                  if (error) {
-                    throw error;
-                  }
-                  resolve(record);
-                }).catch(error => {
-                console.error('Failed to create', error);
-                reject(error);
-              });
-            }
-          }).catch((error) => {
-          console.error('LeanCloud Counter Error:', error);
-          reject(error);
-        });
-      })
-    }
-
-    // 发起自增请求
-    function increment(Counter, incrArr) {
-      return new Promise(function (resolve, reject) {
-        Counter('post', '/batch', {
-          "requests": incrArr
-        }).then((res) => {
-          res = res.json();
-          if (res.error) {
-            throw res.error;
-          }
-          resolve(res);
-        }).catch((error) => {
-          console.error('Failed to save visitor count', error);
-          reject(error);
-        });
-      });
-    }
-
-    // 构建自增请求体
-    function buildIncrement(objectId) {
-      return {
-        "method": "PUT",
-        "path": `/1.1/classes/Counter/${ objectId }`,
-        "body": {
-          "time": {
-            '__op': 'Increment',
-            'amount': 1
-          }
-        }
-      }
-    }
-
-    // 校验是否为有效的 UV
-    function validUV() {
-      var key = 'LeanCloud_UV_Flag';
-      var flag = localStorage.getItem(key);
-      if (flag) {
-        // 距离标记小于 24 小时则不计为 UV
-        if (new Date().getTime() - parseInt(flag) <= 86400000) {
-          return false;
-        }
-      }
-      localStorage.setItem(key, new Date().getTime().toString());
-      return true;
-    }
-
-    function addCount(Counter) {
-      var enableIncr = 'true' === 'true' && window.location.hostname !== 'localhost';
-      var getterArr = [];
-      var incrArr = [];
-
-      // 请求 PV 并自增
-      var pvCtn = document.querySelector('#leancloud-site-pv-container');
-      if (pvCtn || enableIncr) {
-        var pvGetter = getRecord(Counter, 'site-pv').then((record) => {
-          incrArr.push(buildIncrement(record.objectId))
-          var ele = document.querySelector('#leancloud-site-pv');
-          if (ele) {
-            ele.innerText = record.time + 1;
-            if (pvCtn) {
-              pvCtn.style.display = 'inline';
-            }
-          }
-        });
-        getterArr.push(pvGetter);
-      }
-
-      // 请求 UV 并自增
-      var uvCtn = document.querySelector('#leancloud-site-uv-container');
-      if (uvCtn || enableIncr) {
-        var uvGetter = getRecord(Counter, 'site-uv').then((record) => {
-          var vuv = validUV();
-          vuv && incrArr.push(buildIncrement(record.objectId))
-          var ele = document.querySelector('#leancloud-site-uv');
-          if (ele) {
-            ele.innerText = record.time + (vuv ? 1 : 0);
-            if (uvCtn) {
-              uvCtn.style.display = 'inline';
-            }
-          }
-        });
-        getterArr.push(uvGetter);
-      }
-
-      // 如果是文章，请求文章的浏览数，并自增
-      if ('true' === 'true') {
-        var viewCtn = document.querySelector('#leancloud-post-views-container');
-        if (viewCtn || enableIncr) {
-          var target = decodeURI('/2020/08/25/css%E9%9A%8F%E7%AC%94/');
-          var viewGetter = getRecord(Counter, target).then((record) => {
-            incrArr.push(buildIncrement(record.objectId))
-            if (viewCtn) {
-              var ele = document.querySelector('#leancloud-post-views');
-              if (ele) {
-                ele.innerText = (record.time || 0) + 1;
-                viewCtn.style.display = 'inline';
-              }
-            }
-          });
-          getterArr.push(viewGetter);
-        }
-      }
-
-      // 如果启动计数自增，批量发起自增请求
-      if (enableIncr) {
-        Promise.all(getterArr).then(() => {
-          incrArr.length > 0 && increment(Counter, incrArr);
-        })
-      }
-    }
-
-    var app_id = 'tvvbcoY4wMnP8onvPOLjlgMa-MdYXbMMI'
-    var app_key = 'C4TUiDMsDy3YLi3ywb0ziVTm'
-    var server_url = ''
-
-    function fetchData(api_server) {
-      var Counter = (method, url, data) => {
-        return fetch(`${ api_server }/1.1${ url }`, {
-          method,
-          headers: {
-            'X-LC-Id': app_id,
-            'X-LC-Key': app_key,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-        });
-      };
-
-      addCount(Counter);
-    }
-
-    var api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${ app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
-
-    if (api_server) {
-      fetchData(api_server);
-    } else {
-      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
-        .then(resp => resp.json())
-        .then(({api_server}) => {
-          fetchData('https://' + api_server);
-        });
-    }
-  })();
-</script>
-
-
-
 
 
 
   <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
-  <script>
-    $(document).ready(function () {
-      var boardCtn = $('#board-ctn');
-      var boardTop = boardCtn.offset().top;
 
-      tocbot.init({
-        tocSelector: '#tocbot',
-        contentSelector: '#post-body',
-        headingSelector: 'h1,h2,h3,h4,h5,h6',
-        linkClass: 'tocbot-link',
-        activeLinkClass: 'tocbot-active-link',
-        listClass: 'tocbot-list',
-        isCollapsedClass: 'tocbot-is-collapsed',
-        collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 0,
-        scrollSmooth: true,
-        headingsOffset: -boardTop
-      });
-      if ($('.toc-list-item').length > 0) {
-        $('#toc').css('visibility', 'visible');
-      }
-    });
-  </script>
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
 
 
 
   <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
   <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "css随笔&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "always",
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
       
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      searchFunc(path, 'local-search-input', 'local-search-result');
-      this.onclick = null
-    }
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <script>
-    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
-      function () {
-        var element = document.createElement('a');
-        $(element).attr('data-fancybox', 'images');
-        $(element).attr('href', $(this).attr('src'));
-        $(this).wrap(element);
-      }
-    );
+      typing(title)
+      
+    })(window, document);
   </script>
 
 
@@ -1063,6 +832,10 @@
 
 
 
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
 
 
 </body>

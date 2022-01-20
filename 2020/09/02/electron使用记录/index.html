@@ -8,15 +8,16 @@
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/favicon.png">
-  <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/favicon.png">
+  <link rel="icon" href="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/favicon.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="Just for fun">
+  <meta name="description" content="开发彩印机项目web静态页面的问题记录。">
   <meta name="author" content="LitStronger">
   <meta name="keywords" content="">
+  
   <title>彩印机静态网页 - LitStronger&#39;s notes</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
@@ -34,6 +35,9 @@
   
 
   
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+  
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -50,6 +54,10 @@
 <!-- 自定义样式保持在最底部 -->
 
 
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"liaoyq.club","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"always","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"tvvbcoY4wMnP8onvPOLjlgMa-MdYXbMMI","app_key":"C4TUiDMsDy3YLi3ywb0ziVTm","server_url":null}},"search_path":"/local-search.xml"};
+  </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 5.2.0"></head>
@@ -113,7 +121,8 @@
           
           
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" target="_self" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="iconfont icon-bug"></i>
                 走廊
               </a>
@@ -173,13 +182,13 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
                 class="iconfont icon-search"></i>&nbsp;</a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
+            <a class="nav-link" target="_self">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -188,13 +197,13 @@
   </div>
 </nav>
 
-    <div class="banner intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('https://hexo-1259001110.cos.ap-shanghai.myqcloud.com/qiye.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container page-header text-center fade-in-up">
-            <span class="h2" id="subtitle">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="彩印机静态网页">
               
             </span>
 
@@ -235,9 +244,9 @@
   
     
       <!-- LeanCloud 统计文章PV -->
-      <span id="leancloud-post-views-container" class="post-meta" style="display: none">
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
         <i class="iconfont icon-eye" aria-hidden="true"></i>
-        <span id="leancloud-post-views"></span> 次
+        <span id="leancloud-page-views"></span> 次
       </span>
     
   
@@ -256,13 +265,13 @@
     
       
 
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
     <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
         <div class="py-5" id="board">
-          <article class="post-content mx-auto" id="post">
+          <article class="post-content mx-auto">
             <!-- SEO header -->
             <h1 style="display: none">彩印机静态网页</h1>
             
@@ -272,7 +281,7 @@
                 
               </p>
             
-            <div class="markdown-body" id="post-body">
+            <div class="markdown-body">
               <p>开发彩印机项目web静态页面的问题记录。</p>
 <a id="more"></a>
 
@@ -284,13 +293,7 @@
 <p>网上查了好一会儿，没得到什么有用的信息。</p>
 <p>后来想了想，这种电容屏更多是应用在移动端(<code>ipad</code>、<code>手机</code>等)，于是更换搜索关键字为: <code>移动端</code> <code>点击出现阴影</code> <code>css</code>，很快就找到一些解决方法。</p>
 <p>只需给按钮增加css样式，把点击时的高亮设置为透明</p>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">tap-highlight-color</span>: <span class="hljs-selector-tag">rgba</span>(255, 255, 255, 0);
-<span class="hljs-selector-tag">-webkit-tap-highlight-color</span>: <span class="hljs-selector-tag">rgba</span>(255, 255, 255, 0);
-<span class="hljs-comment">/*</span>
-<span class="hljs-comment">tap-highlight-color：当用户轻按一个链接或者JavaScript</span>
-<span class="hljs-comment">可点击元素时给元素覆盖一个高亮色如果想取消这个高亮，将值</span>
-<span class="hljs-comment">设置为全透明即可，比如transparent</span>
-<span class="hljs-comment">*/</span></code></pre></div>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-selector-tag">tap-highlight-color</span>: <span class="hljs-selector-tag">rgba</span>(255, 255, 255, 0);<br><span class="hljs-selector-tag">-webkit-tap-highlight-color</span>: <span class="hljs-selector-tag">rgba</span>(255, 255, 255, 0);<br><span class="hljs-comment">/*</span><br><span class="hljs-comment">tap-highlight-color：当用户轻按一个链接或者JavaScript</span><br><span class="hljs-comment">可点击元素时给元素覆盖一个高亮色如果想取消这个高亮，将值</span><br><span class="hljs-comment">设置为全透明即可，比如transparent</span><br><span class="hljs-comment">*/</span><br></code></pre></div></td></tr></table></figure>
 
 
 
@@ -312,10 +315,10 @@
 <blockquote>
 <p>意思大概是如果你打算打包你的electron应用程序，你将会有一段艹蛋的时光</p>
 </blockquote>
-<img src="https://cdn.jsdelivr.net/gh/litstronger/pic@master/post/electron/pack.png" srcset="/img/loading.gif"/>
+<img src="https://cdn.jsdelivr.net/gh/litstronger/pic@master/post/electron/pack.png" srcset="/img/loading.gif" lazyload/>
 
 <p>electron<a target="_blank" rel="noopener" href="https://www.electronjs.org/docs/tutorial/quick-start#create-a-basic-application">官方文档</a>的例子推荐的工具是electron-forge，刚开始照着文档跑了下，体验不佳。一个是会出现奇怪的现象—-生成的exe会有奇怪的启动画面。另外，程序莫名其妙地被运行了两次，一次是立即执行，另一次是在启动动画之后执行。翻了几遍<a target="_blank" rel="noopener" href="https://www.electronforge.io/">electron-forge官方文档</a>，也没有找到任何关于启动时的动画的配置介绍(好吧，我觉得那更像是一个bug，而不是我所想的启动动画，如图)</p>
-<img src="https://cdn.jsdelivr.net/gh/litstronger/pic@master/post/electron/elec_forge.png" srcset="/img/loading.gif"/>
+<img src="https://cdn.jsdelivr.net/gh/litstronger/pic@master/post/electron/elec_forge.png" srcset="/img/loading.gif" lazyload/>
 
 <p>想了好一会，觉得这并不是我这边出的问题，应该是打包工具electron-forge的bug了，另寻他路。在electron文档里看到了electron-builder，这个用起来就感觉挺好的，主要是安装配置遇到了点麻烦。</p>
 <p>关于安装，官网是这么说的</p>
@@ -323,45 +326,26 @@
 <p><a target="_blank" rel="noopener" href="http://yarnpkg.com/">Yarn</a> is <a target="_blank" rel="noopener" href="https://github.com/electron-userland/electron-builder/issues/1147#issuecomment-276284477">strongly</a> recommended instead of npm.</p>
 </blockquote>
 <p>啊，我用的是npm，所以踩了一堆坑，以下是我的踩坑表演</p>
-<div class="hljs"><pre><code class="hljs shell">npm install electron-builder --save-dev</code></pre></div>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">npm install electron-builder --save-dev<br></code></pre></div></td></tr></table></figure>
 
 <p>配置package.json</p>
 <ul>
 <li><p>填入<code>name</code>, <code>description</code>, <code>version</code> 和 <code>author</code>.</p>
-<div class="hljs"><pre><code class="hljs json">&#123;  
-  <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;my-electron-app&quot;</span>,
-  <span class="hljs-attr">&quot;description&quot;</span>: <span class="hljs-string">&quot;description&quot;</span>,
-  <span class="hljs-attr">&quot;version&quot;</span>: <span class="hljs-string">&quot;1.0.0&quot;</span>,
-  <span class="hljs-attr">&quot;author&quot;</span>: <span class="hljs-string">&quot;lyq&quot;</span>
-&#125;</code></pre></div>
+<figure class="highlight json"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs json">&#123;  <br>  <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;my-electron-app&quot;</span>,<br>  <span class="hljs-attr">&quot;description&quot;</span>: <span class="hljs-string">&quot;description&quot;</span>,<br>  <span class="hljs-attr">&quot;version&quot;</span>: <span class="hljs-string">&quot;1.0.0&quot;</span>,<br>  <span class="hljs-attr">&quot;author&quot;</span>: <span class="hljs-string">&quot;lyq&quot;</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
 </li>
 <li><p>打包的配置。下面是mac和linux的配置，但windows环境下(我win10)并不能生成mac和linux，默认只能生成windows的包…</p>
-<div class="hljs"><pre><code class="hljs json">&quot;build&quot;: &#123;
-  &quot;appId&quot;: &quot;your.id&quot;,
-  &quot;mac&quot;: &#123;
-    &quot;category&quot;: &quot;your.app.category.type&quot;
-  &#125;,
-  &quot;linux&quot;: &#123;
-    &quot;target&quot;: [
-      &quot;AppImage&quot;,
-      <span class="hljs-string">&quot;deb&quot;</span>
-    ]
-  &#125;
-&#125;,</code></pre></div>
+<figure class="highlight"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs json">&quot;build&quot;: &#123;<br>  &quot;appId&quot;: &quot;your.id&quot;,<br>  &quot;mac&quot;: &#123;<br>    &quot;category&quot;: &quot;your.app.category.type&quot;<br>  &#125;,<br>  &quot;linux&quot;: &#123;<br>    &quot;target&quot;: [<br>      &quot;AppImage&quot;,<br>      <span class="hljs-string">&quot;deb&quot;</span><br>    ]<br>  &#125;<br>&#125;,<br></code></pre></div></td></tr></table></figure>
 </li>
 <li><p>添加脚本</p>
-<div class="hljs"><pre><code class="hljs json">&quot;scripts&quot;: &#123;
-  &quot;pack&quot;: &quot;electron-builder --dir&quot;,
-  &quot;dist&quot;: &quot;electron-builder&quot;
-&#125;</code></pre></div>
+<figure class="highlight"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs json">&quot;scripts&quot;: &#123;<br>  &quot;pack&quot;: &quot;electron-builder --dir&quot;,<br>  &quot;dist&quot;: &quot;electron-builder&quot;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
 </li>
 </ul>
 <p>配置好后运行</p>
-<div class="hljs"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> npm run dist</span></code></pre></div>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> npm run dist</span><br></code></pre></div></td></tr></table></figure>
 
 <p>然后会报几个错。告诉你<code>winCodeSign-2.6.0</code>和<code>nsis-3.0.4.1</code>,<code>nsis-resources-3.4.1</code>包rename失败。稍微看了下。它是把包下载下来后再改名的，但没有权限改名(access is denied)。这里我就不太能理解了，我已经给了管理员权限，应该可以改名的啊。</p>
-<img src="https://cdn.jsdelivr.net/gh/litstronger/pic@master/post/electron/rename_err.png" srcset="/img/loading.gif"/>
+<img src="https://cdn.jsdelivr.net/gh/litstronger/pic@master/post/electron/rename_err.png" srcset="/img/loading.gif" lazyload/>
 
 <p>解决的办法是手动改名。直接打开tempFile的路径，把文件夹<code>181096083</code>改名为<code>winCodeSign-2.6.0</code>。之后会再遇到两次类似的错误，处理办法也是一样的，找到文件，然后改名就行了。</p>
 <p>最后再运行打包命令<code>npm run dist</code>，就成功运行，生成的安装包在dist文件夹下。</p>
@@ -391,10 +375,14 @@
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
               
               
-                <div class="post-prevnext row">
+                <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
                     
@@ -421,11 +409,13 @@
 
             
               <!-- Comments -->
-              <article class="comments" id="comments">
+              <article class="comments" id="comments" lazyload>
+                
+                  
                 
                 
   <script type="text/javascript">
-    function loadUtterances() {
+    Fluid.utils.loadComments('#comments', function() {
       var light = 'github-light';
       var dark = 'github-dark';
       var schema = document.documentElement.getAttribute('data-user-color-scheme');
@@ -444,9 +434,9 @@
       s.setAttribute('theme', schema);
       s.setAttribute('crossorigin', 'anonymous');
       document.getElementById('comments').appendChild(s);
-    }
-    waitElementVisible('comments', loadUtterances)
+    })
   </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
 
 
               </article>
@@ -459,7 +449,7 @@
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
   <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div id="tocbot"></div>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
       </div>
@@ -471,16 +461,15 @@
 
 
     
-  </main>
 
-  
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -501,9 +490,10 @@
     </div>
   </div>
 </div>
-  
+    
 
-  
+    
+  </main>
 
   <footer class="text-center mt-5 py-3">
   <div class="footer-content">
@@ -541,302 +531,73 @@
   
 </footer>
 
-<!-- SCRIPTS -->
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
 <script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
-<script  src="/js/main.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
   
-    <script  src="/js/lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
 
   
-
-
-
-  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
-  <script  src="/js/clipboard-use.js" ></script>
-
-
-
-  <script defer>
-  (function () {
-    // 查询存储的记录
-    function getRecord(Counter, target) {
-      return new Promise(function (resolve, reject) {
-        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({target})))
-          .then(resp => resp.json())
-          .then(({results, code, error}) => {
-            if (code === 401) {
-              throw error;
-            }
-            if (results && results.length > 0) {
-              var record = results[0];
-              resolve(record);
-            } else {
-              Counter('post', '/classes/Counter', {target, time: 0})
-                .then(resp => resp.json())
-                .then((record, error) => {
-                  if (error) {
-                    throw error;
-                  }
-                  resolve(record);
-                }).catch(error => {
-                console.error('Failed to create', error);
-                reject(error);
-              });
-            }
-          }).catch((error) => {
-          console.error('LeanCloud Counter Error:', error);
-          reject(error);
-        });
-      })
-    }
-
-    // 发起自增请求
-    function increment(Counter, incrArr) {
-      return new Promise(function (resolve, reject) {
-        Counter('post', '/batch', {
-          "requests": incrArr
-        }).then((res) => {
-          res = res.json();
-          if (res.error) {
-            throw res.error;
-          }
-          resolve(res);
-        }).catch((error) => {
-          console.error('Failed to save visitor count', error);
-          reject(error);
-        });
-      });
-    }
-
-    // 构建自增请求体
-    function buildIncrement(objectId) {
-      return {
-        "method": "PUT",
-        "path": `/1.1/classes/Counter/${ objectId }`,
-        "body": {
-          "time": {
-            '__op': 'Increment',
-            'amount': 1
-          }
-        }
-      }
-    }
-
-    // 校验是否为有效的 UV
-    function validUV() {
-      var key = 'LeanCloud_UV_Flag';
-      var flag = localStorage.getItem(key);
-      if (flag) {
-        // 距离标记小于 24 小时则不计为 UV
-        if (new Date().getTime() - parseInt(flag) <= 86400000) {
-          return false;
-        }
-      }
-      localStorage.setItem(key, new Date().getTime().toString());
-      return true;
-    }
-
-    function addCount(Counter) {
-      var enableIncr = 'true' === 'true' && window.location.hostname !== 'localhost';
-      var getterArr = [];
-      var incrArr = [];
-
-      // 请求 PV 并自增
-      var pvCtn = document.querySelector('#leancloud-site-pv-container');
-      if (pvCtn || enableIncr) {
-        var pvGetter = getRecord(Counter, 'site-pv').then((record) => {
-          incrArr.push(buildIncrement(record.objectId))
-          var ele = document.querySelector('#leancloud-site-pv');
-          if (ele) {
-            ele.innerText = record.time + 1;
-            if (pvCtn) {
-              pvCtn.style.display = 'inline';
-            }
-          }
-        });
-        getterArr.push(pvGetter);
-      }
-
-      // 请求 UV 并自增
-      var uvCtn = document.querySelector('#leancloud-site-uv-container');
-      if (uvCtn || enableIncr) {
-        var uvGetter = getRecord(Counter, 'site-uv').then((record) => {
-          var vuv = validUV();
-          vuv && incrArr.push(buildIncrement(record.objectId))
-          var ele = document.querySelector('#leancloud-site-uv');
-          if (ele) {
-            ele.innerText = record.time + (vuv ? 1 : 0);
-            if (uvCtn) {
-              uvCtn.style.display = 'inline';
-            }
-          }
-        });
-        getterArr.push(uvGetter);
-      }
-
-      // 如果是文章，请求文章的浏览数，并自增
-      if ('true' === 'true') {
-        var viewCtn = document.querySelector('#leancloud-post-views-container');
-        if (viewCtn || enableIncr) {
-          var target = decodeURI('/2020/09/02/electron%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/');
-          var viewGetter = getRecord(Counter, target).then((record) => {
-            incrArr.push(buildIncrement(record.objectId))
-            if (viewCtn) {
-              var ele = document.querySelector('#leancloud-post-views');
-              if (ele) {
-                ele.innerText = (record.time || 0) + 1;
-                viewCtn.style.display = 'inline';
-              }
-            }
-          });
-          getterArr.push(viewGetter);
-        }
-      }
-
-      // 如果启动计数自增，批量发起自增请求
-      if (enableIncr) {
-        Promise.all(getterArr).then(() => {
-          incrArr.length > 0 && increment(Counter, incrArr);
-        })
-      }
-    }
-
-    var app_id = 'tvvbcoY4wMnP8onvPOLjlgMa-MdYXbMMI'
-    var app_key = 'C4TUiDMsDy3YLi3ywb0ziVTm'
-    var server_url = ''
-
-    function fetchData(api_server) {
-      var Counter = (method, url, data) => {
-        return fetch(`${ api_server }/1.1${ url }`, {
-          method,
-          headers: {
-            'X-LC-Id': app_id,
-            'X-LC-Key': app_key,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-        });
-      };
-
-      addCount(Counter);
-    }
-
-    var api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${ app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
-
-    if (api_server) {
-      fetchData(api_server);
-    } else {
-      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
-        .then(resp => resp.json())
-        .then(({api_server}) => {
-          fetchData('https://' + api_server);
-        });
-    }
-  })();
-</script>
-
-
-
 
 
 
   <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
-  <script>
-    $(document).ready(function () {
-      var boardCtn = $('#board-ctn');
-      var boardTop = boardCtn.offset().top;
 
-      tocbot.init({
-        tocSelector: '#tocbot',
-        contentSelector: '#post-body',
-        headingSelector: 'h1,h2,h3,h4,h5,h6',
-        linkClass: 'tocbot-link',
-        activeLinkClass: 'tocbot-active-link',
-        listClass: 'tocbot-list',
-        isCollapsedClass: 'tocbot-is-collapsed',
-        collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 0,
-        scrollSmooth: true,
-        headingsOffset: -boardTop
-      });
-      if ($('.toc-list-item').length > 0) {
-        $('#toc').css('visibility', 'visible');
-      }
-    });
-  </script>
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
 
 
 
   <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
   <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "彩印机静态网页&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "always",
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
       
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      searchFunc(path, 'local-search-input', 'local-search-result');
-      this.onclick = null
-    }
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <script>
-    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
-      function () {
-        var element = document.createElement('a');
-        $(element).attr('data-fancybox', 'images');
-        $(element).attr('href', $(this).attr('src'));
-        $(this).wrap(element);
-      }
-    );
+      typing(title)
+      
+    })(window, document);
   </script>
 
 
@@ -864,6 +625,10 @@
 
 
 
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
 
 
 </body>

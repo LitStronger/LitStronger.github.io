@@ -8,7 +8,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/favicon.png">
-  <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/favicon.png">
+  <link rel="icon" href="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/favicon.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -17,6 +17,7 @@
   <meta name="description" content="Just for fun">
   <meta name="author" content="LitStronger">
   <meta name="keywords" content="">
+  
   <title>CSS-肥宅快乐盒 - LitStronger&#39;s notes</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
@@ -34,6 +35,9 @@
   
 
   
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+  
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -50,6 +54,10 @@
 <!-- 自定义样式保持在最底部 -->
 
 
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"liaoyq.club","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"always","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"tvvbcoY4wMnP8onvPOLjlgMa-MdYXbMMI","app_key":"C4TUiDMsDy3YLi3ywb0ziVTm","server_url":null}},"search_path":"/local-search.xml"};
+  </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 5.2.0"></head>
@@ -113,7 +121,8 @@
           
           
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" target="_self" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="iconfont icon-bug"></i>
                 走廊
               </a>
@@ -173,13 +182,13 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
                 class="iconfont icon-search"></i>&nbsp;</a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
+            <a class="nav-link" target="_self">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -188,13 +197,13 @@
   </div>
 </nav>
 
-    <div class="banner intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('https://hexo-1259001110.cos.ap-shanghai.myqcloud.com/qiye.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container page-header text-center fade-in-up">
-            <span class="h2" id="subtitle">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="CSS-肥宅快乐盒">
               
             </span>
 
@@ -226,7 +235,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      49
+      50
        分钟
     </span>
   
@@ -235,9 +244,9 @@
   
     
       <!-- LeanCloud 统计文章PV -->
-      <span id="leancloud-post-views-container" class="post-meta" style="display: none">
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
         <i class="iconfont icon-eye" aria-hidden="true"></i>
-        <span id="leancloud-post-views"></span> 次
+        <span id="leancloud-page-views"></span> 次
       </span>
     
   
@@ -256,13 +265,13 @@
     
       
 
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
     <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
         <div class="py-5" id="board">
-          <article class="post-content mx-auto" id="post">
+          <article class="post-content mx-auto">
             <!-- SEO header -->
             <h1 style="display: none">CSS-肥宅快乐盒</h1>
             
@@ -272,7 +281,7 @@
                 
               </p>
             
-            <div class="markdown-body" id="post-body">
+            <div class="markdown-body">
               <p>先来看看这个肥宅盒子的效果</p>
 <style>
         .wrap{
@@ -398,40 +407,40 @@
 <div class="wrap">
         <div class="cube">
             <span class="front_out out">
-                <img src="https://i.loli.net/2018/05/03/5aeb0eef73838.jpg" srcset="/img/loading.gif" class="pic" />
+                <img src="https://i.loli.net/2018/05/03/5aeb0eef73838.jpg" srcset="/img/loading.gif" lazyload class="pic" />
             </span>
             <span class="back_out out">
-                <img src="https://i.loli.net/2018/05/03/5aeb0f2fb9a83.jpg" srcset="/img/loading.gif" class="pic" />
+                <img src="https://i.loli.net/2018/05/03/5aeb0f2fb9a83.jpg" srcset="/img/loading.gif" lazyload class="pic" />
             </span>
             <span class="left_out out">
-                <img src="https://i.loli.net/2018/05/03/5aeb0f55411f0.jpg" srcset="/img/loading.gif" class="pic" />
+                <img src="https://i.loli.net/2018/05/03/5aeb0f55411f0.jpg" srcset="/img/loading.gif" lazyload class="pic" />
             </span>
             <span class="right_out out">
-                <img src="https://i.loli.net/2018/05/03/5aeb0f79a1124.jpg" srcset="/img/loading.gif" class="pic" />
+                <img src="https://i.loli.net/2018/05/03/5aeb0f79a1124.jpg" srcset="/img/loading.gif" lazyload class="pic" />
             </span>
             <span class="top_out out">
-                <img src="https://i.loli.net/2018/05/03/5aeb0f98a8b66.jpg" srcset="/img/loading.gif" class="pic" />
+                <img src="https://i.loli.net/2018/05/03/5aeb0f98a8b66.jpg" srcset="/img/loading.gif" lazyload class="pic" />
             </span>
             <span class="bottom_out out">
-                <img src="https://i.loli.net/2018/05/03/5aeb0fdd51b7e.jpg" srcset="/img/loading.gif" class="pic" />
+                <img src="https://i.loli.net/2018/05/03/5aeb0fdd51b7e.jpg" srcset="/img/loading.gif" lazyload class="pic" />
             </span>
             <span class="front_in in">
-                <img src="https://i.loli.net/2018/05/03/5aeb100223dd0.jpg" srcset="/img/loading.gif" class="in_pic" />
+                <img src="https://i.loli.net/2018/05/03/5aeb100223dd0.jpg" srcset="/img/loading.gif" lazyload class="in_pic" />
             </span>
             <span class="back_in in">
-                 <img src="https://i.loli.net/2018/05/03/5aeb101c2c24b.jpg" srcset="/img/loading.gif" class="in_pic" />
+                 <img src="https://i.loli.net/2018/05/03/5aeb101c2c24b.jpg" srcset="/img/loading.gif" lazyload class="in_pic" />
             </span>
             <span class="left_in in">
-                <img src="https://i.loli.net/2018/05/03/5aeb1038127b5.jpg" srcset="/img/loading.gif" class="in_pic" />
+                <img src="https://i.loli.net/2018/05/03/5aeb1038127b5.jpg" srcset="/img/loading.gif" lazyload class="in_pic" />
             </span>
             <span class="right_in in">
-                <img src="https://i.loli.net/2018/05/03/5aeb0dce1ca55.jpg" srcset="/img/loading.gif" class="in_pic" />
+                <img src="https://i.loli.net/2018/05/03/5aeb0dce1ca55.jpg" srcset="/img/loading.gif" lazyload class="in_pic" />
             </span>
             <span class="top_in in">
-                <img src="https://i.loli.net/2018/05/03/5aeb1057bb167.jpg" srcset="/img/loading.gif" class="in_pic" />
+                <img src="https://i.loli.net/2018/05/03/5aeb1057bb167.jpg" srcset="/img/loading.gif" lazyload class="in_pic" />
             </span>
             <span class="bottom_in in">
-                <img src="https://i.loli.net/2018/05/03/5aeb107514579.jpg" srcset="/img/loading.gif" class="in_pic" />
+                <img src="https://i.loli.net/2018/05/03/5aeb107514579.jpg" srcset="/img/loading.gif" lazyload class="in_pic" />
             </span>
         </div>
     </div>
@@ -440,223 +449,39 @@
 
 <p>怎么样，是不是很有意思呢？制作起来其实也不是很难的, 一步一步来</p>
 <h2 id="1-容器"><a href="#1-容器" class="headerlink" title="1.容器"></a>1.容器</h2><h3 id="1-1-定位容器"><a href="#1-1-定位容器" class="headerlink" title="1.1 定位容器"></a>1.1 定位容器</h3><p>首先我们需要一个容器（wrap）来确定肥宅盒子在浏览器中的位置（为了节省空间已省略部分html）</p>
-<p><img src="https://img-blog.csdnimg.cn/20200815231750710.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY0MTg1MA==,size_16,color_FFFFFF,t_70#pic_center" srcset="/img/loading.gif" alt="灰色部分"></p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span>
-<span class="css"><span class="hljs-selector-class">.wrap</span>&#123;</span>
-    width: 100px;
-    height: 100px;
-    margin: 150px auto;
-<span class="css">    <span class="hljs-selector-tag">background</span>: <span class="hljs-selector-tag">gray</span>;	<span class="hljs-comment">/* 方便观察div位置 */</span></span>
-&#125;
-<span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;wrap&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
+<p><img src="https://img-blog.csdnimg.cn/20200815231750710.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY0MTg1MA==,size_16,color_FFFFFF,t_70#pic_center" srcset="/img/loading.gif" lazyload alt="灰色部分"></p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><br><span class="css"><span class="hljs-selector-class">.wrap</span>&#123;</span><br>    width: 100px;<br>    height: 100px;<br>    margin: 150px auto;<br><span class="css">    <span class="hljs-selector-tag">background</span>: <span class="hljs-selector-tag">gray</span>;	<span class="hljs-comment">/* 方便观察div位置 */</span></span><br>&#125;<br><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;wrap&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
 
 <h3 id="1-2-承载容器"><a href="#1-2-承载容器" class="headerlink" title="1.2 承载容器"></a>1.2 承载容器</h3><p>在容器wrap里还需要加一个用于承载正方体的容器（cube）。打个比喻，有点像是器皿的底座这样子</p>
-<p><img src="https://img-blog.csdnimg.cn/20200815232750746.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY0MTg1MA==,size_16,color_FFFFFF,t_70#pic_center" srcset="/img/loading.gif" alt="绿色部分"></p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span>
-<span class="css"><span class="hljs-selector-class">.wrap</span>&#123;</span>
-    width: 100px;
-    height: 100px;
-    margin: 150px auto;
-    position: relative;
-    background: gray;
-&#125;
-<span class="css"><span class="hljs-selector-class">.cube</span>&#123;</span>
-    width: 50px;
-    height: 50px;
-    margin: 0 auto;
-<span class="css">    <span class="hljs-selector-tag">background</span><span class="hljs-selector-pseudo">:greenyellow</span>;</span>
-    transform-style: preserve-3d; 
-&#125;
-<span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;wrap&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;cube&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
+<p><img src="https://img-blog.csdnimg.cn/20200815232750746.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY0MTg1MA==,size_16,color_FFFFFF,t_70#pic_center" srcset="/img/loading.gif" lazyload alt="绿色部分"></p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><br><span class="css"><span class="hljs-selector-class">.wrap</span>&#123;</span><br>    width: 100px;<br>    height: 100px;<br>    margin: 150px auto;<br>    position: relative;<br>    background: gray;<br>&#125;<br><span class="css"><span class="hljs-selector-class">.cube</span>&#123;</span><br>    width: 50px;<br>    height: 50px;<br>    margin: 0 auto;<br><span class="css">    <span class="hljs-selector-tag">background</span><span class="hljs-selector-pseudo">:greenyellow</span>;</span><br>    transform-style: preserve-3d; <br>&#125;<br><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;wrap&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;cube&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
 
 <p>好的，我们的底座已经完成了，是时候实现一个立体的小正方体了。</p>
 <h2 id="2-小正方体"><a href="#2-小正方体" class="headerlink" title="2.小正方体"></a>2.小正方体</h2><h3 id="2-1-引入图片"><a href="#2-1-引入图片" class="headerlink" title="2.1 引入图片"></a>2.1 引入图片</h3><p>首先引入6张图片作为6个面（由于重叠，引入后暂时只能看到一张图片），并设定大小</p>
-<p><img src="https://img-blog.csdnimg.cn/20200816012906990.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY0MTg1MA==,size_16,color_FFFFFF,t_70#pic_center" srcset="/img/loading.gif" alt="效果"></p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span>
-<span class="css"><span class="hljs-comment">/* 内部小正方体表面 */</span></span>
-<span class="css"><span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.in</span> &#123;</span>
-    display: block;
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    top: 50px;
-    left: 50px;
-&#125;
-<span class="css"><span class="hljs-comment">/* 表面图片 */</span></span>
-<span class="css"><span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.in_pic</span> &#123;</span>
-    width: 100px;
-    height: 100px;
-&#125;
-<span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;wrap&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;cube&quot;</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;front_in in&quot;</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/1.png&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;in_pic&quot;</span> /&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;back_in in&quot;</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/2.png&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;in_pic&quot;</span> /&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;left_in in&quot;</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/3.png&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;in_pic&quot;</span> /&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;right_in in&quot;</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/4.png&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;in_pic&quot;</span> /&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;top_in in&quot;</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/5.png&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;in_pic&quot;</span> /&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;bottom_in in&quot;</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/6.png&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;in_pic&quot;</span> /&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>     
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
+<p><img src="https://img-blog.csdnimg.cn/20200816012906990.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY0MTg1MA==,size_16,color_FFFFFF,t_70#pic_center" srcset="/img/loading.gif" lazyload alt="效果"></p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><br><span class="css"><span class="hljs-comment">/* 内部小正方体表面 */</span></span><br><span class="css"><span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.in</span> &#123;</span><br>    display: block;<br>    width: 100px;<br>    height: 100px;<br>    position: absolute;<br>    top: 50px;<br>    left: 50px;<br>&#125;<br><span class="css"><span class="hljs-comment">/* 表面图片 */</span></span><br><span class="css"><span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.in_pic</span> &#123;</span><br>    width: 100px;<br>    height: 100px;<br>&#125;<br><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;wrap&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;cube&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;front_in in&quot;</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/1.png&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;in_pic&quot;</span> /&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;back_in in&quot;</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/2.png&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;in_pic&quot;</span> /&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;left_in in&quot;</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/3.png&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;in_pic&quot;</span> /&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;right_in in&quot;</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/4.png&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;in_pic&quot;</span> /&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;top_in in&quot;</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/5.png&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;in_pic&quot;</span> /&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;bottom_in in&quot;</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/6.png&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;in_pic&quot;</span> /&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>     <br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
 
 <h3 id="2-2-立体构建"><a href="#2-2-立体构建" class="headerlink" title="2.2 立体构建"></a>2.2 立体构建</h3><p>接下来我们让每个面都旋转、移动到正确的位置。为每个面添加css</p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span>
-<span class="css"><span class="hljs-comment">/* 每个面都有自己的坐标轴XYZ，参考高考的几何题 */</span></span>
-<span class="css"><span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.front_in</span> &#123;</span>
-<span class="css">    <span class="hljs-comment">/* 绕自身Y轴旋转0°, 再沿Z轴平移50px */</span></span>
-    transform: rotateY(0deg) translateZ(50px);
-&#125;
-<span class="css"><span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.back_in</span> &#123;</span>
-    transform: rotateY(180deg) translateZ(50px);
-&#125;
-<span class="css"><span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.left_in</span> &#123;</span>
-<span class="css">    <span class="hljs-comment">/* 绕自身Y轴旋转90°，再沿Z轴平移50px */</span></span>
-    transform: rotateY(90deg) translateZ(50px) ;
-&#125;
-<span class="css"><span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.right_in</span> &#123;</span>
-    transform: rotateY(-90deg) translateZ(50px);
-&#125;
-<span class="css"><span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.top_in</span> &#123;</span>
-<span class="css">    <span class="hljs-comment">/* 绕自身Y轴旋转90°，再沿Z轴平移 */</span></span>
-    transform: rotateX(90deg) translateZ(50px);
-&#125;
-<span class="css"><span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.bottom_in</span> &#123;</span>
-    transform: rotateX(-90deg) translateZ(50px);
-&#125;
-<span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre></div>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><br><span class="css"><span class="hljs-comment">/* 每个面都有自己的坐标轴XYZ，参考高考的几何题 */</span></span><br><span class="css"><span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.front_in</span> &#123;</span><br><span class="css">    <span class="hljs-comment">/* 绕自身Y轴旋转0°, 再沿Z轴平移50px */</span></span><br>    transform: rotateY(0deg) translateZ(50px);<br>&#125;<br><span class="css"><span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.back_in</span> &#123;</span><br>    transform: rotateY(180deg) translateZ(50px);<br>&#125;<br><span class="css"><span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.left_in</span> &#123;</span><br><span class="css">    <span class="hljs-comment">/* 绕自身Y轴旋转90°，再沿Z轴平移50px */</span></span><br>    transform: rotateY(90deg) translateZ(50px) ;<br>&#125;<br><span class="css"><span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.right_in</span> &#123;</span><br>    transform: rotateY(-90deg) translateZ(50px);<br>&#125;<br><span class="css"><span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.top_in</span> &#123;</span><br><span class="css">    <span class="hljs-comment">/* 绕自身Y轴旋转90°，再沿Z轴平移 */</span></span><br>    transform: rotateX(90deg) translateZ(50px);<br>&#125;<br><span class="css"><span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.bottom_in</span> &#123;</span><br>    transform: rotateX(-90deg) translateZ(50px);<br>&#125;<br><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
 
 <h3 id="2-3-倾斜"><a href="#2-3-倾斜" class="headerlink" title="2.3 倾斜"></a>2.3 倾斜</h3><p>由于我们是从正面看过去的，所以目前还是只能看到一个面，只需要给底座.cube添加一个倾斜角度就可以看到立体的正方体了</p>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-class">.cube</span>&#123;
-    <span class="hljs-attribute">width</span>: <span class="hljs-number">50px</span>;
-    <span class="hljs-attribute">height</span>: <span class="hljs-number">50px</span>;
-    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> auto;
-    <span class="hljs-attribute">background</span>:greenyellow;
-    <span class="hljs-attribute">transform-style</span>: preserve-<span class="hljs-number">3</span>d; 
-	<span class="hljs-attribute">transform</span>: <span class="hljs-built_in">rotateX</span>(<span class="hljs-number">45deg</span>) <span class="hljs-built_in">rotateY</span>(<span class="hljs-number">45deg</span>); <span class="hljs-comment">/* 倾斜角度 */</span>
-&#125;</code></pre></div>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-selector-class">.cube</span>&#123;<br>    <span class="hljs-attribute">width</span>: <span class="hljs-number">50px</span>;<br>    <span class="hljs-attribute">height</span>: <span class="hljs-number">50px</span>;<br>    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> auto;<br>    <span class="hljs-attribute">background</span>:greenyellow;<br>    <span class="hljs-attribute">transform-style</span>: preserve-<span class="hljs-number">3</span>d; <br>	<span class="hljs-attribute">transform</span>: <span class="hljs-built_in">rotateX</span>(<span class="hljs-number">45deg</span>) <span class="hljs-built_in">rotateY</span>(<span class="hljs-number">45deg</span>); <span class="hljs-comment">/* 倾斜角度 */</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/20200816013320139.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY0MTg1MA==,size_16,color_FFFFFF,t_70#pic_center" srcset="/img/loading.gif" alt="倾斜后的立体效果"></p>
+<p><img src="https://img-blog.csdnimg.cn/20200816013320139.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY0MTg1MA==,size_16,color_FFFFFF,t_70#pic_center" srcset="/img/loading.gif" lazyload alt="倾斜后的立体效果"></p>
 <h2 id="3-大正方体"><a href="#3-大正方体" class="headerlink" title="3. 大正方体"></a>3. 大正方体</h2><h3 id="3-1-立体样式-图片"><a href="#3-1-立体样式-图片" class="headerlink" title="3.1 立体样式+图片"></a>3.1 立体样式+图片</h3><p>搞出小正方体后，同理可实现外部的大正方体, 对应的css如下</p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span>
-<span class="css"><span class="hljs-comment">/* 外部正方体 */</span></span>
-<span class="css"><span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.out</span>&#123;</span>
-    display: block;
-    position: absolute;
-    width: 200px;
-    height: 200px;
-<span class="css">    <span class="hljs-selector-tag">opacity</span>: 0<span class="hljs-selector-class">.8</span>;</span>
-<span class="css">    <span class="hljs-comment">/* hover过渡时间 */</span></span>
-<span class="css">    <span class="hljs-selector-tag">transition</span>: <span class="hljs-selector-tag">all</span> 0<span class="hljs-selector-class">.4s</span>;</span>
-&#125;
-<span class="css"><span class="hljs-comment">/* 外部正方体表面图片 */</span></span>
-<span class="css"><span class="hljs-selector-class">.pic</span> &#123;</span>
-    width: 200px;
-    height: 200px;
-&#125;
-<span class="css"><span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.front_out</span> &#123;</span>
-    transform: rotateY(0deg) translateZ(100px);
-&#125;
-<span class="css"><span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.back_out</span> &#123;</span>
-    transform: rotateY(180deg) translateZ(100px);
-&#125;
-<span class="css"><span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.left_out</span> &#123;</span>
-    transform: rotateY(90deg) translateZ(100px);
-&#125;
-<span class="css"><span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.right_out</span> &#123;</span>
-    transform: rotateY(-90deg) translateZ(100px);
-&#125;
-<span class="css"><span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.top_out</span> &#123;</span>
-    transform: rotateX(90deg) translateZ(100px);
-&#125;
-<span class="css"><span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.bottom_out</span> &#123;</span>
-    transform: rotateX(-90deg) translateZ(100px);
-&#125;
-    
-<span class="css"><span class="hljs-comment">/* 鼠标悬浮(hover)时撑开各个面的效果 */</span></span>
-<span class="css"><span class="hljs-selector-class">.cube</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-class">.front_out</span> &#123;</span>
-    transform: rotateY(0deg) translateZ(200px);
-&#125;
-<span class="css"><span class="hljs-selector-class">.cube</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-class">.back_out</span> &#123;</span>
-    transform: rotateY(180deg) translateZ(200px);
-&#125;
-<span class="css"><span class="hljs-selector-class">.cube</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-class">.left_out</span> &#123;</span>
-    transform: rotateY(90deg) translateZ(200px);
-&#125;
-<span class="css"><span class="hljs-selector-class">.cube</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-class">.right_out</span> &#123;</span>
-    transform: rotateY(-90deg) translateZ(200px);
-&#125;
-<span class="css"><span class="hljs-selector-class">.cube</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-class">.top_out</span> &#123;</span>
-    transform: rotateX(90deg) translateZ(200px);
-&#125;
-<span class="css"><span class="hljs-selector-class">.cube</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-class">.bottom_out</span> &#123;</span>
-    transform: rotateX(-90deg) translateZ(200px);
-&#125;    
-<span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
-</code></pre></div>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><br><span class="css"><span class="hljs-comment">/* 外部正方体 */</span></span><br><span class="css"><span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.out</span>&#123;</span><br>    display: block;<br>    position: absolute;<br>    width: 200px;<br>    height: 200px;<br><span class="css">    <span class="hljs-selector-tag">opacity</span>: 0<span class="hljs-selector-class">.8</span>;</span><br><span class="css">    <span class="hljs-comment">/* hover过渡时间 */</span></span><br><span class="css">    <span class="hljs-selector-tag">transition</span>: <span class="hljs-selector-tag">all</span> 0<span class="hljs-selector-class">.4s</span>;</span><br>&#125;<br><span class="css"><span class="hljs-comment">/* 外部正方体表面图片 */</span></span><br><span class="css"><span class="hljs-selector-class">.pic</span> &#123;</span><br>    width: 200px;<br>    height: 200px;<br>&#125;<br><span class="css"><span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.front_out</span> &#123;</span><br>    transform: rotateY(0deg) translateZ(100px);<br>&#125;<br><span class="css"><span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.back_out</span> &#123;</span><br>    transform: rotateY(180deg) translateZ(100px);<br>&#125;<br><span class="css"><span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.left_out</span> &#123;</span><br>    transform: rotateY(90deg) translateZ(100px);<br>&#125;<br><span class="css"><span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.right_out</span> &#123;</span><br>    transform: rotateY(-90deg) translateZ(100px);<br>&#125;<br><span class="css"><span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.top_out</span> &#123;</span><br>    transform: rotateX(90deg) translateZ(100px);<br>&#125;<br><span class="css"><span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.bottom_out</span> &#123;</span><br>    transform: rotateX(-90deg) translateZ(100px);<br>&#125;<br>    <br><span class="css"><span class="hljs-comment">/* 鼠标悬浮(hover)时撑开各个面的效果 */</span></span><br><span class="css"><span class="hljs-selector-class">.cube</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-class">.front_out</span> &#123;</span><br>    transform: rotateY(0deg) translateZ(200px);<br>&#125;<br><span class="css"><span class="hljs-selector-class">.cube</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-class">.back_out</span> &#123;</span><br>    transform: rotateY(180deg) translateZ(200px);<br>&#125;<br><span class="css"><span class="hljs-selector-class">.cube</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-class">.left_out</span> &#123;</span><br>    transform: rotateY(90deg) translateZ(200px);<br>&#125;<br><span class="css"><span class="hljs-selector-class">.cube</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-class">.right_out</span> &#123;</span><br>    transform: rotateY(-90deg) translateZ(200px);<br>&#125;<br><span class="css"><span class="hljs-selector-class">.cube</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-class">.top_out</span> &#123;</span><br>    transform: rotateX(90deg) translateZ(200px);<br>&#125;<br><span class="css"><span class="hljs-selector-class">.cube</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-class">.bottom_out</span> &#123;</span><br>    transform: rotateX(-90deg) translateZ(200px);<br>&#125;    <br><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><br></code></pre></div></td></tr></table></figure>
 
 <p>引入外部表面6张图片</p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- 外部正方体 --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;front_out out&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://i.loli.net/2018/05/03/5aeb0eef73838.jpg&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;pic&quot;</span> /&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;back_out out&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://i.loli.net/2018/05/03/5aeb0f2fb9a83.jpg&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;pic&quot;</span> /&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;left_out out&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://i.loli.net/2018/05/03/5aeb0f55411f0.jpg&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;pic&quot;</span> /&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;right_out out&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://i.loli.net/2018/05/03/5aeb0f79a1124.jpg&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;pic&quot;</span> /&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;top_out out&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://i.loli.net/2018/05/03/5aeb0f98a8b66.jpg&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;pic&quot;</span> /&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;bottom_out out&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://i.loli.net/2018/05/03/5aeb0fdd51b7e.jpg&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;pic&quot;</span> /&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></code></pre></div>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- 外部正方体 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;front_out out&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://i.loli.net/2018/05/03/5aeb0eef73838.jpg&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;pic&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;back_out out&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://i.loli.net/2018/05/03/5aeb0f2fb9a83.jpg&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;pic&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;left_out out&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://i.loli.net/2018/05/03/5aeb0f55411f0.jpg&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;pic&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;right_out out&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://i.loli.net/2018/05/03/5aeb0f79a1124.jpg&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;pic&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;top_out out&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://i.loli.net/2018/05/03/5aeb0f98a8b66.jpg&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;pic&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;bottom_out out&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://i.loli.net/2018/05/03/5aeb0fdd51b7e.jpg&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;pic&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>  <br></code></pre></div></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/20200816003908645.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY0MTg1MA==,size_16,color_FFFFFF,t_70#pic_center" srcset="/img/loading.gif" alt="外部正方体"></p>
-<p><img src="https://img-blog.csdnimg.cn/20200816005949302.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY0MTg1MA==,size_16,color_FFFFFF,t_70#pic_center" srcset="/img/loading.gif" alt="鼠标悬浮效果"></p>
+<p><img src="https://img-blog.csdnimg.cn/20200816003908645.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY0MTg1MA==,size_16,color_FFFFFF,t_70#pic_center" srcset="/img/loading.gif" lazyload alt="外部正方体"></p>
+<p><img src="https://img-blog.csdnimg.cn/20200816005949302.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY0MTg1MA==,size_16,color_FFFFFF,t_70#pic_center" srcset="/img/loading.gif" lazyload alt="鼠标悬浮效果"></p>
 <p>到这里就已经大致完成了！最后还需要让这个正方体旋转起来，也很简单</p>
 <h3 id="3-2-自动旋转"><a href="#3-2-自动旋转" class="headerlink" title="3.2 自动旋转"></a>3.2 自动旋转</h3><p>在容器.cube中添加对应的css样式，如下</p>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-comment">/* 定义名为motion动画，绕X轴和Y轴旋转360° */</span>
-<span class="hljs-keyword">@keyframes</span> motion &#123;
-    <span class="hljs-selector-tag">from</span> &#123;
-        <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">rotateX</span>(<span class="hljs-number">0deg</span>) <span class="hljs-built_in">rotateY</span>(<span class="hljs-number">0deg</span>);
-    &#125;
-    <span class="hljs-selector-tag">to</span> &#123;
-        <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">rotateX</span>(<span class="hljs-number">360deg</span>) <span class="hljs-built_in">rotateY</span>(<span class="hljs-number">360deg</span>);
-    &#125;
- &#125;
-<span class="hljs-selector-class">.cube</span>&#123;
-    <span class="hljs-attribute">width</span>: <span class="hljs-number">50px</span>;
-    <span class="hljs-attribute">height</span>: <span class="hljs-number">50px</span>;
-    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> auto;
-    <span class="hljs-attribute">background</span>:greenyellow;
-    <span class="hljs-attribute">transform-style</span>: preserve-<span class="hljs-number">3</span>d; 
-	<span class="hljs-attribute">transform</span>: <span class="hljs-built_in">rotateX</span>(<span class="hljs-number">45deg</span>) <span class="hljs-built_in">rotateY</span>(<span class="hljs-number">45deg</span>); <span class="hljs-comment">/* 倾斜角度 */</span>
-	<span class="hljs-attribute">animation</span>: motion linear <span class="hljs-number">20s</span> infinite;	  <span class="hljs-comment">/* 添加名为motion的动画,循环执行动画 */</span>
-&#125;</code></pre></div>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-comment">/* 定义名为motion动画，绕X轴和Y轴旋转360° */</span><br><span class="hljs-keyword">@keyframes</span> motion &#123;<br>    <span class="hljs-selector-tag">from</span> &#123;<br>        <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">rotateX</span>(<span class="hljs-number">0deg</span>) <span class="hljs-built_in">rotateY</span>(<span class="hljs-number">0deg</span>);<br>    &#125;<br>    <span class="hljs-selector-tag">to</span> &#123;<br>        <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">rotateX</span>(<span class="hljs-number">360deg</span>) <span class="hljs-built_in">rotateY</span>(<span class="hljs-number">360deg</span>);<br>    &#125;<br> &#125;<br><span class="hljs-selector-class">.cube</span>&#123;<br>    <span class="hljs-attribute">width</span>: <span class="hljs-number">50px</span>;<br>    <span class="hljs-attribute">height</span>: <span class="hljs-number">50px</span>;<br>    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> auto;<br>    <span class="hljs-attribute">background</span>:greenyellow;<br>    <span class="hljs-attribute">transform-style</span>: preserve-<span class="hljs-number">3</span>d; <br>	<span class="hljs-attribute">transform</span>: <span class="hljs-built_in">rotateX</span>(<span class="hljs-number">45deg</span>) <span class="hljs-built_in">rotateY</span>(<span class="hljs-number">45deg</span>); <span class="hljs-comment">/* 倾斜角度 */</span><br>	<span class="hljs-attribute">animation</span>: motion linear <span class="hljs-number">20s</span> infinite;	  <span class="hljs-comment">/* 添加名为motion的动画,循环执行动画 */</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
 
 <h2 id="4-完结撒花"><a href="#4-完结撒花" class="headerlink" title="4.完结撒花"></a>4.完结撒花</h2><p>最后的最后，把我们前面在容器.wrap和.cube添加的背景颜色去掉(即删掉下面两行)</p>
-<div class="hljs"><pre><code class="hljs scss"><span class="hljs-attribute">background</span>: gray;   	<span class="hljs-comment">/* .wrap */</span>
-<span class="hljs-attribute">background</span>: greenyellow;<span class="hljs-comment">/* .cube */</span></code></pre></div>
+<figure class="highlight scss"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs scss"><span class="hljs-attribute">background</span>: gray;   	<span class="hljs-comment">/* .wrap */</span><br><span class="hljs-attribute">background</span>: greenyellow;<span class="hljs-comment">/* .cube */</span><br></code></pre></div></td></tr></table></figure>
 
 <p>ok，大功告成。平时并没有存图习惯，图片是临时在P站随便找的，可以自行更换自己喜欢的图片，效果更好（带背景色的图片观感更佳）</p>
 <style>
@@ -775,41 +600,41 @@
         <div class="cube">
             <!-- 内部正方体 -->
             <span class="front_in in">
-                <img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/1.png" srcset="/img/loading.gif" class="in_pic" />
+                <img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/1.png" srcset="/img/loading.gif" lazyload class="in_pic" />
             </span>
             <span class="back_in in">
-                <img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/2.png" srcset="/img/loading.gif" class="in_pic" />
+                <img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/2.png" srcset="/img/loading.gif" lazyload class="in_pic" />
             </span>
             <span class="left_in in">
-                <img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/3.png" srcset="/img/loading.gif" class="in_pic" />
+                <img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/3.png" srcset="/img/loading.gif" lazyload class="in_pic" />
             </span>
             <span class="right_in in">
-                <img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/4.png" srcset="/img/loading.gif" class="in_pic" />
+                <img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/4.png" srcset="/img/loading.gif" lazyload class="in_pic" />
             </span>
             <span class="top_in in">
-                <img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/5.png" srcset="/img/loading.gif" class="in_pic" />
+                <img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/5.png" srcset="/img/loading.gif" lazyload class="in_pic" />
             </span>
             <span class="bottom_in in">
-                <img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/6.png" srcset="/img/loading.gif" class="in_pic" />
+                <img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/6.png" srcset="/img/loading.gif" lazyload class="in_pic" />
             </span>
             <!-- 外部正方体 -->
             <span class="front_out out">
-                <img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/1.png" srcset="/img/loading.gif" class="pic" />
+                <img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/1.png" srcset="/img/loading.gif" lazyload class="pic" />
             </span>
             <span class="back_out out">
-                <img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/2.png" srcset="/img/loading.gif" class="pic" />
+                <img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/2.png" srcset="/img/loading.gif" lazyload class="pic" />
             </span>
             <span class="left_out out">
-                <img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/3.png" srcset="/img/loading.gif" class="pic" />
+                <img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/3.png" srcset="/img/loading.gif" lazyload class="pic" />
             </span>
             <span class="right_out out">
-                <img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/4.png" srcset="/img/loading.gif" class="pic" />
+                <img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/4.png" srcset="/img/loading.gif" lazyload class="pic" />
             </span>
             <span class="top_out out">
-                <img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/5.png" srcset="/img/loading.gif" class="pic" />
+                <img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/5.png" srcset="/img/loading.gif" lazyload class="pic" />
             </span>
             <span class="bottom_out out">
-                <img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/6.png" srcset="/img/loading.gif" class="pic" />
+                <img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/6.png" srcset="/img/loading.gif" lazyload class="pic" />
             </span>
         </div>
 </div>
@@ -817,148 +642,7 @@
 
 
 
-<h2 id="5-完整实例代码"><a href="#5-完整实例代码" class="headerlink" title="5.完整实例代码"></a>5.完整实例代码</h2><div class="hljs"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>
-
-<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Document<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span>
-<span class="css">        <span class="hljs-selector-class">.wrap</span> &#123;</span>
-            width: 100px;
-            height: 100px;
-            margin: 150px auto;
-            position: relative;
-        &#125;
-<span class="css">        <span class="hljs-selector-class">.cube</span> &#123;</span>
-            width: 50px;
-            height: 50px;
-            margin: 0 auto;
-            transform-style: preserve-3d;
-            transform: rotateX(45deg) rotateY(45deg);
-            animation: motion linear 20s infinite;
-<span class="css">            <span class="hljs-comment">/* 添加名为motion的动画 */</span></span>
-        &#125;
-<span class="css">        <span class="hljs-keyword">@keyframes</span> motion &#123;</span>
-            from &#123;
-                transform: rotateX(0deg) rotateY(0deg);
-            &#125;
-            to &#123;
-                transform: rotateX(360deg) rotateY(360deg);
-            &#125;
-        &#125;
-<span class="css">        <span class="hljs-comment">/* 内部小正方体 */</span></span>
-<span class="css">        <span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.in</span> &#123;</span>
-            display: block;
-            width: 100px;
-            height: 100px;
-            position: absolute;
-            top: 50px;
-            left: 50px;
-        &#125;
-<span class="css">        <span class="hljs-comment">/* 小正方体表面图片 */</span></span>
-<span class="css">        <span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.in_pic</span> &#123;</span>
-            width: 100px;
-            height: 100px;
-        &#125;
-<span class="css">        <span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.front_in</span> &#123;</span>
-            transform: rotateY(0deg) translateZ(50px);
-        &#125;
-<span class="css">        <span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.back_in</span> &#123;</span>
-            transform: rotateY(180deg) translateZ(50px);
-        &#125;
-<span class="css">        <span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.left_in</span> &#123;</span>
-            transform: rotateY(90deg) translateZ(50px);
-        &#125;
-<span class="css">        <span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.right_in</span> &#123;</span>
-            transform: rotateY(-90deg) translateZ(50px);
-        &#125;
-<span class="css">        <span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.top_in</span> &#123;</span>
-            transform: rotateX(90deg) translateZ(50px);
-        &#125;
-<span class="css">        <span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.bottom_in</span> &#123;</span>
-            transform: rotateX(-90deg) translateZ(50px);
-        &#125;
-
-<span class="css">        <span class="hljs-comment">/* 外部正方体 */</span></span>
-<span class="css">        <span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.out</span> &#123;</span>
-            display: block;
-            position: absolute;
-            width: 200px;
-            height: 200px;
-<span class="css">            <span class="hljs-selector-tag">opacity</span>: 0<span class="hljs-selector-class">.8</span>;</span>
-<span class="css">            <span class="hljs-comment">/* hover过渡时间 */</span></span>
-<span class="css">            <span class="hljs-selector-tag">transition</span>: <span class="hljs-selector-tag">all</span> 0<span class="hljs-selector-class">.4s</span>;</span>
-        &#125;
-
-<span class="css">        <span class="hljs-comment">/* 外部正方体表面图片 */</span></span>
-<span class="css">        <span class="hljs-selector-class">.pic</span> &#123;</span>
-            width: 200px;
-            height: 200px;
-        &#125;
-<span class="css">        <span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.front_out</span> &#123;</span>
-            transform: rotateY(0deg) translateZ(100px);
-        &#125;
-<span class="css">        <span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.back_out</span> &#123;</span>
-            transform: rotateY(180deg) translateZ(100px);
-        &#125;
-<span class="css">        <span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.left_out</span> &#123;</span>
-            transform: rotateY(90deg) translateZ(100px);
-        &#125;
-<span class="css">        <span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.right_out</span> &#123;</span>
-            transform: rotateY(-90deg) translateZ(100px);
-        &#125;
-<span class="css">        <span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.top_out</span> &#123;</span>
-            transform: rotateX(90deg) translateZ(100px);
-        &#125;
-<span class="css">        <span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.bottom_out</span> &#123;</span>
-            transform: rotateX(-90deg) translateZ(100px);
-        &#125;
-<span class="css">        <span class="hljs-comment">/* 鼠标悬浮hover撑开 */</span></span>
-<span class="css">        <span class="hljs-selector-class">.cube</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-class">.front_out</span> &#123;</span>
-            transform: rotateY(0deg) translateZ(200px);
-        &#125;
-<span class="css">        <span class="hljs-selector-class">.cube</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-class">.back_out</span> &#123;</span>
-            transform: rotateY(180deg) translateZ(200px);
-        &#125;
-<span class="css">        <span class="hljs-selector-class">.cube</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-class">.left_out</span> &#123;</span>
-            transform: rotateY(90deg) translateZ(200px);
-        &#125;
-<span class="css">        <span class="hljs-selector-class">.cube</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-class">.right_out</span> &#123;</span>
-            transform: rotateY(-90deg) translateZ(200px);
-        &#125;
-<span class="css">        <span class="hljs-selector-class">.cube</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-class">.top_out</span> &#123;</span>
-            transform: rotateX(90deg) translateZ(200px);
-        &#125;
-<span class="css">        <span class="hljs-selector-class">.cube</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-class">.bottom_out</span> &#123;</span>
-            transform: rotateX(-90deg) translateZ(200px);
-        &#125;
-    <span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
-
-<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;wrap&quot;</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;cube&quot;</span>&gt;</span>
-            <span class="hljs-comment">&lt;!-- 内部正方体 --&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;front_in in&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/1.png&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;in_pic&quot;</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;back_in in&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/2.png&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;in_pic&quot;</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;left_in in&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/3.png&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;in_pic&quot;</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;right_in in&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/4.png&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;in_pic&quot;</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;top_in in&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/5.png&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;in_pic&quot;</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;bottom_in in&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/6.png&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;in_pic&quot;</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-            
-            <span class="hljs-comment">&lt;!-- 外部正方体 --&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;front_out out&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/1.png&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;pic&quot;</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;back_out out&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/2.png&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;pic&quot;</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;left_out out&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/3.png&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;pic&quot;</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;right_out out&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/4.png&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;pic&quot;</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;top_out out&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/5.png&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;pic&quot;</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;bottom_out out&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/6.png&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;pic&quot;</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre></div>
+<h2 id="5-完整实例代码"><a href="#5-完整实例代码" class="headerlink" title="5.完整实例代码"></a>5.完整实例代码</h2><figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Document<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><br><span class="css">        <span class="hljs-selector-class">.wrap</span> &#123;</span><br>            width: 100px;<br>            height: 100px;<br>            margin: 150px auto;<br>            position: relative;<br>        &#125;<br><span class="css">        <span class="hljs-selector-class">.cube</span> &#123;</span><br>            width: 50px;<br>            height: 50px;<br>            margin: 0 auto;<br>            transform-style: preserve-3d;<br>            transform: rotateX(45deg) rotateY(45deg);<br>            animation: motion linear 20s infinite;<br><span class="css">            <span class="hljs-comment">/* 添加名为motion的动画 */</span></span><br>        &#125;<br><span class="css">        <span class="hljs-keyword">@keyframes</span> motion &#123;</span><br>            from &#123;<br>                transform: rotateX(0deg) rotateY(0deg);<br>            &#125;<br>            to &#123;<br>                transform: rotateX(360deg) rotateY(360deg);<br>            &#125;<br>        &#125;<br><span class="css">        <span class="hljs-comment">/* 内部小正方体 */</span></span><br><span class="css">        <span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.in</span> &#123;</span><br>            display: block;<br>            width: 100px;<br>            height: 100px;<br>            position: absolute;<br>            top: 50px;<br>            left: 50px;<br>        &#125;<br><span class="css">        <span class="hljs-comment">/* 小正方体表面图片 */</span></span><br><span class="css">        <span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.in_pic</span> &#123;</span><br>            width: 100px;<br>            height: 100px;<br>        &#125;<br><span class="css">        <span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.front_in</span> &#123;</span><br>            transform: rotateY(0deg) translateZ(50px);<br>        &#125;<br><span class="css">        <span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.back_in</span> &#123;</span><br>            transform: rotateY(180deg) translateZ(50px);<br>        &#125;<br><span class="css">        <span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.left_in</span> &#123;</span><br>            transform: rotateY(90deg) translateZ(50px);<br>        &#125;<br><span class="css">        <span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.right_in</span> &#123;</span><br>            transform: rotateY(-90deg) translateZ(50px);<br>        &#125;<br><span class="css">        <span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.top_in</span> &#123;</span><br>            transform: rotateX(90deg) translateZ(50px);<br>        &#125;<br><span class="css">        <span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.bottom_in</span> &#123;</span><br>            transform: rotateX(-90deg) translateZ(50px);<br>        &#125;<br><br><span class="css">        <span class="hljs-comment">/* 外部正方体 */</span></span><br><span class="css">        <span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.out</span> &#123;</span><br>            display: block;<br>            position: absolute;<br>            width: 200px;<br>            height: 200px;<br><span class="css">            <span class="hljs-selector-tag">opacity</span>: 0<span class="hljs-selector-class">.8</span>;</span><br><span class="css">            <span class="hljs-comment">/* hover过渡时间 */</span></span><br><span class="css">            <span class="hljs-selector-tag">transition</span>: <span class="hljs-selector-tag">all</span> 0<span class="hljs-selector-class">.4s</span>;</span><br>        &#125;<br><br><span class="css">        <span class="hljs-comment">/* 外部正方体表面图片 */</span></span><br><span class="css">        <span class="hljs-selector-class">.pic</span> &#123;</span><br>            width: 200px;<br>            height: 200px;<br>        &#125;<br><span class="css">        <span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.front_out</span> &#123;</span><br>            transform: rotateY(0deg) translateZ(100px);<br>        &#125;<br><span class="css">        <span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.back_out</span> &#123;</span><br>            transform: rotateY(180deg) translateZ(100px);<br>        &#125;<br><span class="css">        <span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.left_out</span> &#123;</span><br>            transform: rotateY(90deg) translateZ(100px);<br>        &#125;<br><span class="css">        <span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.right_out</span> &#123;</span><br>            transform: rotateY(-90deg) translateZ(100px);<br>        &#125;<br><span class="css">        <span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.top_out</span> &#123;</span><br>            transform: rotateX(90deg) translateZ(100px);<br>        &#125;<br><span class="css">        <span class="hljs-selector-class">.cube</span> <span class="hljs-selector-class">.bottom_out</span> &#123;</span><br>            transform: rotateX(-90deg) translateZ(100px);<br>        &#125;<br><span class="css">        <span class="hljs-comment">/* 鼠标悬浮hover撑开 */</span></span><br><span class="css">        <span class="hljs-selector-class">.cube</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-class">.front_out</span> &#123;</span><br>            transform: rotateY(0deg) translateZ(200px);<br>        &#125;<br><span class="css">        <span class="hljs-selector-class">.cube</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-class">.back_out</span> &#123;</span><br>            transform: rotateY(180deg) translateZ(200px);<br>        &#125;<br><span class="css">        <span class="hljs-selector-class">.cube</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-class">.left_out</span> &#123;</span><br>            transform: rotateY(90deg) translateZ(200px);<br>        &#125;<br><span class="css">        <span class="hljs-selector-class">.cube</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-class">.right_out</span> &#123;</span><br>            transform: rotateY(-90deg) translateZ(200px);<br>        &#125;<br><span class="css">        <span class="hljs-selector-class">.cube</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-class">.top_out</span> &#123;</span><br>            transform: rotateX(90deg) translateZ(200px);<br>        &#125;<br><span class="css">        <span class="hljs-selector-class">.cube</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-class">.bottom_out</span> &#123;</span><br>            transform: rotateX(-90deg) translateZ(200px);<br>        &#125;<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;wrap&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;cube&quot;</span>&gt;</span><br>            <span class="hljs-comment">&lt;!-- 内部正方体 --&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;front_in in&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/1.png&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;in_pic&quot;</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;back_in in&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/2.png&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;in_pic&quot;</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;left_in in&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/3.png&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;in_pic&quot;</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;right_in in&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/4.png&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;in_pic&quot;</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;top_in in&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/5.png&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;in_pic&quot;</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;bottom_in in&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/6.png&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;in_pic&quot;</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>            <br>            <span class="hljs-comment">&lt;!-- 外部正方体 --&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;front_out out&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/1.png&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;pic&quot;</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;back_out out&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/2.png&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;pic&quot;</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;left_out out&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/3.png&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;pic&quot;</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;right_out out&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/4.png&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;pic&quot;</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;top_out out&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/5.png&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;pic&quot;</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;bottom_out out&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/cssBox/6.png&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;pic&quot;</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
 
 
 
@@ -988,10 +672,14 @@
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
               
               
-                <div class="post-prevnext row">
+                <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
                     
@@ -1018,11 +706,13 @@
 
             
               <!-- Comments -->
-              <article class="comments" id="comments">
+              <article class="comments" id="comments" lazyload>
+                
+                  
                 
                 
   <script type="text/javascript">
-    function loadUtterances() {
+    Fluid.utils.loadComments('#comments', function() {
       var light = 'github-light';
       var dark = 'github-dark';
       var schema = document.documentElement.getAttribute('data-user-color-scheme');
@@ -1041,9 +731,9 @@
       s.setAttribute('theme', schema);
       s.setAttribute('crossorigin', 'anonymous');
       document.getElementById('comments').appendChild(s);
-    }
-    waitElementVisible('comments', loadUtterances)
+    })
   </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
 
 
               </article>
@@ -1056,7 +746,7 @@
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
   <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div id="tocbot"></div>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
       </div>
@@ -1068,16 +758,15 @@
 
 
     
-  </main>
 
-  
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -1098,9 +787,10 @@
     </div>
   </div>
 </div>
-  
+    
 
-  
+    
+  </main>
 
   <footer class="text-center mt-5 py-3">
   <div class="footer-content">
@@ -1138,302 +828,73 @@
   
 </footer>
 
-<!-- SCRIPTS -->
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
 <script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
-<script  src="/js/main.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
   
-    <script  src="/js/lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
 
   
-
-
-
-  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
-  <script  src="/js/clipboard-use.js" ></script>
-
-
-
-  <script defer>
-  (function () {
-    // 查询存储的记录
-    function getRecord(Counter, target) {
-      return new Promise(function (resolve, reject) {
-        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({target})))
-          .then(resp => resp.json())
-          .then(({results, code, error}) => {
-            if (code === 401) {
-              throw error;
-            }
-            if (results && results.length > 0) {
-              var record = results[0];
-              resolve(record);
-            } else {
-              Counter('post', '/classes/Counter', {target, time: 0})
-                .then(resp => resp.json())
-                .then((record, error) => {
-                  if (error) {
-                    throw error;
-                  }
-                  resolve(record);
-                }).catch(error => {
-                console.error('Failed to create', error);
-                reject(error);
-              });
-            }
-          }).catch((error) => {
-          console.error('LeanCloud Counter Error:', error);
-          reject(error);
-        });
-      })
-    }
-
-    // 发起自增请求
-    function increment(Counter, incrArr) {
-      return new Promise(function (resolve, reject) {
-        Counter('post', '/batch', {
-          "requests": incrArr
-        }).then((res) => {
-          res = res.json();
-          if (res.error) {
-            throw res.error;
-          }
-          resolve(res);
-        }).catch((error) => {
-          console.error('Failed to save visitor count', error);
-          reject(error);
-        });
-      });
-    }
-
-    // 构建自增请求体
-    function buildIncrement(objectId) {
-      return {
-        "method": "PUT",
-        "path": `/1.1/classes/Counter/${ objectId }`,
-        "body": {
-          "time": {
-            '__op': 'Increment',
-            'amount': 1
-          }
-        }
-      }
-    }
-
-    // 校验是否为有效的 UV
-    function validUV() {
-      var key = 'LeanCloud_UV_Flag';
-      var flag = localStorage.getItem(key);
-      if (flag) {
-        // 距离标记小于 24 小时则不计为 UV
-        if (new Date().getTime() - parseInt(flag) <= 86400000) {
-          return false;
-        }
-      }
-      localStorage.setItem(key, new Date().getTime().toString());
-      return true;
-    }
-
-    function addCount(Counter) {
-      var enableIncr = 'true' === 'true' && window.location.hostname !== 'localhost';
-      var getterArr = [];
-      var incrArr = [];
-
-      // 请求 PV 并自增
-      var pvCtn = document.querySelector('#leancloud-site-pv-container');
-      if (pvCtn || enableIncr) {
-        var pvGetter = getRecord(Counter, 'site-pv').then((record) => {
-          incrArr.push(buildIncrement(record.objectId))
-          var ele = document.querySelector('#leancloud-site-pv');
-          if (ele) {
-            ele.innerText = record.time + 1;
-            if (pvCtn) {
-              pvCtn.style.display = 'inline';
-            }
-          }
-        });
-        getterArr.push(pvGetter);
-      }
-
-      // 请求 UV 并自增
-      var uvCtn = document.querySelector('#leancloud-site-uv-container');
-      if (uvCtn || enableIncr) {
-        var uvGetter = getRecord(Counter, 'site-uv').then((record) => {
-          var vuv = validUV();
-          vuv && incrArr.push(buildIncrement(record.objectId))
-          var ele = document.querySelector('#leancloud-site-uv');
-          if (ele) {
-            ele.innerText = record.time + (vuv ? 1 : 0);
-            if (uvCtn) {
-              uvCtn.style.display = 'inline';
-            }
-          }
-        });
-        getterArr.push(uvGetter);
-      }
-
-      // 如果是文章，请求文章的浏览数，并自增
-      if ('true' === 'true') {
-        var viewCtn = document.querySelector('#leancloud-post-views-container');
-        if (viewCtn || enableIncr) {
-          var target = decodeURI('/2020/08/15/CSS-%E8%82%A5%E5%AE%85%E5%BF%AB%E4%B9%90%E7%9B%92/');
-          var viewGetter = getRecord(Counter, target).then((record) => {
-            incrArr.push(buildIncrement(record.objectId))
-            if (viewCtn) {
-              var ele = document.querySelector('#leancloud-post-views');
-              if (ele) {
-                ele.innerText = (record.time || 0) + 1;
-                viewCtn.style.display = 'inline';
-              }
-            }
-          });
-          getterArr.push(viewGetter);
-        }
-      }
-
-      // 如果启动计数自增，批量发起自增请求
-      if (enableIncr) {
-        Promise.all(getterArr).then(() => {
-          incrArr.length > 0 && increment(Counter, incrArr);
-        })
-      }
-    }
-
-    var app_id = 'tvvbcoY4wMnP8onvPOLjlgMa-MdYXbMMI'
-    var app_key = 'C4TUiDMsDy3YLi3ywb0ziVTm'
-    var server_url = ''
-
-    function fetchData(api_server) {
-      var Counter = (method, url, data) => {
-        return fetch(`${ api_server }/1.1${ url }`, {
-          method,
-          headers: {
-            'X-LC-Id': app_id,
-            'X-LC-Key': app_key,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-        });
-      };
-
-      addCount(Counter);
-    }
-
-    var api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${ app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
-
-    if (api_server) {
-      fetchData(api_server);
-    } else {
-      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
-        .then(resp => resp.json())
-        .then(({api_server}) => {
-          fetchData('https://' + api_server);
-        });
-    }
-  })();
-</script>
-
-
-
 
 
 
   <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
-  <script>
-    $(document).ready(function () {
-      var boardCtn = $('#board-ctn');
-      var boardTop = boardCtn.offset().top;
 
-      tocbot.init({
-        tocSelector: '#tocbot',
-        contentSelector: '#post-body',
-        headingSelector: 'h1,h2,h3,h4,h5,h6',
-        linkClass: 'tocbot-link',
-        activeLinkClass: 'tocbot-active-link',
-        listClass: 'tocbot-list',
-        isCollapsedClass: 'tocbot-is-collapsed',
-        collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 0,
-        scrollSmooth: true,
-        headingsOffset: -boardTop
-      });
-      if ($('.toc-list-item').length > 0) {
-        $('#toc').css('visibility', 'visible');
-      }
-    });
-  </script>
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
 
 
 
   <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
   <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "CSS-肥宅快乐盒&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "always",
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
       
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      searchFunc(path, 'local-search-input', 'local-search-result');
-      this.onclick = null
-    }
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <script>
-    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
-      function () {
-        var element = document.createElement('a');
-        $(element).attr('data-fancybox', 'images');
-        $(element).attr('href', $(this).attr('src'));
-        $(this).wrap(element);
-      }
-    );
+      typing(title)
+      
+    })(window, document);
   </script>
 
 
@@ -1461,6 +922,10 @@
 
 
 
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
 
 
 </body>

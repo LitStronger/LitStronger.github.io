@@ -8,7 +8,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/favicon.png">
-  <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/favicon.png">
+  <link rel="icon" href="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/favicon.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -17,6 +17,7 @@
   <meta name="description" content="Just for fun">
   <meta name="author" content="LitStronger">
   <meta name="keywords" content="">
+  
   <title>LitStronger&#39;s notes</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
@@ -37,6 +38,10 @@
 <!-- 自定义样式保持在最底部 -->
 
 
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"liaoyq.club","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"always","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"tvvbcoY4wMnP8onvPOLjlgMa-MdYXbMMI","app_key":"C4TUiDMsDy3YLi3ywb0ziVTm","server_url":null}},"search_path":"/local-search.xml"};
+  </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 5.2.0"></head>
@@ -100,7 +105,8 @@
           
           
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" target="_self" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="iconfont icon-bug"></i>
                 走廊
               </a>
@@ -160,13 +166,13 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
                 class="iconfont icon-search"></i>&nbsp;</a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
+            <a class="nav-link" target="_self">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -175,13 +181,13 @@
   </div>
 </nav>
 
-    <div class="banner intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('https://hexo2-1259001110.cos.ap-guangzhou.myqcloud.com/flowers.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
-          <div class="container page-header text-center fade-in-up">
-            <span class="h2" id="subtitle">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Welcome to LitStronger's world!">
               
             </span>
 
@@ -200,7 +206,7 @@
 
   <main>
     
-      <div class="container nopadding-md">
+      <div class="container nopadding-x-md">
         <div class="py-5" id="board"
           style=margin-top:0>
           
@@ -215,7 +221,7 @@
     
       <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2020/03/19/Git%E5%BD%92%E6%A1%A3/" target="_self">
-          <img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/git.png" srcset="/img/loading.gif" alt="Git归档">
+          <img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/git.png" srcset="/img/loading.gif" lazyload alt="Git归档">
         </a>
       </div>
     
@@ -224,11 +230,13 @@
         
           <i class="index-pin iconfont icon-top" title="Pin on top"></i>
         
-        <a href="/2020/03/19/Git%E5%BD%92%E6%A1%A3/">Git归档</a>
+        <a href="/2020/03/19/Git%E5%BD%92%E6%A1%A3/" target="_self">
+          Git归档
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/03/19/Git%E5%BD%92%E6%A1%A3/">
+        <a href="/2020/03/19/Git%E5%BD%92%E6%A1%A3/" target="_self">
           
           
             
@@ -272,11 +280,13 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/01/17/otherSkill/%E6%97%A5%E6%9C%AC%E8%AA%9E/">日本語</a>
+        <a href="/2022/01/17/otherSkill/%E6%97%A5%E6%9C%AC%E8%AA%9E/" target="_self">
+          日本語
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/01/17/otherSkill/%E6%97%A5%E6%9C%AC%E8%AA%9E/">
+        <a href="/2022/01/17/otherSkill/%E6%97%A5%E6%9C%AC%E8%AA%9E/" target="_self">
           
           
             
@@ -305,18 +315,20 @@
     
       <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2021/08/04/vue-router%E4%B8%A4%E7%A7%8D%E6%A8%A1%E5%BC%8F%E5%8E%9F%E7%90%86/" target="_self">
-          <img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/面试题.webp" srcset="/img/loading.gif" alt="vue-router两种模式原理">
+          <img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/面试题.webp" srcset="/img/loading.gif" lazyload alt="vue-router两种模式原理">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/08/04/vue-router%E4%B8%A4%E7%A7%8D%E6%A8%A1%E5%BC%8F%E5%8E%9F%E7%90%86/">vue-router两种模式原理</a>
+        <a href="/2021/08/04/vue-router%E4%B8%A4%E7%A7%8D%E6%A8%A1%E5%BC%8F%E5%8E%9F%E7%90%86/" target="_self">
+          vue-router两种模式原理
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/08/04/vue-router%E4%B8%A4%E7%A7%8D%E6%A8%A1%E5%BC%8F%E5%8E%9F%E7%90%86/">
+        <a href="/2021/08/04/vue-router%E4%B8%A4%E7%A7%8D%E6%A8%A1%E5%BC%8F%E5%8E%9F%E7%90%86/" target="_self">
           
           
             
@@ -361,18 +373,20 @@
     
       <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2021/07/24/interview/10-https%E8%AF%81%E4%B9%A6%E6%A8%A1%E5%BC%8F%E8%AF%A6%E8%A7%A3/" target="_self">
-          <img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/面试题.webp" srcset="/img/loading.gif" alt="https证书模式详解">
+          <img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/面试题.webp" srcset="/img/loading.gif" lazyload alt="https证书模式详解">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/07/24/interview/10-https%E8%AF%81%E4%B9%A6%E6%A8%A1%E5%BC%8F%E8%AF%A6%E8%A7%A3/">https证书模式详解</a>
+        <a href="/2021/07/24/interview/10-https%E8%AF%81%E4%B9%A6%E6%A8%A1%E5%BC%8F%E8%AF%A6%E8%A7%A3/" target="_self">
+          https证书模式详解
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/07/24/interview/10-https%E8%AF%81%E4%B9%A6%E6%A8%A1%E5%BC%8F%E8%AF%A6%E8%A7%A3/">
+        <a href="/2021/07/24/interview/10-https%E8%AF%81%E4%B9%A6%E6%A8%A1%E5%BC%8F%E8%AF%A6%E8%A7%A3/" target="_self">
           
           
             
@@ -418,18 +432,20 @@
     
       <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2021/06/26/%E8%AE%B0-ant-design-vue%E9%87%8Clayout%E7%9A%84Bug/" target="_self">
-          <img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/ant-design-vue.webp" srcset="/img/loading.gif" alt="记:ant-design-vue里layout的Bug">
+          <img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/ant-design-vue.webp" srcset="/img/loading.gif" lazyload alt="记:ant-design-vue里layout的Bug">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/06/26/%E8%AE%B0-ant-design-vue%E9%87%8Clayout%E7%9A%84Bug/">记:ant-design-vue里layout的Bug</a>
+        <a href="/2021/06/26/%E8%AE%B0-ant-design-vue%E9%87%8Clayout%E7%9A%84Bug/" target="_self">
+          记:ant-design-vue里layout的Bug
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/06/26/%E8%AE%B0-ant-design-vue%E9%87%8Clayout%E7%9A%84Bug/">
+        <a href="/2021/06/26/%E8%AE%B0-ant-design-vue%E9%87%8Clayout%E7%9A%84Bug/" target="_self">
           
           
             
@@ -474,18 +490,20 @@
     
       <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2021/05/23/svelte/svelte%E5%BD%92%E6%A1%A3/" target="_self">
-          <img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/svelte/svelte.webp" srcset="/img/loading.gif" alt="svelte归档">
+          <img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/svelte/svelte.webp" srcset="/img/loading.gif" lazyload alt="svelte归档">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/05/23/svelte/svelte%E5%BD%92%E6%A1%A3/">svelte归档</a>
+        <a href="/2021/05/23/svelte/svelte%E5%BD%92%E6%A1%A3/" target="_self">
+          svelte归档
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/05/23/svelte/svelte%E5%BD%92%E6%A1%A3/">
+        <a href="/2021/05/23/svelte/svelte%E5%BD%92%E6%A1%A3/" target="_self">
           
           
             
@@ -531,11 +549,13 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/02/15/interview/9-%E8%AF%B4%E8%AF%B4cookie-localStorage%E5%92%8Csession/">9-说说cookie,localStorage和session</a>
+        <a href="/2021/02/15/interview/9-%E8%AF%B4%E8%AF%B4cookie-localStorage%E5%92%8Csession/" target="_self">
+          9-说说cookie,localStorage和session
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/02/15/interview/9-%E8%AF%B4%E8%AF%B4cookie-localStorage%E5%92%8Csession/">
+        <a href="/2021/02/15/interview/9-%E8%AF%B4%E8%AF%B4cookie-localStorage%E5%92%8Csession/" target="_self">
           
           
             
@@ -580,18 +600,20 @@
     
       <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2021/02/07/interview/8-%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D/" target="_self">
-          <img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/面试题.webp" srcset="/img/loading.gif" alt="8-浅拷贝和深拷贝">
+          <img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/面试题.webp" srcset="/img/loading.gif" lazyload alt="8-浅拷贝和深拷贝">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/02/07/interview/8-%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D/">8-浅拷贝和深拷贝</a>
+        <a href="/2021/02/07/interview/8-%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D/" target="_self">
+          8-浅拷贝和深拷贝
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/02/07/interview/8-%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D/">
+        <a href="/2021/02/07/interview/8-%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D/" target="_self">
           
           
             
@@ -636,18 +658,20 @@
     
       <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2021/02/05/interview/7-CSS%E4%B8%AD%E7%9A%84BFC/" target="_self">
-          <img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/面试题.webp" srcset="/img/loading.gif" alt="7-BFC">
+          <img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/面试题.webp" srcset="/img/loading.gif" lazyload alt="7-BFC">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/02/05/interview/7-CSS%E4%B8%AD%E7%9A%84BFC/">7-BFC</a>
+        <a href="/2021/02/05/interview/7-CSS%E4%B8%AD%E7%9A%84BFC/" target="_self">
+          7-BFC
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/02/05/interview/7-CSS%E4%B8%AD%E7%9A%84BFC/">
+        <a href="/2021/02/05/interview/7-CSS%E4%B8%AD%E7%9A%84BFC/" target="_self">
           
           
             
@@ -692,18 +716,20 @@
     
       <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2021/01/29/annualSummary/2020%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/" target="_self">
-          <img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/annualSummary/2020.webp" srcset="/img/loading.gif" alt="2020年度总结">
+          <img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/post/annualSummary/2020.webp" srcset="/img/loading.gif" lazyload alt="2020年度总结">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/01/29/annualSummary/2020%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/">2020年度总结</a>
+        <a href="/2021/01/29/annualSummary/2020%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/" target="_self">
+          2020年度总结
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/01/29/annualSummary/2020%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/">
+        <a href="/2021/01/29/annualSummary/2020%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/" target="_self">
           
           
             
@@ -738,15 +764,9 @@
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="iconfont icon-arrowright"></i></a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><a class="page-number" href="/page/4/#board">4</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
-  
-  <script>
-    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
-      ele.href += '#board';
-    }
-  </script>
 
 
 
@@ -756,16 +776,15 @@
         </div>
       </div>
     
-  </main>
 
-  
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -786,9 +805,10 @@
     </div>
   </div>
 </div>
-  
+    
 
-  
+    
+  </main>
 
   <footer class="text-center mt-5 py-3">
   <div class="footer-content">
@@ -826,246 +846,67 @@
   
 </footer>
 
-<!-- SCRIPTS -->
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
 <script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
-<script  src="/js/main.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
   
-    <script  src="/js/lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
 
   
+
+
+
+
+
+
 
 
 
   <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
-  <script  src="/js/clipboard-use.js" ></script>
 
 
 
-  <script defer>
-  (function () {
-    // 查询存储的记录
-    function getRecord(Counter, target) {
-      return new Promise(function (resolve, reject) {
-        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({target})))
-          .then(resp => resp.json())
-          .then(({results, code, error}) => {
-            if (code === 401) {
-              throw error;
-            }
-            if (results && results.length > 0) {
-              var record = results[0];
-              resolve(record);
-            } else {
-              Counter('post', '/classes/Counter', {target, time: 0})
-                .then(resp => resp.json())
-                .then((record, error) => {
-                  if (error) {
-                    throw error;
-                  }
-                  resolve(record);
-                }).catch(error => {
-                console.error('Failed to create', error);
-                reject(error);
-              });
-            }
-          }).catch((error) => {
-          console.error('LeanCloud Counter Error:', error);
-          reject(error);
-        });
-      })
-    }
-
-    // 发起自增请求
-    function increment(Counter, incrArr) {
-      return new Promise(function (resolve, reject) {
-        Counter('post', '/batch', {
-          "requests": incrArr
-        }).then((res) => {
-          res = res.json();
-          if (res.error) {
-            throw res.error;
-          }
-          resolve(res);
-        }).catch((error) => {
-          console.error('Failed to save visitor count', error);
-          reject(error);
-        });
-      });
-    }
-
-    // 构建自增请求体
-    function buildIncrement(objectId) {
-      return {
-        "method": "PUT",
-        "path": `/1.1/classes/Counter/${ objectId }`,
-        "body": {
-          "time": {
-            '__op': 'Increment',
-            'amount': 1
-          }
-        }
-      }
-    }
-
-    // 校验是否为有效的 UV
-    function validUV() {
-      var key = 'LeanCloud_UV_Flag';
-      var flag = localStorage.getItem(key);
-      if (flag) {
-        // 距离标记小于 24 小时则不计为 UV
-        if (new Date().getTime() - parseInt(flag) <= 86400000) {
-          return false;
-        }
-      }
-      localStorage.setItem(key, new Date().getTime().toString());
-      return true;
-    }
-
-    function addCount(Counter) {
-      var enableIncr = 'true' === 'true' && window.location.hostname !== 'localhost';
-      var getterArr = [];
-      var incrArr = [];
-
-      // 请求 PV 并自增
-      var pvCtn = document.querySelector('#leancloud-site-pv-container');
-      if (pvCtn || enableIncr) {
-        var pvGetter = getRecord(Counter, 'site-pv').then((record) => {
-          incrArr.push(buildIncrement(record.objectId))
-          var ele = document.querySelector('#leancloud-site-pv');
-          if (ele) {
-            ele.innerText = record.time + 1;
-            if (pvCtn) {
-              pvCtn.style.display = 'inline';
-            }
-          }
-        });
-        getterArr.push(pvGetter);
-      }
-
-      // 请求 UV 并自增
-      var uvCtn = document.querySelector('#leancloud-site-uv-container');
-      if (uvCtn || enableIncr) {
-        var uvGetter = getRecord(Counter, 'site-uv').then((record) => {
-          var vuv = validUV();
-          vuv && incrArr.push(buildIncrement(record.objectId))
-          var ele = document.querySelector('#leancloud-site-uv');
-          if (ele) {
-            ele.innerText = record.time + (vuv ? 1 : 0);
-            if (uvCtn) {
-              uvCtn.style.display = 'inline';
-            }
-          }
-        });
-        getterArr.push(uvGetter);
-      }
-
-      // 如果是文章，请求文章的浏览数，并自增
-      if ('false' === 'true') {
-        var viewCtn = document.querySelector('#leancloud-post-views-container');
-        if (viewCtn || enableIncr) {
-          var target = decodeURI('/index.html');
-          var viewGetter = getRecord(Counter, target).then((record) => {
-            incrArr.push(buildIncrement(record.objectId))
-            if (viewCtn) {
-              var ele = document.querySelector('#leancloud-post-views');
-              if (ele) {
-                ele.innerText = (record.time || 0) + 1;
-                viewCtn.style.display = 'inline';
-              }
-            }
-          });
-          getterArr.push(viewGetter);
-        }
-      }
-
-      // 如果启动计数自增，批量发起自增请求
-      if (enableIncr) {
-        Promise.all(getterArr).then(() => {
-          incrArr.length > 0 && increment(Counter, incrArr);
-        })
-      }
-    }
-
-    var app_id = 'tvvbcoY4wMnP8onvPOLjlgMa-MdYXbMMI'
-    var app_key = 'C4TUiDMsDy3YLi3ywb0ziVTm'
-    var server_url = ''
-
-    function fetchData(api_server) {
-      var Counter = (method, url, data) => {
-        return fetch(`${ api_server }/1.1${ url }`, {
-          method,
-          headers: {
-            'X-LC-Id': app_id,
-            'X-LC-Key': app_key,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-        });
-      };
-
-      addCount(Counter);
-    }
-
-    var api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${ app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
-
-    if (api_server) {
-      fetchData(api_server);
-    } else {
-      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
-        .then(resp => resp.json())
-        .then(({api_server}) => {
-          fetchData('https://' + api_server);
-        });
-    }
-  })();
-</script>
+  <script  src="/js/local-search.js" ></script>
 
 
 
 
-
+  <script defer src="/js/leancloud.js" ></script>
 
 
 
   <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
   <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "Welcome to LitStronger's world!&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      searchFunc(path, 'local-search-input', 'local-search-result');
-      this.onclick = null
-    }
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
   </script>
 
 
@@ -1079,8 +920,6 @@
 
 
 
-
-
   
 
   
@@ -1095,6 +934,10 @@
 
 
 
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
 
 
 </body>

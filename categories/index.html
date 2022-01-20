@@ -8,7 +8,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/favicon.png">
-  <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/favicon.png">
+  <link rel="icon" href="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/favicon.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -17,6 +17,7 @@
   <meta name="description" content="Just for fun">
   <meta name="author" content="LitStronger">
   <meta name="keywords" content="">
+  
   <title>分类 - LitStronger&#39;s notes</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
@@ -37,6 +38,10 @@
 <!-- 自定义样式保持在最底部 -->
 
 
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"liaoyq.club","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"always","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"tvvbcoY4wMnP8onvPOLjlgMa-MdYXbMMI","app_key":"C4TUiDMsDy3YLi3ywb0ziVTm","server_url":null}},"search_path":"/local-search.xml"};
+  </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 5.2.0"></head>
@@ -100,7 +105,8 @@
           
           
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" target="_self" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="iconfont icon-bug"></i>
                 走廊
               </a>
@@ -160,13 +166,13 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
                 class="iconfont icon-search"></i>&nbsp;</a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
+            <a class="nav-link" target="_self">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -175,13 +181,13 @@
   </div>
 </nav>
 
-    <div class="banner intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('https://hexo2-1259001110.cos.ap-guangzhou.myqcloud.com/lafei.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
-          <div class="container page-header text-center fade-in-up">
-            <span class="h2" id="subtitle">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="分类">
               
             </span>
 
@@ -196,7 +202,7 @@
 
   <main>
     
-      <div class="container nopadding-md">
+      <div class="container nopadding-x-md">
         <div class="py-5" id="board"
           >
           
@@ -221,7 +227,7 @@
     <div class="category row">
       <a
         class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckylotcjh000f9ov656f4f11b" role="tab" data-toggle="collapse" href="#collapse-ckylotcjh000f9ov656f4f11b"
+        id="heading-9abfe4a03928eb88a75a5cd95822dfef" role="tab" data-toggle="collapse" href="#collapse-9abfe4a03928eb88a75a5cd95822dfef"
         aria-expanded="false"
       >
         前端
@@ -233,9 +239,25 @@
       </a>
       <div class="category-collapse">
         
+        
           
-  <div id="collapse-ckylotcjh000f9ov656f4f11b" class="collapse in " role="tabpanel"
-       aria-labelledby="heading-ckylotcjh000f9ov656f4f11b">
+          
+  <div id="collapse-9abfe4a03928eb88a75a5cd95822dfef" class="collapse in" role="tabpanel"
+       aria-labelledby="heading-9abfe4a03928eb88a75a5cd95822dfef">
+    
+    
+      
+      
+        <a href="/2020/09/14/html%E5%BD%92%E6%A1%A3/" class="list-group-item list-group-item-action">
+          <span class="category-post">html归档</span>
+        </a>
+      
+    
+  </div>
+
+          
+  <div id="collapse-9abfe4a03928eb88a75a5cd95822dfef" class="collapse in " role="tabpanel"
+       aria-labelledby="heading-9abfe4a03928eb88a75a5cd95822dfef">
     
   
   
@@ -244,7 +266,7 @@
     <div class="category-sub row">
       <a
         class="category-subitem collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckylotck800229ov6b5mke8bz" role="tab" data-toggle="collapse" href="#collapse-ckylotck800229ov6b5mke8bz"
+        id="heading-c7a628cba22e28eb17b5f5c6ae2a266a" role="tab" data-toggle="collapse" href="#collapse-c7a628cba22e28eb17b5f5c6ae2a266a"
         aria-expanded="false"
       >
         css
@@ -256,10 +278,10 @@
       </a>
       <div class="category-collapse">
         
+        
           
-  <div id="collapse-ckylotck800229ov6b5mke8bz" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckylotck800229ov6b5mke8bz">
-    
+  <div id="collapse-c7a628cba22e28eb17b5f5c6ae2a266a" class="collapse in" role="tabpanel"
+       aria-labelledby="heading-c7a628cba22e28eb17b5f5c6ae2a266a">
     
     
       
@@ -329,7 +351,7 @@
     <div class="category-sub row">
       <a
         class="category-subitem collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckylotckk003h9ov67vuphyg9" role="tab" data-toggle="collapse" href="#collapse-ckylotckk003h9ov67vuphyg9"
+        id="heading-32981a13284db7a021131df49e6cd203" role="tab" data-toggle="collapse" href="#collapse-32981a13284db7a021131df49e6cd203"
         aria-expanded="false"
       >
         js
@@ -341,10 +363,10 @@
       </a>
       <div class="category-collapse">
         
+        
           
-  <div id="collapse-ckylotckk003h9ov67vuphyg9" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckylotckk003h9ov67vuphyg9">
-    
+  <div id="collapse-32981a13284db7a021131df49e6cd203" class="collapse in" role="tabpanel"
+       aria-labelledby="heading-32981a13284db7a021131df49e6cd203">
     
     
       
@@ -400,7 +422,7 @@
     <div class="category-sub row">
       <a
         class="category-subitem collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckylotcjx001a9ov6eiv54jec" role="tab" data-toggle="collapse" href="#collapse-ckylotcjx001a9ov6eiv54jec"
+        id="heading-2d8ec58babcec05d3fe8f712968de749" role="tab" data-toggle="collapse" href="#collapse-2d8ec58babcec05d3fe8f712968de749"
         aria-expanded="false"
       >
         Vue
@@ -412,10 +434,10 @@
       </a>
       <div class="category-collapse">
         
+        
           
-  <div id="collapse-ckylotcjx001a9ov6eiv54jec" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckylotcjx001a9ov6eiv54jec">
-    
+  <div id="collapse-2d8ec58babcec05d3fe8f712968de749" class="collapse in" role="tabpanel"
+       aria-labelledby="heading-2d8ec58babcec05d3fe8f712968de749">
     
     
       
@@ -457,7 +479,7 @@
     <div class="category-sub row">
       <a
         class="category-subitem collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckylotckj003b9ov6ftd35bxy" role="tab" data-toggle="collapse" href="#collapse-ckylotckj003b9ov6ftd35bxy"
+        id="heading-0df2da9cf88450e6758356da45b4d04f" role="tab" data-toggle="collapse" href="#collapse-0df2da9cf88450e6758356da45b4d04f"
         aria-expanded="false"
       >
         Electron
@@ -469,10 +491,10 @@
       </a>
       <div class="category-collapse">
         
+        
           
-  <div id="collapse-ckylotckj003b9ov6ftd35bxy" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckylotckj003b9ov6ftd35bxy">
-    
+  <div id="collapse-0df2da9cf88450e6758356da45b4d04f" class="collapse in" role="tabpanel"
+       aria-labelledby="heading-0df2da9cf88450e6758356da45b4d04f">
     
     
       
@@ -493,7 +515,7 @@
     <div class="category-sub row">
       <a
         class="category-subitem collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckylotckp004b9ov64xj8gjpr" role="tab" data-toggle="collapse" href="#collapse-ckylotckp004b9ov64xj8gjpr"
+        id="heading-16ad9ebececa482141f6cfb6c91d4bd7" role="tab" data-toggle="collapse" href="#collapse-16ad9ebececa482141f6cfb6c91d4bd7"
         aria-expanded="false"
       >
         通识
@@ -505,10 +527,10 @@
       </a>
       <div class="category-collapse">
         
+        
           
-  <div id="collapse-ckylotckp004b9ov64xj8gjpr" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckylotckp004b9ov64xj8gjpr">
-    
+  <div id="collapse-16ad9ebececa482141f6cfb6c91d4bd7" class="collapse in" role="tabpanel"
+       aria-labelledby="heading-16ad9ebececa482141f6cfb6c91d4bd7">
     
     
       
@@ -529,7 +551,7 @@
     <div class="category-sub row">
       <a
         class="category-subitem collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckylotckq004e9ov698blawvn" role="tab" data-toggle="collapse" href="#collapse-ckylotckq004e9ov698blawvn"
+        id="heading-94f59083eace01b415b0b677b368f18e" role="tab" data-toggle="collapse" href="#collapse-94f59083eace01b415b0b677b368f18e"
         aria-expanded="false"
       >
         svelte
@@ -541,10 +563,10 @@
       </a>
       <div class="category-collapse">
         
+        
           
-  <div id="collapse-ckylotckq004e9ov698blawvn" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckylotckq004e9ov698blawvn">
-    
+  <div id="collapse-94f59083eace01b415b0b677b368f18e" class="collapse in" role="tabpanel"
+       aria-labelledby="heading-94f59083eace01b415b0b677b368f18e">
     
     
       
@@ -571,7 +593,7 @@
     <div class="category row">
       <a
         class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckylotck0001h9ov6c1sk5px7" role="tab" data-toggle="collapse" href="#collapse-ckylotck0001h9ov6c1sk5px7"
+        id="heading-c50d13646ec66f1929da5d491f2dff0f" role="tab" data-toggle="collapse" href="#collapse-c50d13646ec66f1929da5d491f2dff0f"
         aria-expanded="false"
       >
         博客
@@ -583,10 +605,10 @@
       </a>
       <div class="category-collapse">
         
+        
           
-  <div id="collapse-ckylotck0001h9ov6c1sk5px7" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckylotck0001h9ov6c1sk5px7">
-    
+  <div id="collapse-c50d13646ec66f1929da5d491f2dff0f" class="collapse in" role="tabpanel"
+       aria-labelledby="heading-c50d13646ec66f1929da5d491f2dff0f">
     
     
       
@@ -614,7 +636,7 @@
     <div class="category row">
       <a
         class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckylotcja00049ov61opn0t77" role="tab" data-toggle="collapse" href="#collapse-ckylotcja00049ov61opn0t77"
+        id="heading-4a931512ce65bdc9ca6808adf92d8783" role="tab" data-toggle="collapse" href="#collapse-4a931512ce65bdc9ca6808adf92d8783"
         aria-expanded="false"
       >
         tools
@@ -626,10 +648,10 @@
       </a>
       <div class="category-collapse">
         
+        
           
-  <div id="collapse-ckylotcja00049ov61opn0t77" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckylotcja00049ov61opn0t77">
-    
+  <div id="collapse-4a931512ce65bdc9ca6808adf92d8783" class="collapse in" role="tabpanel"
+       aria-labelledby="heading-4a931512ce65bdc9ca6808adf92d8783">
     
     
       
@@ -650,7 +672,7 @@
     <div class="category row">
       <a
         class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckylotcje00099ov69mlt7k13" role="tab" data-toggle="collapse" href="#collapse-ckylotcje00099ov69mlt7k13"
+        id="heading-091bd2c409bbe65b32945bece0be1c17" role="tab" data-toggle="collapse" href="#collapse-091bd2c409bbe65b32945bece0be1c17"
         aria-expanded="false"
       >
         摸鱼
@@ -662,10 +684,10 @@
       </a>
       <div class="category-collapse">
         
+        
           
-  <div id="collapse-ckylotcje00099ov69mlt7k13" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckylotcje00099ov69mlt7k13">
-    
+  <div id="collapse-091bd2c409bbe65b32945bece0be1c17" class="collapse in" role="tabpanel"
+       aria-labelledby="heading-091bd2c409bbe65b32945bece0be1c17">
     
     
       
@@ -686,7 +708,7 @@
     <div class="category row">
       <a
         class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckylotcjn000q9ov65yz15rkp" role="tab" data-toggle="collapse" href="#collapse-ckylotcjn000q9ov65yz15rkp"
+        id="heading-21d6f40cfb511982e4424e0e250a9557" role="tab" data-toggle="collapse" href="#collapse-21d6f40cfb511982e4424e0e250a9557"
         aria-expanded="false"
       >
         session
@@ -698,10 +720,10 @@
       </a>
       <div class="category-collapse">
         
+        
           
-  <div id="collapse-ckylotcjn000q9ov65yz15rkp" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckylotcjn000q9ov65yz15rkp">
-    
+  <div id="collapse-21d6f40cfb511982e4424e0e250a9557" class="collapse in" role="tabpanel"
+       aria-labelledby="heading-21d6f40cfb511982e4424e0e250a9557">
     
     
       
@@ -722,7 +744,7 @@
     <div class="category row">
       <a
         class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckylotckc002h9ov6bydqgzgr" role="tab" data-toggle="collapse" href="#collapse-ckylotckc002h9ov6bydqgzgr"
+        id="heading-02dcd309f35b2d0590bc2a89ac5622f7" role="tab" data-toggle="collapse" href="#collapse-02dcd309f35b2d0590bc2a89ac5622f7"
         aria-expanded="false"
       >
         windows归档
@@ -734,10 +756,10 @@
       </a>
       <div class="category-collapse">
         
+        
           
-  <div id="collapse-ckylotckc002h9ov6bydqgzgr" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckylotckc002h9ov6bydqgzgr">
-    
+  <div id="collapse-02dcd309f35b2d0590bc2a89ac5622f7" class="collapse in" role="tabpanel"
+       aria-labelledby="heading-02dcd309f35b2d0590bc2a89ac5622f7">
     
     
       
@@ -758,7 +780,7 @@
     <div class="category row">
       <a
         class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckylotckg002z9ov6ghan3t0e" role="tab" data-toggle="collapse" href="#collapse-ckylotckg002z9ov6ghan3t0e"
+        id="heading-c7a628cba22e28eb17b5f5c6ae2a266a" role="tab" data-toggle="collapse" href="#collapse-c7a628cba22e28eb17b5f5c6ae2a266a"
         aria-expanded="false"
       >
         css
@@ -770,10 +792,10 @@
       </a>
       <div class="category-collapse">
         
+        
           
-  <div id="collapse-ckylotckg002z9ov6ghan3t0e" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckylotckg002z9ov6ghan3t0e">
-    
+  <div id="collapse-c7a628cba22e28eb17b5f5c6ae2a266a" class="collapse in" role="tabpanel"
+       aria-labelledby="heading-c7a628cba22e28eb17b5f5c6ae2a266a">
     
     
       
@@ -794,7 +816,7 @@
     <div class="category row">
       <a
         class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckylotcki00369ov69vb9hmrd" role="tab" data-toggle="collapse" href="#collapse-ckylotcki00369ov69vb9hmrd"
+        id="heading-046a899ee7a6ec88d370211a518c9e80" role="tab" data-toggle="collapse" href="#collapse-046a899ee7a6ec88d370211a518c9e80"
         aria-expanded="false"
       >
         算法
@@ -806,10 +828,10 @@
       </a>
       <div class="category-collapse">
         
+        
           
-  <div id="collapse-ckylotcki00369ov69vb9hmrd" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckylotcki00369ov69vb9hmrd">
-    
+  <div id="collapse-046a899ee7a6ec88d370211a518c9e80" class="collapse in" role="tabpanel"
+       aria-labelledby="heading-046a899ee7a6ec88d370211a518c9e80">
     
     
       
@@ -830,7 +852,7 @@
     <div class="category row">
       <a
         class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckylotckl003o9ov602k8c4ek" role="tab" data-toggle="collapse" href="#collapse-ckylotckl003o9ov602k8c4ek"
+        id="heading-96553cb5aace7b055f36ec717c4c7cda" role="tab" data-toggle="collapse" href="#collapse-96553cb5aace7b055f36ec717c4c7cda"
         aria-expanded="false"
       >
         Linux操作系统
@@ -842,10 +864,10 @@
       </a>
       <div class="category-collapse">
         
+        
           
-  <div id="collapse-ckylotckl003o9ov602k8c4ek" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckylotckl003o9ov602k8c4ek">
-    
+  <div id="collapse-96553cb5aace7b055f36ec717c4c7cda" class="collapse in" role="tabpanel"
+       aria-labelledby="heading-96553cb5aace7b055f36ec717c4c7cda">
     
     
       
@@ -869,16 +891,15 @@
         </div>
       </div>
     
-  </main>
 
-  
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -899,9 +920,10 @@
     </div>
   </div>
 </div>
-  
+    
 
-  
+    
+  </main>
 
   <footer class="text-center mt-5 py-3">
   <div class="footer-content">
@@ -939,246 +961,67 @@
   
 </footer>
 
-<!-- SCRIPTS -->
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
 <script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
-<script  src="/js/main.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
   
-    <script  src="/js/lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
 
   
+
+
+
+
+
+
 
 
 
   <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
-  <script  src="/js/clipboard-use.js" ></script>
 
 
 
-  <script defer>
-  (function () {
-    // 查询存储的记录
-    function getRecord(Counter, target) {
-      return new Promise(function (resolve, reject) {
-        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({target})))
-          .then(resp => resp.json())
-          .then(({results, code, error}) => {
-            if (code === 401) {
-              throw error;
-            }
-            if (results && results.length > 0) {
-              var record = results[0];
-              resolve(record);
-            } else {
-              Counter('post', '/classes/Counter', {target, time: 0})
-                .then(resp => resp.json())
-                .then((record, error) => {
-                  if (error) {
-                    throw error;
-                  }
-                  resolve(record);
-                }).catch(error => {
-                console.error('Failed to create', error);
-                reject(error);
-              });
-            }
-          }).catch((error) => {
-          console.error('LeanCloud Counter Error:', error);
-          reject(error);
-        });
-      })
-    }
-
-    // 发起自增请求
-    function increment(Counter, incrArr) {
-      return new Promise(function (resolve, reject) {
-        Counter('post', '/batch', {
-          "requests": incrArr
-        }).then((res) => {
-          res = res.json();
-          if (res.error) {
-            throw res.error;
-          }
-          resolve(res);
-        }).catch((error) => {
-          console.error('Failed to save visitor count', error);
-          reject(error);
-        });
-      });
-    }
-
-    // 构建自增请求体
-    function buildIncrement(objectId) {
-      return {
-        "method": "PUT",
-        "path": `/1.1/classes/Counter/${ objectId }`,
-        "body": {
-          "time": {
-            '__op': 'Increment',
-            'amount': 1
-          }
-        }
-      }
-    }
-
-    // 校验是否为有效的 UV
-    function validUV() {
-      var key = 'LeanCloud_UV_Flag';
-      var flag = localStorage.getItem(key);
-      if (flag) {
-        // 距离标记小于 24 小时则不计为 UV
-        if (new Date().getTime() - parseInt(flag) <= 86400000) {
-          return false;
-        }
-      }
-      localStorage.setItem(key, new Date().getTime().toString());
-      return true;
-    }
-
-    function addCount(Counter) {
-      var enableIncr = 'true' === 'true' && window.location.hostname !== 'localhost';
-      var getterArr = [];
-      var incrArr = [];
-
-      // 请求 PV 并自增
-      var pvCtn = document.querySelector('#leancloud-site-pv-container');
-      if (pvCtn || enableIncr) {
-        var pvGetter = getRecord(Counter, 'site-pv').then((record) => {
-          incrArr.push(buildIncrement(record.objectId))
-          var ele = document.querySelector('#leancloud-site-pv');
-          if (ele) {
-            ele.innerText = record.time + 1;
-            if (pvCtn) {
-              pvCtn.style.display = 'inline';
-            }
-          }
-        });
-        getterArr.push(pvGetter);
-      }
-
-      // 请求 UV 并自增
-      var uvCtn = document.querySelector('#leancloud-site-uv-container');
-      if (uvCtn || enableIncr) {
-        var uvGetter = getRecord(Counter, 'site-uv').then((record) => {
-          var vuv = validUV();
-          vuv && incrArr.push(buildIncrement(record.objectId))
-          var ele = document.querySelector('#leancloud-site-uv');
-          if (ele) {
-            ele.innerText = record.time + (vuv ? 1 : 0);
-            if (uvCtn) {
-              uvCtn.style.display = 'inline';
-            }
-          }
-        });
-        getterArr.push(uvGetter);
-      }
-
-      // 如果是文章，请求文章的浏览数，并自增
-      if ('false' === 'true') {
-        var viewCtn = document.querySelector('#leancloud-post-views-container');
-        if (viewCtn || enableIncr) {
-          var target = decodeURI('/categories/index.html');
-          var viewGetter = getRecord(Counter, target).then((record) => {
-            incrArr.push(buildIncrement(record.objectId))
-            if (viewCtn) {
-              var ele = document.querySelector('#leancloud-post-views');
-              if (ele) {
-                ele.innerText = (record.time || 0) + 1;
-                viewCtn.style.display = 'inline';
-              }
-            }
-          });
-          getterArr.push(viewGetter);
-        }
-      }
-
-      // 如果启动计数自增，批量发起自增请求
-      if (enableIncr) {
-        Promise.all(getterArr).then(() => {
-          incrArr.length > 0 && increment(Counter, incrArr);
-        })
-      }
-    }
-
-    var app_id = 'tvvbcoY4wMnP8onvPOLjlgMa-MdYXbMMI'
-    var app_key = 'C4TUiDMsDy3YLi3ywb0ziVTm'
-    var server_url = ''
-
-    function fetchData(api_server) {
-      var Counter = (method, url, data) => {
-        return fetch(`${ api_server }/1.1${ url }`, {
-          method,
-          headers: {
-            'X-LC-Id': app_id,
-            'X-LC-Key': app_key,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-        });
-      };
-
-      addCount(Counter);
-    }
-
-    var api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${ app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
-
-    if (api_server) {
-      fetchData(api_server);
-    } else {
-      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
-        .then(resp => resp.json())
-        .then(({api_server}) => {
-          fetchData('https://' + api_server);
-        });
-    }
-  })();
-</script>
+  <script  src="/js/local-search.js" ></script>
 
 
 
 
-
+  <script defer src="/js/leancloud.js" ></script>
 
 
 
   <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
   <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "分类&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      searchFunc(path, 'local-search-input', 'local-search-result');
-      this.onclick = null
-    }
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
   </script>
 
 
@@ -1192,8 +1035,6 @@
 
 
 
-
-
   
 
   
@@ -1208,6 +1049,10 @@
 
 
 
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
 
 
 </body>

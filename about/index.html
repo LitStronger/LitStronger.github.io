@@ -8,7 +8,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/favicon.png">
-  <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/favicon.png">
+  <link rel="icon" href="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/favicon.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -17,6 +17,7 @@
   <meta name="description" content="Just for fun">
   <meta name="author" content="LitStronger">
   <meta name="keywords" content="">
+  
   <title>关于 - LitStronger&#39;s notes</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
@@ -36,6 +37,7 @@
   
 
 
+
 <!-- 主题依赖的图标库，不要自行修改 -->
 
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
@@ -50,6 +52,10 @@
 <!-- 自定义样式保持在最底部 -->
 
 
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"liaoyq.club","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"always","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"tvvbcoY4wMnP8onvPOLjlgMa-MdYXbMMI","app_key":"C4TUiDMsDy3YLi3ywb0ziVTm","server_url":null}},"search_path":"/local-search.xml"};
+  </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 5.2.0"></head>
@@ -113,7 +119,8 @@
           
           
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" target="_self" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="iconfont icon-bug"></i>
                 走廊
               </a>
@@ -173,13 +180,13 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
                 class="iconfont icon-search"></i>&nbsp;</a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
+            <a class="nav-link" target="_self">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -188,13 +195,13 @@
   </div>
 </nav>
 
-    <div class="banner intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('https://hexo2-1259001110.cos.ap-guangzhou.myqcloud.com/about.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
-          <div class="container page-header text-center fade-in-up">
-            <span class="h2" id="subtitle">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="今日卖花，来世漂亮">
               
             </span>
 
@@ -209,12 +216,12 @@
 
   <main>
     
-      <div class="container nopadding-md">
+      <div class="container nopadding-x-md">
         <div class="py-5" id="board"
           >
           
             <div class="about-avatar">
-              <img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/avatar.png" srcset="/img/loading.gif"
+              <img src="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/avatar.png" srcset="/img/loading.gif" lazyload
                    class="img-fluid" alt="avatar">
             </div>
           
@@ -232,9 +239,10 @@
         
         
         
-        <a target="_blank" rel="noopener" href="https://github.com/LitStronger" class="
+        <a href=https://github.com/LitStronger class="
            hint--bottom hint--rounded"
            aria-label=GitHub
+           target="_blank"
         >
           <i class="iconfont icon-github-fill" aria-hidden="true"></i>
           
@@ -243,22 +251,24 @@
         
         
         
-        <a href="javascript:;" class="qr-trigger
+        <a  class="qr-trigger
            "
            
+           target="_self"
         >
           <i class="iconfont icon-qq-fill" aria-hidden="true"></i>
           
-            <img class="qr-img" src="https://hexo-1259001110.cos.ap-shanghai.myqcloud.com/qq.jpg" srcset="/img/loading.gif" alt="qrcode" />
+            <img class="qr-img" src="https://hexo-1259001110.cos.ap-shanghai.myqcloud.com/qq.jpg" srcset="/img/loading.gif" lazyload alt="qrcode" />
           
         </a>
       
         
         
         
-        <a target="_blank" rel="noopener" href="https://space.bilibili.com/18996343" class="
+        <a href=https://space.bilibili.com/18996343 class="
            hint--bottom hint--rounded"
            aria-label=bilibili
+           target="_blank"
         >
           <i class="iconfont icon-bilibili-fill" aria-hidden="true"></i>
           
@@ -267,8 +277,10 @@
     </div>
   </div>
 </div>
-<div class="mt-5 markdown-body">
-  <h2 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h2><p>我是阿强（又名蟑螂叔叔，litStronger）。是一个典型的新世纪新时代的年轻人。暂居杭州。</p>
+
+<article class="about-content page-content mt-5">
+  <div class="markdown-body">
+    <h2 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h2><p>我是阿强（又名蟑螂叔叔，litStronger）。是一个典型的新世纪新时代的年轻人。暂居杭州。</p>
 <ul>
 <li>二次元爱好者</li>
 <li>业余简笔画选手，但随着年纪增长，感觉已经很难抽出时间和精力来挥霍了</li>
@@ -405,40 +417,40 @@
 <div class="wrap" style="display:none">
         <div class="cube">
             <span class="front_out out">
-                <img src="https://i.loli.net/2018/05/03/5aeb0eef73838.jpg" srcset="/img/loading.gif" class="pic" />
+                <img src="https://i.loli.net/2018/05/03/5aeb0eef73838.jpg" srcset="/img/loading.gif" lazyload class="pic" />
             </span>
             <span class="back_out out">
-                <img src="https://i.loli.net/2018/05/03/5aeb0f2fb9a83.jpg" srcset="/img/loading.gif" class="pic" />
+                <img src="https://i.loli.net/2018/05/03/5aeb0f2fb9a83.jpg" srcset="/img/loading.gif" lazyload class="pic" />
             </span>
             <span class="left_out out">
-                <img src="https://i.loli.net/2018/05/03/5aeb0f55411f0.jpg" srcset="/img/loading.gif" class="pic" />
+                <img src="https://i.loli.net/2018/05/03/5aeb0f55411f0.jpg" srcset="/img/loading.gif" lazyload class="pic" />
             </span>
             <span class="right_out out">
-                <img src="https://i.loli.net/2018/05/03/5aeb0f79a1124.jpg" srcset="/img/loading.gif" class="pic" />
+                <img src="https://i.loli.net/2018/05/03/5aeb0f79a1124.jpg" srcset="/img/loading.gif" lazyload class="pic" />
             </span>
             <span class="top_out out">
-                <img src="https://i.loli.net/2018/05/03/5aeb0f98a8b66.jpg" srcset="/img/loading.gif" class="pic" />
+                <img src="https://i.loli.net/2018/05/03/5aeb0f98a8b66.jpg" srcset="/img/loading.gif" lazyload class="pic" />
             </span>
             <span class="bottom_out out">
-                <img src="https://i.loli.net/2018/05/03/5aeb0fdd51b7e.jpg" srcset="/img/loading.gif" class="pic" />
+                <img src="https://i.loli.net/2018/05/03/5aeb0fdd51b7e.jpg" srcset="/img/loading.gif" lazyload class="pic" />
             </span>
             <span class="front_in in">
-                <img src="https://i.loli.net/2018/05/03/5aeb100223dd0.jpg" srcset="/img/loading.gif" class="in_pic" />
+                <img src="https://i.loli.net/2018/05/03/5aeb100223dd0.jpg" srcset="/img/loading.gif" lazyload class="in_pic" />
             </span>
             <span class="back_in in">
-                 <img src="https://i.loli.net/2018/05/03/5aeb101c2c24b.jpg" srcset="/img/loading.gif" class="in_pic" />
+                 <img src="https://i.loli.net/2018/05/03/5aeb101c2c24b.jpg" srcset="/img/loading.gif" lazyload class="in_pic" />
             </span>
             <span class="left_in in">
-                <img src="https://i.loli.net/2018/05/03/5aeb1038127b5.jpg" srcset="/img/loading.gif" class="in_pic" />
+                <img src="https://i.loli.net/2018/05/03/5aeb1038127b5.jpg" srcset="/img/loading.gif" lazyload class="in_pic" />
             </span>
             <span class="right_in in">
-                <img src="https://i.loli.net/2018/05/03/5aeb0dce1ca55.jpg" srcset="/img/loading.gif" class="in_pic" />
+                <img src="https://i.loli.net/2018/05/03/5aeb0dce1ca55.jpg" srcset="/img/loading.gif" lazyload class="in_pic" />
             </span>
             <span class="top_in in">
-                <img src="https://i.loli.net/2018/05/03/5aeb1057bb167.jpg" srcset="/img/loading.gif" class="in_pic" />
+                <img src="https://i.loli.net/2018/05/03/5aeb1057bb167.jpg" srcset="/img/loading.gif" lazyload class="in_pic" />
             </span>
             <span class="bottom_in in">
-                <img src="https://i.loli.net/2018/05/03/5aeb107514579.jpg" srcset="/img/loading.gif" class="in_pic" />
+                <img src="https://i.loli.net/2018/05/03/5aeb107514579.jpg" srcset="/img/loading.gif" lazyload class="in_pic" />
             </span>
         </div>
 </div>
@@ -489,8 +501,10 @@
         placeholder: '好冷清啊，这里一个脚印也没有..',
         meta: ['nick','mail'],
         enableQQ: true,
-        visitor: true
+        visitor: true,
+        serverURLs: 'https://IaMYCUAz.api.lncldglobal.com'
     })</script>
+
 
 
 
@@ -528,7 +542,10 @@
 
 
 
-</div>
+  </div>
+
+  
+</article>
 
               </div>
             </div>
@@ -536,16 +553,15 @@
         </div>
       </div>
     
-  </main>
 
-  
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -566,9 +582,10 @@
     </div>
   </div>
 </div>
-  
+    
 
-  
+    
+  </main>
 
   <footer class="text-center mt-5 py-3">
   <div class="footer-content">
@@ -606,261 +623,69 @@
   
 </footer>
 
-<!-- SCRIPTS -->
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
 <script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
-<script  src="/js/main.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
   
-    <script  src="/js/lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
 
   
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
 
 
 
   <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
-  <script  src="/js/clipboard-use.js" ></script>
 
 
 
-  <script defer>
-  (function () {
-    // 查询存储的记录
-    function getRecord(Counter, target) {
-      return new Promise(function (resolve, reject) {
-        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({target})))
-          .then(resp => resp.json())
-          .then(({results, code, error}) => {
-            if (code === 401) {
-              throw error;
-            }
-            if (results && results.length > 0) {
-              var record = results[0];
-              resolve(record);
-            } else {
-              Counter('post', '/classes/Counter', {target, time: 0})
-                .then(resp => resp.json())
-                .then((record, error) => {
-                  if (error) {
-                    throw error;
-                  }
-                  resolve(record);
-                }).catch(error => {
-                console.error('Failed to create', error);
-                reject(error);
-              });
-            }
-          }).catch((error) => {
-          console.error('LeanCloud Counter Error:', error);
-          reject(error);
-        });
-      })
-    }
-
-    // 发起自增请求
-    function increment(Counter, incrArr) {
-      return new Promise(function (resolve, reject) {
-        Counter('post', '/batch', {
-          "requests": incrArr
-        }).then((res) => {
-          res = res.json();
-          if (res.error) {
-            throw res.error;
-          }
-          resolve(res);
-        }).catch((error) => {
-          console.error('Failed to save visitor count', error);
-          reject(error);
-        });
-      });
-    }
-
-    // 构建自增请求体
-    function buildIncrement(objectId) {
-      return {
-        "method": "PUT",
-        "path": `/1.1/classes/Counter/${ objectId }`,
-        "body": {
-          "time": {
-            '__op': 'Increment',
-            'amount': 1
-          }
-        }
-      }
-    }
-
-    // 校验是否为有效的 UV
-    function validUV() {
-      var key = 'LeanCloud_UV_Flag';
-      var flag = localStorage.getItem(key);
-      if (flag) {
-        // 距离标记小于 24 小时则不计为 UV
-        if (new Date().getTime() - parseInt(flag) <= 86400000) {
-          return false;
-        }
-      }
-      localStorage.setItem(key, new Date().getTime().toString());
-      return true;
-    }
-
-    function addCount(Counter) {
-      var enableIncr = 'true' === 'true' && window.location.hostname !== 'localhost';
-      var getterArr = [];
-      var incrArr = [];
-
-      // 请求 PV 并自增
-      var pvCtn = document.querySelector('#leancloud-site-pv-container');
-      if (pvCtn || enableIncr) {
-        var pvGetter = getRecord(Counter, 'site-pv').then((record) => {
-          incrArr.push(buildIncrement(record.objectId))
-          var ele = document.querySelector('#leancloud-site-pv');
-          if (ele) {
-            ele.innerText = record.time + 1;
-            if (pvCtn) {
-              pvCtn.style.display = 'inline';
-            }
-          }
-        });
-        getterArr.push(pvGetter);
-      }
-
-      // 请求 UV 并自增
-      var uvCtn = document.querySelector('#leancloud-site-uv-container');
-      if (uvCtn || enableIncr) {
-        var uvGetter = getRecord(Counter, 'site-uv').then((record) => {
-          var vuv = validUV();
-          vuv && incrArr.push(buildIncrement(record.objectId))
-          var ele = document.querySelector('#leancloud-site-uv');
-          if (ele) {
-            ele.innerText = record.time + (vuv ? 1 : 0);
-            if (uvCtn) {
-              uvCtn.style.display = 'inline';
-            }
-          }
-        });
-        getterArr.push(uvGetter);
-      }
-
-      // 如果是文章，请求文章的浏览数，并自增
-      if ('false' === 'true') {
-        var viewCtn = document.querySelector('#leancloud-post-views-container');
-        if (viewCtn || enableIncr) {
-          var target = decodeURI('/about/index.html');
-          var viewGetter = getRecord(Counter, target).then((record) => {
-            incrArr.push(buildIncrement(record.objectId))
-            if (viewCtn) {
-              var ele = document.querySelector('#leancloud-post-views');
-              if (ele) {
-                ele.innerText = (record.time || 0) + 1;
-                viewCtn.style.display = 'inline';
-              }
-            }
-          });
-          getterArr.push(viewGetter);
-        }
-      }
-
-      // 如果启动计数自增，批量发起自增请求
-      if (enableIncr) {
-        Promise.all(getterArr).then(() => {
-          incrArr.length > 0 && increment(Counter, incrArr);
-        })
-      }
-    }
-
-    var app_id = 'tvvbcoY4wMnP8onvPOLjlgMa-MdYXbMMI'
-    var app_key = 'C4TUiDMsDy3YLi3ywb0ziVTm'
-    var server_url = ''
-
-    function fetchData(api_server) {
-      var Counter = (method, url, data) => {
-        return fetch(`${ api_server }/1.1${ url }`, {
-          method,
-          headers: {
-            'X-LC-Id': app_id,
-            'X-LC-Key': app_key,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-        });
-      };
-
-      addCount(Counter);
-    }
-
-    var api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${ app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
-
-    if (api_server) {
-      fetchData(api_server);
-    } else {
-      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
-        .then(resp => resp.json())
-        .then(({api_server}) => {
-          fetchData('https://' + api_server);
-        });
-    }
-  })();
-</script>
+  <script  src="/js/local-search.js" ></script>
 
 
 
 
-
+  <script defer src="/js/leancloud.js" ></script>
 
 
 
   <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
   <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "今日卖花，来世漂亮&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "always",
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
       
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      searchFunc(path, 'local-search-input', 'local-search-result');
-      this.onclick = null
-    }
+      typing(title)
+      
+    })(window, document);
   </script>
 
 
@@ -874,8 +699,6 @@
 
 
 
-
-
   
 
   
@@ -890,6 +713,10 @@
 
 
 
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
 
 
 </body>

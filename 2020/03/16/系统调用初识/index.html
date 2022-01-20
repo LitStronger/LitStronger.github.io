@@ -8,7 +8,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/favicon.png">
-  <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/favicon.png">
+  <link rel="icon" href="https://cdn.jsdelivr.net/gh/LitStronger/pic@master/favicon.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -17,6 +17,7 @@
   <meta name="description" content="Just for fun">
   <meta name="author" content="LitStronger">
   <meta name="keywords" content="">
+  
   <title>系统调用初识 - LitStronger&#39;s notes</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
@@ -34,6 +35,9 @@
   
 
   
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+  
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -50,6 +54,10 @@
 <!-- 自定义样式保持在最底部 -->
 
 
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"liaoyq.club","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"always","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"tvvbcoY4wMnP8onvPOLjlgMa-MdYXbMMI","app_key":"C4TUiDMsDy3YLi3ywb0ziVTm","server_url":null}},"search_path":"/local-search.xml"};
+  </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 5.2.0"></head>
@@ -113,7 +121,8 @@
           
           
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" target="_self" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="iconfont icon-bug"></i>
                 走廊
               </a>
@@ -173,13 +182,13 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
                 class="iconfont icon-search"></i>&nbsp;</a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
+            <a class="nav-link" target="_self">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -188,13 +197,13 @@
   </div>
 </nav>
 
-    <div class="banner intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('https://hexo-1259001110.cos.ap-shanghai.myqcloud.com/qiye.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container page-header text-center fade-in-up">
-            <span class="h2" id="subtitle">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="系统调用初识">
               
             </span>
 
@@ -235,9 +244,9 @@
   
     
       <!-- LeanCloud 统计文章PV -->
-      <span id="leancloud-post-views-container" class="post-meta" style="display: none">
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
         <i class="iconfont icon-eye" aria-hidden="true"></i>
-        <span id="leancloud-post-views"></span> 次
+        <span id="leancloud-page-views"></span> 次
       </span>
     
   
@@ -256,13 +265,13 @@
     
       
 
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
     <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
         <div class="py-5" id="board">
-          <article class="post-content mx-auto" id="post">
+          <article class="post-content mx-auto">
             <!-- SEO header -->
             <h1 style="display: none">系统调用初识</h1>
             
@@ -272,7 +281,7 @@
                 
               </p>
             
-            <div class="markdown-body" id="post-body">
+            <div class="markdown-body">
               <h1 id="linux内核编译及添加系统调用"><a href="#linux内核编译及添加系统调用" class="headerlink" title="linux内核编译及添加系统调用"></a>linux内核编译及添加系统调用</h1><p><strong>本文图片已经失效，同步更新到CSDN的文章仍是完整的，<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43641850/article/details/104906726">点击前往</a></strong></p>
 <p>注：文章共四部分，分别是</p>
 <p>1、编译更换内核</p>
@@ -287,152 +296,118 @@
 <p>2、Linux系统版本：Ubuntu16.04<br><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/16.04/">ubuntu1604 清华源镜像</a></p>
 <p>3、预安装内核linux-4.16.1<br><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/kernel/v4.x/">linux-4.16内核清华源镜像</a></p>
 <hr>
-<h2 id="一-、下载新内核并编译、更换："><a href="#一-、下载新内核并编译、更换：" class="headerlink" title="(一)、下载新内核并编译、更换："></a>(一)、下载新内核并编译、更换：</h2><h3 id="第一步：下载解压-进入文件夹"><a href="#第一步：下载解压-进入文件夹" class="headerlink" title="第一步：下载解压,进入文件夹"></a>第一步：下载解压,进入文件夹</h3><div class="hljs"><pre><code class="hljs vala"><span class="hljs-meta"># wget https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.16.1.tar.xz (或者手动下载压缩包解压) </span>
-<span class="hljs-meta"># xz –d linux-4.16.1.tar.xz</span>
-<span class="hljs-meta"># tar –xvf linux-4.16.1.tar </span>
-<span class="hljs-meta"># cd linux-4.16.1</span></code></pre></div>
+<h2 id="一-、下载新内核并编译、更换："><a href="#一-、下载新内核并编译、更换：" class="headerlink" title="(一)、下载新内核并编译、更换："></a>(一)、下载新内核并编译、更换：</h2><h3 id="第一步：下载解压-进入文件夹"><a href="#第一步：下载解压-进入文件夹" class="headerlink" title="第一步：下载解压,进入文件夹"></a>第一步：下载解压,进入文件夹</h3><figure class="highlight vala"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vala"><span class="hljs-meta"># wget https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.16.1.tar.xz (或者手动下载压缩包解压) </span><br><span class="hljs-meta"># xz –d linux-4.16.1.tar.xz</span><br><span class="hljs-meta"># tar –xvf linux-4.16.1.tar </span><br><span class="hljs-meta"># cd linux-4.16.1</span><br></code></pre></div></td></tr></table></figure>
 
 <h3 id="第二步-：清楚残留的-config和-o文件"><a href="#第二步-：清楚残留的-config和-o文件" class="headerlink" title="第二步 ：清楚残留的 .config和 .o文件"></a>第二步 ：清楚残留的 .config和 .o文件</h3><p>每次编译出错或者重新编译最好都清理，不清理很占空间，会出现虚拟机存储空间不够的情况</p>
-<div class="hljs"><pre><code class="hljs vala"><span class="hljs-meta"># make mrproper</span></code></pre></div>
+<figure class="highlight vala"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vala"><span class="hljs-meta"># make mrproper</span><br></code></pre></div></td></tr></table></figure>
 
 <p> 报错提醒安装ncurses，重新执行make mrproper</p>
-<div class="hljs"><pre><code class="hljs q"># apt-<span class="hljs-built_in">get</span> install libncurses5-<span class="hljs-built_in">dev</span></code></pre></div>
+<figure class="highlight q"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs q"># apt-<span class="hljs-built_in">get</span> install libncurses5-<span class="hljs-built_in">dev</span>   <br></code></pre></div></td></tr></table></figure>
 
-<h3 id="第三步：配置内核"><a href="#第三步：配置内核" class="headerlink" title="第三步：配置内核"></a>第三步：配置内核</h3><div class="hljs"><pre><code class="hljs vala"><span class="hljs-meta"># make menuconfig </span></code></pre></div>
+<h3 id="第三步：配置内核"><a href="#第三步：配置内核" class="headerlink" title="第三步：配置内核"></a>第三步：配置内核</h3><figure class="highlight vala"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vala"><span class="hljs-meta"># make menuconfig </span><br></code></pre></div></td></tr></table></figure>
 
 <p>根据报错提示安装组件，缺啥装啥</p>
-<div class="hljs"><pre><code class="hljs 1c"><span class="hljs-meta"># sudo apt install build-essential <span class="hljs-comment">//安装make和gcc等</span></span>
-<span class="hljs-meta"># apt-get install libncurses5-dev	 <span class="hljs-comment">//安装ncurses-devel</span></span>
-<span class="hljs-meta"># sudo apt-get install flex		 <span class="hljs-comment">//安装flex</span></span>
-<span class="hljs-meta"># sudo apt-get install bison 		 <span class="hljs-comment">//安装bison</span></span></code></pre></div>
+<figure class="highlight 1c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs 1c"><span class="hljs-meta"># sudo apt install build-essential <span class="hljs-comment">//安装make和gcc等</span></span><br><span class="hljs-meta"># apt-get install libncurses5-dev	 <span class="hljs-comment">//安装ncurses-devel</span></span><br><span class="hljs-meta"># sudo apt-get install flex		 <span class="hljs-comment">//安装flex</span></span><br><span class="hljs-meta"># sudo apt-get install bison 		 <span class="hljs-comment">//安装bison</span></span><br></code></pre></div></td></tr></table></figure>
 
 <p>没有报错后再执行</p>
-<div class="hljs"><pre><code class="hljs vala"><span class="hljs-meta"># make menuconfig </span></code></pre></div>
+<figure class="highlight vala"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vala"><span class="hljs-meta"># make menuconfig </span><br></code></pre></div></td></tr></table></figure>
 
 <p>出现配置的对话框，直接保存（save），文件名也默认.config, 退出。</p>
-<h3 id="第四步：编译内核，生成启动映像文件"><a href="#第四步：编译内核，生成启动映像文件" class="headerlink" title="第四步：编译内核，生成启动映像文件"></a>第四步：编译内核，生成启动映像文件</h3><div class="hljs"><pre><code class="hljs she&#39;l"># make -j4 &#x2F;&#x2F;-j4是指四线程，用于加快编译速度。
-ps:嫌慢不如试试-j32，听说即便没有这么多线程也能正常运行的</code></pre></div>
+<h3 id="第四步：编译内核，生成启动映像文件"><a href="#第四步：编译内核，生成启动映像文件" class="headerlink" title="第四步：编译内核，生成启动映像文件"></a>第四步：编译内核，生成启动映像文件</h3><figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs she&#39;l"># make -j4 &#x2F;&#x2F;-j4是指四线程，用于加快编译速度。<br>ps:嫌慢不如试试-j32，听说即便没有这么多线程也能正常运行的<br></code></pre></div></td></tr></table></figure>
 
 <p>报错提示要openssl，安装完再次执行命令即可</p>
-<div class="hljs"><pre><code class="hljs q"># apt-<span class="hljs-built_in">get</span> install libssl-<span class="hljs-built_in">dev</span></code></pre></div>
+<figure class="highlight q"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs q"># apt-<span class="hljs-built_in">get</span> install libssl-<span class="hljs-built_in">dev</span> <br></code></pre></div></td></tr></table></figure>
 
 <h3 id="第五步：编译模块"><a href="#第五步：编译模块" class="headerlink" title="第五步：编译模块"></a>第五步：编译模块</h3><p>这一步要好久（2-3小时，可能虚拟机配置太低吧）。。。。睡一觉回来就好了</p>
-<div class="hljs"><pre><code class="hljs vala"><span class="hljs-meta"># make modules</span></code></pre></div>
+<figure class="highlight vala"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vala"><span class="hljs-meta"># make modules</span><br></code></pre></div></td></tr></table></figure>
 
-<h3 id="第六步：安装内核、模块"><a href="#第六步：安装内核、模块" class="headerlink" title="第六步：安装内核、模块"></a>第六步：安装内核、模块</h3><div class="hljs"><pre><code class="hljs 1c">安装模块：<span class="hljs-meta"># make modules_install </span>
-安装内核：<span class="hljs-meta"># make install</span></code></pre></div>
+<h3 id="第六步：安装内核、模块"><a href="#第六步：安装内核、模块" class="headerlink" title="第六步：安装内核、模块"></a>第六步：安装内核、模块</h3><figure class="highlight 1c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs 1c">安装模块：<span class="hljs-meta"># make modules_install </span><br>安装内核：<span class="hljs-meta"># make install</span><br></code></pre></div></td></tr></table></figure>
 
 <h3 id="第七步：配置-grub-引导程序"><a href="#第七步：配置-grub-引导程序" class="headerlink" title="第七步：配置 grub 引导程序"></a>第七步：配置 grub 引导程序</h3><p>只需要执行如下命令：该命令会自动修改 grub</p>
-<div class="hljs"><pre><code class="hljs vala"><span class="hljs-meta"># update-grub2</span></code></pre></div>
+<figure class="highlight vala"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vala"><span class="hljs-meta"># update-grub2</span><br></code></pre></div></td></tr></table></figure>
 
-<h3 id="最后一步重启："><a href="#最后一步重启：" class="headerlink" title="最后一步重启："></a>最后一步重启：</h3><div class="hljs"><pre><code class="hljs vala"><span class="hljs-meta"># reboot -n</span></code></pre></div>
+<h3 id="最后一步重启："><a href="#最后一步重启：" class="headerlink" title="最后一步重启："></a>最后一步重启：</h3><figure class="highlight vala"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vala"><span class="hljs-meta"># reboot -n</span><br></code></pre></div></td></tr></table></figure>
 
 <p>查看内核版本</p>
-<div class="hljs"><pre><code class="hljs apache"><span class="hljs-comment"># uname -a</span></code></pre></div>
+<figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-comment"># uname -a</span><br></code></pre></div></td></tr></table></figure>
 
-<p><img src="1582793333263.png" srcset="/img/loading.gif"></p>
+<p><img src="1582793333263.png" srcset="/img/loading.gif" lazyload></p>
 <p>成功更换内核！</p>
-<h2 id="二-、添加简单系统调用"><a href="#二-、添加简单系统调用" class="headerlink" title="(二)、添加简单系统调用"></a>(二)、添加简单系统调用</h2><h3 id="第一步：修改源程序"><a href="#第一步：修改源程序" class="headerlink" title="第一步：修改源程序"></a>第一步：修改源程序</h3><div class="hljs"><pre><code class="hljs gradle"># cd linux-<span class="hljs-number">4.16</span>.<span class="hljs-number">1</span> <span class="hljs-comment">//进入linux解压包（我下的版本是4.16.1）</span>
-# vim arch<span class="hljs-regexp">/x86/</span>entry<span class="hljs-regexp">/syscalls/</span>syscall_64.tbl <span class="hljs-comment">//进入该文件分配系统调用号 （注意别写在最后面，x64部分约300多行，别写到后面x32那一块里面）</span></code></pre></div>
+<h2 id="二-、添加简单系统调用"><a href="#二-、添加简单系统调用" class="headerlink" title="(二)、添加简单系统调用"></a>(二)、添加简单系统调用</h2><h3 id="第一步：修改源程序"><a href="#第一步：修改源程序" class="headerlink" title="第一步：修改源程序"></a>第一步：修改源程序</h3><figure class="highlight gradle"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs gradle"># cd linux-<span class="hljs-number">4.16</span>.<span class="hljs-number">1</span> <span class="hljs-comment">//进入linux解压包（我下的版本是4.16.1）</span><br># vim arch<span class="hljs-regexp">/x86/</span>entry<span class="hljs-regexp">/syscalls/</span>syscall_64.tbl <span class="hljs-comment">//进入该文件分配系统调用号 （注意别写在最后面，x64部分约300多行，别写到后面x32那一块里面）</span><br></code></pre></div></td></tr></table></figure>
 
-<p><img src="1582793550595.png" srcset="/img/loading.gif"></p>
-<div class="hljs"><pre><code class="hljs autoit"><span class="hljs-meta"># vim <span class="hljs-meta-keyword">include</span>/linux/syscalls.h 进入该文件，添加服务例程的原型声明（shift+g快速跳到最后一行）</span></code></pre></div>
+<p><img src="1582793550595.png" srcset="/img/loading.gif" lazyload></p>
+<figure class="highlight autoit"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs autoit"><span class="hljs-meta"># vim <span class="hljs-meta-keyword">include</span>/linux/syscalls.h 进入该文件，添加服务例程的原型声明（shift+g快速跳到最后一行）</span><br></code></pre></div></td></tr></table></figure>
 
-<p><img src="1582793882548.png" srcset="/img/loading.gif"></p>
-<div class="hljs"><pre><code class="hljs vala"><span class="hljs-meta"># vim kernel/sys.c 实现系统调用服务例程</span></code></pre></div>
+<p><img src="1582793882548.png" srcset="/img/loading.gif" lazyload></p>
+<figure class="highlight vala"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vala"><span class="hljs-meta"># vim kernel/sys.c 实现系统调用服务例程</span><br></code></pre></div></td></tr></table></figure>
 
 <p>SYSCALL_DEFINE后的数字代表参数个数，这里0个参数（void）</p>
-<p><img src="1582793980496.png" srcset="/img/loading.gif"></p>
-<h3 id="第二步：编译安装内核"><a href="#第二步：编译安装内核" class="headerlink" title="第二步：编译安装内核"></a>第二步：编译安装内核</h3><div class="hljs"><pre><code class="hljs vala"><span class="hljs-meta"># make menuconfig 配置内核</span>
-<span class="hljs-meta"># make –j2 编译内核</span>
-<span class="hljs-meta"># make modules 编译模块</span>
-<span class="hljs-meta"># make modules_install 和 make install 安装模块和安装内核</span>
-<span class="hljs-meta"># update-grub2（好像虚拟机不需要这一步）</span>
-<span class="hljs-meta"># reboot –n 立即重启</span></code></pre></div>
+<p><img src="1582793980496.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="第二步：编译安装内核"><a href="#第二步：编译安装内核" class="headerlink" title="第二步：编译安装内核"></a>第二步：编译安装内核</h3><figure class="highlight vala"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vala"><span class="hljs-meta"># make menuconfig 配置内核</span><br><span class="hljs-meta"># make –j2 编译内核</span><br><span class="hljs-meta"># make modules 编译模块</span><br><span class="hljs-meta"># make modules_install 和 make install 安装模块和安装内核</span><br><span class="hljs-meta"># update-grub2（好像虚拟机不需要这一步）</span><br><span class="hljs-meta"># reboot –n 立即重启</span><br></code></pre></div></td></tr></table></figure>
 
 <h3 id="第三步：新系统调用测试"><a href="#第三步：新系统调用测试" class="headerlink" title="第三步：新系统调用测试"></a>第三步：新系统调用测试</h3><p>这里编写一个test.c文件来测试（文件存放位置可以任意）</p>
-<div class="hljs"><pre><code class="hljs vala"><span class="hljs-meta"># vim test.c</span></code></pre></div>
+<figure class="highlight vala"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vala"><span class="hljs-meta"># vim test.c</span><br></code></pre></div></td></tr></table></figure>
 
-<p><img src="1582794361481.png" srcset="/img/loading.gif"></p>
+<p><img src="1582794361481.png" srcset="/img/loading.gif" lazyload></p>
 <p>编译</p>
-<div class="hljs"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> gcc test.c -o <span class="hljs-built_in">test</span> //-o <span class="hljs-built_in">test</span>指定编译输出文件名为<span class="hljs-built_in">test</span></span></code></pre></div>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> gcc test.c -o <span class="hljs-built_in">test</span> //-o <span class="hljs-built_in">test</span>指定编译输出文件名为<span class="hljs-built_in">test</span></span><br></code></pre></div></td></tr></table></figure>
 
-<p><img src="1582794469277.png" srcset="/img/loading.gif"></p>
+<p><img src="1582794469277.png" srcset="/img/loading.gif" lazyload></p>
 <p>执行文件</p>
-<div class="hljs"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> ./<span class="hljs-built_in">test</span></span></code></pre></div>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> ./<span class="hljs-built_in">test</span></span><br></code></pre></div></td></tr></table></figure>
 
 <p>查看信息</p>
-<div class="hljs"><pre><code class="hljs vala"><span class="hljs-meta"># dmesg</span></code></pre></div>
+<figure class="highlight vala"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vala"><span class="hljs-meta"># dmesg</span><br></code></pre></div></td></tr></table></figure>
 
-<p><img src="1582794530603.png" srcset="/img/loading.gif"></p>
+<p><img src="1582794530603.png" srcset="/img/loading.gif" lazyload></p>
 <p>可见系统调用成功执行</p>
-<h2 id="三-、添加API对指定进程的-nice-值的读取功能"><a href="#三-、添加API对指定进程的-nice-值的读取功能" class="headerlink" title="(三)、添加API对指定进程的 nice 值的读取功能"></a>(三)、添加API对指定进程的 nice 值的读取功能</h2><div class="hljs"><pre><code class="hljs reasonml">注：nice值表示进程可被执行的优先级的修正数值,加入nice值后，将会使得PRI变为：<span class="hljs-constructor">PRI(<span class="hljs-params">new</span>)</span>=<span class="hljs-constructor">PRI(<span class="hljs-params">old</span>)</span>+nice。这样，当nice值为负值的时候，那么该程序将会优先级值将变小，即其优先级会变高，则其越快被执行。</code></pre></div>
+<h2 id="三-、添加API对指定进程的-nice-值的读取功能"><a href="#三-、添加API对指定进程的-nice-值的读取功能" class="headerlink" title="(三)、添加API对指定进程的 nice 值的读取功能"></a>(三)、添加API对指定进程的 nice 值的读取功能</h2><figure class="highlight reasonml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs reasonml">注：nice值表示进程可被执行的优先级的修正数值,加入nice值后，将会使得PRI变为：<span class="hljs-constructor">PRI(<span class="hljs-params">new</span>)</span>=<span class="hljs-constructor">PRI(<span class="hljs-params">old</span>)</span>+nice。这样，当nice值为负值的时候，那么该程序将会优先级值将变小，即其优先级会变高，则其越快被执行。<br></code></pre></div></td></tr></table></figure>
 
 <p><code>pid</code>：进程ID</p>
 <p><code>flag</code>：等于1表示修改，等于0表示读取</p>
 <p><code>nicevalue</code>：为指定进程设置新的nice值</p>
 <p><code>prio</code>，<code>nice</code>：指向进程当前优先级prio及nice值</p>
 <h3 id="1-修改源程序"><a href="#1-修改源程序" class="headerlink" title="1.修改源程序"></a>1.修改源程序</h3><p>添加系统调用号</p>
-<p><img src="1582796191989.png" srcset="/img/loading.gif"></p>
+<p><img src="1582796191989.png" srcset="/img/loading.gif" lazyload></p>
 <p>添加声明</p>
-<p><img src="1582796356918.png" srcset="/img/loading.gif"></p>
+<p><img src="1582796356918.png" srcset="/img/loading.gif" lazyload></p>
 <p>具体代码实现</p>
-<p><img src="1582800035795.png" srcset="/img/loading.gif"></p>
+<p><img src="1582800035795.png" srcset="/img/loading.gif" lazyload></p>
 <p>copy_to_user函数则是从内核空间拷贝内容到用户空间，用户空间的进程无法直接访问内核空间的内容。这个函数做了数据合法判断。然后进行拷贝。</p>
-<div class="hljs"><pre><code class="hljs reasonml">static inline <span class="hljs-built_in">int</span> task<span class="hljs-constructor">_nice(<span class="hljs-params">const</span> <span class="hljs-params">struct</span> <span class="hljs-params">task_struct</span> <span class="hljs-operator">*</span><span class="hljs-params">p</span>)</span></code></pre></div>
+<figure class="highlight reasonml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs reasonml">static inline <span class="hljs-built_in">int</span> task<span class="hljs-constructor">_nice(<span class="hljs-params">const</span> <span class="hljs-params">struct</span> <span class="hljs-params">task_struct</span> <span class="hljs-operator">*</span><span class="hljs-params">p</span>)</span><br></code></pre></div></td></tr></table></figure>
 
 <p>用于获取当前task的nice值，并返回nice值，nice值的范围是[ -20 … 0 … 19 ]<br>其使用的例程如下：</p>
-<div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">set_user_nice</span><span class="hljs-params">(struct task_struct *p, <span class="hljs-keyword">long</span> nice)</span></span>
-<span class="hljs-function"></span>&#123;
-<span class="hljs-keyword">bool</span> queued, running;
-<span class="hljs-keyword">int</span> old_prio, delta;
-<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">rq_flags</span> <span class="hljs-title">rf</span>;</span>
-<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">rq</span> *<span class="hljs-title">rq</span>;</span>
-
-<span class="hljs-keyword">if</span> (task_nice(p) == nice || nice &lt; MIN_NICE || nice &gt; MAX_NICE)
-<span class="hljs-keyword">return</span>;
-&#125;</code></pre></div>
+<figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">set_user_nice</span><span class="hljs-params">(struct task_struct *p, <span class="hljs-keyword">long</span> nice)</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-keyword">bool</span> queued, running;<br><span class="hljs-keyword">int</span> old_prio, delta;<br><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">rq_flags</span> <span class="hljs-title">rf</span>;</span><br><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">rq</span> *<span class="hljs-title">rq</span>;</span><br><br><span class="hljs-keyword">if</span> (task_nice(p) == nice || nice &lt; MIN_NICE || nice &gt; MAX_NICE)<br><span class="hljs-keyword">return</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
 <h3 id="2-编译安装内核"><a href="#2-编译安装内核" class="headerlink" title="2.编译安装内核"></a>2.编译安装内核</h3><p>编译安装</p>
-<div class="hljs"><pre><code class="hljs bash"><span class="hljs-comment"># make mrproper</span>
-<span class="hljs-comment"># make -j4</span>
-<span class="hljs-comment"># make modules</span>
-<span class="hljs-comment"># make modules_install</span>
-<span class="hljs-comment"># make install</span>
-<span class="hljs-comment"># reboot -n</span></code></pre></div>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash"><span class="hljs-comment"># make mrproper</span><br><span class="hljs-comment"># make -j4</span><br><span class="hljs-comment"># make modules</span><br><span class="hljs-comment"># make modules_install</span><br><span class="hljs-comment"># make install</span><br><span class="hljs-comment"># reboot -n</span><br></code></pre></div></td></tr></table></figure>
 
-<h3 id="3-编写测试程序"><a href="#3-编写测试程序" class="headerlink" title="3.编写测试程序"></a>3.编写测试程序</h3><div class="hljs"><pre><code class="hljs powershell"><span class="hljs-comment"># vim test-nice.c  //在哪创建没有特别要求</span></code></pre></div>
+<h3 id="3-编写测试程序"><a href="#3-编写测试程序" class="headerlink" title="3.编写测试程序"></a>3.编写测试程序</h3><figure class="highlight powershell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs powershell"><span class="hljs-comment"># vim test-nice.c  //在哪创建没有特别要求</span><br></code></pre></div></td></tr></table></figure>
 
-<p><img src="1582941471840.png" srcset="/img/loading.gif"></p>
-<div class="hljs"><pre><code class="hljs stata"># gcc nice-<span class="hljs-keyword">test</span>.c -o nice-<span class="hljs-keyword">test</span>   <span class="hljs-comment">//编译，格式gcc &lt;c代码文件&gt; -o &lt;输出文件的文件名&gt;</span>
-# ./nice-<span class="hljs-keyword">test</span> 					<span class="hljs-comment">//执行所生成的文件</span></code></pre></div>
+<p><img src="1582941471840.png" srcset="/img/loading.gif" lazyload></p>
+<figure class="highlight stata"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs stata"># gcc nice-<span class="hljs-keyword">test</span>.c -o nice-<span class="hljs-keyword">test</span>   <span class="hljs-comment">//编译，格式gcc &lt;c代码文件&gt; -o &lt;输出文件的文件名&gt;</span><br># ./nice-<span class="hljs-keyword">test</span> 					<span class="hljs-comment">//执行所生成的文件</span><br></code></pre></div></td></tr></table></figure>
 
-<p><img src="1582941337513.png" srcset="/img/loading.gif"></p>
-<div class="hljs"><pre><code class="hljs 1c"><span class="hljs-meta"># dmesg			<span class="hljs-comment">//查看信息</span></span></code></pre></div>
+<p><img src="1582941337513.png" srcset="/img/loading.gif" lazyload></p>
+<figure class="highlight 1c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs 1c"><span class="hljs-meta"># dmesg			<span class="hljs-comment">//查看信息</span></span><br></code></pre></div></td></tr></table></figure>
 
-<p><img src="1582941916641.png" srcset="/img/loading.gif"></p>
+<p><img src="1582941916641.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="四-、自己设计系统调用"><a href="#四-、自己设计系统调用" class="headerlink" title="(四)、自己设计系统调用"></a>(四)、自己设计系统调用</h2><p>CONFIG_NR_CPUS是内核被配置支持的CPU个数，而实际设备的CPU个数是在系统启动过程当中去动态监测的。也就是说你配置系统支持32个CPU那么CONFIG_NR_CPUS就等于32，而num_online_cpus()则是当前设备激活可调度的CPU个数。</p>
 <p>利用内核函数：</p>
-<p><img src="1583398735285.png" srcset="/img/loading.gif"></p>
+<p><img src="1583398735285.png" srcset="/img/loading.gif" lazyload></p>
 <p>由于大致流程与前面相似，这里便不再详述</p>
 <p>分配系统调用号（335）</p>
-<p><img src="1583399550731.png" srcset="/img/loading.gif"></p>
+<p><img src="1583399550731.png" srcset="/img/loading.gif" lazyload></p>
 <p>添加服务例程原型声明</p>
-<p><img src="1583399672061.png" srcset="/img/loading.gif"></p>
+<p><img src="1583399672061.png" srcset="/img/loading.gif" lazyload></p>
 <p>实现系统调用服务例程</p>
-<p><img src="1583400246725.png" srcset="/img/loading.gif"></p>
+<p><img src="1583400246725.png" srcset="/img/loading.gif" lazyload></p>
 <p>编译安装</p>
-<div class="hljs"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> make mrproper</span>
-<span class="hljs-meta">#</span><span class="bash"> make -j4</span>
-<span class="hljs-meta">#</span><span class="bash"> make modules</span>
-<span class="hljs-meta">#</span><span class="bash"> make modules_install</span>
-<span class="hljs-meta">#</span><span class="bash"> make install</span>
-<span class="hljs-meta">#</span><span class="bash"> reboot -n</span></code></pre></div>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> make mrproper</span><br><span class="hljs-meta">#</span><span class="bash"> make -j4</span><br><span class="hljs-meta">#</span><span class="bash"> make modules</span><br><span class="hljs-meta">#</span><span class="bash"> make modules_install</span><br><span class="hljs-meta">#</span><span class="bash"> make install</span><br><span class="hljs-meta">#</span><span class="bash"> reboot -n</span><br></code></pre></div></td></tr></table></figure>
 
 <p>编写测试程序</p>
-<p><img src="1583417793639.png" srcset="/img/loading.gif"></p>
+<p><img src="1583417793639.png" srcset="/img/loading.gif" lazyload></p>
 <p>编译执行后, dmesg查看信息，如图</p>
-<p><img src="1583417777075.png" srcset="/img/loading.gif"></p>
+<p><img src="1583417777075.png" srcset="/img/loading.gif" lazyload></p>
 
             </div>
             <hr>
@@ -458,10 +433,14 @@ ps:嫌慢不如试试-j32，听说即便没有这么多线程也能正常运行�
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
               
               
-                <div class="post-prevnext row">
+                <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
                     
@@ -482,11 +461,13 @@ ps:嫌慢不如试试-j32，听说即便没有这么多线程也能正常运行�
 
             
               <!-- Comments -->
-              <article class="comments" id="comments">
+              <article class="comments" id="comments" lazyload>
+                
+                  
                 
                 
   <script type="text/javascript">
-    function loadUtterances() {
+    Fluid.utils.loadComments('#comments', function() {
       var light = 'github-light';
       var dark = 'github-dark';
       var schema = document.documentElement.getAttribute('data-user-color-scheme');
@@ -505,9 +486,9 @@ ps:嫌慢不如试试-j32，听说即便没有这么多线程也能正常运行�
       s.setAttribute('theme', schema);
       s.setAttribute('crossorigin', 'anonymous');
       document.getElementById('comments').appendChild(s);
-    }
-    waitElementVisible('comments', loadUtterances)
+    })
   </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
 
 
               </article>
@@ -520,7 +501,7 @@ ps:嫌慢不如试试-j32，听说即便没有这么多线程也能正常运行�
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
   <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div id="tocbot"></div>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
       </div>
@@ -532,16 +513,15 @@ ps:嫌慢不如试试-j32，听说即便没有这么多线程也能正常运行�
 
 
     
-  </main>
 
-  
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -562,9 +542,10 @@ ps:嫌慢不如试试-j32，听说即便没有这么多线程也能正常运行�
     </div>
   </div>
 </div>
-  
+    
 
-  
+    
+  </main>
 
   <footer class="text-center mt-5 py-3">
   <div class="footer-content">
@@ -602,302 +583,73 @@ ps:嫌慢不如试试-j32，听说即便没有这么多线程也能正常运行�
   
 </footer>
 
-<!-- SCRIPTS -->
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
 <script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
-<script  src="/js/main.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
   
-    <script  src="/js/lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
 
   
-
-
-
-  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
-  <script  src="/js/clipboard-use.js" ></script>
-
-
-
-  <script defer>
-  (function () {
-    // 查询存储的记录
-    function getRecord(Counter, target) {
-      return new Promise(function (resolve, reject) {
-        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({target})))
-          .then(resp => resp.json())
-          .then(({results, code, error}) => {
-            if (code === 401) {
-              throw error;
-            }
-            if (results && results.length > 0) {
-              var record = results[0];
-              resolve(record);
-            } else {
-              Counter('post', '/classes/Counter', {target, time: 0})
-                .then(resp => resp.json())
-                .then((record, error) => {
-                  if (error) {
-                    throw error;
-                  }
-                  resolve(record);
-                }).catch(error => {
-                console.error('Failed to create', error);
-                reject(error);
-              });
-            }
-          }).catch((error) => {
-          console.error('LeanCloud Counter Error:', error);
-          reject(error);
-        });
-      })
-    }
-
-    // 发起自增请求
-    function increment(Counter, incrArr) {
-      return new Promise(function (resolve, reject) {
-        Counter('post', '/batch', {
-          "requests": incrArr
-        }).then((res) => {
-          res = res.json();
-          if (res.error) {
-            throw res.error;
-          }
-          resolve(res);
-        }).catch((error) => {
-          console.error('Failed to save visitor count', error);
-          reject(error);
-        });
-      });
-    }
-
-    // 构建自增请求体
-    function buildIncrement(objectId) {
-      return {
-        "method": "PUT",
-        "path": `/1.1/classes/Counter/${ objectId }`,
-        "body": {
-          "time": {
-            '__op': 'Increment',
-            'amount': 1
-          }
-        }
-      }
-    }
-
-    // 校验是否为有效的 UV
-    function validUV() {
-      var key = 'LeanCloud_UV_Flag';
-      var flag = localStorage.getItem(key);
-      if (flag) {
-        // 距离标记小于 24 小时则不计为 UV
-        if (new Date().getTime() - parseInt(flag) <= 86400000) {
-          return false;
-        }
-      }
-      localStorage.setItem(key, new Date().getTime().toString());
-      return true;
-    }
-
-    function addCount(Counter) {
-      var enableIncr = 'true' === 'true' && window.location.hostname !== 'localhost';
-      var getterArr = [];
-      var incrArr = [];
-
-      // 请求 PV 并自增
-      var pvCtn = document.querySelector('#leancloud-site-pv-container');
-      if (pvCtn || enableIncr) {
-        var pvGetter = getRecord(Counter, 'site-pv').then((record) => {
-          incrArr.push(buildIncrement(record.objectId))
-          var ele = document.querySelector('#leancloud-site-pv');
-          if (ele) {
-            ele.innerText = record.time + 1;
-            if (pvCtn) {
-              pvCtn.style.display = 'inline';
-            }
-          }
-        });
-        getterArr.push(pvGetter);
-      }
-
-      // 请求 UV 并自增
-      var uvCtn = document.querySelector('#leancloud-site-uv-container');
-      if (uvCtn || enableIncr) {
-        var uvGetter = getRecord(Counter, 'site-uv').then((record) => {
-          var vuv = validUV();
-          vuv && incrArr.push(buildIncrement(record.objectId))
-          var ele = document.querySelector('#leancloud-site-uv');
-          if (ele) {
-            ele.innerText = record.time + (vuv ? 1 : 0);
-            if (uvCtn) {
-              uvCtn.style.display = 'inline';
-            }
-          }
-        });
-        getterArr.push(uvGetter);
-      }
-
-      // 如果是文章，请求文章的浏览数，并自增
-      if ('true' === 'true') {
-        var viewCtn = document.querySelector('#leancloud-post-views-container');
-        if (viewCtn || enableIncr) {
-          var target = decodeURI('/2020/03/16/%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E5%88%9D%E8%AF%86/');
-          var viewGetter = getRecord(Counter, target).then((record) => {
-            incrArr.push(buildIncrement(record.objectId))
-            if (viewCtn) {
-              var ele = document.querySelector('#leancloud-post-views');
-              if (ele) {
-                ele.innerText = (record.time || 0) + 1;
-                viewCtn.style.display = 'inline';
-              }
-            }
-          });
-          getterArr.push(viewGetter);
-        }
-      }
-
-      // 如果启动计数自增，批量发起自增请求
-      if (enableIncr) {
-        Promise.all(getterArr).then(() => {
-          incrArr.length > 0 && increment(Counter, incrArr);
-        })
-      }
-    }
-
-    var app_id = 'tvvbcoY4wMnP8onvPOLjlgMa-MdYXbMMI'
-    var app_key = 'C4TUiDMsDy3YLi3ywb0ziVTm'
-    var server_url = ''
-
-    function fetchData(api_server) {
-      var Counter = (method, url, data) => {
-        return fetch(`${ api_server }/1.1${ url }`, {
-          method,
-          headers: {
-            'X-LC-Id': app_id,
-            'X-LC-Key': app_key,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-        });
-      };
-
-      addCount(Counter);
-    }
-
-    var api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${ app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
-
-    if (api_server) {
-      fetchData(api_server);
-    } else {
-      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
-        .then(resp => resp.json())
-        .then(({api_server}) => {
-          fetchData('https://' + api_server);
-        });
-    }
-  })();
-</script>
-
-
-
 
 
 
   <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
-  <script>
-    $(document).ready(function () {
-      var boardCtn = $('#board-ctn');
-      var boardTop = boardCtn.offset().top;
 
-      tocbot.init({
-        tocSelector: '#tocbot',
-        contentSelector: '#post-body',
-        headingSelector: 'h1,h2,h3,h4,h5,h6',
-        linkClass: 'tocbot-link',
-        activeLinkClass: 'tocbot-active-link',
-        listClass: 'tocbot-list',
-        isCollapsedClass: 'tocbot-is-collapsed',
-        collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 0,
-        scrollSmooth: true,
-        headingsOffset: -boardTop
-      });
-      if ($('.toc-list-item').length > 0) {
-        $('#toc').css('visibility', 'visible');
-      }
-    });
-  </script>
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
 
 
 
   <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
   <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "系统调用初识&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "always",
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
       
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      searchFunc(path, 'local-search-input', 'local-search-result');
-      this.onclick = null
-    }
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <script>
-    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
-      function () {
-        var element = document.createElement('a');
-        $(element).attr('data-fancybox', 'images');
-        $(element).attr('href', $(this).attr('src'));
-        $(this).wrap(element);
-      }
-    );
+      typing(title)
+      
+    })(window, document);
   </script>
 
 
@@ -925,6 +677,10 @@ ps:嫌慢不如试试-j32，听说即便没有这么多线程也能正常运行�
 
 
 
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
 
 
 </body>
