@@ -454,7 +454,7 @@
     
     <categories>
       
-      <category>摸鱼</category>
+      <category>otherSkill</category>
       
     </categories>
     
@@ -787,7 +787,7 @@
     
     <categories>
       
-      <category>css</category>
+      <category>前端</category>
       
     </categories>
     
@@ -811,6 +811,8 @@
     
     
     <categories>
+      
+      <category>前端</category>
       
       <category>session</category>
       
