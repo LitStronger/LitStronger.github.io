@@ -14,11 +14,11 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="磕磕绊绊总算租到了满意的房，写点总结吧！">
+  <meta name="description" content="React学习汇总">
   <meta name="author" content="LitStronger">
   <meta name="keywords" content="">
   
-  <title>漂流日记之--租房篇 - LitStronger&#39;s notes</title>
+  <title>React归档 - LitStronger&#39;s notes</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -203,7 +203,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="漂流日记之--租房篇">
+            <span class="h2" id="subtitle" title="React归档">
               
             </span>
 
@@ -213,8 +213,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-02-24 22:51" pubdate>
-        2022年2月24日 晚上
+      <time datetime="2022-02-27 21:18" pubdate>
+        2022年2月27日 晚上
       </time>
     </span>
   
@@ -225,7 +225,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      823 字
+      280 字
     </span>
   
 
@@ -235,7 +235,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      8
+      3
        分钟
     </span>
   
@@ -273,58 +273,56 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">漂流日记之--租房篇</h1>
+            <h1 style="display: none">React归档</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年2月25日 晚上
+                  本文最后更新于：2022年2月27日 晚上
                 
               </p>
             
             <div class="markdown-body">
-              <p>磕磕绊绊总算租到了满意的房，写点总结吧！</p>
+              <p>React学习汇总</p>
 <a id="more"></a>
 
-<h2 id="1-信息获取"><a href="#1-信息获取" class="headerlink" title="1.信息获取"></a>1.信息获取</h2><p><strong>豆瓣小组</strong>。直接搜地区名+租房，看帖或者自己发帖(会有不要钱的中介找你，免费带路看房)<br><strong>贝壳找房</strong>。我个人感觉上面的房源大多是中介上传的。不过至少能看看该区域租房的价位，有个参考。<br><strong>脉脉/知乎等</strong>。这类平台都能检索到一些租房经验信息，比如工作地附近有啥小区啊，小区会不会经常装修，会不会很吵啊等。</p>
-<p>ps:时间充足的话，完全可以到小区里逛逛，看看门口的租房小广告。有时候也会有一些很热情的阿姨带你去看她家的房。阿姨我不想努力了.jpg(划掉)</p>
-<h2 id="2-租房实践"><a href="#2-租房实践" class="headerlink" title="2.租房实践"></a>2.租房实践</h2><blockquote>
-<p>Tip: 最好全程开启录音，万一被坑骗了手里也有证据。</p>
-</blockquote>
-<h3 id="2-1客观环境因素"><a href="#2-1客观环境因素" class="headerlink" title="2.1客观环境因素"></a>2.1客观环境因素</h3><ol>
-<li><p><strong>家具、装修方面</strong>。</p>
-<p>留意墙漆，家具是否很新。如果很新就要谨慎了，很可能刚装修没多久，新装家具，这种环境对人体危害很大，甲醛等指标可能会超（可诱发白血病）。可询问房东/中介最近一次的装修时间，是否能提供房间甲醛等的检测报告(最好有)，个人建议别租太新的。</p>
+<h1 id="（一）JSX"><a href="#（一）JSX" class="headerlink" title="（一）JSX"></a>（一）JSX</h1><h2 id="1-1-基本语法"><a href="#1-1-基本语法" class="headerlink" title="1.1 基本语法"></a>1.1 基本语法</h2><p>使用成对的标签构成一个树状结构的数据。</p>
+<h2 id="1-2-标签类型"><a href="#1-2-标签类型" class="headerlink" title="1.2 标签类型"></a>1.2 标签类型</h2><ol>
+<li><p>DOM类型的标签（并非真正的dom标签，只是写法一致）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> imgEle = <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> /&gt;</span></span> <span class="hljs-comment">// 标签首字母必须小写</span><br></code></pre></div></td></tr></table></figure>
 </li>
-<li><p><strong>地理位置</strong>。<br>(1)光源。房间最好坐北朝南(其次朝东)，利于采光。这很重要，没有阳光的话衣服难干，阴冷，心情也容易变质。<br>(2)噪音。窗外是否嘈杂。一般来说，窗外是车辆来往较多的马路，或者是一些店铺小吃摊的话，会比较吵。对环境安静的要求因人而异，可以把窗户关上感受下。</p>
+<li><p>React组件类型的标签</p>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> reactEle = <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">LikeStar</span> /&gt;</span></span> <span class="hljs-comment">// 标签首字母必须大写</span><br></code></pre></div></td></tr></table></figure>
+
 </li>
 </ol>
-<h3 id="2-2人文因素"><a href="#2-2人文因素" class="headerlink" title="2.2人文因素"></a>2.2人文因素</h3><ol>
-<li><strong>附近租客</strong>。可观察上下楼层，或者同层的租客门口的鞋架（如果有），有小孩鞋子的要谨慎，小孩可能会很闹腾。假期里闹腾起来可能会破坏美好心情。</li>
-<li><strong>房东</strong>。先不急着签合同，多跟房东聊聊以前租客的事情，观察房东（看人本领因人而异了），房东不好的话，以后可能会有不少麻烦。</li>
+<h2 id="1-3-JSX中的JS表达式"><a href="#1-3-JSX中的JS表达式" class="headerlink" title="1.3 JSX中的JS表达式"></a>1.3 JSX中的JS表达式</h2><ol>
+<li><p>通过表达式给标签属性赋值</p>
+<figure class="highlight jsx"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> ele = <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">MyComponent</span> <span class="hljs-attr">foo</span>=<span class="hljs-string">&#123;1</span> + <span class="hljs-attr">2</span>&#125; /&gt;</span></span><br></code></pre></div></td></tr></table></figure>
+</li>
+<li><p>通过表达式定义子组件</p>
+<figure class="highlight jsx"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> nameList = [<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>];<br><span class="hljs-keyword">const</span> nameEle = (<br>	&lt;ul&gt;<br>    	&#123;nameList.map(name) =&gt; <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">NameItem</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&#123;name&#125;</span> <span class="hljs-attr">text</span>=<span class="hljs-string">&#123;name&#125;</span> /&gt;</span></span>&#125;<br>    &lt;/ul&gt;<br>);<br></code></pre></div></td></tr></table></figure>
+</li>
+<li><p>多行js语句</p>
+<p>jsx的<code>&#123;&#125;</code>中不支持多行js语句。通常将多行js封装成函数，在<code>&#123;&#125;</code>中调用。</p>
+</li>
 </ol>
-<h3 id="2-3货比三家"><a href="#2-3货比三家" class="headerlink" title="2.3货比三家"></a>2.3货比三家</h3><p>千万不要怕麻烦，多看几套。有的中介会先带你看比较难出租的(条件比较差的)，直接签了血亏，一定多看几套进行对比。这是未来可能要长时间居住的地方，马虎不得！</p>
-<h3 id="2-4价格argue"><a href="#2-4价格argue" class="headerlink" title="2.4价格argue"></a>2.4价格argue</h3><p>一般来说中介/房东第一次给价格都是虚高的，可以提出自己对房子不满意的点，先压个2-3百，对面可能不答应，最后大概率就各退一步，能降个百来块。</p>
-<h3 id="2-5-签合同"><a href="#2-5-签合同" class="headerlink" title="2.5.签合同"></a>2.5.签合同</h3><p>仔细核对合同的每一个条款，不清楚的地方要问清楚。<br>(1)水电计算方式，签合同时合同里水表电表的数值核对，并拍照留存。<br>(2)房屋内家具是否与合同里提到的一致等。这一步千万不能着急，多花点时间仔细核对。</p>
-<p>签完后，钥匙交接后，时间到就可以入住了。</p>
+<h2 id="1-4-标签属性"><a href="#1-4-标签属性" class="headerlink" title="1.4 标签属性"></a>1.4 标签属性</h2><ol>
+<li>DOM标签属性</li>
+<li>自定义标签属性</li>
+</ol>
+<h2 id="1-5-注释"><a href="#1-5-注释" class="headerlink" title="1.5 注释"></a>1.5 注释</h2><p>使用花括号<code>&#123;&#125;</code>将<code>/**/</code>包裹起来</p>
+<figure class="highlight jsx"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> element = (<br>	&lt;div&gt;<br>    	&#123;<span class="hljs-comment">/* 这是注释 */</span>&#125;<br>        &lt;span&gt;React&lt;/span&gt;<br>    &lt;/div&gt;<br>)<br></code></pre></div></td></tr></table></figure>
+
+<h2 id="1-6-小结"><a href="#1-6-小结" class="headerlink" title="1.6 小结"></a>1.6 小结</h2><ol>
+<li>并非必须，是React.createElement的语法糖</li>
+<li>是React开发的首选</li>
+</ol>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/daily/">daily</a>
-                    
-                  </div>
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/%E7%A7%9F%E6%88%BF/">租房</a>
-                    
-                  </div>
                 
               </div>
               
@@ -339,18 +337,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/02/27/react/React%E5%BD%92%E6%A1%A3/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">React归档</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/02/01/annualSummary/2021%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/">
-                        <span class="hidden-mobile">2021年度总结</span>
+                      <a href="/2022/02/24/life/%E6%BC%82%E6%B5%81%E6%97%A5%E8%AE%B0%E4%B9%8B-%E7%A7%9F%E6%88%BF%E7%AF%87/">
+                        <span class="hidden-mobile">漂流日记之--租房篇</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
