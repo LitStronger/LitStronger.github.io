@@ -225,7 +225,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      283 字
+      1.1k 字
     </span>
   
 
@@ -235,7 +235,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3
+      14
        分钟
     </span>
   
@@ -277,7 +277,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年2月27日 晚上
+                  本文最后更新于：2022年2月28日 晚上
                 
               </p>
             
@@ -317,7 +317,97 @@
 <li>并非必须，是React.createElement的语法糖</li>
 <li>是React开发的首选</li>
 </ol>
-<h1 id="（二）元素"><a href="#（二）元素" class="headerlink" title="（二）元素"></a>（二）元素</h1>
+<h1 id="（二）元素"><a href="#（二）元素" class="headerlink" title="（二）元素"></a>（二）元素</h1><h2 id="2-1-元素渲染为DOM"><a href="#2-1-元素渲染为DOM" class="headerlink" title="2.1 元素渲染为DOM"></a>2.1 元素渲染为DOM</h2><p>使用react-com</p>
+<h2 id="2-2-元素更新"><a href="#2-2-元素更新" class="headerlink" title="2.2 元素更新"></a>2.2 元素更新</h2><p>元素代表某个时刻的状态。对于React来说，每次都会创建新的元素（img），但实际只更新变更部分(src)</p>
+<h1 id="（三）组件"><a href="#（三）组件" class="headerlink" title="（三）组件"></a>（三）组件</h1><p>独立的、可复用的模块。由这些组件组成应用的UI。</p>
+<ol>
+<li>类组件（class）</li>
+<li>函数组件</li>
+</ol>
+<h2 id="3-1-类组件"><a href="#3-1-类组件" class="headerlink" title="3.1 类组件"></a>3.1 类组件</h2><p>要素</p>
+<ol>
+<li>关键字class</li>
+<li>继承基类React.Compoent</li>
+<li>render方法return元素</li>
+</ol>
+<h2 id="3-2-函数组件"><a href="#3-2-函数组件" class="headerlink" title="3.2 函数组件"></a>3.2 函数组件</h2><ol>
+<li>关键字function，建议首字母大写</li>
+<li>入参props</li>
+<li>return元素</li>
+</ol>
+<h2 id="3-3-组件的props"><a href="#3-3-组件的props" class="headerlink" title="3.3 组件的props"></a>3.3 组件的props</h2><ol>
+<li><p>属性校验 <code>prop-types</code>库</p>
+<h2 id="3-4-组件的state"><a href="#3-4-组件的state" class="headerlink" title="3.4 组件的state"></a>3.4 组件的state</h2></li>
+<li><p>constructor阶段被初始化</p>
+</li>
+<li><p>state的值不能直接修改，需使用setState(stateChange[, callback])(浅层合并)</p>
+<p>a.<strong>浅层合并eg:</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-comment">// 初始化阶段</span><br><span class="hljs-built_in">this</span>.state = &#123;<br>   isLiked: <span class="hljs-literal">false</span>,<br>   isChicked: <span class="hljs-literal">false</span>,<br>&#125;<br><span class="hljs-comment">// 更新阶段</span><br><span class="hljs-built_in">this</span>.setState(&#123;<br>   isLiked: <span class="hljs-literal">true</span><br>&#125;)<br></code></pre></div></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript">&#123;<br>   isLiked: <span class="hljs-literal">true</span>,<br>   isClicked: <span class="hljs-literal">false</span>,<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>教程里说是类似扩展运算符的做法(抽空看看源码实现)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript">&#123;<br>   previousState,<br>   ...newState,<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>b.回调函数</p>
+<p>可直接从this中获取更新后的state值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript">setState(&#123; <span class="hljs-attr">isLiked</span>: <span class="hljs-literal">true</span> &#125;, <span class="hljs-function">() =&gt;</span> &#123;<br>   <span class="hljs-comment">// 获取到更新以后的state值</span><br>   <span class="hljs-built_in">this</span>.state<br>&#125;)<br></code></pre></div></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="3-5-有状态组件和无状态组件"><a href="#3-5-有状态组件和无状态组件" class="headerlink" title="3.5 有状态组件和无状态组件"></a>3.5 有状态组件和无状态组件</h2><p>区别：组件是否有state<br>无状态组件：推荐function形式编写</p>
+<h2 id="3-6-组件样式"><a href="#3-6-组件样式" class="headerlink" title="3.6 组件样式"></a>3.6 组件样式</h2><ol>
+<li><p>className</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&#x27;comment-like-wrapper&#x27;</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">LikeStar</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&#x27;like-star&#x27;</span> /&gt;</span><br>   <span class="hljs-comment">&lt;!--多个className--&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&#123;</span>`<span class="hljs-attr">like-count</span> $&#123;<span class="hljs-attr">className</span>&#125;`&#125;&gt;</span>&#123;likeCount&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span> <br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></div></td></tr></table></figure></li>
+<li><p>CSS-in-JS<br>短线连接-&gt;驼峰</p>
+<p>background-color -&gt; backgroundColor</p>
+<h2 id="3-7-组件和元素"><a href="#3-7-组件和元素" class="headerlink" title="3.7 组件和元素"></a>3.7 组件和元素</h2><p>联系: 组件最核心的作用是返回React元素。</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">Parent</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">Children</span>&gt;</span>自组件<span class="hljs-tag">&lt;/<span class="hljs-name">Children</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">Parent</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+<p>例子：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">import</span> Children <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;Children&#x27;</span>;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Parent</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>&#123;<br>   <span class="hljs-function"><span class="hljs-title">render</span>(<span class="hljs-params"></span>)</span> &#123;<br>      <span class="hljs-keyword">const</span> &#123; tip &#125; = <span class="hljs-built_in">this</span>.props;<br>      <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Children</span> <span class="hljs-attr">tip</span>=<span class="hljs-string">&#123;tip&#125;</span> /&gt;</span></span><br>   &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h1 id="（四）组件生命周期"><a href="#（四）组件生命周期" class="headerlink" title="（四）组件生命周期"></a>（四）组件生命周期</h1></li>
+</ol>
+<ul>
+<li>挂载时</li>
+<li>更新时</li>
+<li>卸载时</li>
+</ul>
+<h2 id="4-1-constructor"><a href="#4-1-constructor" class="headerlink" title="4.1 constructor"></a>4.1 constructor</h2><p>ES6 class的构造方法</p>
+<h3 id="应用场景："><a href="#应用场景：" class="headerlink" title="应用场景："></a>应用场景：</h3><ol>
+<li>state初始化</li>
+<li>进行方法绑定</li>
+</ol>
+<p><strong>注意</strong>：</p>
+<ol>
+<li>不要调用this.setState</li>
+<li>super()的执行，在派生类中使用this必须在执行super()之后<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-title">constructor</span>(<span class="hljs-params">props</span>)</span> &#123;<br>   <span class="hljs-built_in">super</span>(props);<br>   <span class="hljs-built_in">this</span>.state = &#123; <span class="hljs-attr">counter</span>: <span class="hljs-number">0</span> &#125;;  <br>   <span class="hljs-built_in">this</span>.handleClick = <span class="hljs-built_in">this</span>.handleClick.bind(<span class="hljs-built_in">this</span>);<br>&#125; <br></code></pre></div></td></tr></table></figure>
+<h2 id="4-2-getDerivedStateFromProps"><a href="#4-2-getDerivedStateFromProps" class="headerlink" title="4.2 getDerivedStateFromProps"></a>4.2 getDerivedStateFromProps</h2>少用，通常有替代方案。</li>
+</ol>
+<p>特点</p>
+<ol>
+<li>每次渲染前都会被调用</li>
+<li>静态方法，无法使用this<br>目的：使组件在props变化时更新state。</li>
+</ol>
+<p>props的更新 -&gt; <strong>state</strong> &lt;- this.setState</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// getDerivedStateFromProps函数以追加的方式更新</span><br>&#123;<br>   ...this.state,<br>   ...obj,<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h2 id="4-3-render"><a href="#4-3-render" class="headerlink" title="4.3 render"></a>4.3 render</h2><p>描述界面UI效果。render应为纯函数。是class类中唯一必须实现的方法。<br>render方法仅返回UI描述，并不参与最终渲染</p>
+<ol>
+<li>React元素      <code>&lt;div /&gt;, &lt;MyComponent /&gt;</code>…</li>
+<li>数组或fragments</li>
+<li>Portals</li>
+<li>字符串、数值类型</li>
+<li>布尔类型、null    终端界面无渲染</li>
+</ol>
+<h2 id="4-4-componentDidMount"><a href="#4-4-componentDidMount" class="headerlink" title="4.4 componentDidMount"></a>4.4 componentDidMount</h2><p>在组建挂载后（插入DOM树中）立即调用</p>
+<h3 id="使用场景："><a href="#使用场景：" class="headerlink" title="使用场景："></a>使用场景：</h3><ol>
+<li>依赖于DOM节点的初始化 </li>
+<li>通过网络请求获取数据 ajax请求 =&gt; this.setState</li>
+</ol>
+<h2 id="4-5-componentDidUpdate"><a href="#4-5-componentDidUpdate" class="headerlink" title="4.5 componentDidUpdate"></a>4.5 componentDidUpdate</h2><p>更新后会被立即调用。</p>
+<p>componentDidUpdate(prevProps, prevState, snapshot) =&gt; void<br>应用：对更新后的DOM进行操作。</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-title">componentDidUpdate</span>(<span class="hljs-params">prevProps</span>)</span> &#123;<br>    <span class="hljs-comment">// 典型用法（记得比较props）：</span><br>    <span class="hljs-function"><span class="hljs-title">if</span>(<span class="hljs-params"><span class="hljs-built_in">this</span>.props.userID !== prevProps.userID</span>)</span>&#123;<br>        <span class="hljs-built_in">this</span>.fetchData(<span class="hljs-built_in">this</span>.props.userID);<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+
+
+
             </div>
             <hr>
             <div>
